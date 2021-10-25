@@ -1,0 +1,11 @@
+1: Vida sobre 100 puntos para el jugador y los enemigos estándar.
+
+2: Daño y curación con porcentajes de vida actual/total/restante.
+
+3: Un jugador/enemigo pierde cuando llega a 1% de vida. (Juego para todos los públicos)
+
+4: Existe una variable de tiempo que determina cuantos segundos ha tardado el jugador en finalizar su turno para determinar el orden de ejecucion de los hechizos, siendo el más rápido el que primero ataca.
+
+5: El jugador elegirá 2 cartas de ataque/defensa y 1 carta de buffo/debuffo, componiéndose su mazo de estas 6 para la partida.
+
+6: Al inicio de cada turno se presentará al jugador una elección entre 2 cartas, y decidirá cual de estas jugar.

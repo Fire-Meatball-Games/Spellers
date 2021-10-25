@@ -1,0 +1,78 @@
+CARTAS
+
+Ataque
+---------------------------------------------------------------------------
+- Ataque débil I -> -5% vida del rival
+- Ataque débil II -> -7,5% vida del rival
+- Ataque débil III -> -10% vida del rival
+
+- Ataque medio I -> -15% vida del rival
+- Ataque medio II -> -17,5% vida del rival
+- Ataque medio III -> -20% vida del rival
+
+- Ataque sacrificio I -> -25% vida del rival / -10% vida del jugador
+- Ataque sacrificio II -> -27,5% vida del rival / -12,5% vida del jugador
+- Ataque sacrificio III -> -30% vida del rival / -20% vida del jugador
+
+- Ataque múltiple I -> -3% vida del rival x2 veces
+- Ataque múltiple II -> -3% vida del rival x3 veces
+- Ataque múltiple III -> -3% vida del rival x4 veces
+
+Defensa
+---------------------------------------------------------------------------
+- Curación débil I -> +4% vida del jugador
+- Curación débil II -> +6% vida del jugador
+- Curación débil III -> +8% vida del jugador
+
+- Curación media I -> +12% vida del jugador
+- Curación media II -> +15% vida del jugador
+- Curación media III -> +18% vida del jugador
+
+- Aumento de defensa I -> -4% daño 
+- Aumento de defensa II -> -6% daño
+- Aumento de defensa III -> -8% daño
+
+- Escudo I -> Para 1 toque 
+- Escudo II -> Para 2 toques
+- Escudo III -> Para 3 toques
+
+Bufos
+---------------------------------------------------------------------------
+- Aumento ataque I -> Próximo ataque +1,25 de daño
+- Aumento ataque II -> Próximo ataque +1,5 de daño
+- Aumento ataque III -> Próximo ataque +1,75 de daño
+
+- Cura estados -> Cura cualquier estado negativo alterado 
+
+- Cura progresiva I -> +2% de salud durante 3 turnos
+- Cura progresiva II -> +2% de salud durante 4 turnos
+- Cura progresiva III -> +2% de salud durante 5 turnos
+
+- Ordenación de letras -> Las letras aparecen ordenadas en el siguiente turno
+
+- Clarividencia I -> 1 letra aparecerá auto-marcada 
+- Clarividencia II -> 2 letras aparecerán auto-marcada
+- Clarividencia III -> 3 letras aparecerán auto-marcada
+
+- Carta extra -> En el turno siguiente tendrás una carta extra
+
+
+Debufos
+---------------------------------------------------------------------------
+- Debilidad I -> Próximo ataque del rival -1,25 de daño
+- Debilidad II -> Próximo ataque del rival -1,5 de daño
+- Debilidad III -> Próximo ataque del rival -1,75 de daño
+
+- Limpia bufos -> Elimina cualquier bufo del rival
+
+- Veneno I -> -3% de salud durante 3 turnos
+- Veneno II -> -3% de salud durante 4 turnos
+- Veneno III -> -3% de salud durante 5 turnos
+
+- Confusión -> Las letras del rival aparecen invertidas en el siguiente turno
+
+- Cegado I -> 1 letra del rival aparecerá cegada en el siguiente turno
+- Cegado II -> 2 letras del rival aparecerán cegada en el siguiente turno
+- Cegado III -> 3 letras del rival aparecerán cegada en el siguiente turno
+
+- Restos -> En el siguiente turno deberás jugar la carta sobrante del turno anterior

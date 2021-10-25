@@ -1,0 +1,16 @@
+{
+    "name": "SpellSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7f2f4184421fcfc4d89daac13412a4d1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
