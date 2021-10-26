@@ -17,3 +17,5 @@ Ciclo de juego:
 - Si se falla en la ejecución se comienza de cero
 - Si se logra con éxito la ejecución el hechizo se lanza hacia el objetivo
 - Se vuelve a seleccionar una carta y el ciclo se repite hasta que uno de los jugadores se queda sin vida
+
+https://fire-meatball-games.itch.io/spellers
