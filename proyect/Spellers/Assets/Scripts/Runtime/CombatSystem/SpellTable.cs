@@ -46,7 +46,9 @@ namespace Runtime.CombatSystem
         // Devuelve el hechizo seleccionado
         public Spell GetSelectedSpell()
         {
-             return spellSlots[selectedSlotIdx];
+            Spell usedSpell = spellSlots[selectedSlotIdx];
+            ChangeSpellSlot(selectedSlotIdx);
+            return usedSpell;
         }
 
         // Carga los hechizos iniciales
