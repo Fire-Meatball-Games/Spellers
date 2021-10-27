@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
+  m_Name: HealingSpell Lvl2
+  m_EditorClassIdentifier: 
+  id: 6a610f9a221bfd8499fd0f8eca98a593
+  spellName: Heal
+  description: Heals the user
+  lvl: 2
+  type: 1
