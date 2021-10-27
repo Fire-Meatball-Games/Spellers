@@ -8,11 +8,20 @@ namespace Runtime.CombatSystem.UI
 {
     public class SpellTableGUI : MonoBehaviour
     {
+        #region Public variables
         public GameObject pnl_table;
         public GameObject pnl_board;
+        public GameObject pnl_wand;
         public SpellerPlayer speller;
         public List<Button> spellSlotButtons;
+        public Button btn_spell;
+        #endregion
 
+        #region private Fields
+        private GameObject current_panel;
+        #endregion
+
+        #region Unity Callbacks
         public void Awake()
         {
             for (int i = 0; i < spellSlotButtons.Count; i++)
@@ -21,28 +30,33 @@ namespace Runtime.CombatSystem.UI
                 int idx = i;
                 spellSlotButtons[i].onClick.AddListener(() => speller.SelectSpell(idx));
             }
-            EnableTablePanel();
-            speller.board.OnCompleteWordEvent += EnableTablePanel;
-            speller.table.OnSelectSlot += EnableBoardPanel;
+
+            btn_spell.onClick.AddListener(() => speller.LaunchSpell());
+
+            EnablePanel(pnl_table);
+            speller.board.OnCompleteWordEvent += () => EnablePanel(pnl_wand);
+            speller.table.OnSelectSlot += () => EnablePanel(pnl_board);
+            speller.OnUseSpellEvent += () => EnablePanel(pnl_table);
             speller.table.OnChangeSlot += SetText;
-        }        
+        }
+        #endregion
 
-        private void EnableTablePanel()
+        #region Private Methods
+
+        // Activa un panel y desactiva el anterior
+        private void EnablePanel(GameObject panel)
         {
-            pnl_board.SetActive(false);
-            pnl_table.SetActive(true);
+            current_panel?.SetActive(false);
+            panel.SetActive(true);
+            current_panel = panel;
         }
 
-        private void EnableBoardPanel()
-        {
-            pnl_board.SetActive(true);
-            pnl_table.SetActive(false);
-        }
-
+        // Cambia el texto de uno de los hechizos
         private void SetText(int idx, string text)
         {
             spellSlotButtons[idx].GetComponentInChildren<Text>().text = text;
         }
+        #endregion
     }
 
 }

@@ -29,17 +29,11 @@ namespace Runtime.CombatSystem
             StartNewCounter();
         }
 
-        public void StartNewCounter()
+        private void StartNewCounter()
         {
             IEnumerator corroutine = SpellCooldown(Random.Range(5, 15));
             StartCoroutine(corroutine);
         }
-
-        public void SetDeck(List<Spell> spells)
-        {
-            spells_list = spells;
-        }
-
         
     }
 }

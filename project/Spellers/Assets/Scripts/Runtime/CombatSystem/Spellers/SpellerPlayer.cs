@@ -12,13 +12,15 @@ namespace Runtime.CombatSystem
 
         [SerializeField] List<Spell> spells;
 
+        public delegate void OnUseSpellDelegate();
+        public event OnUseSpellDelegate OnUseSpellEvent;
+
         public override void Init()
         {
             base.Init();
             target = FindObjectOfType<SpellerNPC>();
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
-            board.OnCompleteWordEvent += LaunchSpell;
         }
 
         private void Start()
@@ -28,9 +30,11 @@ namespace Runtime.CombatSystem
 
         // Usa el hechizo seleccionado en la mesa:
 
-        private void LaunchSpell()
+        public void LaunchSpell()
         {
             UseSpell(table.GetSelectedSpell());
+            IEnumerator corroutine = LaunchingSpell();
+            StartCoroutine(corroutine);
         }
 
         // Selecciona el hechizo en la posición idx de la mesa.
@@ -52,6 +56,12 @@ namespace Runtime.CombatSystem
         private void InitializeTable()
         {
             table.Initialize();
+        }
+
+        private IEnumerator LaunchingSpell()
+        {
+            yield return new WaitForSeconds(2);
+            OnUseSpellEvent?.Invoke();
         }
 
         
