@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runtime.CombatSystem
+namespace Runtime.CombatSystem.UI
 {
     public class SpellBoardGUI : MonoBehaviour
     {

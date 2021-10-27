@@ -534,7 +534,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1746,6 +1746,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6714413787008035255, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
       propertyPath: Speller
+      value: 
+      objectReference: {fileID: 1441010446}
+    - target: {fileID: 6994987916681157001, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
+      propertyPath: speller
       value: 
       objectReference: {fileID: 1441010446}
     m_RemovedComponents: []

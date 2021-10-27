@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using SpellSystem;
 
-namespace Runtime.CombatSystem
+
+namespace Runtime.CombatSystem.UI
 {
     public class SpellTableGUI : MonoBehaviour
     {

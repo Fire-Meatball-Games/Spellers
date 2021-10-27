@@ -9,16 +9,17 @@ namespace Runtime.CombatSystem
     [SerializeField]
     public class SpellTable
     {
-        #region Fields and events
+        #region Fields 
         private const int NUM_SLOTS = 3;
 
-        private List<Spell> spellSlots;
         private SpellDeck deck;
-        private int selectedSlotIdx;
+        private List<Spell> spellSlots;
+        private Spell selectedSpell;
+        #endregion
 
-        public delegate void OnChangeSlotEvent(int id, string spellString);
+        #region Events
+        public delegate void OnChangeSlotEvent(int id, string spellInfo);
         public OnChangeSlotEvent OnChangeSlot;
-
         public delegate void OnSelectSlotEvent();
         public OnSelectSlotEvent OnSelectSlot;
 
@@ -38,17 +39,15 @@ namespace Runtime.CombatSystem
         // Selecciona el hechizo 
         public void SelectSpellSlot(int idx)
         {
-            Debug.Log("Select slot " + idx);
-            selectedSlotIdx = idx;
+            selectedSpell = spellSlots[idx];
+            ChangeSpellSlot(idx);
             OnSelectSlot?.Invoke();
         }
 
         // Devuelve el hechizo seleccionado
         public Spell GetSelectedSpell()
         {
-            Spell usedSpell = spellSlots[selectedSlotIdx];
-            ChangeSpellSlot(selectedSlotIdx);
-            return usedSpell;
+            return selectedSpell;
         }
 
         // Carga los hechizos iniciales

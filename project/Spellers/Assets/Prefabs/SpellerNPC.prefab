@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 4119513709327429373}
   - component: {fileID: 8437979771705633868}
   - component: {fileID: 46381480594220698}
+  - component: {fileID: 6994987916681157001}
   m_Layer: 0
   m_Name: GUI Canvas
   m_TagString: Untagged
@@ -265,6 +266,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6994987916681157001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081910364224297951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020cd1fcbfd4d014bb58822c92440315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt_name: {fileID: 7863955514128701883}
+  healthSlider: {fileID: 552364496104208177}
+  shieldSlider: {fileID: 9186531338986839161}
+  speller: {fileID: 7895251717538687076}
 --- !u!1 &1756276335275641539
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +540,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1678516749318877970}
-  - component: {fileID: 6714413787008035255}
   m_Layer: 0
   m_Name: HealthBarDisplay
   m_TagString: Untagged
@@ -552,21 +568,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6714413787008035255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4762555167968377587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020cd1fcbfd4d014bb58822c92440315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 552364496104208177}
-  shieldSlider: {fileID: 9186531338986839161}
-  Speller: {fileID: 0}
 --- !u!1 &6354719096594888892
 GameObject:
   m_ObjectHideFlags: 0
