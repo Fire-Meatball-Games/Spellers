@@ -7,6 +7,7 @@ namespace SpellSystem
 {
     public enum Type
     {
+        Dummy,
         Attack,
         Heal,
         Shield,

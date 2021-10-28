@@ -16,4 +16,4 @@ MonoBehaviour:
   spellName: Heal
   description: Heals the user
   lvl: 3
-  type: 1
+  type: 2

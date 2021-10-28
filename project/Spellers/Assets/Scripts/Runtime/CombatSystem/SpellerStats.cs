@@ -15,11 +15,8 @@ namespace Runtime.CombatSystem
         private readonly int maxHealthPoints;
         private readonly int maxShieldPoints;
 
-        public delegate void OnChangeHealthEvent(int health);
+        public delegate void OnChangeHealthEvent(int health, int shield);
         public event OnChangeHealthEvent OnChangeHealth;
-
-        public delegate void OnChangeShieldEvent(int shield);
-        public event OnChangeShieldEvent OnChangeShield;
 
         public delegate void OnDefeatDelegate();
         public event OnDefeatDelegate OnDefeatEvent;
@@ -34,22 +31,27 @@ namespace Runtime.CombatSystem
             set
             {
                 int clampedValue = Mathf.Clamp(value, 0, maxHealthPoints);
-                healthPoints = clampedValue;
-                OnChangeHealth?.Invoke(healthPoints);
-                if(healthPoints == 0)
-                    OnDefeatEvent?.Invoke();
+                if(clampedValue != healthPoints)
+                {
+                    healthPoints = clampedValue;
+                    OnChangeHealth?.Invoke(healthPoints, shieldPoints);
+                    if (healthPoints == 0)
+                        OnDefeatEvent?.Invoke();
+                }                
             }
         }
 
-        private int Shield
+        public int Shield 
         {
             get => shieldPoints;
             set
             {
                 int clampedValue = Mathf.Clamp(value, 0, maxShieldPoints);
-                shieldPoints = clampedValue;
-                OnChangeShield?.Invoke(shieldPoints);
-    
+                if(clampedValue != shieldPoints)
+                {
+                    shieldPoints = clampedValue;
+                    OnChangeHealth?.Invoke(healthPoints, shieldPoints);
+                }   
             }
         }
 
@@ -69,7 +71,16 @@ namespace Runtime.CombatSystem
 
         public void GetDamage(int n)
         {
-            Health -= n;
+            if(n <= shieldPoints)
+            {
+                Shield -= n;
+            }
+            else
+            {
+                int damage = n - shieldPoints;
+                Shield = 0;
+                Health -= damage;
+            }
         }
     }
 

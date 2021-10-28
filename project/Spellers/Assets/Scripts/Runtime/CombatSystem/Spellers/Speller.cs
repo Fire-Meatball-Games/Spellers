@@ -57,11 +57,14 @@ namespace Runtime.CombatSystem
                     target.GetDamage(spell.lvl * 10);
                     break;
                 case SpellSystem.Type.Heal:
-                    GetHealing(spell.lvl * 5);
+                    stats.Health += spell.lvl * 5;
                     break;
                 case SpellSystem.Type.Sacrifice:
                     target.GetDamage(spell.lvl * 15);
                     GetDamage(spell.lvl * 5);
+                    break;
+                case SpellSystem.Type.Shield:
+                    stats.Shield += spell.lvl * 5;
                     break;
                 default:
                     break;
@@ -75,12 +78,6 @@ namespace Runtime.CombatSystem
             stats.GetDamage(n);
         }
 
-        // Cura vida
-
-        public void GetHealing(int n)
-        {
-            stats.Health += n;
-        }
 
         #endregion
 

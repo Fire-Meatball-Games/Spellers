@@ -23,8 +23,7 @@ namespace Utils
             EditorGUI.PropertyField(position, property, label, true);
             GUI.enabled = true;
         }
-    } 
-}
-
+    }
 #endif
+}
 

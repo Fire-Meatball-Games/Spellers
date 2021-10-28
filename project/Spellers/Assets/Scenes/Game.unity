@@ -2821,6 +2821,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpellerPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 164929288915613589, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
+      propertyPath: spells.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 164929288915613589, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
+      propertyPath: spells.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: eea06785c5c3442469157bb502286292, type: 2}
+    - target: {fileID: 164929288915613589, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
+      propertyPath: spells.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: a0fd89afbcd791d4598f83fb57c99854, type: 2}
+    - target: {fileID: 164929288915613589, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
+      propertyPath: spells.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e41e5cd582c5c443a2eef16f82b6c61, type: 2}
     - target: {fileID: 164929288915613590, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2891,6 +2907,10 @@ PrefabInstance:
       value: SpellerNPC
       objectReference: {fileID: 0}
     - target: {fileID: 4576079201070465620, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576079201070465620, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -2946,5 +2966,17 @@ PrefabInstance:
       propertyPath: speller
       value: 
       objectReference: {fileID: 1441010446}
+    - target: {fileID: 7895251717538687076, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
+      propertyPath: spells_list.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895251717538687076, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
+      propertyPath: spells_list.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: eea06785c5c3442469157bb502286292, type: 2}
+    - target: {fileID: 9186531338986839161, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 673d513c73dad1845ac42258b775e9af, type: 3}

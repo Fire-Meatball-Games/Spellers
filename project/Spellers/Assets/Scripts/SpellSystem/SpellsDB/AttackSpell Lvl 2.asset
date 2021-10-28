@@ -16,4 +16,4 @@ MonoBehaviour:
   spellName: Attack
   description: Deals damage to targeted enemy
   lvl: 2
-  type: 0
+  type: 1

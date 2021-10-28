@@ -16,16 +16,9 @@ namespace Runtime.CombatSystem.UI
 
         #endregion
 
-        #region Private fields
-
-
-
-        #endregion
-
         private void Awake()
         {
-            speller.Stats.OnChangeHealth += SetHealth;
-            speller.Stats.OnChangeShield += SetShield;
+            speller.Stats.OnChangeHealth += SetHealthBars;
             Init();
         }
 
@@ -39,15 +32,13 @@ namespace Runtime.CombatSystem.UI
         }
 
 
-        public void SetHealth(int health)
+        public void SetHealthBars(int health, int shield)
         {
             healthSlider.value = health;
+            shieldSlider.value = health + shield;
+
         }
 
-        public void SetShield(int shield)
-        {
-            shieldSlider.value = healthSlider.value + shield;
-        }
     }
 
 }

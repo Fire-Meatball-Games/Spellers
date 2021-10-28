@@ -16,4 +16,4 @@ MonoBehaviour:
   spellName: Sacrifice
   description: Deals damage to targeted enemy and deals a part to the user
   lvl: 2
-  type: 3
+  type: 4
