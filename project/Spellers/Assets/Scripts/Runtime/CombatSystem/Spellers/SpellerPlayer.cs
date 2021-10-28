@@ -7,14 +7,14 @@ namespace Runtime.CombatSystem
 {
     public class SpellerPlayer : Speller
     {
+        #region Public variables
         public SpellTable table;
         public SpellBoard board;
 
         [SerializeField] List<Spell> spells;
+        #endregion
 
-        public delegate void OnUseSpellDelegate();
-        public event OnUseSpellDelegate OnUseSpellEvent;
-
+        #region Unity CallBacks
         public override void Init()
         {
             base.Init();
@@ -27,15 +27,9 @@ namespace Runtime.CombatSystem
         {
             InitializeTable();
         }
+        #endregion
 
-        // Usa el hechizo seleccionado en la mesa:
-
-        public void LaunchSpell()
-        {
-            UseSpell(table.GetSelectedSpell());
-            IEnumerator corroutine = LaunchingSpell();
-            StartCoroutine(corroutine);
-        }
+        #region Public methods
 
         // Selecciona el hechizo en la posición idx de la mesa.
         // Activa el tablero correspondiente al tipo de hechizo seleccionado
@@ -52,18 +46,19 @@ namespace Runtime.CombatSystem
         {
             board.CheckCharacterKey(column, row);
         }
+        #endregion
+
+        #region Private Methods
 
         private void InitializeTable()
         {
             table.Initialize();
         }
 
-        private IEnumerator LaunchingSpell()
+        protected override Spell GetActiveSpell()
         {
-            yield return new WaitForSeconds(2);
-            OnUseSpellEvent?.Invoke();
+            return table.GetSelectedSpell();
         }
-
-        
-    } 
+        #endregion
+    }
 }

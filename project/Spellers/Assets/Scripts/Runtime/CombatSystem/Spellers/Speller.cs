@@ -22,6 +22,9 @@ namespace Runtime.CombatSystem
 
         public SpellerStats Stats => stats;
 
+        public delegate void OnUseSpellDelegate();
+        public event OnUseSpellDelegate OnUseSpellEvent;
+
         #endregion
 
         #region Unity CallBacks
@@ -44,9 +47,10 @@ namespace Runtime.CombatSystem
 
         // Usa un hechizo
 
-        public void UseSpell(Spell spell)
+        protected void UseSpell(Spell spell)
         {
             Debug.Log(gameObject.name + " --> " + spell.ToString());
+            OnUseSpellEvent?.Invoke();
             switch (spell.type)
             {
                 case SpellSystem.Type.Attack:
@@ -76,6 +80,31 @@ namespace Runtime.CombatSystem
         public void GetHealing(int n)
         {
             stats.Health += n;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        // Lanza el hechizo activo
+
+        public virtual void LaunchSpell()
+        {
+            IEnumerator spellCorroutine = SpellCorroutine(GetActiveSpell());
+            StartCoroutine(spellCorroutine);
+        }
+
+        // Devuelve el hechizo que va a lanzar el personaje (implementar en subclases).
+
+        protected abstract Spell GetActiveSpell();
+
+        // Corroutina para la animación del hechizo
+
+        private IEnumerator SpellCorroutine(Spell spell, float time = 1f)
+        {
+            // Lanzar animación
+            yield return new WaitForSeconds(time);
+            UseSpell(spell);
         }
 
         #endregion

@@ -8,32 +8,32 @@ namespace Runtime.CombatSystem
     public class SpellerNPC : Speller
     {
         [SerializeField] private List<Spell> spells_list;
-
-        public void LaunchSpell()
-        {
-            Spell s = spells_list[new System.Random().Next(spells_list.Count)];
-            UseSpell(s);            
-        }
+        public float average_load_time = 10.0f;
+        public float deviation_load_time = 5.0f;
 
         public override void Init()
         {
             base.Init();
             target = FindObjectOfType<SpellerPlayer>();
-            StartNewCounter();
+            LoadSpell();
+            OnUseSpellEvent += LoadSpell;
         }
 
-        IEnumerator SpellCooldown(float time)
+        IEnumerator LoadSpellCorroutine(float time)
         {
             yield return new WaitForSeconds(time);
             LaunchSpell();
-            StartNewCounter();
         }
 
-        private void StartNewCounter()
+        private void LoadSpell()
         {
-            IEnumerator corroutine = SpellCooldown(Random.Range(5, 15));
+            IEnumerator corroutine = LoadSpellCorroutine(Random.Range(average_load_time - deviation_load_time, average_load_time + deviation_load_time));
             StartCoroutine(corroutine);
         }
-        
+
+        protected override Spell GetActiveSpell()
+        {
+            return spells_list[new System.Random().Next(spells_list.Count)];
+        }
     }
 }
