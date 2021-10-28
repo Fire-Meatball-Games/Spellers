@@ -14,19 +14,17 @@ namespace Runtime.CombatSystem
         private int keyDimension;
         private int currentCharIdx;
 
+        #endregion
+
+        #region Properties
         public delegate void OnGenerateBoardDelegate(char[] keys, int dim, string word);
         public event OnGenerateBoardDelegate OnGenerateBoardEvent;
-        public delegate void OnHitKeyDelegate(int id);
+        public delegate void OnHitKeyDelegate(int id, int currentChar);
         public event OnHitKeyDelegate OnHitKeyEvent;
         public delegate void OnFailKeyDelegate();
         public event OnFailKeyDelegate OnFailKeyEvent;
         public delegate void OnCompleteWordDelegate();
         public event OnCompleteWordDelegate OnCompleteWordEvent;
-
-        #endregion
-
-        #region Properties
-
         #endregion
 
 
@@ -55,9 +53,9 @@ namespace Runtime.CombatSystem
             char currentChar = word[currentCharIdx];
 
             if(pressedChar == currentChar)
-            {                
-                currentCharIdx++;
-                OnHitKeyEvent?.Invoke(y * keyDimension + x);
+            {
+                OnHitKeyEvent?.Invoke(y * keyDimension + x, currentCharIdx);
+                currentCharIdx++;                
                 if (currentCharIdx == word.Length)
                 {
                     OnCompleteWordEvent?.Invoke();

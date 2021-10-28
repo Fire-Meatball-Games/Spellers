@@ -80,9 +80,10 @@ namespace Runtime.CombatSystem.UI
         }
 
         // Desactiva un boton
-        private void DisableKeyButton(int id)
+        private void DisableKeyButton(int id, int currentCharIdx)
         {
             keyButtons[id].SetActive(false);
+            wordLetters[currentCharIdx].SetActive(false);
         }
 
 
