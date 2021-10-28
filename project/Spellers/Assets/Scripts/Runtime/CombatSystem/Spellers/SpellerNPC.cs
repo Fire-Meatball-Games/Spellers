@@ -15,7 +15,6 @@ namespace Runtime.CombatSystem
         {
             base.Init();
             target = FindObjectOfType<SpellerPlayer>();
-            LoadSpell();
             OnUseSpellEvent += LoadSpell;
         }
 
@@ -34,6 +33,11 @@ namespace Runtime.CombatSystem
         protected override Spell GetActiveSpell()
         {
             return spells_list[new System.Random().Next(spells_list.Count)];
+        }
+
+        public void Active()
+        {
+            LoadSpell();
         }
     }
 }

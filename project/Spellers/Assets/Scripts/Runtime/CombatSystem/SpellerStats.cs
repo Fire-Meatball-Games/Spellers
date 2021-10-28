@@ -21,6 +21,9 @@ namespace Runtime.CombatSystem
         public delegate void OnChangeShieldEvent(int shield);
         public event OnChangeShieldEvent OnChangeShield;
 
+        public delegate void OnDefeatDelegate();
+        public event OnDefeatDelegate OnDefeatEvent;
+
         #endregion
 
         #region Properties
@@ -33,6 +36,8 @@ namespace Runtime.CombatSystem
                 int clampedValue = Mathf.Clamp(value, 0, maxHealthPoints);
                 healthPoints = clampedValue;
                 OnChangeHealth?.Invoke(healthPoints);
+                if(healthPoints == 0)
+                    OnDefeatEvent?.Invoke();
             }
         }
 

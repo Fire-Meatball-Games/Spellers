@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Runtime.CombatSystem.GUI
+namespace Runtime.CombatSystem.UI
 {
     public class SpellerStatsGUI : MonoBehaviour
     {

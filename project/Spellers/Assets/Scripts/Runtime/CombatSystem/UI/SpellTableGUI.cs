@@ -26,7 +26,6 @@ namespace Runtime.CombatSystem.UI
         {
             for (int i = 0; i < spellSlotButtons.Count; i++)
             {
-                // Esto evita un error que no entiendo
                 int idx = i;
                 spellSlotButtons[i].onClick.AddListener(() => speller.SelectSpell(idx));
             }
