@@ -34,6 +34,7 @@ namespace Runtime.CombatSystem.UI
 
             EnablePanel(pnl_table);
             speller.board.OnCompleteWordEvent += () => EnablePanel(pnl_wand);
+            speller.board.OnFailKeyEvent += () => EnablePanel(pnl_table);
             speller.table.OnSelectSlot += () => EnablePanel(pnl_board);
             speller.OnUseSpellEvent += () => EnablePanel(pnl_table);
             speller.table.OnChangeSlot += SetText;

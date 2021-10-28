@@ -21,6 +21,7 @@ namespace Runtime.CombatSystem
             target = FindObjectOfType<SpellerNPC>();
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
+            board.OnFailKeyEvent += () => stats.GetDamage(5);
         }
 
         private void Start()
@@ -59,6 +60,7 @@ namespace Runtime.CombatSystem
         {
             return table.GetSelectedSpell();
         }
+
         #endregion
     }
 }

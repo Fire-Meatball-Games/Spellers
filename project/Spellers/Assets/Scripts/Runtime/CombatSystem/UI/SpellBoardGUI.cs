@@ -33,6 +33,7 @@ namespace Runtime.CombatSystem.UI
             wordLetters = new List<GameObject>();
             speller.board.OnGenerateBoardEvent += GenerateBoardGUI;
             speller.board.OnHitKeyEvent += DisableKeyButton;
+            speller.board.OnFailKeyEvent += DisableLayout;
             speller.board.OnCompleteWordEvent += DisableLayout;
         }
        

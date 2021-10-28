@@ -25,6 +25,7 @@ namespace Runtime.CombatSystem
         public event OnFailKeyDelegate OnFailKeyEvent;
         public delegate void OnCompleteWordDelegate();
         public event OnCompleteWordDelegate OnCompleteWordEvent;
+
         #endregion
 
 
@@ -42,6 +43,7 @@ namespace Runtime.CombatSystem
             keys = GenerateRandomKeys(keyDimension * keyDimension, word);
             currentCharIdx = 0;
             OnGenerateBoardEvent?.Invoke(keys, keyDimension, word);
+            float time = 4.0f + 4.0f * lvl;
         }
 
         // MÉTODO PRINCIPAL
@@ -103,7 +105,7 @@ namespace Runtime.CombatSystem
         }
 
         // Mezcla las letras de una palabra.
-        public static string Shuffle(string str)
+        private static string Shuffle(string str)
         {
             char[] array = str.ToCharArray();
             var rng = new System.Random();
@@ -120,7 +122,7 @@ namespace Runtime.CombatSystem
         }
 
         // Devuelve un array de caracteres con las letras de una palabra que no están en otro.
-        public static string RemoveIntersect(string str, string chars)
+        private static string RemoveIntersect(string str, string chars)
         {
             string s = "";
             foreach (var character in chars)
