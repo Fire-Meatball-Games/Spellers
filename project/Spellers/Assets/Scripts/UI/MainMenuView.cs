@@ -7,19 +7,19 @@ namespace UIManagement
 {
     public class MainMenuView : View
     {
-        [SerializeField] private Button btn_jugar;
-        [SerializeField] private Button btn_coleccion;
+        [SerializeField] private Button btn_personalizar;
+        [SerializeField] private Button btn_un_jugador;
+        [SerializeField] private Button btn_multijugador;
         [SerializeField] private Button btn_opciones;
-        [SerializeField] private Button btn_creditos;
-        [SerializeField] private Button btn_atras;
+        
 
         public override void Init()
         {
-            btn_jugar.onClick.AddListener(() => ViewManager.Show<PlayModeView>());
-            btn_coleccion.onClick.AddListener(() => ViewManager.Show<ColectionView>());
+            btn_personalizar.onClick.AddListener(() => ViewManager.Show<CreditsView>());
+            btn_un_jugador.onClick.AddListener(() => ViewManager.Show<PlayModeView>());
+            btn_multijugador.onClick.AddListener(() => ViewManager.Show<ColectionView>());
             btn_opciones.onClick.AddListener(() => ViewManager.Show<SettingsView>());
-            btn_creditos.onClick.AddListener(() => ViewManager.Show<CreditsView>());
-            btn_atras.onClick.AddListener(() => Application.Quit());
+            
         }
     }
 
