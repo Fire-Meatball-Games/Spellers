@@ -21,6 +21,7 @@ namespace Runtime.CombatSystem
         #region Properties
 
         public SpellerStats Stats => stats;
+        public GameObject spellPrefab;
 
         public delegate void OnUseSpellDelegate();
         public event OnUseSpellDelegate OnUseSpellEvent;
@@ -82,8 +83,19 @@ namespace Runtime.CombatSystem
 
         private IEnumerator SpellCorroutine(Spell spell, float time = 1f)
         {
-            // Lanzar animación
-            yield return new WaitForSeconds(time);
+            GameObject spellShot = Instantiate(spellPrefab);
+            spellShot.transform.position = transform.position;
+            float delta = 0;
+            if (transform.position.x < target.transform.position.x)
+                spellShot.GetComponent<SpriteRenderer>().flipX = true;
+            for(int i = 0; i < time / Time.fixedDeltaTime; i++)
+            {
+                delta += Time.fixedDeltaTime;
+                if(spell.isOffensive())
+                    spellShot.transform.position = Vector3.Lerp(transform.position, target.transform.position, delta);
+                yield return new WaitForFixedUpdate();
+            }
+            Destroy(spellShot);
             UseSpell(spell);
         }
 

@@ -34,6 +34,11 @@ namespace SpellSystem
         {
             return spellName + " Lvl." + lvl;
         }
+
+        public bool isOffensive()
+        {
+            return type == Type.Attack || type == Type.Sacrifice || type == Type.AtkDebuff || type == Type.DefDebuff;
+        }
     }  
 
 }

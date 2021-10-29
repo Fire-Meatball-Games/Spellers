@@ -3472,6 +3472,10 @@ PrefabInstance:
       value: SpellerPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 164929288915613589, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
+      propertyPath: spellPrefab
+      value: 
+      objectReference: {fileID: 5557422129974789201, guid: 820d1f4a0df3b244aaebb1418bdcc931, type: 3}
+    - target: {fileID: 164929288915613589, guid: bd7a069538fd9f447bc19b2cb4ba618a, type: 3}
       propertyPath: spells.Array.size
       value: 24
       objectReference: {fileID: 0}
@@ -3684,6 +3688,10 @@ PrefabInstance:
       propertyPath: speller
       value: 
       objectReference: {fileID: 1441010446}
+    - target: {fileID: 7895251717538687076, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
+      propertyPath: spellPrefab
+      value: 
+      objectReference: {fileID: 5557422129974789201, guid: 820d1f4a0df3b244aaebb1418bdcc931, type: 3}
     - target: {fileID: 7895251717538687076, guid: 673d513c73dad1845ac42258b775e9af, type: 3}
       propertyPath: spells_list.Array.size
       value: 9
