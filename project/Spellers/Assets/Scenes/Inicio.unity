@@ -7919,7 +7919,7 @@ RectTransform:
   m_Children:
   - {fileID: 743128567}
   m_Father: {fileID: 1394983519}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8453,9 +8453,9 @@ RectTransform:
   - {fileID: 1688468795}
   - {fileID: 762704033}
   - {fileID: 871208286}
-  - {fileID: 2106246521}
   - {fileID: 1326114157}
   - {fileID: 1862299059}
+  - {fileID: 2106246521}
   m_Father: {fileID: 1949633298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8514,11 +8514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31083c9ebf2453e40846777e6d5721af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn_jugar: {fileID: 762704034}
-  btn_coleccion: {fileID: 871208287}
+  btn_personalizar: {fileID: 871208287}
+  btn_un_jugador: {fileID: 762704034}
+  btn_multijugador: {fileID: 1326114158}
   btn_opciones: {fileID: 2106246522}
-  btn_creditos: {fileID: 1326114158}
-  btn_atras: {fileID: 1862299060}
 --- !u!1 &1404499727
 GameObject:
   m_ObjectHideFlags: 0
@@ -11883,7 +11882,7 @@ RectTransform:
   m_Children:
   - {fileID: 421489390}
   m_Father: {fileID: 1394983519}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13583,7 +13582,7 @@ RectTransform:
   m_Children:
   - {fileID: 585725823}
   m_Father: {fileID: 1394983519}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
