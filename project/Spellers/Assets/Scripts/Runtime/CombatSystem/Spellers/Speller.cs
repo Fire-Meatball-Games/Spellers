@@ -50,7 +50,6 @@ namespace Runtime.CombatSystem
 
         protected void UseSpell(Spell spell)
         {
-            Debug.Log(gameObject.name + " --> " + spell.ToString());
             OnUseSpellEvent?.Invoke();
             SpellWand.UseSpell(spell, this, target);
         }
