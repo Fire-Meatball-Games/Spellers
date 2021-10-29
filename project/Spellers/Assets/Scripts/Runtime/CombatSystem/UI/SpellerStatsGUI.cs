@@ -10,7 +10,7 @@ namespace Runtime.CombatSystem.UI
     {
         #region Public variables
 
-        [SerializeField] private TextMeshProUGUI txt_name;
+        [SerializeField] private TextMeshProUGUI txt_name, txt_atqLvl, txt_defLvl;
         [SerializeField] private Slider healthSlider, shieldSlider;
         public Speller speller;
 
@@ -18,12 +18,15 @@ namespace Runtime.CombatSystem.UI
 
         private void Awake()
         {
-            speller.Stats.OnChangeHealth += SetHealthBars;
+            
             Init();
         }
 
         private void Init()
         {
+            speller.Stats.OnChangeHealth += SetHealthBars;
+            speller.Stats.OnChangeAtkLvlEvent += SetAtkLvl;
+            speller.Stats.OnChangeDefLvlEvent += SetDefLvl;
             txt_name.text = speller.spellerName;
             healthSlider.maxValue = 100;
             shieldSlider.maxValue = 150;
@@ -31,12 +34,20 @@ namespace Runtime.CombatSystem.UI
             shieldSlider.value = 0;
         }
 
-
-        public void SetHealthBars(int health, int shield)
+        private void SetHealthBars(int health, int shield)
         {
             healthSlider.value = health;
             shieldSlider.value = health + shield;
+        }
 
+        private void SetAtkLvl(int lvl)
+        {
+            txt_atqLvl.text = "Atk " + lvl;
+        }
+
+        private void SetDefLvl(int lvl)
+        {
+            txt_defLvl.text = "Def " + lvl;
         }
 
     }

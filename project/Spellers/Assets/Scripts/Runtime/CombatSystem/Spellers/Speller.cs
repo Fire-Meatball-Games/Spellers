@@ -51,24 +51,7 @@ namespace Runtime.CombatSystem
         {
             Debug.Log(gameObject.name + " --> " + spell.ToString());
             OnUseSpellEvent?.Invoke();
-            switch (spell.type)
-            {
-                case SpellSystem.Type.Attack:
-                    target.GetDamage(spell.lvl * 10);
-                    break;
-                case SpellSystem.Type.Heal:
-                    stats.Health += spell.lvl * 5;
-                    break;
-                case SpellSystem.Type.Sacrifice:
-                    target.GetDamage(spell.lvl * 15);
-                    GetDamage(spell.lvl * 5);
-                    break;
-                case SpellSystem.Type.Shield:
-                    stats.Shield += spell.lvl * 5;
-                    break;
-                default:
-                    break;
-            }
+            SpellWand.UseSpell(spell, this, target);
         }
 
         // Recibe daño

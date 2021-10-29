@@ -8,9 +8,13 @@ namespace Runtime.CombatSystem
     public class SpellerStats
     {
         #region Fields
+        const int MAX_STATE_LVL = 3;
+        const int MIN_STATE_LVL = -3;
 
         private int healthPoints;
         private int shieldPoints;
+        private int atkLvl;
+        private int defLvl;
 
         private readonly int maxHealthPoints;
         private readonly int maxShieldPoints;
@@ -20,6 +24,10 @@ namespace Runtime.CombatSystem
 
         public delegate void OnDefeatDelegate();
         public event OnDefeatDelegate OnDefeatEvent;
+
+        public delegate void OnChangeStatDelegate(int lvl);
+        public event OnChangeStatDelegate OnChangeAtkLvlEvent;
+        public event OnChangeStatDelegate OnChangeDefLvlEvent;
 
         #endregion
 
@@ -52,6 +60,35 @@ namespace Runtime.CombatSystem
                     shieldPoints = clampedValue;
                     OnChangeHealth?.Invoke(healthPoints, shieldPoints);
                 }   
+            }
+        }
+
+        public int AttackLevel
+        {
+            get => atkLvl;
+            set
+            {
+                int clampedValue = Mathf.Clamp(value, MIN_STATE_LVL, MAX_STATE_LVL);
+                if(clampedValue != atkLvl)
+                {
+                    atkLvl = clampedValue;
+                    OnChangeAtkLvlEvent?.Invoke(atkLvl);
+                }
+            }
+        }
+
+        public int DefenseLevel
+        {
+            get => defLvl;
+            set
+            {
+                int clampedValue = Mathf.Clamp(value, MIN_STATE_LVL, MAX_STATE_LVL);
+                if (clampedValue != defLvl)
+                {
+                    defLvl = clampedValue;
+                    OnChangeDefLvlEvent?.Invoke(defLvl);
+                }
+                
             }
         }
 

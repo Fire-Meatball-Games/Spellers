@@ -11,7 +11,11 @@ namespace SpellSystem
         Attack,
         Heal,
         Shield,
-        Sacrifice
+        Sacrifice,
+        AtkBuff,
+        DefBuff,
+        AtkDebuff,
+        DefDebuff
     }
 
     [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spell", order = 1)]
