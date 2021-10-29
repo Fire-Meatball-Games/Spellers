@@ -31,9 +31,11 @@ namespace Runtime.CombatSystem.UI
             }
 
             btn_spell.onClick.AddListener(() => speller.LaunchSpell());
+            btn_spell.onClick.AddListener(() => btn_spell.gameObject.SetActive(false));
 
             EnablePanel(pnl_table);
             speller.board.OnCompleteWordEvent += () => EnablePanel(pnl_wand);
+            speller.board.OnCompleteWordEvent += () => btn_spell.gameObject.SetActive(true);
             speller.board.OnFailKeyEvent += () => EnablePanel(pnl_table);
             speller.table.OnSelectSlot += () => EnablePanel(pnl_board);
             speller.OnUseSpellEvent += () => EnablePanel(pnl_table);
