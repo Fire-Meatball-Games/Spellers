@@ -10,9 +10,13 @@ namespace Runtime.CombatSystem.UI
     public class BattleGUI : MonoBehaviour
     {
         public GameObject beginPanel;
+        public GameObject pausePanel;
         public GameObject endPanel;
         public TextMeshProUGUI txt_results;
         public Button end_button;
+        public Button pause_button;
+        public Button continue_button;
+        public Button exit_button;
         public Battle battle;
 
         public void Awake()
@@ -20,6 +24,9 @@ namespace Runtime.CombatSystem.UI
             battle.OnBeginBattle += DisableBeginPanel;
             battle.OnEndBattle += EnableBeginPanel;
             end_button.onClick.AddListener(() => SceneManager.LoadScene(0));
+            pause_button.onClick.AddListener(() => Pause());
+            continue_button.onClick.AddListener(() => UnPause());
+            exit_button.onClick.AddListener(() => SceneManager.LoadScene(0));
         }
 
         public void Start()
@@ -40,6 +47,18 @@ namespace Runtime.CombatSystem.UI
                 txt_results.text = "¡Has perdido!";
             else if (battle.status == Battle.Status.won)
                 txt_results.text = "¡Has ganado!";
+        }
+
+        public void Pause()
+        {
+            Time.timeScale = 0.0f;
+            pausePanel.SetActive(true);
+        }
+
+        public void UnPause()
+        {
+            Time.timeScale = 1.0f;
+            pausePanel.SetActive(false);
         }
     }
 
