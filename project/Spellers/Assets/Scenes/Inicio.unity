@@ -8103,7 +8103,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MULTIJUGADOR
+  m_Text: CREDITOS
 --- !u!222 &1290761161
 CanvasRenderer:
   m_ObjectHideFlags: 0

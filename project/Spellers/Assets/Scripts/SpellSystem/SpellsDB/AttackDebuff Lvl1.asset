@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackDebuff Lvl1
   m_EditorClassIdentifier: 
   id: 8360b645e2b684e4ba9f5c65a53cc919
-  spellName: Attack Buff Spell
+  spellName: Attack Debuff Spell
   description: Decreases target's attack
   lvl: 1
   type: 7

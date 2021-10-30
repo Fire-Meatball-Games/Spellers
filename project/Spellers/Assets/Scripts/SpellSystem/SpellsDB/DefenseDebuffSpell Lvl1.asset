@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefenseDebuffSpell Lvl1
   m_EditorClassIdentifier: 
   id: bc9260e4f0a28a044973ee8e8fbcc06e
-  spellName: Defense Buff Spell
+  spellName: Defense Debuff Spell
   description: Decreases target's defense
   lvl: 1
   type: 8
