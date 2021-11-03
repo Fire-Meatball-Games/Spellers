@@ -12,35 +12,41 @@ namespace Runtime.CombatSystem.UI
         public GameObject pnl_table;
         public GameObject pnl_board;
         public GameObject pnl_wand;
-        public SpellerPlayer speller;
         public List<Button> spellSlotButtons;
         public Button btn_spell;
         #endregion
 
         #region private Fields
         private GameObject current_panel;
+        private SpellerPlayer player;
         #endregion
 
-        #region Unity Callbacks
+        #region Unity CallBacks and public methods
         public void Awake()
         {
+            //spellSlotButtons = new List<Button>();            
+            EnablePanel(pnl_table);
+            FindObjectOfType<Battle>().OnSetSpellerPlayerEvent += (_) => SubscribeToEvents();
+        }
+
+        public void SubscribeToEvents()
+        {
+            player = FindObjectOfType<SpellerPlayer>();
             for (int i = 0; i < spellSlotButtons.Count; i++)
             {
                 int idx = i;
-                spellSlotButtons[i].onClick.AddListener(() => speller.SelectSpell(idx));
+                spellSlotButtons[i].onClick.AddListener(() => player.SelectSpell(idx));
             }
-
-            btn_spell.onClick.AddListener(() => speller.LaunchSpell());
+            btn_spell.onClick.AddListener(() => player.LaunchSpell());
             btn_spell.onClick.AddListener(() => btn_spell.gameObject.SetActive(false));
-
-            EnablePanel(pnl_table);
-            speller.board.OnCompleteWordEvent += () => EnablePanel(pnl_wand);
-            speller.board.OnCompleteWordEvent += () => btn_spell.gameObject.SetActive(true);
-            speller.board.OnFailKeyEvent += () => EnablePanel(pnl_table);
-            speller.table.OnSelectSlot += () => EnablePanel(pnl_board);
-            speller.OnUseSpellEvent += () => EnablePanel(pnl_table);
-            speller.table.OnChangeSlot += SetText;
+            player.board.OnCompleteWordEvent += () => EnablePanel(pnl_wand);
+            player.board.OnCompleteWordEvent += () => btn_spell.gameObject.SetActive(true);
+            player.board.OnFailKeyEvent += () => EnablePanel(pnl_table);
+            player.table.OnSelectSlot += () => EnablePanel(pnl_board);
+            player.OnUseSpellEvent += () => EnablePanel(pnl_table);
+            player.table.OnChangeSlot += SetText;
         }
+
         #endregion
 
         #region Private Methods

@@ -4,6 +4,7 @@ using System;
 
 namespace SpellSystem
 {
+    [Serializable]
     public class SpellDeck
     {
         public List<Spell> spells;
@@ -21,6 +22,13 @@ namespace SpellSystem
         public void AddSpell(Spell spell)
         {
             spells.Add(spell);
+        }
+
+        public Spell GetRandomSpell()
+        {
+            System.Random random = new System.Random();
+            int index = random.Next(spells.Count);
+            return spells[index];
         }
 
     }

@@ -14,7 +14,7 @@ namespace Runtime.CombatSystem
         public string spellerName;
 
         protected SpellerStats stats;
-        protected Speller target;
+        public Speller target;
 
         #endregion
 
@@ -52,6 +52,7 @@ namespace Runtime.CombatSystem
         {
             OnUseSpellEvent?.Invoke();
             SpellWand.UseSpell(spell, this, target);
+            Debug.Log(spellerName + " -> " + spell);
         }
 
         // Recibe daño
@@ -98,6 +99,10 @@ namespace Runtime.CombatSystem
             UseSpell(spell);
         }
 
+        public void SetTarget(Speller speller)
+        {
+            target = speller;
+        }
         #endregion
     }
 }

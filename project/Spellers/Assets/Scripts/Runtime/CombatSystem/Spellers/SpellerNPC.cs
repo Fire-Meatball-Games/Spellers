@@ -7,15 +7,35 @@ namespace Runtime.CombatSystem
 {
     public class SpellerNPC : Speller
     {
-        [SerializeField] private List<Spell> spells_list;
-        public float average_load_time = 10.0f;
-        public float deviation_load_time = 5.0f;
+        #region Private Fields
+        private SpellerNPCSettings settings;
+        #endregion
 
+        #region Initialization
         public override void Init()
         {
             base.Init();
             target = FindObjectOfType<SpellerPlayer>();
             OnUseSpellEvent += LoadSpell;
+            stats.OnDefeatEvent += DisableCombat;
+        }
+
+        public void SetSettings(SpellerNPCSettings npc_settings)
+        {
+            settings = npc_settings;
+            spellerName = npc_settings.spellerName;
+        }
+
+        public void Active()
+        {
+            LoadSpell();
+        }
+        #endregion
+
+
+        private void DisableCombat()
+        {
+            StopAllCoroutines();
         }
 
         IEnumerator LoadSpellCorroutine(float time)
@@ -26,18 +46,18 @@ namespace Runtime.CombatSystem
 
         private void LoadSpell()
         {
-            IEnumerator corroutine = LoadSpellCorroutine(Random.Range(average_load_time - deviation_load_time, average_load_time + deviation_load_time));
+            float min_cd = settings.cooldown_average - settings.cooldown_deviation;
+            float max_cd = settings.cooldown_average + settings.cooldown_deviation;
+            IEnumerator corroutine = LoadSpellCorroutine(Random.Range(min_cd, max_cd));
             StartCoroutine(corroutine);
         }
 
         protected override Spell GetActiveSpell()
         {
-            return spells_list[new System.Random().Next(spells_list.Count)];
+            Spell spell = settings.deck.GetRandomSpell();
+            return spell ?? Spell.DefaultSpell();
         }
 
-        public void Active()
-        {
-            LoadSpell();
-        }
+        
     }
 }

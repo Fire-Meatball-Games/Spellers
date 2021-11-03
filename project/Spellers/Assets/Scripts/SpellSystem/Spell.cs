@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Utils;
 
 namespace SpellSystem
 {
@@ -21,14 +20,24 @@ namespace SpellSystem
     [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spell", order = 1)]
     public class Spell : ScriptableObject
     {
-        [UniqueIdentifier]
-        public string id;
-
         public string spellName;
         [TextArea] public string description;
         public int lvl;
         
         public Type type;
+
+        public Spell(string spellName, string description, int lvl, Type type)
+        {
+            this.spellName = spellName;
+            this.description = description;
+            this.lvl = lvl;
+            this.type = type;
+        }
+
+        public static Spell DefaultSpell()
+        {
+            return new Spell("Dummy", "Default spell", 1, Type.Dummy);
+        }
 
         public override string ToString()
         {

@@ -60,7 +60,7 @@ namespace Runtime.CombatSystem
         {
             return table.GetSelectedSpell();
         }
-
+        
         #endregion
     }
 }

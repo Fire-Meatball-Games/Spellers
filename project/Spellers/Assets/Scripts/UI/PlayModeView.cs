@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using GameManagement;
-using Utils;
+using UnityEngine.SceneManagement;
 
 namespace UIManagement
 {
@@ -18,7 +17,7 @@ namespace UIManagement
         {
             //btn_historyMode.onClick.AddListener(() => GameManager.LoadScene("ModoHistoria"));
             btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
-            btn_singlePlayerMode.onClick.AddListener(() => GameManager.LoadScene("Game"));
+            btn_singlePlayerMode.onClick.AddListener(() => SceneManager.LoadScene("Game"));
         }
     } 
 }
