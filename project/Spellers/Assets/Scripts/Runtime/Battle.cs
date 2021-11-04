@@ -88,8 +88,7 @@ namespace Runtime
             foreach (var speller in enemies)
             {
                 Destroy(speller.gameObject);
-            }
-            Destroy(player.gameObject);
+            }            
         }
 
         public void Lose()
@@ -100,8 +99,7 @@ namespace Runtime
             foreach (var speller in enemies)
             {
                 Destroy(speller.gameObject);
-            }
-            Destroy(player.gameObject);
+            }            
         }
     } 
 }
