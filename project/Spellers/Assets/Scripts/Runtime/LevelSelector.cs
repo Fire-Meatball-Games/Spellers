@@ -16,7 +16,11 @@ namespace Runtime
 
         #region Private fields
 
+        // Nivel seleccionado
         private Level selectedLevel;
+
+        // Indice del nivel que activará un diálogo al ser seleccionado
+        private int currentDialogueTriggerIndex = 0;
 
         #endregion
 

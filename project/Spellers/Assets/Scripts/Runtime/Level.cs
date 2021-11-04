@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Runtime.DialogueSystem;
 
 namespace Runtime
 {
@@ -9,6 +10,7 @@ namespace Runtime
     {
         public string levelname;
         public GameSettings gameSettings;
+        public Dialogue dialogue;
     }
 
 }

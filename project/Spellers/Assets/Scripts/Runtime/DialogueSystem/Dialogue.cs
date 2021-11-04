@@ -9,13 +9,11 @@ namespace Runtime
         public class Dialogue : ScriptableObject
         {
             [SerializeField]
-            private Queue<DialogueLine> lines; 
+            private List<DialogueLine> lines; 
 
-            public Queue<DialogueLine> Lines => lines;
-
-            public DialogueLine GetNextLine()
+            public DialogueLine GetLine(int n)
             {
-                return lines.Dequeue();
+                return lines[n];
             }
         } 
     }
