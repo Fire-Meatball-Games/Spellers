@@ -1,0 +1,4 @@
+
+- Reducción de daño plano.
+- Cortacuraciones.
+- Robo de vida.
