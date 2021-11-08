@@ -30,6 +30,12 @@ namespace Runtime.CombatSystem
         {
             LoadSpell();
         }
+
+        public void SetTarget()
+        {
+            target = FindObjectOfType<SpellerPlayer>();
+        }
+
         #endregion
 
 

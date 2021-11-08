@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SpellSystem;
 
-namespace Runtime.CombatSystem
+namespace SpellSystem
 {
     [CreateAssetMenu(fileName = "Enemy_Settings", menuName = "Spellers/SpellerNPCSettings", order = 3)]
     public class SpellerNPCSettings : ScriptableObject

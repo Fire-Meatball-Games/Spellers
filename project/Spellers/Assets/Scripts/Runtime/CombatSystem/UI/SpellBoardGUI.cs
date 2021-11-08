@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CustomEventSystem;
 
 namespace Runtime
 {
@@ -36,13 +37,12 @@ namespace Runtime
                 {
                     keyButtons = new List<GameObject>();
                     wordLetters = new List<GameObject>();
-                    FindObjectOfType<Battle>().OnSetSpellerPlayerEvent += (_) => SubscribeToEvents();
+                    Events.OnJoinPlayer.AddListener(() => SubscribeToEvents());
                 }
 
                 // Suscribe el controlador GUI a los eventos del jugador
                 public void SubscribeToEvents()
                 {
-                    Debug.Log("Tablero suscrito a eventos del jugador");
                     player = FindObjectOfType<SpellerPlayer>();
                     player.board.OnGenerateBoardEvent += GenerateBoardGUI;
                     player.board.OnHitKeyEvent += DisableKeyButton;

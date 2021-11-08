@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
+using System;
+using CustomEventSystem;
 
 namespace Runtime.CombatSystem
 {
@@ -22,7 +24,8 @@ namespace Runtime.CombatSystem
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
             board.OnFailKeyEvent += () => stats.GetDamage(5);
-        }
+            board.OnTimerStartEvent += StartTimerCorroutine;
+        }        
 
         private void Start()
         {
@@ -47,6 +50,12 @@ namespace Runtime.CombatSystem
         {
             board.CheckCharacterKey(column, row);
         }
+
+        public void SetTarget(SpellerNPC target, int idx)
+        {
+            this.target = target;
+            Events.OnSelectTarget.Invoke(idx);
+        }
         #endregion
 
         #region Private Methods
@@ -60,7 +69,13 @@ namespace Runtime.CombatSystem
         {
             return table.GetSelectedSpell();
         }
-        
+
+        private void StartTimerCorroutine(int ticks)
+        {
+            IEnumerator timerCorroutine = board.TimerCorroutine(ticks);
+            StartCoroutine(timerCorroutine);
+        }
+
         #endregion
     }
 }

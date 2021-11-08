@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
+using CustomEventSystem;
 
 namespace Runtime.CombatSystem
 {
@@ -97,12 +98,7 @@ namespace Runtime.CombatSystem
             }
             Destroy(spellShot);
             UseSpell(spell);
-        }
-
-        public void SetTarget(Speller speller)
-        {
-            target = speller;
-        }
+        }        
         #endregion
     }
 }

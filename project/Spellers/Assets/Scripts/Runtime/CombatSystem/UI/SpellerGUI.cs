@@ -19,16 +19,21 @@ namespace Runtime.CombatSystem
 
             #region Set up
 
-            public void SetUp(Speller speller)
+            public void SetUp(int idx)
             {
-                speller.Stats.OnChangeHealth += SetHealthBars;
-                speller.Stats.OnChangeAtkLvlEvent += SetAtkLvl;
-                speller.Stats.OnChangeDefLvlEvent += SetDefLvl;
-                healthSlider.maxValue = speller.Stats.MaxHealth;
-                shieldSlider.maxValue = 50;
-                healthSlider.value = speller.Stats.MaxHealth;
-                shieldSlider.value = 0;
-                txt_name.text = speller.spellerName;
+                //speller.Stats.OnChangeHealth += SetHealthBars;
+                //speller.Stats.OnChangeAtkLvlEvent += SetAtkLvl;
+                //speller.Stats.OnChangeDefLvlEvent += SetDefLvl;
+                //healthSlider.maxValue = speller.Stats.MaxHealth;
+                //shieldSlider.maxValue = 50;
+                //healthSlider.value = speller.Stats.MaxHealth;
+                //shieldSlider.value = 0;
+                //txt_name.text = speller.spellerName;
+            }
+
+            public void SetUpPlayer()
+            {
+
             }
 
             #endregion

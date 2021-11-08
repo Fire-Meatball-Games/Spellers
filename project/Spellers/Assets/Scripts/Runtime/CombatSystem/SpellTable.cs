@@ -15,11 +15,15 @@ namespace Runtime.CombatSystem
         private SpellDeck deck;
         private List<Spell> spellSlots;
         private Spell selectedSpell;
+        private int additional_slots;
         #endregion
 
         #region Events
         public delegate void OnChangeSlotEvent(int id, string spellInfo);
         public OnChangeSlotEvent OnChangeSlot;
+
+        public delegate void OnChangeSpellSlotsDelegate(List<Spell> spellSlots);
+        public OnChangeSpellSlotsDelegate OnChangeSpellSlotsEvent;
         public delegate void OnSelectSlotEvent();
         public OnSelectSlotEvent OnSelectSlot;
 
@@ -64,10 +68,7 @@ namespace Runtime.CombatSystem
         {
             var rand = new System.Random();
             spellSlots = new List<Spell>(deck.spells.OrderBy(x => rand.Next()).Take(NUM_SLOTS));
-            for (int i = 0; i < NUM_SLOTS; i++)
-            {
-                OnChangeSlot?.Invoke(i, spellSlots[i].ToString());
-            }
+            OnChangeSpellSlotsEvent?.Invoke(spellSlots);
         }
 
         // Cambia el hechizo de la posición idx de la mesa
@@ -75,6 +76,7 @@ namespace Runtime.CombatSystem
         {
             spellSlots[idx] = deck.spells[new System.Random().Next(deck.spells.Count)];
             OnChangeSlot?.Invoke(idx, spellSlots[idx].ToString());
+            OnChangeSpellSlotsEvent?.Invoke(spellSlots);
         }
 
         #endregion

@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using CustomEventSystem;
 
-namespace Runtime
+namespace Runtime.CombatSystem.GUI
 {
-    public class BattleGUI : MonoBehaviour
+    public class SpellerBattleGUI : MonoBehaviour
     {
         public GameObject beginPanel;
         public GameObject pausePanel;
@@ -17,12 +18,11 @@ namespace Runtime
         public Button pause_button;
         public Button continue_button;
         public Button exit_button;
-        public Battle battle;
 
         public void Awake()
         {
-            battle.OnBeginBattle += DisableBeginPanel;
-            battle.OnEndBattle += EnableBeginPanel;
+            Events.OnBattleBegins.AddListener(DisableBeginPanel);
+            Events.OnBattleEnds.AddListener(EnableBeginPanel);
             end_button.onClick.AddListener(() => SceneManager.LoadScene(0));
             pause_button.onClick.AddListener(() => Pause());
             continue_button.onClick.AddListener(() => UnPause());
@@ -40,13 +40,10 @@ namespace Runtime
             beginPanel.SetActive(false);
         }
 
-        private void EnableBeginPanel()
+        private void EnableBeginPanel(bool victory)
         {
             endPanel.SetActive(true);
-            if (battle.status == Battle.Status.lost)
-                txt_results.text = "¡Has perdido!";
-            else if (battle.status == Battle.Status.won)
-                txt_results.text = "¡Has ganado!";
+            txt_results.text = victory ? "¡Has ganado!" : "¡Has perdido!";
         }
 
         public void Pause()

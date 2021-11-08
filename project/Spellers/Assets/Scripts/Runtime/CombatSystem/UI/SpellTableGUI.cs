@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CustomEventSystem;
 
 
 namespace Runtime.CombatSystem.UI
@@ -26,7 +27,7 @@ namespace Runtime.CombatSystem.UI
         {
             //spellSlotButtons = new List<Button>();            
             EnablePanel(pnl_table);
-            FindObjectOfType<Battle>().OnSetSpellerPlayerEvent += (_) => SubscribeToEvents();
+            Events.OnJoinPlayer.AddListener(() => SubscribeToEvents());
         }
 
         public void SubscribeToEvents()

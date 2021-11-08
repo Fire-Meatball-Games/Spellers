@@ -9,7 +9,7 @@ namespace Runtime
     public class Level : ScriptableObject
     {
         public string levelname;
-        public GameSettings gameSettings;
+        [SerializeField] public GameSettings gameSettings;
         public Dialogue dialogue;
     }
 
