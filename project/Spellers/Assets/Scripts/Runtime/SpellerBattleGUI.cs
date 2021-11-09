@@ -14,6 +14,7 @@ namespace Runtime.CombatSystem.GUI
         public GameObject pausePanel;
         public GameObject endPanel;
         public TextMeshProUGUI txt_results;
+        public Button start_button;
         public Button end_button;
         public Button pause_button;
         public Button continue_button;
@@ -23,6 +24,7 @@ namespace Runtime.CombatSystem.GUI
         {
             Events.OnBattleBegins.AddListener(DisableBeginPanel);
             Events.OnBattleEnds.AddListener(EnableBeginPanel);
+            start_button.onClick.AddListener(Events.OnBattleBegins.Invoke);
             end_button.onClick.AddListener(() => SceneManager.LoadScene(0));
             pause_button.onClick.AddListener(() => Pause());
             continue_button.onClick.AddListener(() => UnPause());

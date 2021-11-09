@@ -17,35 +17,32 @@ namespace Runtime.CombatSystem.UI
 
         #region private Fields
         private List<GameObject> spellSlots;
-        private SpellerPlayer player;
         #endregion
 
         #region Unity CallBacks and public methods
         public void Awake()
         {
             spellSlots = new List<GameObject>();
-            Events.OnJoinPlayer.AddListener(() => SubscribeToEvents());
+            Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
         }
 
-        public void SubscribeToEvents()
-        {
-            player = FindObjectOfType<SpellerPlayer>();
-        }
 
         #endregion
 
         #region Private Methods
 
         // Genera la lista de hechizos:
-        private void SetUpSpellSlots(List<Spell> spells)
-        {
+        private void SetUpSpellSlots(List<SpellUnit> spells)
+        {            
             ShutDownSpellSlots();
-            foreach (var spell in spells)
+            for (int i = 0; i < spells.Count; i++)
             {
+                int idx = i;
                 var spellSlot_go = Instantiate(spellSlot_prefab, book_content);
-                SetLayoutSlot(spellSlot_go, spell);
+                spellSlot_go.GetComponentInChildren<Button>().onClick.AddListener(() => FindObjectOfType<SpellerPlayer>().SelectSpell(idx));
+                SetLayoutSlot(spellSlot_go, spells[i]);
                 spellSlots.Add(spellSlot_go);
-            }            
+            }          
         }
 
         // Destruye la lista de hechizos:
@@ -55,9 +52,9 @@ namespace Runtime.CombatSystem.UI
         }
 
         // Pinta el layout del hechizo:
-        private void SetLayoutSlot(GameObject go, Spell spell)
+        private void SetLayoutSlot(GameObject go, SpellUnit spellUnit)
         {
-            go.transform.Find("SpellName").GetComponent<TextMeshProUGUI>().SetText(spell.spellName);
+            go.transform.Find("SpellName").GetComponent<TextMeshProUGUI>().SetText(spellUnit.spell.spellName);
         }
         
         #endregion

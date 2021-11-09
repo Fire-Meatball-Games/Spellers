@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
+using CustomEventSystem;
 
 namespace Runtime.CombatSystem
 {
@@ -9,21 +10,23 @@ namespace Runtime.CombatSystem
     {
         #region Private Fields
         private SpellerNPCSettings settings;
+        private int id;
         #endregion
 
         #region Initialization
-        public override void Init()
-        {
-            base.Init();
-            target = FindObjectOfType<SpellerPlayer>();
-            OnUseSpellEvent += LoadSpell;
-            stats.OnDefeatEvent += DisableCombat;
-        }
 
-        public void SetSettings(SpellerNPCSettings npc_settings)
+        public void SetSettings(SpellerNPCSettings settings)
         {
-            settings = npc_settings;
-            spellerName = npc_settings.spellerName;
+            this.settings = settings;
+            spellerName = settings.spellerName;
+            stats = new SpellerStats();
+
+            stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
+            stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
+            stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(id, n);
+            stats.OnChangeDefenseEvent += (n) => Events.OnChangeEnemyDefense.Invoke(id, n);
+            stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
+            stats.OnDefeatEvent += () => DisableCombat();
         }
 
         public void Active()
@@ -58,12 +61,12 @@ namespace Runtime.CombatSystem
             StartCoroutine(corroutine);
         }
 
-        protected override Spell GetActiveSpell()
+        protected override SpellUnit GetActiveSpell()
         {
             Spell spell = settings.deck.GetRandomSpell();
-            return spell ?? Spell.DefaultSpell();
+            spell = spell ?? Spell.DefaultSpell();
+            int lvl = spell.power < 3 ? new System.Random().Next(1, 3) : 3;
+            return new SpellUnit(spell, lvl);
         }
-
-        
     }
 }

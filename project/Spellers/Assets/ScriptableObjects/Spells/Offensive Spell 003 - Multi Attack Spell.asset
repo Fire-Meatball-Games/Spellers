@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: DummySpell
+  m_Name: Offensive Spell 003 - Multi Attack Spell
   m_EditorClassIdentifier: 
-  id: 1c99f578f8b1154429dd4f6bfa597501
-  spellName: Dummy
-  description: Does nothing :(
-  lvl: 1
-  type: 0
+  spellName: Iterato noxia
+  description: Deals damage to the target
+  power: 1
+  target_effects:
+  - type: 6
+    base_value: 2
+    level_value: 0
+    base_hits: 2
+    level_hits: 1
+  self_effects: []

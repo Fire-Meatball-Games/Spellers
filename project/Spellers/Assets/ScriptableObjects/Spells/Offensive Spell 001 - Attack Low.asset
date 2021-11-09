@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: HealingSpell Lvl1
+  m_Name: Offensive Spell 001 - Attack Low
   m_EditorClassIdentifier: 
-  id: 2be08b291918b8842842d55474074c36
-  spellName: Heal
-  description: Heals the user
-  lvl: 1
-  type: 2
+  spellName: Imperio
+  description: Deals damage to the target
+  power: 1
+  target_effects:
+  - type: 6
+    base_value: 4
+    level_value: 2
+    base_hits: 1
+    level_hits: 1
+  self_effects: []

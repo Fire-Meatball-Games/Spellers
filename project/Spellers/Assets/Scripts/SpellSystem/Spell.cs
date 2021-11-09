@@ -4,50 +4,73 @@ using UnityEngine;
 
 namespace SpellSystem
 {
-    public enum Type
+
+    public struct SpellUnit
     {
-        Dummy,
-        Attack,
-        Heal,
-        Shield,
-        Sacrifice,
-        AtkBuff,
-        DefBuff,
-        AtkDebuff,
-        DefDebuff
+        public Spell spell;
+        public int lvl;
+
+        public SpellUnit(Spell spell, int lvl)
+        {
+            this.spell = spell;
+            this.lvl = lvl;
+        }
     }
+
 
     [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spell", order = 1)]
     public class Spell : ScriptableObject
     {
-        public string spellName;
-        [TextArea] public string description;
-        public int lvl;
-        
-        public Type type;
+        [SerializeField] public string spellName;
+        [TextArea]
+        [SerializeField] public string description;
+        [SerializeField] public Sprite thumbnail;
+        [SerializeField] public Sprite ingame;
 
-        public Spell(string spellName, string description, int lvl, Type type)
+        [Range(1, 3)]
+        [SerializeField] public int power = 1;
+
+        [SerializeField] public List<SpellEffect> target_effects;
+        [SerializeField] public List<SpellEffect> self_effects;
+
+
+
+        public Spell(string spellName, string description)
         {
             this.spellName = spellName;
             this.description = description;
-            this.lvl = lvl;
-            this.type = type;
         }
 
         public static Spell DefaultSpell()
         {
-            return new Spell("Dummy", "Default spell", 1, Type.Dummy);
+            return new Spell("Dummy", "Default spell");
         }
 
         public override string ToString()
         {
-            return spellName + " Lvl." + lvl;
+            return spellName;
         }
+    }
 
-        public bool isOffensive()
+    [System.Serializable]
+    public class SpellEffect
+    {
+        public enum Type
         {
-            return type == Type.Attack || type == Type.Sacrifice || type == Type.AtkDebuff || type == Type.DefDebuff;
+            Dummy,
+            Base_Damage,
+            Percent_Damage,
+            Base_Healing,            
+            Percent_Healing,
+            Shields,
+            Attack,
+            Defense
         }
-    }  
 
+        public Type type;
+        public float base_value;
+        public float level_value;
+        public int base_hits = 1;
+        public int level_hits = 1;
+    }
 }

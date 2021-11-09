@@ -8,117 +8,104 @@ namespace Runtime.CombatSystem
     public class SpellerStats
     {
         #region Fields
-        const int MAX_STATE_LVL = 3;
-        const int MIN_STATE_LVL = -3;
 
-        private int healthPoints;
-        private int shieldPoints;
-        private int atkLvl;
-        private int defLvl;
+        const int MAX_HEALTH = 100;
+        const int MAX_SHIELDS = 6;
 
-        private readonly int maxHealthPoints;
-        private readonly int maxShieldPoints;
-
-        public delegate void OnChangeHealthEvent(int health, int shield);
-        public event OnChangeHealthEvent OnChangeHealth;
+        private int health = MAX_HEALTH;
+        private int shields = 0;
+        private float attackMultiplier = 1f;
+        private float defenseMultiplier = 1f;
 
         public delegate void OnDefeatDelegate();
+        public delegate void OnChangeStatDelegate(int value);
+        public delegate void OnChangeMultiplierDelegate(float value);
         public event OnDefeatDelegate OnDefeatEvent;
+        public event OnChangeStatDelegate OnChangeHealthEvent;
+        public event OnChangeStatDelegate OnChangeShieldsEvent;
+        public event OnChangeMultiplierDelegate OnChangeAttackEvent;
+        public event OnChangeMultiplierDelegate OnChangeDefenseEvent;
 
-        public delegate void OnChangeStatDelegate(int lvl);
-        public event OnChangeStatDelegate OnChangeAtkLvlEvent;
-        public event OnChangeStatDelegate OnChangeDefLvlEvent;
+
 
         #endregion
 
         #region Properties
 
+        public SpellerStats() { }
+
         public int Health
         {
-            get => healthPoints;
+            get => health;
             set
             {
-                int clampedValue = Mathf.Clamp(value, 0, maxHealthPoints);
-                if(clampedValue != healthPoints)
+                int clampedValue = Mathf.Clamp(value, 0, MAX_HEALTH);
+                if(clampedValue != health)
                 {
-                    healthPoints = clampedValue;
-                    OnChangeHealth?.Invoke(healthPoints, shieldPoints);
-                    if (healthPoints == 0)
+                    health = clampedValue;
+                    OnChangeHealthEvent?.Invoke(health);
+                    if (health == 0)
                         OnDefeatEvent?.Invoke();
                 }                
             }
         }
 
-        public int Shield 
+        public int Shields 
         {
-            get => shieldPoints;
+            get => shields;
             set
             {
-                int clampedValue = Mathf.Clamp(value, 0, maxShieldPoints);
-                if(clampedValue != shieldPoints)
+                int clampedValue = Mathf.Clamp(value, 0, MAX_SHIELDS);
+                if(clampedValue != shields)
                 {
-                    shieldPoints = clampedValue;
-                    OnChangeHealth?.Invoke(healthPoints, shieldPoints);
+                    shields = clampedValue;
+                    OnChangeShieldsEvent?.Invoke(shields);
                 }   
             }
         }
 
-        public int AttackLevel
+        public float AttackLevel
         {
-            get => atkLvl;
+            get => attackMultiplier;
             set
-            {
-                int clampedValue = Mathf.Clamp(value, MIN_STATE_LVL, MAX_STATE_LVL);
-                if(clampedValue != atkLvl)
+            {               
+                if(value != attackMultiplier)
                 {
-                    atkLvl = clampedValue;
-                    OnChangeAtkLvlEvent?.Invoke(atkLvl);
+                    attackMultiplier = value;
+                    OnChangeAttackEvent?.Invoke(attackMultiplier);
                 }
             }
         }
 
-        public int DefenseLevel
+        public float DefenseLevel
         {
-            get => defLvl;
+            get => defenseMultiplier;
             set
-            {
-                int clampedValue = Mathf.Clamp(value, MIN_STATE_LVL, MAX_STATE_LVL);
-                if (clampedValue != defLvl)
+            {               
+                if (value != defenseMultiplier)
                 {
-                    defLvl = clampedValue;
-                    OnChangeDefLvlEvent?.Invoke(defLvl);
-                }
-                
+                    defenseMultiplier = value;
+                    OnChangeDefenseEvent?.Invoke(defenseMultiplier);
+                }                
             }
         }
-
-        public int MaxHealth => maxHealthPoints;
-        public int MaxShield => maxShieldPoints;
 
         #endregion
 
-        public SpellerStats(int health, int maxShield = 50)
-        {
-            maxHealthPoints = health;
-            maxShieldPoints = maxShield;
-            healthPoints = health;
-            shieldPoints = 0;
-        }
 
-
-        public void GetDamage(int n)
+        #region Public Methods
+        public void GetDamage(int damage)
         {
-            if(n <= shieldPoints)
+            if(Shields > 0)
             {
-                Shield -= n;
+                Shields--;
             }
             else
-            {
-                int damage = n - shieldPoints;
-                Shield = 0;
+            { 
                 Health -= damage;
             }
         }
+        #endregion
     }
 
 }

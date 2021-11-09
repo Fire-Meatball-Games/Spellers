@@ -8,52 +8,33 @@ namespace Runtime.CombatSystem
 {
     public abstract class Speller : MonoBehaviour
     {
-        #region Fields
-
-        const int MAX_HEALTH = 100;
+        #region Public fields
 
         public string spellerName;
-
-        protected SpellerStats stats;
+        public SpellerStats stats;
         public Speller target;
 
         #endregion
 
         #region Properties
 
-        public SpellerStats Stats => stats;
+        // Borrar:
         public GameObject spellPrefab;
-
-        public delegate void OnUseSpellDelegate();
-        public event OnUseSpellDelegate OnUseSpellEvent;
 
         #endregion
 
         #region Unity CallBacks
 
-        public void Awake()
-        {
-            Init();
-        }
-
         #endregion
 
         #region Methods
 
-        // Inicializa las variables necesarias
-
-        public virtual void Init()
-        {
-            stats = new SpellerStats(MAX_HEALTH);
-        }
-
         // Usa un hechizo
 
-        protected void UseSpell(Spell spell)
+        protected virtual void UseSpell(SpellUnit spellUnit)
         {
-            OnUseSpellEvent?.Invoke();
-            SpellWand.UseSpell(spell, this, target);
-            Debug.Log(spellerName + " -> " + spell);
+            SpellWand.UseSpell(spellUnit, this, target);
+
         }
 
         // Recibe daño
@@ -78,11 +59,12 @@ namespace Runtime.CombatSystem
 
         // Devuelve el hechizo que va a lanzar el personaje (implementar en subclases).
 
-        protected abstract Spell GetActiveSpell();
+        protected abstract SpellUnit GetActiveSpell();
+
 
         // Corroutina para la animación del hechizo
 
-        private IEnumerator SpellCorroutine(Spell spell, float time = 1f)
+        private IEnumerator SpellCorroutine(SpellUnit spellUnit, float time = 1f)
         {
             GameObject spellShot = Instantiate(spellPrefab);
             spellShot.transform.position = transform.position;
@@ -92,12 +74,12 @@ namespace Runtime.CombatSystem
             for(int i = 0; i < time / Time.fixedDeltaTime; i++)
             {
                 delta += Time.fixedDeltaTime;
-                if(spell.isOffensive())
+
                     spellShot.transform.position = Vector3.Lerp(transform.position, target.transform.position, delta);
                 yield return new WaitForFixedUpdate();
             }
             Destroy(spellShot);
-            UseSpell(spell);
+            UseSpell(spellUnit);
         }        
         #endregion
     }

@@ -10,10 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: DefenseBuffSpell Lvl1
+  m_Name: Offensive Spell 004 - Sacrifice Spell
   m_EditorClassIdentifier: 
-  id: 2647b7670fae73d49859702905637b63
-  spellName: Defense Buff Spell
-  description: Increases user's defense
-  lvl: 1
-  type: 6
+  spellName: Autovicens
+  description: Deals damage to the target
+  power: 2
+  target_effects:
+  - type: 1
+    base_value: 16
+    level_value: 4
+    base_hits: 1
+    level_hits: 1
+  self_effects:
+  - type: 1
+    base_value: 6
+    level_value: 2
+    base_hits: 1
+    level_hits: 1

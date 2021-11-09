@@ -18,15 +18,17 @@ namespace Runtime
 
                 public const float SPACING = 0.01f;
                 public GameObject pnl_word, pnl_keys;
-                public GameObject prefab;
+                public Slider timer_slider;
+                public GameObject key_prefab;
 
                 #endregion
 
                 #region Private fields
 
-                private SpellerPlayer player;
                 private List<GameObject> keyButtons;
                 private List<GameObject> wordLetters;
+                private int dim;
+                private int current_char;
 
                 #endregion
 
@@ -37,19 +39,18 @@ namespace Runtime
                 {
                     keyButtons = new List<GameObject>();
                     wordLetters = new List<GameObject>();
-                    Events.OnJoinPlayer.AddListener(() => SubscribeToEvents());
+                    Events.OnGenerateBoard.AddListener(GenerateBoardGUI);
+                    Events.OnCheckKey.AddListener((x, y, hit) =>
+                    {
+                        if (hit)
+                            DisableKeyButton(x + dim*y);
+                        else
+                            DisableLayout();
+                    });
+                    Events.OnCompleteWord.AddListener(DisableLayout);
+                    Events.OnSetTimer.AddListener((max) => timer_slider.maxValue = max);
+                    Events.OnUpdateTimer.AddListener((value) => timer_slider.value = timer_slider.maxValue-value);
                 }
-
-                // Suscribe el controlador GUI a los eventos del jugador
-                public void SubscribeToEvents()
-                {
-                    player = FindObjectOfType<SpellerPlayer>();
-                    player.board.OnGenerateBoardEvent += GenerateBoardGUI;
-                    player.board.OnHitKeyEvent += DisableKeyButton;
-                    player.board.OnFailKeyEvent += DisableLayout;
-                    player.board.OnCompleteWordEvent += DisableLayout;
-                }
-
                 #endregion
 
                 #region Private Methods
@@ -57,13 +58,15 @@ namespace Runtime
                 // Genera los botones del teclado
                 private void GenerateBoardGUI(char[] keys, int dim, string word)
                 {
+                    this.dim = dim;
+                    this.current_char = 0;
                     GenerateHeader(word);
                     float size = Mathf.Max((1 - (dim - 1) * SPACING) / dim, 0);
                     for (int i = 0; i < dim; i++)
                     {
                         for (int j = 0; j < dim; j++)
                         {
-                            var go = Instantiate(prefab, pnl_keys.transform);
+                            var go = Instantiate(key_prefab, pnl_keys.transform);
                             keyButtons.Add(go);
                             var rt = go.GetComponent<RectTransform>();
                             rt.anchorMin = new Vector2(j * (size + SPACING), i * (size + SPACING));
@@ -83,7 +86,7 @@ namespace Runtime
                 {
                     for (int i = 0; i < s.Length; i++)
                     {
-                        var go = Instantiate(prefab, pnl_word.transform);
+                        var go = Instantiate(key_prefab, pnl_word.transform);
                         wordLetters.Add(go);
                         var rt = go.GetComponent<RectTransform>();
                         rt.anchorMin = new Vector2(i * 0.1f + 0.05f, 0.05f);
@@ -95,16 +98,18 @@ namespace Runtime
                 }
 
                 // Desactiva un boton
-                private void DisableKeyButton(int id, int currentCharIdx)
+                private void DisableKeyButton(int id)
                 {
                     keyButtons[id].SetActive(false);
-                    wordLetters[currentCharIdx].SetActive(false);
+                    wordLetters[current_char].SetActive(false);
+                    current_char++;
                 }
 
 
                 // Desactiva el teclado
                 private void DisableLayout()
                 {
+                    Debug.Log("Disableando teclado");
                     foreach (var go in keyButtons)
                     {
                         Destroy(go);
@@ -127,7 +132,7 @@ namespace Runtime
                 // Establece el evento de pulsar tecla para el boton correspondiente
                 private void SetEvent(Button b, int i, int j)
                 {
-                    b.onClick.AddListener(() => player?.OnKey(i, j));
+                    b.onClick.AddListener(() => FindObjectOfType<SpellerPlayer>()?.OnKey(i, j));
                 }
 
                 #endregion

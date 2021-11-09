@@ -64,4 +64,24 @@ namespace CustomEventSystem
             action -= listener;
         }
     }
+
+    public class CustomEvent<T1, T2, T3>
+    {
+        private event Action<T1, T2, T3> action = delegate { };
+
+        public void Invoke(T1 param, T2 param2, T3 param3)
+        {
+            action?.Invoke(param, param2, param3);
+        }
+
+        public void AddListener(Action<T1, T2, T3> listener)
+        {
+            action += listener;
+        }
+
+        public void RemoveListener(Action<T1, T2, T3> listener)
+        {
+            action -= listener;
+        }
+    }
 }

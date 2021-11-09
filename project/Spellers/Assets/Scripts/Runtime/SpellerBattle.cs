@@ -25,7 +25,8 @@ namespace Runtime
         public void AddPlayer(SpellerPlayer player)
         {
             this.player = player;
-            player.Stats.OnDefeatEvent += () => FinishBattle(false);
+            player.SetSettings();
+            Events.OnDefeatPlayer.AddListener(() => FinishBattle(false));
             Events.OnJoinPlayer.Invoke();
         }
 
@@ -33,14 +34,15 @@ namespace Runtime
         public void AddEnemy(SpellerNPC spellerNPC, int idx)
         {
             enemies.Add(spellerNPC);
-            spellerNPC.Stats.OnDefeatEvent += ()=> DefeatEnemy(spellerNPC);
+            Events.OnDefeatEnemy.AddListener(DefeatEnemy);
             Events.OnJoinEnemy.Invoke(idx);
         }
 
         // Elimina un enemigo de la partida
-        private void DefeatEnemy(SpellerNPC enemy)
+        private void DefeatEnemy(int idx)
         {
-            enemies.Remove(enemy);
+            SpellerNPC enemy = enemies[idx];
+            enemies.RemoveAt(idx);
             if(enemies.Count == 0)
             {
                 player.target = null;

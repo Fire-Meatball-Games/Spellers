@@ -16,22 +16,27 @@ namespace Runtime.CombatSystem
         [SerializeField] List<Spell> spells;
         #endregion
 
-        #region Unity CallBacks
-        public override void Init()
+        #region Initalization
+        public void SetSettings()
         {
-            base.Init();
-            target = FindObjectOfType<SpellerNPC>();
+            stats = new SpellerStats();
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
-            board.OnFailKeyEvent += () => stats.GetDamage(5);
-            board.OnTimerStartEvent += StartTimerCorroutine;
-        }        
 
-        private void Start()
-        {
-            InitializeTable();
-        }
+            stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
+            stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
+            stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
+            stats.OnChangeDefenseEvent += (n) => Events.OnChangePlayerDefense.Invoke(n);
+            stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
+
+            Events.OnSetTimer.AddListener(StartTimerCorroutine);
+            Events.OnCompleteWord.AddListener(StopAllCoroutines);
+            Events.OnCheckKey.AddListener((x,y,hit) => {if (hit) StopAllCoroutines();});
+
+            table.Initialize();
+        }  
         #endregion
+
 
         #region Public methods
 
@@ -40,8 +45,11 @@ namespace Runtime.CombatSystem
 
         public void SelectSpell(int idx)
         {
-            table.SelectSpellSlot(idx);
-            board.GenerateBoard(table.GetSelectedSpell().lvl);
+            SpellUnit spell = table.SelectSpellSlot(idx);
+            int wordLength = 2;
+            int boardDimension = 2;
+            int ticks = 50 * boardDimension;
+            board.GenerateBoard(wordLength, boardDimension, ticks);            
         }
 
         // Pulsa la tecla (x, y) del tablero de juego
@@ -60,14 +68,15 @@ namespace Runtime.CombatSystem
 
         #region Private Methods
 
-        private void InitializeTable()
-        {
-            table.Initialize();
-        }
-
-        protected override Spell GetActiveSpell()
+        protected override SpellUnit GetActiveSpell()
         {
             return table.GetSelectedSpell();
+        }
+
+        protected override void UseSpell(SpellUnit spell)
+        {
+            Events.OnPlayerUseSpell.Invoke();
+            base.UseSpell(spell);
         }
 
         private void StartTimerCorroutine(int ticks)

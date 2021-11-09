@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Utils;
+using CustomEventSystem;
 
 namespace Runtime.CombatSystem
 {
     public class SpellBoard
     {
-        #region Fields
+        #region Private Fields
         const string CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private string word;
         private char[] keys;
@@ -17,41 +18,20 @@ namespace Runtime.CombatSystem
 
         #endregion
 
-        #region Properties
-        public delegate void OnGenerateBoardDelegate(char[] keys, int dim, string word);        
-        public delegate void OnHitKeyDelegate(int id, int currentChar);        
-        public delegate void OnFailKeyDelegate();        
-        public delegate void OnCompleteWordDelegate();
-        public delegate void OnTimerDelegate(int ticks);
-
-        public event OnHitKeyDelegate OnHitKeyEvent;
-        public event OnFailKeyDelegate OnFailKeyEvent;
-        public event OnGenerateBoardDelegate OnGenerateBoardEvent;
-        public event OnCompleteWordDelegate OnCompleteWordEvent;
-        public event OnTimerDelegate OnTimerStartEvent;
-        public event OnTimerDelegate OnTimerTickEvent;
-
-        #endregion
-
-
         #region Public methods
 
         // MÉTODO PRINCIPAL
         // Genera los datos del tablero de juego a partir del hechizo seleccionado por el jugador.
         // Invoca un evento que hace que la interfaz del tablero se actualice.
 
-        public void GenerateBoard(int lvl)
+        public void GenerateBoard(int wordLength, int boardDimension, int ticks)
         {
-            int wordSize = 2 + 2 * lvl;
-            word = Extensions.GenerateRandomWord(wordSize, CHARS);
-            keyDimension = lvl + 2;
-            keys = Extensions.GenerateRandomKeys(keyDimension * keyDimension, word);
+            keyDimension = boardDimension;
+            word = Extensions.GenerateRandomWord(wordLength, CHARS);
+            keys = Extensions.GenerateRandomKeys(boardDimension * boardDimension, word);
             currentCharIdx = 0;
-            OnGenerateBoardEvent?.Invoke(keys, keyDimension, word);
-            
-            // Calculo del tiempo dependiendo del hechizo y el nivel:
-            // TO DO:
-            int ticks = 50 * (4 + 4 * lvl);
+            Events.OnGenerateBoard.Invoke(keys, boardDimension, word);             
+
             StartTimer(ticks);
 
         }
@@ -61,22 +41,22 @@ namespace Runtime.CombatSystem
 
         public void CheckCharacterKey(int x, int y)
         {
+            Events.OnSelectKey.Invoke(x, y);
             char pressedChar = GetCharAtPos(x, y);
             char currentChar = word[currentCharIdx];
-
+            
             if(pressedChar == currentChar)
             {
-                OnHitKeyEvent?.Invoke(y * keyDimension + x, currentCharIdx);
+                Events.OnCheckKey.Invoke(x, y, true);                
                 currentCharIdx++;                
                 if (currentCharIdx == word.Length)
                 {
-                    OnCompleteWordEvent?.Invoke();
-                }
-                    
+                    Events.OnCompleteWord.Invoke();
+                }                    
             }
             else
             {
-                OnFailKeyEvent?.Invoke();
+                Events.OnCheckKey.Invoke(x, y, false);
             }
         }
 
@@ -95,7 +75,7 @@ namespace Runtime.CombatSystem
 
         private void StartTimer(int ticks)
         {
-            OnTimerStartEvent?.Invoke(ticks);
+            Events.OnSetTimer.Invoke(ticks);
         }
 
         public IEnumerator TimerCorroutine(int ticks)
@@ -103,8 +83,7 @@ namespace Runtime.CombatSystem
             for(int i = 0; i < ticks; i++)
             {
                 yield return new WaitForFixedUpdate();
-                OnTimerTickEvent(i);
-                Debug.Log("Timer :" + i);
+                Events.OnUpdateTimer.Invoke(i);
             }
         }
 
