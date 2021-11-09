@@ -63,10 +63,7 @@ namespace Runtime.CombatSystem
 
         protected override SpellUnit GetActiveSpell()
         {
-            Spell spell = settings.deck.GetRandomSpell();
-            spell = spell ?? Spell.DefaultSpell();
-            int lvl = spell.power < 3 ? new System.Random().Next(1, 3) : 3;
-            return new SpellUnit(spell, lvl);
+            return settings.deck.GetRandomSpell();
         }
     }
 }

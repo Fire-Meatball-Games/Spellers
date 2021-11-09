@@ -26,14 +26,16 @@ namespace Runtime
 
                 private void SetUpSpellerPlayerGUI()
                 {
+                    string playerName = FindObjectOfType<SpellerBattle>().player.spellerName;
                     SpellerGUI gui = Instantiate(spellerPlayerGUI_prefab, playerGUIDisplay).GetComponent<SpellerGUI>();
-                    gui.SetUpPlayer();
+                    gui.SetUpPlayer(playerName);
                 }
 
                 private void SetUpSpellerNPCGUI(int idx)
                 {
+                    string enemyName = FindObjectOfType<SpellerBattle>().enemies[idx].spellerName;
                     SpellerGUI gui = Instantiate(spellerNPCGUI_prefab, enemyGUIList).GetComponent<SpellerGUI>();
-                    gui.SetUp(idx);
+                    gui.SetUpEnemy(idx, enemyName);
                 }
             }  
         }

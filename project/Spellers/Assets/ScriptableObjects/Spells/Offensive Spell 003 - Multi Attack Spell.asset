@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Iterato noxia
   description: Deals damage to the target
+  thumbnail: {fileID: 0}
+  ingame: {fileID: 0}
   power: 1
   target_effects:
   - type: 6
     base_value: 2
     level_value: 0
-    base_hits: 2
+    base_hits: 0
     level_hits: 1
   self_effects: []

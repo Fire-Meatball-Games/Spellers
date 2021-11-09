@@ -33,6 +33,7 @@ namespace Runtime.CombatSystem.GUI
 
         public void Start()
         {
+            UnPause();
             beginPanel.SetActive(true);
             endPanel.SetActive(false);
         }

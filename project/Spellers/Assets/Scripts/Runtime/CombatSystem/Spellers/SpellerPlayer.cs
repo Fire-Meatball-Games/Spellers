@@ -20,6 +20,7 @@ namespace Runtime.CombatSystem
         public void SetSettings()
         {
             stats = new SpellerStats();
+            Debug.Log("------------: " + spells.Count);
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
 

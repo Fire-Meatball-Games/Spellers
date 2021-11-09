@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: "Offensive Spell 006 - Escudo y da\xF1o"
   m_EditorClassIdentifier: 
-  spellName: 
+  spellName: Spicula
   description: 
+  thumbnail: {fileID: 0}
+  ingame: {fileID: 0}
   power: 2
   target_effects:
   - type: 1
     base_value: 4
     level_value: 2
-    base_hits: 1
-    level_hits: 1
+    base_hits: 0
+    level_hits: 0
   self_effects:
-  - type: 3
-    base_value: 2
-    level_value: 2
-    base_hits: 1
-    level_hits: 1
+  - type: 5
+    base_value: 1
+    level_value: 0
+    base_hits: 0
+    level_hits: 0

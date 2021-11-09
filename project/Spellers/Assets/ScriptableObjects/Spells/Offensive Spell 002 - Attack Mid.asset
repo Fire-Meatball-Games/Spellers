@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: Offensive Spell 002 - Attack Mid
   m_EditorClassIdentifier: 
-  spellName: Imperio
+  spellName: Vastare
   description: Deals damage to the target
+  thumbnail: {fileID: 0}
+  ingame: {fileID: 0}
   power: 2
   target_effects:
   - type: 6
     base_value: 10
     level_value: 2
-    base_hits: 1
-    level_hits: 1
+    base_hits: 0
+    level_hits: 0
   self_effects: []

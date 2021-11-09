@@ -16,14 +16,15 @@ namespace Runtime.CombatSystem.UI
         #endregion
 
         #region private Fields
-        private List<GameObject> spellSlots;
+        private List<SpellSlotGUI> spellSlots;
         #endregion
 
         #region Unity CallBacks and public methods
         public void Awake()
         {
-            spellSlots = new List<GameObject>();
+            spellSlots = new List<SpellSlotGUI>();
             Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
+            Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
         }
 
 
@@ -33,15 +34,16 @@ namespace Runtime.CombatSystem.UI
 
         // Genera la lista de hechizos:
         private void SetUpSpellSlots(List<SpellUnit> spells)
-        {            
+        {
+            Debug.Log("Añadiendo " + spells.Count + " hechizos");
             ShutDownSpellSlots();
             for (int i = 0; i < spells.Count; i++)
             {
                 int idx = i;
-                var spellSlot_go = Instantiate(spellSlot_prefab, book_content);
-                spellSlot_go.GetComponentInChildren<Button>().onClick.AddListener(() => FindObjectOfType<SpellerPlayer>().SelectSpell(idx));
-                SetLayoutSlot(spellSlot_go, spells[i]);
-                spellSlots.Add(spellSlot_go);
+                SpellSlotGUI spellSlot = Instantiate(spellSlot_prefab, book_content).GetComponent<SpellSlotGUI>();
+                spellSlot.AddListener(() => FindObjectOfType<SpellerPlayer>().SelectSpell(idx));
+                spellSlots.Add(spellSlot);
+                SetLayoutSlot(idx, spells[idx]);
             }          
         }
 
@@ -52,9 +54,9 @@ namespace Runtime.CombatSystem.UI
         }
 
         // Pinta el layout del hechizo:
-        private void SetLayoutSlot(GameObject go, SpellUnit spellUnit)
+        private void SetLayoutSlot(int idx, SpellUnit spellUnit)
         {
-            go.transform.Find("SpellName").GetComponent<TextMeshProUGUI>().SetText(spellUnit.spell.spellName);
+            spellSlots[idx].SetSpellGUI(spellUnit);
         }
         
         #endregion

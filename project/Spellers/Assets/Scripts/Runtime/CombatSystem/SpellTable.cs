@@ -13,7 +13,7 @@ namespace Runtime.CombatSystem
         private const int BASE_SLOTS = 3;
 
         private SpellDeck deck;
-        private List<SpellUnit> spellSlots;
+        private List<SpellUnit> spellSlots = new List<SpellUnit>(BASE_SLOTS);
         private SpellUnit selectedSpell;
         private int num_slots = BASE_SLOTS;
         #endregion
@@ -56,22 +56,14 @@ namespace Runtime.CombatSystem
         // Coloca 3 hechizos aleatorios del mazo del jugador a la mesa
         private void GenerateSpellSlots()
         {
-            var rand = new System.Random();
-            for (int i = 0; i < num_slots; i++)
-            {
-                Spell spell = deck.spells[new System.Random().Next(deck.spells.Count)];
-                int lvl = spell.power < 3 ? new System.Random().Next(1, 3) : 3;
-                spellSlots[i] = new SpellUnit(spell, lvl);
-            }
+            spellSlots.AddRange(deck.GetSpellPool(num_slots));
             Events.OnGenerateSpellSlots.Invoke(spellSlots);
         }
 
         // Cambia el hechizo de la posición idx de la mesa
         private void ChangeSpellSlot(int idx)
         {
-            Spell spell = deck.spells[new System.Random().Next(deck.spells.Count)];
-            int lvl = spell.power < 3 ? new System.Random().Next(1, 3) : 3;
-            spellSlots[idx] = new SpellUnit(spell, lvl);
+            spellSlots[idx] = deck.GetRandomSpell();
             Events.OnChangeSpellSlot.Invoke(idx, spellSlots[idx]);
         }
 

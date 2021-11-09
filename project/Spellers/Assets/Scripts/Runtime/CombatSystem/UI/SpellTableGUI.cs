@@ -46,7 +46,6 @@ namespace Runtime.CombatSystem.UI
         // Activa un panel y desactiva el anterior
         private void EnablePanel(GameObject panel)
         {
-            Debug.Log("Cambiando panel a " + panel.name);
             current_panel?.SetActive(false);
             panel.SetActive(true);
             current_panel = panel;
