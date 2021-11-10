@@ -28,7 +28,7 @@ namespace Runtime.CombatSystem.UI
             Events.OnCompleteWord.AddListener(() => EnablePanel(pnl_wand));
             Events.OnSelectSpellSlot.AddListener((_) => EnablePanel(pnl_board));
             Events.OnPlayerUseSpell.AddListener(() => EnablePanel(pnl_book));
-            Events.OnCheckKey.AddListener((x,y,hit) => { if (!hit) EnablePanel(pnl_book); });
+            Events.OnFailSpell.AddListener(() => EnablePanel(pnl_book));
 
         }
 

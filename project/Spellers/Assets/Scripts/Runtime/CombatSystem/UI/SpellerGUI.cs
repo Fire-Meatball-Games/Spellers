@@ -15,22 +15,27 @@ namespace Runtime.CombatSystem
             public int index;
             public TextMeshProUGUI txt_name;
             public Slider healthSlider;
-            public Slider shieldSlider;
+            public TextMeshProUGUI num_shields;
+            public Image img_shield;
             #endregion
 
             #region Set up
             public void SetUpPlayer(string playerName)
             {
+                img_shield.gameObject.SetActive(false);
                 txt_name.text = playerName;
                 Events.OnChangePlayerHealth.AddListener(SetHealthBar);
+                Events.OnChangePlayerShields.AddListener(SetShields);
             }
 
 
             public void SetUpEnemy(int idx, string enemyName)
             {
                 index = idx;
+                img_shield.gameObject.SetActive(false);
                 txt_name.text = enemyName;
-                Events.OnChangeEnemyHealth.AddListener(SetHealthBar);                    
+                Events.OnChangeEnemyHealth.AddListener(SetHealthBar);
+                Events.OnChangeEnemyShields.AddListener(SetShields);
             }
 
             #endregion
@@ -45,6 +50,27 @@ namespace Runtime.CombatSystem
                 if(idx == index)
                     healthSlider.value = health;               
             }
+
+            private void SetShields(int shields)
+            {
+                num_shields.text = "" + shields;
+                if(shields == 0)
+                    img_shield.gameObject.SetActive(false);
+                else
+                    img_shield.gameObject.SetActive(true);
+            }
+            private void SetShields(int idx, int shields)
+            {
+                if (idx == index)
+                {
+                    num_shields.text = "" + shields;
+                    if (shields == 0)
+                        img_shield.gameObject.SetActive(false);
+                    else
+                        img_shield.gameObject.SetActive(true);
+                }                    
+            }
+
 
             private void SetAtkLvl(int lvl)
             {

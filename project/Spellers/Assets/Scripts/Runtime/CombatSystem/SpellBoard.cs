@@ -57,6 +57,7 @@ namespace Runtime.CombatSystem
             else
             {
                 Events.OnCheckKey.Invoke(x, y, false);
+                Events.OnFailSpell.Invoke();
             }
         }
 
@@ -85,6 +86,7 @@ namespace Runtime.CombatSystem
                 yield return new WaitForFixedUpdate();
                 Events.OnUpdateTimer.Invoke(i);
             }
+            Events.OnFailSpell.Invoke();
         }
 
         #endregion

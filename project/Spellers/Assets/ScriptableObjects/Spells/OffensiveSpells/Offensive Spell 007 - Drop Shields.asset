@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
+  m_Name: Offensive Spell 007 - Drop Shields
+  m_EditorClassIdentifier: 
+  spellName: Imperio
+  description: Deletes user and target shields and deals damage to target
+  thumbnail: {fileID: 0}
+  ingame: {fileID: 0}
+  power: 3
+  target_effects:
+  - type: 1
+    base_value: 6
+    level_value: 0
+    base_hits: 0
+    level_hits: 0
+  - type: 5
+    base_value: -6
+    level_value: 0
+    base_hits: 0
+    level_hits: 0
+  self_effects:
+  - type: 5
+    base_value: -6
+    level_value: 0
+    base_hits: 0
+    level_hits: 0

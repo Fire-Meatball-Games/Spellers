@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace SpellSystem
 {
-
     public struct SpellUnit
     {
         public Spell spell;
@@ -22,11 +21,14 @@ namespace SpellSystem
             this.lvl = spell.power < 3 ? Random.Range(1,3) : 3;
         }
 
-
+        public override string ToString()
+        {
+            return spell.spellName + " " + lvl;
+        }
     }
 
 
-    [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spell", order = 1)]
+    [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spells/Spell", order = 0)]
     public class Spell : ScriptableObject
     {
         [SerializeField] public string spellName;
@@ -38,21 +40,8 @@ namespace SpellSystem
         [Range(1, 3)]
         [SerializeField] public int power = 1;
 
-        [SerializeField] public List<SpellEffect> target_effects;
-        [SerializeField] public List<SpellEffect> self_effects;
+        [SerializeField] public List<SpellEffect> effects;
 
-
-
-        public Spell(string spellName, string description)
-        {
-            this.spellName = spellName;
-            this.description = description;
-        }
-
-        public static Spell DefaultSpell()
-        {
-            return new Spell("Dummy", "Default spell");
-        }
 
         public override string ToString()
         {
@@ -63,22 +52,40 @@ namespace SpellSystem
     [System.Serializable]
     public class SpellEffect
     {
-        public enum Type
+        public enum Target
         {
-            Dummy,
-            Base_Damage,
-            Percent_Damage,
-            Base_Healing,            
-            Percent_Healing,
-            Shields,
-            Attack,
-            Defense
+            target = 0,
+            self = 1
         }
 
+        public enum Type
+        {
+            Damage = 0,
+            Heal = 1,
+            Shield = 2,
+            AtkState = 3,
+            DefState = 4,
+            Regeneration = 5,
+            CleanDebuff = 6,
+            CleanBuff = 7,
+            Difficulty = 10,
+            Slots = 11,
+            Order = 12
+        }
+
+        public enum Scale
+        {
+            Plane = 0,
+            Missing = 1,
+            Current = 2
+        }
+
+        public Target target;
         public Type type;
-        public float base_value;
-        public float level_value;
-        public int base_hits = 1;
-        public int level_hits = 1;
+        public Scale scale;
+        public int base_value;
+        public int level_value;
+        public int base_hits;
+        public int level_hits;
     }
 }

@@ -32,7 +32,7 @@ namespace Runtime.CombatSystem
 
             Events.OnSetTimer.AddListener(StartTimerCorroutine);
             Events.OnCompleteWord.AddListener(StopAllCoroutines);
-            Events.OnCheckKey.AddListener((x,y,hit) => {if (hit) StopAllCoroutines();});
+            Events.OnFailSpell.AddListener(StopAllCoroutines);
 
             table.Initialize();
         }  
@@ -46,10 +46,12 @@ namespace Runtime.CombatSystem
 
         public void SelectSpell(int idx)
         {
-            SpellUnit spell = table.SelectSpellSlot(idx);
-            int wordLength = 2;
-            int boardDimension = 2;
-            int ticks = 50 * boardDimension;
+            SpellUnit spellUnit = table.SelectSpellSlot(idx);
+            int level = spellUnit.lvl;
+            int power = spellUnit.spell.power;
+            int wordLength = 2 * (power % 2 + 1) + level + 1; // 4/5/6 para p1, 6/7/8 para p2, 8 para p3.
+            int boardDimension = 2 + level;
+            int ticks = 200  + 100 * level; // tick = 0.02s
             board.GenerateBoard(wordLength, boardDimension, ticks);            
         }
 

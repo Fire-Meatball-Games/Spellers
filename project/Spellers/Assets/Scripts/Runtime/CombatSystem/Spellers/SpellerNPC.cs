@@ -27,6 +27,7 @@ namespace Runtime.CombatSystem
             stats.OnChangeDefenseEvent += (n) => Events.OnChangeEnemyDefense.Invoke(id, n);
             stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
             stats.OnDefeatEvent += () => DisableCombat();
+            Events.OnBattleBegins.AddListener(Active);
         }
 
         public void Active()
@@ -39,8 +40,12 @@ namespace Runtime.CombatSystem
             target = FindObjectOfType<SpellerPlayer>();
         }
 
+        protected override void UseSpell(SpellUnit spellUnit)
+        {
+            base.UseSpell(spellUnit);
+            LoadSpell();
+        }
         #endregion
-
 
         private void DisableCombat()
         {

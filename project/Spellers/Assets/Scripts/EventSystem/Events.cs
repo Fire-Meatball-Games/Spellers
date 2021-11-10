@@ -32,6 +32,7 @@ namespace CustomEventSystem
         public static readonly CustomEvent OnCompleteWord = new CustomEvent();
         public static readonly CustomEvent<int> OnSetTimer = new CustomEvent<int>();
         public static readonly CustomEvent<int> OnUpdateTimer = new CustomEvent<int>();
+        public static readonly CustomEvent OnFailSpell = new CustomEvent();
 
         // Eventos de los enemigos:
         public static readonly CustomEvent<int, int> OnChangeEnemyHealth = new CustomEvent<int, int>();

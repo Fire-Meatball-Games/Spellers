@@ -48,6 +48,7 @@ namespace Runtime
                             DisableLayout();
                     });
                     Events.OnCompleteWord.AddListener(DisableLayout);
+                    Events.OnFailSpell.AddListener(DisableLayout);
                     Events.OnSetTimer.AddListener((max) => timer_slider.maxValue = max);
                     Events.OnUpdateTimer.AddListener((value) => timer_slider.value = timer_slider.maxValue-value);
                 }
