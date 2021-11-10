@@ -18,7 +18,7 @@ namespace Runtime.CombatSystem
         private float attackMultiplier = 1f;
         private int attackMultiplierTurns = 0;
 
-        private int regeneration = 0;
+        private int regeneration;
         private int regenerationTurns = 0;
 
         private int slotLevels = 0;
@@ -134,7 +134,7 @@ namespace Runtime.CombatSystem
 
         public void CompleteTurn()
         {
-            Health -= regeneration;
+            Health += Regeneration;
 
             SlotLevelTurns--;
             AttacklevelTurns--;

@@ -20,7 +20,6 @@ namespace Runtime.CombatSystem
         public void SetSettings()
         {
             stats = new SpellerStats();
-            Debug.Log("------------: " + spells.Count);
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
 
@@ -28,6 +27,7 @@ namespace Runtime.CombatSystem
             stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
             stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
             stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
+            stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
 
             Events.OnSetTimer.AddListener(StartTimerCorroutine);
             Events.OnCompleteWord.AddListener(StopAllCoroutines);

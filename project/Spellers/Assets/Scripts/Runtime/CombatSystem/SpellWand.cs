@@ -23,9 +23,29 @@ namespace Runtime.CombatSystem
                     case SpellEffect.Type.Shield: Shield(value, speller); break;
                     case SpellEffect.Type.AtkState: AttackState(value, hits, speller); break;
                     case SpellEffect.Type.Regeneration: Regeneration(value, hits, speller); break;
+                    case SpellEffect.Type.CleanDebuff: CleanDebuff(speller); break;
+                    case SpellEffect.Type.CleanBuff: CleanBuff(speller); break;
                     default: break;
                 }
             }             
+        }
+
+        private static void CleanBuff(Speller speller)
+        {
+            if (speller.stats.AttackLevel > 1) speller.stats.AttackLevel = 1; speller.stats.AttacklevelTurns = 0;
+            if (speller.stats.Regeneration > 0) speller.stats.Regeneration = 0; speller.stats.RegenerationTurns = 0;
+            if (speller.stats.SlotLevels > 0) speller.stats.SlotLevels = 0; speller.stats.SlotLevelTurns = 0;
+            if (speller.stats.Order > 0) speller.stats.Order = 0; speller.stats.OrderTurns = 0;
+            if (speller.stats.Difficulty > 0) speller.stats.Difficulty = 0; speller.stats.DifficultyTurns = 0;
+        }
+
+        private static void CleanDebuff(Speller speller)
+        {
+            if (speller.stats.AttackLevel < 1) speller.stats.AttackLevel = 1; speller.stats.AttacklevelTurns = 0;
+            if (speller.stats.Regeneration < 0) speller.stats.Regeneration = 0; speller.stats.RegenerationTurns = 0;
+            if (speller.stats.SlotLevels < 0) speller.stats.SlotLevels = 0; speller.stats.SlotLevelTurns = 0;
+            if (speller.stats.Order < 0) speller.stats.Order = 0; speller.stats.OrderTurns = 0;
+            if (speller.stats.Difficulty < 0) speller.stats.Difficulty = 0; speller.stats.DifficultyTurns = 0;
         }
 
         private static void Regeneration(int value, int hits, Speller speller)

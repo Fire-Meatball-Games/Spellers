@@ -44,6 +44,12 @@ namespace Runtime.CombatSystem
             return selectedSpell;
         }
 
+        // Cambia el número de hechizos disponibles
+        public void SetNumSlots(int n)
+        {
+            num_slots = BASE_SLOTS + n;
+        }
+
         // Carga los hechizos iniciales
         public void Initialize()
         {
