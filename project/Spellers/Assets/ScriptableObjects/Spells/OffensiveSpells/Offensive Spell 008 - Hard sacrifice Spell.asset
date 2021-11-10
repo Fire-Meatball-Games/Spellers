@@ -12,20 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: Offensive Spell 008 - Hard sacrifice Spell
   m_EditorClassIdentifier: 
-  spellName: Imperio
-  description: Deletes user and target shields and deals damage to target
+  spellName: Sacrificium
+  description: 
   thumbnail: {fileID: 0}
   ingame: {fileID: 0}
   power: 3
-  target_effects:
-  - type: 2
+  effects:
+  - target: 0
+    type: 0
+    scale: 2
     base_value: 50
     level_value: 0
     base_hits: 0
     level_hits: 0
-  self_effects:
-  - type: 2
-    base_value: 50
+  - target: 1
+    type: 1
+    scale: 2
+    base_value: -50
     level_value: 0
     base_hits: 0
     level_hits: 0

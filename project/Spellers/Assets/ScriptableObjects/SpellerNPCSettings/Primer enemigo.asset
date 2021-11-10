@@ -23,5 +23,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
   max_health: 10
   max_spell_lvl: 1
-  cooldown_average: 2
-  cooldown_deviation: 1
+  cooldown_average: 10
+  cooldown_deviation: 5

@@ -24,7 +24,6 @@ namespace Runtime.CombatSystem
             stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
             stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(id, n);
-            stats.OnChangeDefenseEvent += (n) => Events.OnChangeEnemyDefense.Invoke(id, n);
             stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
             stats.OnDefeatEvent += () => DisableCombat();
             Events.OnBattleBegins.AddListener(Active);

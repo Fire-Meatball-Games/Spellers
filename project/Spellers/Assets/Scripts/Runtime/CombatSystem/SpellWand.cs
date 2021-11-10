@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
+using System;
 
 namespace Runtime.CombatSystem
 {
@@ -9,75 +10,69 @@ namespace Runtime.CombatSystem
     {
         public static void UseSpell(SpellUnit spellUnit, Speller user, Speller target)
         {
-            //Debug.Log(user.spellerName + " (" + spellUnit.ToString() + ") -> " + target);
-            //Debug.Log("Efectos al objetivo: " + spellUnit.spell.target_effects.Count);
-            //Debug.Log("Efectos al usuario: " + spellUnit.spell.self_effects.Count);
-            //int level = spellUnit.lvl;
-            //foreach(SpellEffect effect in spellUnit.spell.target_effects)
-            //{
-            //    int value = effect.base_value + effect.level_value * level; 
-            //    switch (effect.type)
-            //    {
-            //        case SpellEffect.Type.Dummy:                                            break;
-            //        case SpellEffect.Type.Base_Damage:      BaseDamage(value, target);      break;
-            //        case SpellEffect.Type.Current_Damage:   PercentDamage(value, target);   break;
-            //        case SpellEffect.Type.Base_Healing:     BaseHeal(value, target);        break;
-            //        case SpellEffect.Type.Current_Healing:  PercentHeal(value, target);     break;
-            //        case SpellEffect.Type.Shields:          GetShield(value, target);       break;
-            //        case SpellEffect.Type.AttackPower:                                           break;
-            //        case SpellEffect.Type.DefensePower:                                          break;
-            //        default:                                                                break;
-            //    }
-            //}
-
-            //foreach (SpellEffect effect in spellUnit.spell.self_effects)
-            //{
-            //    int value = effect.base_value + effect.level_value * level;
-            //    switch (effect.type)
-            //    {
-            //        case SpellEffect.Type.Dummy: break;
-            //        case SpellEffect.Type.Base_Damage: BaseDamage(value, user); break;
-            //        case SpellEffect.Type.Current_Damage: PercentDamage(value, user); break;
-            //        case SpellEffect.Type.Base_Healing: BaseHeal(value, user); break;
-            //        case SpellEffect.Type.Current_Healing: PercentHeal(value, user); break;
-            //        case SpellEffect.Type.Shields: GetShield(value, user); break;
-            //        case SpellEffect.Type.AttackPower: break;
-            //        case SpellEffect.Type.DefensePower: break;
-            //        default: break;
-            //    }
-            //}
+            int level = spellUnit.lvl;
+            foreach(SpellEffect effect in spellUnit.spell.effects)
+            {
+                int value = effect.base_value + effect.level_value * level;
+                int hits = effect.base_hits + effect.level_hits * level + 1;
+                Speller speller = effect.target == SpellEffect.Target.target ? target : user;
+                switch (effect.type)
+                {
+                    case SpellEffect.Type.Damage: Damage(value, user.stats.AttackLevel, effect.scale, hits, speller); break;
+                    case SpellEffect.Type.Heal: Heal(value, effect.scale, speller); break;
+                    case SpellEffect.Type.Shield: Shield(value, speller); break;
+                    case SpellEffect.Type.AtkState: AttackState(value, hits, speller); break;
+                    case SpellEffect.Type.Regeneration: Regeneration(value, hits, speller); break;
+                    default: break;
+                }
+            }             
         }
 
-        public static void BaseDamage(int value, Speller speller)
+        private static void Regeneration(int value, int hits, Speller speller)
         {
-            speller.stats.GetDamage(value);
-            Debug.Log("Set damage (" + value + ") to "+ speller.name);
+            speller.stats.Regeneration += value;
+            speller.stats.RegenerationTurns += hits;
         }
 
-        public static void BaseHeal(int value, Speller speller)
+        private static void AttackState(int value, int hits, Speller speller)
         {
-            speller.stats.Health += value;
-            Debug.Log("Set heal (" + value + ") to " + speller.name);
+            speller.stats.AttackLevel += value / 100f;
+            speller.stats.AttacklevelTurns += hits;
         }
 
-        public static void PercentDamage(int value, Speller speller)
+        private static void Damage(int value, float multiplier, SpellEffect.Scale scale, int hits, Speller speller)
         {
-            float current_hp_percentage = speller.stats.Health / 100f;
-            int percent_value = (int)(current_hp_percentage * value);
-            speller.stats.GetDamage(percent_value);
+            float aux = value * multiplier;
+            if(scale == SpellEffect.Scale.Current)
+            {
+                value = (int)(aux * speller.stats.Health / 100f);
+            } 
+            else if(scale == SpellEffect.Scale.Missing)
+            {
+                value = (int)(aux * (100 - speller.stats.Health) / 100f);
+            }
+            for (int i = 0; i < hits; i++)
+            {
+                speller.stats.GetDamage(value);
+            }            
         }
 
-        public static void PercentHeal(float value, Speller speller)
+        private static void Heal(int value, SpellEffect.Scale scale, Speller speller)
         {
-            float current_hp_percentage = speller.stats.Health / 100f;
-            int percent_value = (int)(current_hp_percentage * value);
-            speller.stats.Health += percent_value;
+            if (scale == SpellEffect.Scale.Current)
+            {
+                value = (int)(speller.stats.Health / 100f);
+            }
+            else if (scale == SpellEffect.Scale.Missing)
+            {
+                value = (int)((100 - speller.stats.Health) / 100f);
+            }
+            speller.stats.Health += (value);
         }
 
-        public static void GetShield(int value, Speller speller)
+        private static void Shield(int value, Speller speller)
         {
-            speller.stats.Shields += value;
-            Debug.Log("Set shield (" + value + ") to " + speller.name);
+            speller.stats.Shields += value;           
         }
     } 
 }

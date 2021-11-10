@@ -27,7 +27,6 @@ namespace Runtime.CombatSystem
             stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
             stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
-            stats.OnChangeDefenseEvent += (n) => Events.OnChangePlayerDefense.Invoke(n);
             stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
 
             Events.OnSetTimer.AddListener(StartTimerCorroutine);

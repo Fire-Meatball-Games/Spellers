@@ -17,9 +17,10 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   ingame: {fileID: 0}
   power: 2
-  target_effects: []
-  self_effects:
-  - type: 11
+  effects:
+  - target: 1
+    type: 1
+    scale: 0
     base_value: 8
     level_value: 2
     base_hits: 0
