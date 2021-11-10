@@ -11,7 +11,7 @@ namespace Runtime.CombatSystem
         #region Public fields
 
         public string spellerName;
-        public SpellerStats stats;
+        public SpellSystem.SpellerStats stats; 
         public Speller target;
 
         #endregion

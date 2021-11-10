@@ -40,52 +40,12 @@ namespace SpellSystem
         [Range(1, 3)]
         [SerializeField] public int power = 1;
 
-        [SerializeField] public List<SpellEffect> effects;
+        [SerializeField] public List<Effect> effects;
 
 
         public override string ToString()
         {
             return spellName;
         }
-    }
-
-    [System.Serializable]
-    public class SpellEffect
-    {
-        public enum Target
-        {
-            target = 0,
-            self = 1
-        }
-
-        public enum Type
-        {
-            Damage = 0,
-            Heal = 1,
-            Shield = 2,
-            AtkState = 3,
-            DefState = 4,
-            Regeneration = 5,
-            CleanDebuff = 6,
-            CleanBuff = 7,
-            Difficulty = 10,
-            Slots = 11,
-            Order = 12
-        }
-
-        public enum Scale
-        {
-            Plane = 0,
-            Missing = 1,
-            Current = 2
-        }
-
-        public Target target;
-        public Type type;
-        public Scale scale;
-        public int base_value;
-        public int level_value;
-        public int base_hits;
-        public int level_hits;
     }
 }

@@ -19,7 +19,7 @@ namespace Runtime.CombatSystem
         #region Initalization
         public void SetSettings()
         {
-            stats = new SpellerStats();
+            stats = new SpellSystem.SpellerStats();
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
 

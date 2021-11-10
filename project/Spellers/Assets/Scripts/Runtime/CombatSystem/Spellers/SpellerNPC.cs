@@ -19,7 +19,7 @@ namespace Runtime.CombatSystem
         {
             this.settings = settings;
             spellerName = settings.spellerName;
-            stats = new SpellerStats();
+            stats = new SpellSystem.SpellerStats();
 
             stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
