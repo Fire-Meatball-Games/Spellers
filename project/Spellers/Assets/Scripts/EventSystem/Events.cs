@@ -9,7 +9,10 @@ namespace CustomEventSystem
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();
 
         // Eventos de la partida:
+
+        public static readonly CustomEvent OnStartCountDown = new CustomEvent();
         public static readonly CustomEvent OnBattleBegins = new CustomEvent();
+        public static readonly CustomEvent<bool> OnPauseBattle = new CustomEvent<bool>();
         public static readonly CustomEvent<bool> OnBattleEnds = new CustomEvent<bool>();
         public static readonly CustomEvent OnJoinPlayer = new CustomEvent();
         public static readonly CustomEvent<int> OnJoinEnemy = new CustomEvent<int>();

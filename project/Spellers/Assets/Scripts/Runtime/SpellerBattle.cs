@@ -7,9 +7,6 @@ using CustomEventSystem;
 
 namespace Runtime
 {
-    /// <summary>
-    /// Controla el estado de la partida.
-    /// </summary>
 
     public class SpellerBattle : MonoBehaviour
     {
@@ -36,24 +33,7 @@ namespace Runtime
             enemies.Add(spellerNPC);
             Events.OnDefeatEnemy.AddListener(DefeatEnemy);
             Events.OnJoinEnemy.Invoke(idx);
-        }
-
-        // Elimina un enemigo de la partida
-        private void DefeatEnemy(int idx)
-        {
-            Debug.Log("Enemigo derrotado");
-            SpellerNPC enemy = enemies[idx];
-            enemies.RemoveAt(idx);
-            if(enemies.Count == 0)
-            {
-                player.target = null;
-                FinishBattle();
-            }
-            else if (player.target == enemy)
-            {
-                player.target = enemies[0];
-            }                       
-        }        
+        }           
 
         // Finaliza la batalla
         public void FinishBattle(bool victory = true)
@@ -68,7 +48,31 @@ namespace Runtime
         // Comienza la batalla
         public void BeginBattle()
         {
-            Events.OnBattleBegins.Invoke();
+                    
+        }
+
+        public void PauseBattle(bool pause)
+        {
+            Events.OnPauseBattle.Invoke(pause);
+            Time.timeScale = pause ? 0.0f : 1.0f;
+            
+        }
+
+        // Elimina un enemigo de la partida
+        private void DefeatEnemy(int idx)
+        {
+            Debug.Log("Enemigo derrotado");
+            SpellerNPC enemy = enemies[idx];
+            enemies.RemoveAt(idx);
+            if (enemies.Count == 0)
+            {
+                player.target = null;
+                FinishBattle();
+            }
+            else if (player.target == enemy)
+            {
+                player.target = enemies[0];
+            }
         }
     } 
 }

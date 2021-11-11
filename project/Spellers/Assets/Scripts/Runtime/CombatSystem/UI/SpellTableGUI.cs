@@ -20,11 +20,15 @@ namespace Runtime.CombatSystem.UI
         #endregion
 
         #region Unity CallBacks and public methods
+
+        private void Awake() => pnl_book.SetActive(true);
+
         public void Start()
         {
+            pnl_book.SetActive(false);
             pnl_board.SetActive(false);
             pnl_wand.SetActive(false);
-            EnablePanel(pnl_book);
+            Events.OnBattleBegins.AddListener(() => EnablePanel(pnl_book));
             Events.OnCompleteWord.AddListener(() => EnablePanel(pnl_wand));
             Events.OnSelectSpellSlot.AddListener((_) => EnablePanel(pnl_board));
             Events.OnPlayerUseSpell.AddListener(() => EnablePanel(pnl_book));
