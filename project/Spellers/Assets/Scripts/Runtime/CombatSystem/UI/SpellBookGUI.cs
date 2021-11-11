@@ -27,7 +27,6 @@ namespace Runtime.CombatSystem.UI
             Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
         }
 
-
         #endregion
 
         #region Private Methods
@@ -35,7 +34,6 @@ namespace Runtime.CombatSystem.UI
         // Genera la lista de hechizos:
         private void SetUpSpellSlots(List<SpellUnit> spells)
         {
-            Debug.Log("Añadiendo " + spells.Count + " hechizos");
             ShutDownSpellSlots();
             for (int i = 0; i < spells.Count; i++)
             {
@@ -50,7 +48,12 @@ namespace Runtime.CombatSystem.UI
         // Destruye la lista de hechizos:
         private void ShutDownSpellSlots()
         {
-
+            for (int i = spellSlots.Count - 1; i > 0; i--)
+            {
+                Destroy(spellSlots[i]);
+            }
+            spellSlots.Clear();
+          
         }
 
         // Pinta el layout del hechizo:

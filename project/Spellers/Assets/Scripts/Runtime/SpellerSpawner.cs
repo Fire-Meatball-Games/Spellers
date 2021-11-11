@@ -13,6 +13,7 @@ namespace Runtime
         public GameObject npc_prefab;        
         public Transform player_spawn_point;
         public List<Transform> enemy_spawn_points;
+        public SpellerNPCSettings default_settings;
         #endregion
 
         #region UnityCallbacks
@@ -27,6 +28,18 @@ namespace Runtime
         private void Init()
         {
             SpellerBattle battle = FindObjectOfType<SpellerBattle>();
+            if (true)
+            {
+                SpellerPlayer p = GeneratePlayer();
+                battle.AddPlayer(p);
+                SpellerNPC speller = InstantiateEnemy(enemy_spawn_points[0]);
+                speller.SetSettings(default_settings);                
+                battle.AddEnemy(speller, 0);
+                speller.SetTarget();
+                p.SetTarget(battle.enemies[0], 0);
+                return;
+            }
+            
             List<SpellerNPCSettings> enemy_settings = GameController.instance.game_settings.speller_Settings;
 
             if (enemy_settings?.Count == 0)
@@ -53,7 +66,7 @@ namespace Runtime
         {
             Vector3 spawn_position = tf.position;
             Quaternion spawn_rotation = tf.rotation;
-            var speller_go = Instantiate(npc_prefab, spawn_position, spawn_rotation, transform);
+            var speller_go = Instantiate(npc_prefab, spawn_position, spawn_rotation, tf);
             return speller_go.GetComponent<SpellerNPC>();
         } 
 

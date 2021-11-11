@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 205 - Slots
   m_EditorClassIdentifier: 
   target: 1
-  type: 2
+  type: 0
   PointsBase: 0
   Pointslevel: 1
   TurnsBase: 1

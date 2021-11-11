@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: DebuffSpell 002 - Poison
+  m_Name: Dummy
   m_EditorClassIdentifier: 
-  spellName: Venenatum
-  description: 
+  spellName: Dummy
+  description: Does nothing
   thumbnail: {fileID: 0}
   ingame: {fileID: 0}
-  power: 2
-  effects:
-  - {fileID: 11400000, guid: aa568a36ce6e4fc4884133edae043675, type: 2}
+  power: 1
+  effects: []

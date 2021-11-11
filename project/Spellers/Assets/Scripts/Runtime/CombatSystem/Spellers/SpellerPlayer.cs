@@ -26,12 +26,15 @@ namespace Runtime.CombatSystem
             stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
             stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
-            stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
+            
             stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
+            stats.OnChangeOrderEvent += board.SetOrderLevel;
 
             Events.OnSetTimer.AddListener(StartTimerCorroutine);
             Events.OnCompleteWord.AddListener(StopAllCoroutines);
             Events.OnFailSpell.AddListener(StopAllCoroutines);
+
+            stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
 
             table.Initialize();
         }  

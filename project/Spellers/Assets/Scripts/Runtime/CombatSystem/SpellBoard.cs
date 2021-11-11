@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Utils;
 using CustomEventSystem;
+using System;
 
 namespace Runtime.CombatSystem
 {
@@ -34,6 +35,11 @@ namespace Runtime.CombatSystem
 
             StartTimer(ticks);
 
+        }
+
+        internal void SetOrderLevel(int value)
+        {
+            throw new NotImplementedException();
         }
 
         // MÉTODO PRINCIPAL

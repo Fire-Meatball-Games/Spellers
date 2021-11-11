@@ -18,10 +18,4 @@ MonoBehaviour:
   ingame: {fileID: 0}
   power: 1
   effects:
-  - target: 0
-    type: 12
-    scale: 0
-    base_value: -2
-    level_value: 0
-    base_hits: 0
-    level_hits: 1
+  - {fileID: 11400000, guid: 888c13afc00e32d4dbb240c7295377e6, type: 2}

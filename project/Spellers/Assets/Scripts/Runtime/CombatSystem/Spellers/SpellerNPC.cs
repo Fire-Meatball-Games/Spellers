@@ -10,7 +10,7 @@ namespace Runtime.CombatSystem
     {
         #region Private Fields
         private SpellerNPCSettings settings;
-        private int id;
+        private readonly int id;
         #endregion
 
         #region Initialization
@@ -24,8 +24,13 @@ namespace Runtime.CombatSystem
             stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
             stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(id, n);
+
+            stats.OnChangeSlotLevelsEvent += (n) => settings.cooldown_average -=n;
+            stats.OnChangeOrderEvent += (n) => settings.cooldown_average -= n;
+
             stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
             stats.OnDefeatEvent += () => DisableCombat();
+
             Events.OnBattleBegins.AddListener(Active);
         }
 

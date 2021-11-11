@@ -11,7 +11,7 @@ namespace Runtime.CombatSystem
         #region Public fields
 
         public string spellerName;
-        public SpellSystem.SpellerStats stats; 
+        public SpellerStats stats; 
         public Speller target;
 
         #endregion
@@ -20,11 +20,6 @@ namespace Runtime.CombatSystem
 
         // Borrar:
         public GameObject spellPrefab;
-
-        #endregion
-
-        #region Unity CallBacks
-
         #endregion
 
         #region Methods
@@ -34,7 +29,7 @@ namespace Runtime.CombatSystem
         protected virtual void UseSpell(SpellUnit spellUnit)
         {
             SpellWand.UseSpell(spellUnit, this, target);
-
+            stats.CompleteTurn();
         }
 
         // Recibe daño

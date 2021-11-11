@@ -18,17 +18,5 @@ MonoBehaviour:
   ingame: {fileID: 0}
   power: 3
   effects:
-  - target: 1
-    type: 6
-    scale: 0
-    base_value: 0
-    level_value: 0
-    base_hits: 0
-    level_hits: 0
-  - target: 1
-    type: 2
-    scale: 0
-    base_value: 2
-    level_value: 0
-    base_hits: 0
-    level_hits: 0
+  - {fileID: 11400000, guid: c893cdbc813cd1b44aa63d4135ba1bdc, type: 2}
+  - {fileID: 11400000, guid: 19c29dd771c6ec249a534bf6070874f5, type: 2}

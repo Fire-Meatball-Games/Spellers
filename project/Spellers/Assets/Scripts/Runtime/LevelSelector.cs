@@ -3,34 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Runtime.DialogueSystem;
+using CustomEventSystem;
 
 namespace Runtime
 {
     public class LevelSelector : MonoBehaviour
     {
-        private static int last_dialogue_level_index = 0;
-        private static int last_unlocked_level_index = 0;
+        public static int last_dialogue_level_index = 0;
+        public static int last_unlocked_level_index = 0;
 
         #region Public fields
 
         public List<Level> levels;
-
-        #endregion
-
-        #region Private fields
-
-        // Nivel seleccionado
-        private Level selectedLevel;
-
-        // Indice del nivel que activará un diálogo al ser seleccionado
-        private int currentDialogueTriggerIndex = 0;
-
-        #endregion
-
-        #region Events
-
-        public delegate void OnSelectLevelDelegate(Level level, int index);
-        public event OnSelectLevelDelegate OnSelectLevelEvent;
+        public Level SelectedLevel;
 
         #endregion
 
@@ -45,14 +30,14 @@ namespace Runtime
                 // Si el nivel está desbloqueado:
                 if(level_idx <= last_unlocked_level_index)
                 {
-                    selectedLevel = levels[index - 1];
-                    OnSelectLevelEvent?.Invoke(selectedLevel, index);
+                    SelectedLevel = levels[index - 1];
+                    Events.OnSelectLevel.Invoke(level_idx);
                     // Si el dialogo del nivel aun no se ha mostrado
                     if (level_idx >= last_dialogue_level_index)
                     {
                         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
                         last_dialogue_level_index = index;
-                        dialogueManager.StartDialogue(selectedLevel.dialogue);                        
+                        dialogueManager.StartDialogue(SelectedLevel.dialogue);                        
                     }                    
                 }
                 else
@@ -63,7 +48,6 @@ namespace Runtime
             else 
             {
                  throw new System.ArgumentOutOfRangeException("LevelManagerError: Level " + index + " doesn't exist.");
-
             }           
         }
 
@@ -71,8 +55,11 @@ namespace Runtime
         // Carga el nivel seleccionado:
         public void PlayLevel()
         {
-            GameController.instance.SetCombatSettings(selectedLevel.gameSettings);
-            GameController.instance.LoadCombat();
+            if(SelectedLevel != null)
+            {
+                GameController.instance.SetCombatSettings(SelectedLevel.gameSettings);
+                GameController.instance.LoadCombat();
+            }            
         }
 
         #endregion

@@ -41,6 +41,7 @@ namespace Runtime
         // Elimina un enemigo de la partida
         private void DefeatEnemy(int idx)
         {
+            Debug.Log("Enemigo derrotado");
             SpellerNPC enemy = enemies[idx];
             enemies.RemoveAt(idx);
             if(enemies.Count == 0)
@@ -62,6 +63,12 @@ namespace Runtime
             {
                 Destroy(speller.gameObject);
             }
-        }       
+        }
+
+        // Comienza la batalla
+        public void BeginBattle()
+        {
+            Events.OnBattleBegins.Invoke();
+        }
     } 
 }

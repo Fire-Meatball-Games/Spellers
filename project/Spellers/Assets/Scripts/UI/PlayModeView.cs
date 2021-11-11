@@ -18,6 +18,7 @@ namespace UIManagement
             //btn_historyMode.onClick.AddListener(() => GameManager.LoadScene("ModoHistoria"));
             btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
             btn_singlePlayerMode.onClick.AddListener(() => SceneManager.LoadScene("Game"));
+            btn_historyMode.onClick.AddListener(() => SceneManager.LoadScene("ModoHistoria"));
         }
     } 
 }

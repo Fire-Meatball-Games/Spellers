@@ -25,6 +25,27 @@ namespace Runtime.CombatSystem
             this.deck = deck;
         }
 
+        public int NumSlots
+        {
+            get => num_slots;
+            set
+            {
+
+                value = Mathf.Clamp(value, 1, 6);
+                if(value < num_slots)
+                {
+                    for (int i = 0; i < num_slots - value; i++)
+                        RemoveLastSlot();
+                }
+                else if(value > num_slots)
+                {
+                    for (int i = 0; i < value - num_slots; i++)
+                        AddSlot();
+                }
+                num_slots = value;
+            }
+        }
+
         #endregion
 
         #region public Methods        
@@ -43,17 +64,17 @@ namespace Runtime.CombatSystem
         {
             return selectedSpell;
         }
-
-        // Cambia el número de hechizos disponibles
-        public void SetNumSlots(int n)
-        {
-            num_slots = BASE_SLOTS + n;
-        }
-
+        
         // Carga los hechizos iniciales
         public void Initialize()
         {
             GenerateSpellSlots();
+        }
+
+        // Cambia el número de hechizos disponibles
+        public void SetNumSlots(int n)
+        {
+            NumSlots = BASE_SLOTS + n;
         }
         #endregion
 
@@ -72,6 +93,23 @@ namespace Runtime.CombatSystem
             spellSlots[idx] = deck.GetRandomSpell();
             Events.OnChangeSpellSlot.Invoke(idx, spellSlots[idx]);
         }
+
+        // Añade un hechizo
+        private void AddSlot()
+        {
+            int idx = spellSlots.Count;
+            spellSlots.Add(deck.GetRandomSpell());
+            Events.OnGenerateSpellSlots.Invoke(spellSlots);
+        }
+
+        // Borra un hechizo
+        private void RemoveLastSlot()
+        {
+            int idx = spellSlots.Count - 1;
+            spellSlots.RemoveAt(idx);
+            Events.OnGenerateSpellSlots.Invoke(spellSlots);
+        }
+
 
         #endregion
 

@@ -115,8 +115,9 @@ namespace SpellSystem
         {
             get => slotLevels;
             set
-            {
-                slotLevels = Mathf.Clamp(value, -2, 5);
+            {                
+                slotLevels = Mathf.Clamp(value, -2, 3);
+                OnChangeSlotLevelsEvent?.Invoke(slotLevels);
             }
         }
 
@@ -146,6 +147,7 @@ namespace SpellSystem
             if (AttacklevelTurns == 0 && attackMultiplier != 0) attackMultiplier = 0;
             if (OrderTurns == 0 && Order != 0) Order = 0;
             if (DifficultyTurns == 0 && Difficulty != 0) Difficulty = 0;
+            if (RegenerationTurns == 0 && Regeneration != 0) Regeneration = 0;
         }
 
 

@@ -5,6 +5,9 @@ namespace CustomEventSystem
 {
     public static class Events
     {
+        // Eventos del modo historia:
+        public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();
+
         // Eventos de la partida:
         public static readonly CustomEvent OnBattleBegins = new CustomEvent();
         public static readonly CustomEvent<bool> OnBattleEnds = new CustomEvent<bool>();

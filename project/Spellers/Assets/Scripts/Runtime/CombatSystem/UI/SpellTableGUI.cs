@@ -20,7 +20,7 @@ namespace Runtime.CombatSystem.UI
         #endregion
 
         #region Unity CallBacks and public methods
-        public void Awake()
+        public void Start()
         {
             pnl_board.SetActive(false);
             pnl_wand.SetActive(false);
@@ -30,13 +30,6 @@ namespace Runtime.CombatSystem.UI
             Events.OnPlayerUseSpell.AddListener(() => EnablePanel(pnl_book));
             Events.OnFailSpell.AddListener(() => EnablePanel(pnl_book));
 
-        }
-
-        private void SubscribeToEvents()
-        {
-            // WAND:
-            //btn_spell.onClick.AddListener(() => player.LaunchSpell());
-            //btn_spell.onClick.AddListener(() => btn_spell.gameObject.SetActive(false));
         }
 
         #endregion

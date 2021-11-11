@@ -9,7 +9,10 @@ namespace Runtime
     [System.Serializable]
     public class GameSettings
     {
+        // Detalles
         [SerializeField] public List<SpellerNPCSettings> speller_Settings;
+        
+
     } 
 }
 

@@ -22,9 +22,9 @@ namespace Runtime.CombatSystem.GUI
 
         public void Awake()
         {
-            Events.OnBattleBegins.AddListener(DisableBeginPanel);
-            Events.OnBattleEnds.AddListener(EnableBeginPanel);
-            start_button.onClick.AddListener(Events.OnBattleBegins.Invoke);
+            Events.OnBattleEnds.AddListener(EnableEndPanel);
+            start_button.onClick.AddListener(DisableBeginPanel);
+            start_button.onClick.AddListener(FindObjectOfType<SpellerBattle>().BeginBattle);
             end_button.onClick.AddListener(() => SceneManager.LoadScene(0));
             pause_button.onClick.AddListener(() => Pause());
             continue_button.onClick.AddListener(() => UnPause());
@@ -43,7 +43,7 @@ namespace Runtime.CombatSystem.GUI
             beginPanel.SetActive(false);
         }
 
-        private void EnableBeginPanel(bool victory)
+        private void EnableEndPanel(bool victory)
         {
             endPanel.SetActive(true);
             txt_results.text = victory ? "¡Has ganado!" : "¡Has perdido!";
