@@ -5,6 +5,23 @@ using UnityEngine;
 namespace SpellSystem
 {
     [System.Serializable]
+    public class StatesBuffer
+    {
+        public float attackMultiplier;
+        public int regeneration;
+        public int slotLevels;
+        public int order;
+        public int difficulty;
+
+        public int attackMultiplierTurns;
+        public int regenerationTurns;
+        public int slotLevelsTurns;
+        public int orderTurns;
+        public int difficultyTurns;
+    }
+
+
+
     public class SpellerStats
     {
         #region Fields
@@ -29,6 +46,8 @@ namespace SpellSystem
 
         private int difficulty = 0;
         private int difficultyTurns = 0;
+
+        public StatesBuffer buffer = new StatesBuffer();
 
         public delegate void OnDefeatDelegate();
         public delegate void OnChangeStatDelegate(int value);
@@ -107,7 +126,14 @@ namespace SpellSystem
             }
         }
 
-        public int Order { get => order; set => order = value; }
+        public int Order { 
+            get => order;
+            set
+            {
+                order = Mathf.Clamp(value, -1, 3);
+                OnChangeOrderEvent?.Invoke(order);
+            } 
+        }
 
         public int Difficulty { get => difficulty; set => difficulty = value; }
 
@@ -121,7 +147,7 @@ namespace SpellSystem
             }
         }
 
-
+        // Turnos:
         public int AttacklevelTurns { get => attackMultiplierTurns; set => attackMultiplierTurns = Mathf.Max(0, value); }
         public int SlotLevelTurns { get => slotLevelTurns; set => slotLevelTurns = Mathf.Max(0, value); }
         public int OrderTurns { get => orderTurns; set => orderTurns = Mathf.Max(0, value); }
@@ -133,6 +159,7 @@ namespace SpellSystem
 
         #region Public Methods
 
+        // Completa un turno (lanzar o fallar un hechizo)
         public void CompleteTurn()
         {
             Health += Regeneration;
@@ -144,23 +171,40 @@ namespace SpellSystem
             regenerationTurns--;
 
             if (SlotLevelTurns == 0 && SlotLevels != 0) SlotLevels = 0;
-            if (AttacklevelTurns == 0 && attackMultiplier != 0) attackMultiplier = 0;
+            if (AttacklevelTurns == 0 && AttackLevel != 0) AttackLevel = 0;
             if (OrderTurns == 0 && Order != 0) Order = 0;
             if (DifficultyTurns == 0 && Difficulty != 0) Difficulty = 0;
             if (RegenerationTurns == 0 && Regeneration != 0) Regeneration = 0;
+
+            ApplyBuffer();
+
         }
 
+        private void ApplyBuffer()
+        {
+            AttackLevel += buffer.attackMultiplier;
+            SlotLevels += buffer.slotLevels;
+            Order += buffer.order;
+            Difficulty += buffer.difficulty;
+            Regeneration += buffer.regeneration;
 
+            AttacklevelTurns += buffer.attackMultiplierTurns;
+            SlotLevelTurns += buffer.slotLevelsTurns;
+            orderTurns += buffer.orderTurns;
+            difficultyTurns += buffer.orderTurns;
+            regenerationTurns += buffer.regenerationTurns;
+
+            buffer = new StatesBuffer();
+
+        }
+
+        // Recibe daño
         public void GetDamage(int damage)
         {
             if(Shields > 0)
-            {
                 Shields--;
-            }
             else
-            { 
                 Health -= damage;
-            }
         }
         #endregion
     }

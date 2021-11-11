@@ -41,13 +41,17 @@ namespace Utils
 
         // Genera array de letras aleatorias de longitud = length a partir de un charset
         // El array contiene las letras de la palabra = word
+        // Las primeras n letras estarán ordenadas (n = orderedletters)
 
-        public static char[] GenerateRandomKeys(int length, string word, string charset = CHARSET)
+        public static char[] GenerateRandomKeys(int length, string word, int orderedletters, string charset = CHARSET)
         {
-            string s = RemoveIntersect(word, charset);
-            string k = GenerateRandomWord(length - word.Length, s);
-            string c = k + word;
-            return Shuffle(c).ToArray();
+            string exclusivecharset = RemoveIntersect(word, charset);
+            string randomset = GenerateRandomWord(length - word.Length, exclusivecharset);
+            string head = word.Substring(0, Mathf.Min(orderedletters, word.Length));
+            string tail = word.Substring(Mathf.Min(orderedletters, word.Length));
+            string body = randomset + tail;
+            string randomBody = Shuffle(body);
+            return (head + randomBody).ToCharArray();
         }
 
         // Genera una palabra aleatoria de longitud = length

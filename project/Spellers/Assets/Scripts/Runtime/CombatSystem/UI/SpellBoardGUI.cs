@@ -24,7 +24,7 @@ namespace Runtime
                 #endregion
 
                 #region Private fields
-
+                private SpellBoard board;
                 private List<GameObject> keyButtons;
                 private List<GameObject> wordLetters;
                 private int dim;
@@ -39,7 +39,9 @@ namespace Runtime
                 {
                     keyButtons = new List<GameObject>();
                     wordLetters = new List<GameObject>();
+                    Events.OnJoinPlayer.AddListener(()=> board = FindObjectOfType<SpellerPlayer>().board);
                     Events.OnGenerateBoard.AddListener(GenerateBoardGUI);
+                    Events.OnGenerateWord.AddListener(GenerateWordGUI);
                     Events.OnCheckKey.AddListener((x, y, hit) =>
                     {
                         if (hit)
@@ -57,11 +59,25 @@ namespace Runtime
                 #region Private Methods
 
                 // Genera los botones del teclado
-                private void GenerateBoardGUI(char[] keys, int dim, string word)
+                private void GenerateWordGUI(string word, bool flip = false)
+                {
+                    for (int i = 0; i < word.Length; i++)
+                    {
+                        var go = Instantiate(key_prefab, pnl_word.transform);
+                        wordLetters.Add(go);
+                        var rt = go.GetComponent<RectTransform>();
+                        rt.anchorMin = new Vector2(i * 0.1f + 0.05f, 0.05f);
+                        rt.anchorMax = rt.anchorMin + new Vector2(0.09f, 0.9f);
+                        if (flip) rt.localScale = new Vector3(-1, 1, 1);
+                        var text = go.GetComponentInChildren<Text>();
+                        SetText(text, word[i]);
+                    }
+                }
+
+                private void GenerateBoardGUI(char[] keys, int dim)
                 {
                     this.dim = dim;
                     this.current_char = 0;
-                    GenerateHeader(word);
                     float size = Mathf.Max((1 - (dim - 1) * SPACING) / dim, 0);
                     for (int i = 0; i < dim; i++)
                     {
@@ -70,7 +86,7 @@ namespace Runtime
                             var go = Instantiate(key_prefab, pnl_keys.transform);
                             keyButtons.Add(go);
                             var rt = go.GetComponent<RectTransform>();
-                            rt.anchorMin = new Vector2(j * (size + SPACING), i * (size + SPACING));
+                            rt.anchorMin = new Vector2(j * (size + SPACING), 1 - ((i + 1) * size + i * SPACING));
                             rt.anchorMax = rt.anchorMin + new Vector2(size, size);
 
                             var button = go.GetComponent<Button>();
@@ -79,22 +95,6 @@ namespace Runtime
                             var text = go.GetComponentInChildren<Text>();
                             SetText(text, keys[i * dim + j]);
                         }
-                    }
-                }
-
-                // Genera la palabra de la cabecera
-                private void GenerateHeader(string s)
-                {
-                    for (int i = 0; i < s.Length; i++)
-                    {
-                        var go = Instantiate(key_prefab, pnl_word.transform);
-                        wordLetters.Add(go);
-                        var rt = go.GetComponent<RectTransform>();
-                        rt.anchorMin = new Vector2(i * 0.1f + 0.05f, 0.05f);
-                        rt.anchorMax = rt.anchorMin + new Vector2(0.09f, 0.9f);
-
-                        var text = go.GetComponentInChildren<Text>();
-                        SetText(text, s[i]);
                     }
                 }
 
@@ -110,7 +110,6 @@ namespace Runtime
                 // Desactiva el teclado
                 private void DisableLayout()
                 {
-                    Debug.Log("Disableando teclado");
                     foreach (var go in keyButtons)
                     {
                         Destroy(go);

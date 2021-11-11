@@ -29,19 +29,19 @@ namespace SpellSystem
             switch (type)
             {
                 case Type.Slots:
-                    if (target_stats.SlotLevels * points < 0) target_stats.SlotLevelTurns = 0;
-                    target_stats.SlotLevels += points;
-                    target_stats.SlotLevelTurns += turns;
+                    if (target_stats.SlotLevels * points < 0) target_stats.buffer.slotLevelsTurns = 0;
+                    target_stats.buffer.slotLevels += points;
+                    target_stats.buffer.slotLevelsTurns += turns;
                     break;
                 case Type.Order:
-                    if (target_stats.Order * points < 0) target_stats.OrderTurns = 0;
-                    target_stats.Order += points;
-                    target_stats.OrderTurns += turns;
+                    if (target_stats.Order * points < 0) target_stats.buffer.orderTurns = 0;
+                    target_stats.buffer.order += points;
+                    target_stats.buffer.orderTurns += turns;
                     break;
                 case Type.Difficulty:
-                    if (target_stats.Difficulty * points < 0) target_stats.DifficultyTurns = 0;
-                    target_stats.Difficulty += points;
-                    target_stats.DifficultyTurns += turns;
+                    if (target_stats.Difficulty * points < 0) target_stats.buffer.difficultyTurns = 0;
+                    target_stats.buffer.difficulty += points;
+                    target_stats.buffer.difficultyTurns += turns;
                     break;
                 default:
                     break;

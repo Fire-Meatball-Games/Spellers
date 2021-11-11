@@ -16,10 +16,12 @@ namespace Runtime.CombatSystem
         private char[] keys;
         private int keyDimension;
         private int currentCharIdx;
-
+        private bool flip;
+        private int orderedLetters;
         #endregion
 
         #region Public methods
+
 
         // MÉTODO PRINCIPAL
         // Genera los datos del tablero de juego a partir del hechizo seleccionado por el jugador.
@@ -29,17 +31,18 @@ namespace Runtime.CombatSystem
         {
             keyDimension = boardDimension;
             word = Extensions.GenerateRandomWord(wordLength, CHARS);
-            keys = Extensions.GenerateRandomKeys(boardDimension * boardDimension, word);
+            keys = Extensions.GenerateRandomKeys(boardDimension * boardDimension, word, orderedLetters);
             currentCharIdx = 0;
-            Events.OnGenerateBoard.Invoke(keys, boardDimension, word);             
-
+            Events.OnGenerateBoard.Invoke(keys, boardDimension);
+            Events.OnGenerateWord.Invoke(word, flip);
             StartTimer(ticks);
 
         }
 
-        internal void SetOrderLevel(int value)
-        {
-            throw new NotImplementedException();
+        public void SetOrderLevel(int value)
+        {            
+            flip = value < 0;
+            orderedLetters = Mathf.Max(0, value);
         }
 
         // MÉTODO PRINCIPAL
@@ -62,7 +65,7 @@ namespace Runtime.CombatSystem
             }
             else
             {
-                Events.OnCheckKey.Invoke(x, y, false);
+                Events.OnCheckKey.Invoke(x, y, flip);
                 Events.OnFailSpell.Invoke();
             }
         }

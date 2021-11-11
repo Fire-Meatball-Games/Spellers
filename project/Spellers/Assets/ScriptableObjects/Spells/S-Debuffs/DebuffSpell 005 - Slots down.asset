@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: DebuffSpell 005 - Slots down
   m_EditorClassIdentifier: 
-  spellName: Venenatum
+  spellName: Peius possessio
   description: 
   thumbnail: {fileID: 0}
   ingame: {fileID: 0}

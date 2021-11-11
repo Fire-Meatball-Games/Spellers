@@ -64,6 +64,8 @@ namespace Runtime.CombatSystem
             board.CheckCharacterKey(column, row);
         }
 
+        // Seleccionar un objetivo
+
         public void SetTarget(SpellerNPC target, int idx)
         {
             this.target = target;

@@ -29,7 +29,8 @@ namespace CustomEventSystem
         public static readonly CustomEvent<List<SpellUnit>> OnGenerateSpellSlots = new CustomEvent<List<SpellUnit>>();
 
         // Eventos del tablero:
-        public static readonly CustomEvent<char[], int, string> OnGenerateBoard = new CustomEvent<char[], int, string>();
+        public static readonly CustomEvent<string, bool> OnGenerateWord = new CustomEvent<string, bool>();
+        public static readonly CustomEvent<char[], int> OnGenerateBoard = new CustomEvent<char[], int>();
         public static readonly CustomEvent<int, int> OnSelectKey = new CustomEvent<int, int>();
         public static readonly CustomEvent<int, int, bool> OnCheckKey = new CustomEvent<int, int, bool>();
         public static readonly CustomEvent OnCompleteWord = new CustomEvent();

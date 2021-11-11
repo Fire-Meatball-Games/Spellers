@@ -34,6 +34,7 @@ namespace Runtime.CombatSystem.UI
         // Genera la lista de hechizos:
         private void SetUpSpellSlots(List<SpellUnit> spells)
         {
+            Debug.Log(spells.Count);
             ShutDownSpellSlots();
             for (int i = 0; i < spells.Count; i++)
             {
@@ -48,12 +49,11 @@ namespace Runtime.CombatSystem.UI
         // Destruye la lista de hechizos:
         private void ShutDownSpellSlots()
         {
-            for (int i = spellSlots.Count - 1; i > 0; i--)
+            for (int i = spellSlots.Count - 1; i >= 0; i--)
             {
-                Destroy(spellSlots[i]);
+                Destroy(spellSlots[i].gameObject);
             }
-            spellSlots.Clear();
-          
+            spellSlots.Clear();          
         }
 
         // Pinta el layout del hechizo:

@@ -16,9 +16,9 @@ namespace SpellSystem
         {
             int points = PointsBase + Pointslevel * level;
             int turns = TurnsBase + Turnslevel * level;
-            if (target_stats.Regeneration * points < 0) target_stats.RegenerationTurns = 0;
-            target_stats.Regeneration += points;
-            target_stats.RegenerationTurns += turns;
+            if (target_stats.Regeneration * points < 0) target_stats.buffer.regenerationTurns = 0;
+            target_stats.buffer.regeneration += points;
+            target_stats.buffer.regenerationTurns += turns;
         }
     }
 }
