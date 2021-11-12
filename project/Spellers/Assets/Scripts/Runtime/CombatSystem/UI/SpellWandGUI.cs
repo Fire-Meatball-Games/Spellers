@@ -11,29 +11,73 @@ namespace Runtime.CombatSystem.UI
     public class SpellWandGUI: MonoBehaviour
     {
         #region Public variables
-        public Button spellButton;
+        public GameObject SpellLauncher_prefab;
+        public GameObject content;
+        private List<GameObject> spellLaunchers;
         #endregion
 
         #region Unity CallBacks and public methods
         public void Awake()
         {
-            Events.OnCompleteWord.AddListener(() => SetActiveButton(true));
-            spellButton.onClick.AddListener(LaunchSpell);
+            spellLaunchers = new List<GameObject>();
+            Events.OnCompleteWord.AddListener(SetUp);
         }
 
-        public void SetActiveButton(bool state)
+        public void DisableButtons()
         {
-            spellButton.interactable = state;
+            foreach (var item in spellLaunchers)
+            {
+                item.SetActive(false);
+            }
         }
 
         #endregion
 
         #region Private Methods
 
+        private void SetUp()
+        {
+            for (int i = spellLaunchers.Count - 1; i >= 0; i--)
+            {
+                Destroy(spellLaunchers[i]);
+            }
+            spellLaunchers.Clear();
+
+            bool offensive = FindObjectOfType<SpellerPlayer>().table.GetSelectedSpell().spell.offensive;
+            if (offensive)
+            {
+                int n = FindObjectOfType<SpellerBattle>().enemies.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    int idx = i;
+                    var go = Instantiate(SpellLauncher_prefab, content.transform);
+                    RectTransform rt = go.GetComponent<RectTransform>();
+                    rt.anchorMin = new Vector2(0, (1.0f / n) * idx);
+                    rt.anchorMax = rt.anchorMin + new Vector2(1f, 1.0f / n);
+                    go.GetComponent<Button>().onClick.AddListener(()=> LaunchSpellToTarget(idx));
+                    spellLaunchers.Add(go);
+                }
+                
+            }
+            else
+            {
+                var go = Instantiate(SpellLauncher_prefab, content.transform);
+                go.GetComponent<Button>().onClick.AddListener(LaunchSpell);
+                spellLaunchers.Add(go);
+            }
+        }
+
+        private void LaunchSpellToTarget(int targetIdx)
+        {
+            FindObjectOfType<SpellerPlayer>().SetTarget(FindObjectOfType<SpellerBattle>().enemies[targetIdx], targetIdx);
+            FindObjectOfType<SpellerPlayer>().LaunchSpell();
+            DisableButtons();
+        }
+
         private void LaunchSpell()
         {
             FindObjectOfType<SpellerPlayer>().LaunchSpell();
-            SetActiveButton(false);
+            DisableButtons();
         }
         
         #endregion

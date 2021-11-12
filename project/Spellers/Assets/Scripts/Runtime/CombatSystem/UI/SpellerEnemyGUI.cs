@@ -9,7 +9,7 @@ namespace Runtime.CombatSystem
 {
     namespace UI
     {
-        public class SpellerGUI : MonoBehaviour
+        public class SpellerEnemyGUI : MonoBehaviour
         {
             #region GUI Elements
             public GameObject display;
@@ -17,41 +17,47 @@ namespace Runtime.CombatSystem
             public Slider healthSlider;
             public TextMeshProUGUI num_shields;
             public Image img_shield;
+            public int index;
             #endregion
 
             #region Set up
+
             private void Awake()
             {
                 display.SetActive(false);
             }
 
-            public void SetUpPlayer(string playerName)
+            public void SetUpEnemy(int idx, string enemyName)
             {
+                index = idx;
                 img_shield.gameObject.SetActive(false);
-                txt_name.text = playerName;
-                Events.OnChangePlayerHealth.AddListener(SetHealthBar);
-                Events.OnChangePlayerShields.AddListener(SetShields);
+                txt_name.text = enemyName;
+                Events.OnChangeEnemyHealth.AddListener(SetHealthBar);
+                Events.OnChangeEnemyShields.AddListener(SetShields);
                 Events.OnBattleBegins.AddListener(() => display.SetActive(true));
             }
-
-
             #endregion
 
             #region Private Methods
-            private void SetHealthBar(int health)
+            private void SetHealthBar(int idx, int health)
             {
-                healthSlider.value = health;
+                if (idx == index)
+                    healthSlider.value = health;
+            }
+            private void SetShields(int idx, int shields)
+            {
+                if (idx == index)
+                {
+                    num_shields.text = "" + shields;
+                    if (shields == 0)
+                        img_shield.gameObject.SetActive(false);
+                    else
+                        img_shield.gameObject.SetActive(true);
+                }
             }
 
-            private void SetShields(int shields)
-            {
-                num_shields.text = "" + shields;
-                if(shields == 0)
-                    img_shield.gameObject.SetActive(false);
-                else
-                    img_shield.gameObject.SetActive(true);
-            }
             #endregion
+
         }
     }
 }

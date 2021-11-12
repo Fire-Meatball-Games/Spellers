@@ -39,6 +39,7 @@ namespace SpellSystem
 
         [Range(1, 3)]
         [SerializeField] public int power = 1;
+        [SerializeField] public bool offensive;
 
         [SerializeField] public List<Effect> effects;
 

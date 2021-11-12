@@ -34,7 +34,7 @@ namespace Runtime
                 private void SetUpSpellerNPCGUI(int idx)
                 {
                     string enemyName = FindObjectOfType<SpellerBattle>().enemies[idx].spellerName;
-                    SpellerGUI gui = Instantiate(spellerNPCGUI_prefab, enemyGUIList).GetComponent<SpellerGUI>();
+                    SpellerEnemyGUI gui = Instantiate(spellerNPCGUI_prefab, enemyGUIList).GetComponent<SpellerEnemyGUI>();
                     gui.SetUpEnemy(idx, enemyName);
                 }
             }  
