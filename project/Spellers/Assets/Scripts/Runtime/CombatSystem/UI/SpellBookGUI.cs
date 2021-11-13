@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SpellSystem;
 using TMPro;
 using CustomEventSystem;
+
 
 namespace Runtime.CombatSystem.UI
 {
@@ -13,6 +13,19 @@ namespace Runtime.CombatSystem.UI
         #region Public variables
         public RectTransform book_content;
         public GameObject spellSlot_prefab;
+ 
+        public RectTransform minigame_bar;
+
+        public Button str_game_button;
+        public Button reg_game_button;
+        public Button bln_game_button;
+        public Button dif_game_button;
+
+        public StrengthMinigame str_game;
+        public RegenerationMinigame reg_game;
+        public BlindMinigame blind_game;
+        public DifficultyMinigame dif_game;
+
         #endregion
 
         #region private Fields
@@ -25,16 +38,35 @@ namespace Runtime.CombatSystem.UI
             spellSlots = new List<SpellSlotGUI>();
             Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
             Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
+            Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
+            Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
+            Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
+            Events.OnFailSpell.AddListener(GenerateMinigamesBar);
+
+            str_game_button.onClick.AddListener(str_game.EnterGame);
+            reg_game_button.onClick.AddListener(reg_game.EnterGame);
+            bln_game_button.onClick.AddListener(blind_game.EnterGame);
+            dif_game_button.onClick.AddListener(dif_game.EnterGame);
         }
 
         #endregion
 
         #region Private Methods
 
+        // Genera la barra de minijuegos:
+        private void GenerateMinigamesBar()
+        {            
+            SpellerStats stats = FindObjectOfType<SpellerPlayer>().stats;
+            Debug.Log("actualizando barra " + stats.Regeneration);
+            str_game_button.gameObject.SetActive(stats.AttackLevel < 2f);
+            reg_game_button.gameObject.SetActive(stats.Regeneration < 1);
+            bln_game_button.gameObject.SetActive(stats.Order < 1);
+            dif_game_button.gameObject.SetActive(stats.Difficulty < 1);
+        }
+
         // Genera la lista de hechizos:
         private void SetUpSpellSlots(List<SpellUnit> spells)
         {
-            Debug.Log(spells.Count);
             ShutDownSpellSlots();
             for (int i = 0; i < spells.Count; i++)
             {
@@ -43,7 +75,7 @@ namespace Runtime.CombatSystem.UI
                 spellSlot.AddListener(() => FindObjectOfType<SpellerPlayer>().SelectSpell(idx));
                 spellSlots.Add(spellSlot);
                 SetLayoutSlot(idx, spells[idx]);
-            }          
+            }
         }
 
         // Destruye la lista de hechizos:
@@ -61,8 +93,15 @@ namespace Runtime.CombatSystem.UI
         {
             spellSlots[idx].SetSpellGUI(spellUnit);
         }
-        
+   
+
         #endregion
     }
+
+
+
+    
+
+    
 
 }

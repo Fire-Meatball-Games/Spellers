@@ -37,7 +37,7 @@ namespace Runtime
                     {
                         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
                         last_dialogue_level_index = index;
-                        dialogueManager.StartDialogue(SelectedLevel.dialogue);                        
+                        dialogueManager.StartDialogue(SelectedLevel.map_dialogue);                        
                     }                    
                 }
                 else

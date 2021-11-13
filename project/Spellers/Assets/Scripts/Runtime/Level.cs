@@ -11,7 +11,7 @@ namespace Runtime
     {
         public string levelname;
         [SerializeField] public GameSettings gameSettings;
-        public Dialogue dialogue;
+        public Dialogue map_dialogue;        
     }
 
 }

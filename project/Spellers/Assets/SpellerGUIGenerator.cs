@@ -27,7 +27,7 @@ namespace Runtime
                 private void SetUpSpellerPlayerGUI()
                 {
                     string playerName = FindObjectOfType<SpellerBattle>().player.spellerName;
-                    SpellerGUI gui = Instantiate(spellerPlayerGUI_prefab, playerGUIDisplay).GetComponent<SpellerGUI>();
+                    SpellerPlayerGUI gui = Instantiate(spellerPlayerGUI_prefab, playerGUIDisplay).GetComponent<SpellerPlayerGUI>();
                     gui.SetUpPlayer(playerName);
                 }
 

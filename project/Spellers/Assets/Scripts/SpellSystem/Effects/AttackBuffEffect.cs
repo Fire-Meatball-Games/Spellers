@@ -16,9 +16,9 @@ namespace SpellSystem
         {
             float points = PointsBase + PointsLevel * level;
             int turns = TurnsBase + Turnslevel * level;
-            if (target_stats.AttackLevel * points < 0) target_stats.buffer.attackMultiplierTurns = 0;
-            target_stats.buffer.attackMultiplier += points;
-            target_stats.buffer.attackMultiplierTurns += turns;
+            if (target_stats.AttackLevel * points < 0) target_stats.AttacklevelTurns = 0;
+            target_stats.AttackLevel += points;
+            target_stats.AttacklevelTurns += turns;
         }
     }
 }

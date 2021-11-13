@@ -15,7 +15,7 @@ MonoBehaviour:
   spellerName: Primer Enemigo
   deck:
     spells:
-    - {fileID: 11400000, guid: 96be254152efdb24e9b4f372a31dad1c, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
   max_health: 10
   max_spell_lvl: 1
   cooldown_average: 5

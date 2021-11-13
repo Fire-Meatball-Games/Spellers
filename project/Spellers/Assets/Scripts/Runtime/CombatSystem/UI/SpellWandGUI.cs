@@ -54,6 +54,7 @@ namespace Runtime.CombatSystem.UI
                     RectTransform rt = go.GetComponent<RectTransform>();
                     rt.anchorMin = new Vector2(0, (1.0f / n) * idx);
                     rt.anchorMax = rt.anchorMin + new Vector2(1f, 1.0f / n);
+                    idx = (idx + 2) % n;
                     go.GetComponent<Button>().onClick.AddListener(()=> LaunchSpellToTarget(idx));
                     spellLaunchers.Add(go);
                 }

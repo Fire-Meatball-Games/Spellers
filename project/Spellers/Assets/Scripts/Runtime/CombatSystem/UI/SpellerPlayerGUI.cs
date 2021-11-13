@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -9,7 +7,7 @@ namespace Runtime.CombatSystem
 {
     namespace UI
     {
-        public class SpellerGUI : MonoBehaviour
+        public class SpellerPlayerGUI : MonoBehaviour
         {
             #region GUI Elements
             public GameObject display;

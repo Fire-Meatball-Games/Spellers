@@ -16,4 +16,8 @@ MonoBehaviour:
   gameSettings:
     speller_Settings:
     - {fileID: 11400000, guid: c25bd694f1fceee4b893a27ed49d59db, type: 2}
-  dialogue: {fileID: 11400000, guid: 30922edca1b02634985a13884626fe69, type: 2}
+    - {fileID: 11400000, guid: c25bd694f1fceee4b893a27ed49d59db, type: 2}
+    - {fileID: 11400000, guid: c25bd694f1fceee4b893a27ed49d59db, type: 2}
+    init_dialogue: {fileID: 11400000, guid: 30922edca1b02634985a13884626fe69, type: 2}
+    end_dialogue: {fileID: 0}
+  map_dialogue: {fileID: 11400000, guid: 30922edca1b02634985a13884626fe69, type: 2}

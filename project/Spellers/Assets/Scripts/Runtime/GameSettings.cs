@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Runtime.CombatSystem;
 using SpellSystem;
+using Runtime.DialogueSystem;
 
 namespace Runtime
 {
@@ -11,8 +12,8 @@ namespace Runtime
     {
         // Detalles
         [SerializeField] public List<SpellerNPCSettings> speller_Settings;
-        
-
+        public Dialogue init_dialogue;
+        public Dialogue end_dialogue;
     } 
 }
 

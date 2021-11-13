@@ -1,27 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpellSystem
 {
-    [System.Serializable]
-    public class StatesBuffer
-    {
-        public float attackMultiplier;
-        public int regeneration;
-        public int slotLevels;
-        public int order;
-        public int difficulty;
-
-        public int attackMultiplierTurns;
-        public int regenerationTurns;
-        public int slotLevelsTurns;
-        public int orderTurns;
-        public int difficultyTurns;
-    }
-
-
-
     public class SpellerStats
     {
         #region Fields
@@ -47,10 +30,9 @@ namespace SpellSystem
         private int difficulty = 0;
         private int difficultyTurns = 0;
 
-        public StatesBuffer buffer = new StatesBuffer();
-
         public delegate void OnDefeatDelegate();
-        public delegate void OnChangeStatDelegate(int value);
+        public delegate void OnChangeStatDelegate(int value);      
+
         public delegate void OnChangeMultiplierDelegate(float value);
 
         public event OnDefeatDelegate OnDefeatEvent;
@@ -107,7 +89,7 @@ namespace SpellSystem
             {
                 if(value != attackMultiplier)
                 {
-                    attackMultiplier = Mathf.Max(0, value);
+                    attackMultiplier = Mathf.Clamp(value, 0.5f, 3f);
                     OnChangeAttackEvent?.Invoke(attackMultiplier);
                 }
             }
@@ -119,8 +101,8 @@ namespace SpellSystem
             set
             {
                 if (value != regeneration)
-                {
-                    regeneration = Mathf.Max(0, value);
+                {                    
+                    regeneration = Mathf.Clamp(value, -10, 10);
                     OnChangeRegenerationEvent?.Invoke(regeneration);
                 }
             }
@@ -154,6 +136,10 @@ namespace SpellSystem
         public int DifficultyTurns { get => difficultyTurns; set => difficultyTurns = Mathf.Max(0, value); }        
         public int RegenerationTurns { get => regenerationTurns; set => regenerationTurns = Mathf.Max(0, value); }
         
+
+
+
+
         #endregion
 
 
@@ -168,35 +154,43 @@ namespace SpellSystem
             AttacklevelTurns--;
             OrderTurns--;
             DifficultyTurns--;
-            regenerationTurns--;
+            RegenerationTurns--;
 
-            if (SlotLevelTurns == 0 && SlotLevels != 0) SlotLevels = 0;
-            if (AttacklevelTurns == 0 && AttackLevel != 0) AttackLevel = 0;
+            if (RegenerationTurns == 0 && Regeneration != 0) Regeneration = 0;            
+            if (AttacklevelTurns == 0 && AttackLevel != 1f) AttackLevel = 1f;
             if (OrderTurns == 0 && Order != 0) Order = 0;
             if (DifficultyTurns == 0 && Difficulty != 0) Difficulty = 0;
-            if (RegenerationTurns == 0 && Regeneration != 0) Regeneration = 0;
-
-            ApplyBuffer();
+            if (SlotLevelTurns == 0 && SlotLevels != 0) SlotLevels = 0;
 
         }
 
-        private void ApplyBuffer()
+        public void CleanAttackDebuff()
         {
-            AttackLevel += buffer.attackMultiplier;
-            SlotLevels += buffer.slotLevels;
-            Order += buffer.order;
-            Difficulty += buffer.difficulty;
-            Regeneration += buffer.regeneration;
-
-            AttacklevelTurns += buffer.attackMultiplierTurns;
-            SlotLevelTurns += buffer.slotLevelsTurns;
-            orderTurns += buffer.orderTurns;
-            difficultyTurns += buffer.orderTurns;
-            regenerationTurns += buffer.regenerationTurns;
-
-            buffer = new StatesBuffer();
-
+            if (attackMultiplier < 0)
+            {
+                attackMultiplier = 0;
+                attackMultiplierTurns = 0;
+            }
         }
+
+        public void CleanRegenerationDebuff()
+        {
+            if (regeneration < 0)
+            {
+                regeneration = 0;
+                regenerationTurns = 0;
+            }
+        }
+
+        public void CleanOrderDebuff()
+        {
+            if (order < 0)
+            {
+                order = 0;
+                orderTurns = 0;
+            }
+        }
+
 
         // Recibe daño
         public void GetDamage(int damage)

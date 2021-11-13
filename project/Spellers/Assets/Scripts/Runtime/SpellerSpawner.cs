@@ -28,7 +28,7 @@ namespace Runtime
         private void Init()
         {
             SpellerBattle battle = FindObjectOfType<SpellerBattle>();
-            if (true)
+            if (GameController.instance == null)
             {
                 SpellerPlayer p = GeneratePlayer();
                 battle.AddPlayer(p);

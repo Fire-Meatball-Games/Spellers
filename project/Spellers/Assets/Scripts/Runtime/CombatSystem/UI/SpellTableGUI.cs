@@ -19,9 +19,7 @@ namespace Runtime.CombatSystem.UI
         private GameObject current_panel;
         #endregion
 
-        #region Unity CallBacks and public methods
-
-        private void Awake() => pnl_book.SetActive(true);
+        #region Unity CallBacks and public methods        
 
         public void Start()
         {

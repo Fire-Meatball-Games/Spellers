@@ -8,14 +8,23 @@ namespace Runtime
     public class PlayerEventManager : MonoBehaviour
     {
         private int total_spells;
-        private int streak_spells;
-        
-        public int TotalSpells { get => total_spells; set => total_spells = value; }
-        public int StreakSpells { get => streak_spells; set => streak_spells = value; }
 
-        public PlayerEvent TotalSpellsEvent;
+        public List<PlayerEvent> TotalSpellsEvents;
 
-        public void Starts()
+        public int TotalSpells { 
+            get => total_spells;
+            set
+            {
+                foreach (PlayerEvent playerEvent in TotalSpellsEvents)
+                {
+                    if (playerEvent.value == value)
+                        playerEvent.Invoke();
+                }
+                total_spells = value;
+            } 
+        }        
+
+        private void Awake()
         {
             Events.OnPlayerUseSpell.AddListener(AddHit);
             Events.OnFailSpell.AddListener(AddFail);
@@ -24,13 +33,11 @@ namespace Runtime
         private void AddHit()
         {
             TotalSpells++;
-            StreakSpells++;
         }
 
         private void AddFail()
         {
             TotalSpells++;
-            StreakSpells = 0;
         }
     }
 

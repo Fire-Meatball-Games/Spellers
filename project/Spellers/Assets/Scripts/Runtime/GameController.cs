@@ -26,7 +26,7 @@ namespace Runtime
         const int COMBAT_SCENE = 2;        
 
         public GameSettings game_settings;
-        public HistoryModeSettings historyMode_settings;        
+        public HistoryModeSettings historyMode_settings; 
 
         public void SetCombatSettings(GameSettings settings) => game_settings = settings;
 

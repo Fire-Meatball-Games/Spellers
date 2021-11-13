@@ -33,6 +33,11 @@ namespace Runtime.CombatSystem
             Events.OnCompleteWord.AddListener(StopAllCoroutines);
             Events.OnFailSpell.AddListener(StopAllCoroutines);
 
+            Events.OnCompleteStrengthMinigame.AddListener(stats.CleanAttackDebuff);
+            Events.OnCompletePoisonMinigame.AddListener(stats.CleanRegenerationDebuff);
+            Events.OnCompleteBlindMinigame.AddListener(stats.CleanOrderDebuff);
+            Events.OnFailSpell.AddListener(stats.CompleteTurn);
+
             stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
 
             table.Initialize();

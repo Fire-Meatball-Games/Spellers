@@ -76,7 +76,7 @@ namespace Runtime.CombatSystem.GUI
             yield return new WaitForSeconds(1f);
             txt_countdown.text = "Spell!";
             yield return new WaitForSeconds(1f);
-            Events.OnBattleBegins.Invoke();
+            Events.OnEndCountDown.Invoke();
             countdownPanel.SetActive(false);
 
         }

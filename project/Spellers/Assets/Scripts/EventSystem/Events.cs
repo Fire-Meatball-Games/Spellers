@@ -9,10 +9,9 @@ namespace CustomEventSystem
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();
 
         // Eventos de la partida:
-
-        public static readonly CustomEvent OnStartCountDown = new CustomEvent();
-        public static readonly CustomEvent OnBattleBegins = new CustomEvent();
-        public static readonly CustomEvent<bool> OnPauseBattle = new CustomEvent<bool>();
+        public static readonly CustomEvent OnEndCountDown = new CustomEvent();              
+        public static readonly CustomEvent OnBattleBegins = new CustomEvent();              
+        public static readonly CustomEvent<bool> OnPauseBattle = new CustomEvent<bool>();   
         public static readonly CustomEvent<bool> OnBattleEnds = new CustomEvent<bool>();
         public static readonly CustomEvent OnJoinPlayer = new CustomEvent();
         public static readonly CustomEvent<int> OnJoinEnemy = new CustomEvent<int>();
@@ -30,6 +29,12 @@ namespace CustomEventSystem
         public static readonly CustomEvent<int> OnSelectSpellSlot = new CustomEvent<int>();
         public static readonly CustomEvent<int, SpellUnit> OnChangeSpellSlot = new CustomEvent<int, SpellUnit>();
         public static readonly CustomEvent<List<SpellUnit>> OnGenerateSpellSlots = new CustomEvent<List<SpellUnit>>();
+
+        // Eventos de minijuegos:        
+        public static readonly CustomEvent OnCompleteStrengthMinigame = new CustomEvent(); 
+        public static readonly CustomEvent OnFailPoisonMinigame = new CustomEvent();
+        public static readonly CustomEvent OnCompletePoisonMinigame = new CustomEvent();
+        public static readonly CustomEvent OnCompleteBlindMinigame = new CustomEvent();
 
         // Eventos del tablero:
         public static readonly CustomEvent<string, bool> OnGenerateWord = new CustomEvent<string, bool>();

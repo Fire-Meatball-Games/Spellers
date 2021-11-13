@@ -10,6 +10,7 @@ namespace Runtime.CombatSystem
     {
         public static void UseSpell(SpellUnit spellUnit, Speller user, Speller target)
         {
+            Debug.Log(user.spellerName + " (" + spellUnit + " ) --> " + target.spellerName);
             int level = spellUnit.lvl;
             foreach(Effect effect in spellUnit.spell.effects)
             {
