@@ -24,7 +24,7 @@ namespace Runtime
 
         private LevelSelector levelSelector;
 
-        private void Awake()
+        private void Start()
         {
             levelSelector = FindObjectOfType<LevelSelector>();
             for (int i = 0; i < level_buttons.Count; i++)

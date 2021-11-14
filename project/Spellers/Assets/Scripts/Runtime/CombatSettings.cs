@@ -8,7 +8,7 @@ using Runtime.DialogueSystem;
 namespace Runtime
 {
     [System.Serializable]
-    public class GameSettings
+    public class CombatSettings
     {
         // Detalles
         [SerializeField] public List<SpellerNPCSettings> speller_Settings;

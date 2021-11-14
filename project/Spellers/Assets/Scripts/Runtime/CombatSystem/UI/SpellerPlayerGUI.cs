@@ -23,13 +23,25 @@ namespace Runtime.CombatSystem
                 display.SetActive(false);
             }
 
+            private void OnEnable()
+            {
+                Events.OnChangePlayerHealth.AddListener(SetHealthBar);
+                Events.OnChangePlayerShields.AddListener(SetShields);
+                Events.OnBattleBegins.AddListener(ShowGUI);
+            }
+
+            private void OnDisable()
+            {
+                Events.OnChangePlayerHealth.RemoveListener(SetHealthBar);
+                Events.OnChangePlayerShields.RemoveListener(SetShields);
+                Events.OnBattleBegins.RemoveListener(ShowGUI);
+            }
+
             public void SetUpPlayer(string playerName)
             {
                 img_shield.gameObject.SetActive(false);
                 txt_name.text = playerName;
-                Events.OnChangePlayerHealth.AddListener(SetHealthBar);
-                Events.OnChangePlayerShields.AddListener(SetShields);
-                Events.OnBattleBegins.AddListener(() => display.SetActive(true));
+                
             }
 
 
@@ -48,6 +60,11 @@ namespace Runtime.CombatSystem
                     img_shield.gameObject.SetActive(false);
                 else
                     img_shield.gameObject.SetActive(true);
+            }
+
+            private void ShowGUI()
+            {
+                display.SetActive(true);
             }
             #endregion
         }

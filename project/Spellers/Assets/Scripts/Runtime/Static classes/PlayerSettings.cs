@@ -14,6 +14,7 @@ namespace Runtime
     public static class PlayerSettings
     {
         public static List<LevelData> levels = new List<LevelData>();
+
         public static string playerName;
         public static int lastLevelUnlocked;
     }

@@ -61,7 +61,7 @@ namespace Runtime
         {
             if (GameController.instance == null) { Events.OnBattleBegins.Invoke(); return; }
 
-            Dialogue dialogue = GameController.instance.game_settings.init_dialogue;
+            Dialogue dialogue = GameSettings.combatSettings.init_dialogue;
             if (dialogue != null)
             {
                 dialogueManager = FindObjectOfType<DialogueManager>();
@@ -83,8 +83,10 @@ namespace Runtime
             Events.OnBattleEnds.Invoke(victory);
             foreach (var speller in enemies)
             {
-                Destroy(speller.gameObject);
+                if(speller != null)
+                    Destroy(speller.gameObject);
             }
+            enemies.Clear();
         }
 
         // Elimina un enemigo de la partida

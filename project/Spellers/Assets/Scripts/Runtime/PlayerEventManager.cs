@@ -17,7 +17,7 @@ namespace Runtime
         public int TotalHits { 
             get => total_hits; 
             set { 
-                totalSpellsEvent.Invoke(value); 
+                totalSpellsEvent?.Invoke(value); 
                 total_hits = value; 
             }  
         
@@ -25,17 +25,23 @@ namespace Runtime
         public int TotalTries{ get => total_tries; set => total_tries = value; }
         public int TotalFails { get => total_fails; set => total_fails = value; }
 
-        private void Awake()
+
+        private void OnEnable()
         {
             Events.OnPlayerUseSpell.AddListener(AddHit);
             Events.OnFailSpell.AddListener(AddFail);
+        }
+
+        private void OnDisable()
+        {
+            Events.OnPlayerUseSpell.RemoveListener(AddHit);
+            Events.OnFailSpell.RemoveListener(AddFail);
         }
 
         private void AddHit()
         {
             TotalHits++;
             TotalTries++;
-            Debug.Log("Hits: " + TotalHits);
         }
 
         private void AddFail()

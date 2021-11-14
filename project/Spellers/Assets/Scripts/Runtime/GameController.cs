@@ -8,27 +8,12 @@ using Runtime.CombatSystem;
 
 namespace Runtime
 {
-    public class HistoryModeSettings
-    {
-        public int last_level_unlocked;
-        public bool show_last_level_dialogue;
-
-        public void CompleteHistoryModeLevel()
-        {
-            last_level_unlocked++;
-        }
-    }
 
     public class GameController : Singleton<GameController>
     {
         const int MAIN_SCENE = 0;
         const int HISTORY_MODE_SCENE = 1;
-        const int COMBAT_SCENE = 2;        
-
-        public GameSettings game_settings;
-        public HistoryModeSettings historyMode_settings; 
-
-        public void SetCombatSettings(GameSettings settings) => game_settings = settings;
+        const int COMBAT_SCENE = 2;
 
         public void LoadScene(string scene)
         {
@@ -44,12 +29,10 @@ namespace Runtime
         private IEnumerator LoadCombatCorroutine()
         {
             yield return SceneManager.LoadSceneAsync(COMBAT_SCENE);
-            SpellerBattle battle = FindObjectOfType<SpellerBattle>();
         }
 
         public void GoToMainMenu()
         {
-            Debug.Log("Going to main menu");
             SceneManager.LoadScene(0);
         }
     }  

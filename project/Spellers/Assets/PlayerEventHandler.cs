@@ -11,7 +11,7 @@ namespace Runtime
         void Start()
         {
             if (GameController.instance == null) return;
-            GameSettings settings = GameController.instance.game_settings;
+            CombatSettings settings = GameSettings.combatSettings;
             foreach (DialogueEventHandler handler in settings.dialogueHandlers)
             {
                 handler.SetUp(FindObjectOfType<DialogueManager>());

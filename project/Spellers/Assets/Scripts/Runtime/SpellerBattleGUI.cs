@@ -24,8 +24,7 @@ namespace Runtime.CombatSystem.GUI
         public Button exit_button;
 
         public void Awake()
-        {
-            Events.OnBattleEnds.AddListener(EnableEndPanel);
+        {            
             start_button.onClick.AddListener(StartCountdown);
             end_button.onClick.AddListener(Return);
             pause_button.onClick.AddListener(() => Pause());
@@ -40,10 +39,27 @@ namespace Runtime.CombatSystem.GUI
             endPanel.SetActive(false);
         }
 
+        private void OnEnable()
+        {
+            Events.OnBattleEnds.AddListener(EnableEndPanel);
+        }
+
+        private void OnDisable()
+        {
+            Events.OnBattleEnds.RemoveListener(EnableEndPanel);
+        }
+
         private void Return()
         {
             SceneManager.LoadScene(1);
-            Debug.Log("S");
+            if(GameController.instance != null)
+            {
+                if(GameSettings.currentLevel == PlayerSettings.lastLevelUnlocked)
+                {
+                    PlayerSettings.lastLevelUnlocked++;
+                    Debug.Log("Desbloqueado el nivel " + PlayerSettings.lastLevelUnlocked);
+                }
+            }
         }
 
         private void EnableEndPanel(bool victory)

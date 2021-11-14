@@ -12,7 +12,7 @@ namespace Runtime
         [SerializeField] public string levelname;
         [SerializeField] public Sprite thumbnail;
         [SerializeField] public Dialogue map_dialogue;
-        [SerializeField] public GameSettings gameSettings;
+        [SerializeField] public CombatSettings gameSettings;
               
     }
 

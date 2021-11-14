@@ -40,7 +40,7 @@ namespace Runtime
                 return;
             }
             
-            List<SpellerNPCSettings> enemy_settings = GameController.instance.game_settings.speller_Settings;
+            List<SpellerNPCSettings> enemy_settings = GameSettings.combatSettings.speller_Settings;
 
             if (enemy_settings?.Count == 0)
             {

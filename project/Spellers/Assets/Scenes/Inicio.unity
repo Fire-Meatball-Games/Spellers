@@ -6216,8 +6216,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028664ded9e18da44a1fd0a583737a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings:
+  currentLevel: -1
+  game_settings:
     speller_Settings: []
+    init_dialogue: {fileID: 0}
+    end_dialogue: {fileID: 0}
+    dialogueHandlers: []
+    endHandlers: []
 --- !u!4 &688378735
 Transform:
   m_ObjectHideFlags: 0
@@ -9876,7 +9881,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -246.39642, y: 0}
+  m_SizeDelta: {x: -153.39807, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125075363
 MonoBehaviour:

@@ -27,18 +27,36 @@ namespace Runtime.CombatSystem
                 display.SetActive(false);
             }
 
+            private void OnEnable()
+            {
+                Events.OnChangeEnemyHealth.AddListener(SetHealthBar);
+                Events.OnChangeEnemyShields.AddListener(SetShields);
+                Events.OnBattleBegins.AddListener((ShowGUI));
+            }
+
+            private void OnDisable()
+            {
+                Events.OnChangeEnemyHealth.RemoveListener(SetHealthBar);
+                Events.OnChangeEnemyShields.RemoveListener(SetShields);
+                Events.OnBattleBegins.RemoveListener(ShowGUI);
+            }
+
             public void SetUpEnemy(int idx, string enemyName)
             {
                 index = idx;
                 img_shield.gameObject.SetActive(false);
                 txt_name.text = enemyName;
-                Events.OnChangeEnemyHealth.AddListener(SetHealthBar);
-                Events.OnChangeEnemyShields.AddListener(SetShields);
-                Events.OnBattleBegins.AddListener(() => display.SetActive(true));
+                
             }
             #endregion
 
             #region Private Methods
+            private void ShowGUI()
+            {
+                display.SetActive(true);
+            }
+
+
             private void SetHealthBar(int idx, int health)
             {
                 if (idx == index)

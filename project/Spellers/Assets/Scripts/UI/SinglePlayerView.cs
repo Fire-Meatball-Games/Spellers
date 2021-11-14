@@ -18,7 +18,8 @@ namespace UIManagement
             btn_personalizar.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_personalizar.onClick.AddListener(() => Invoke("personalizar", 1.0f));
             //btn_historyMode.onClick.AddListener(() => GameManager.LoadScene("ModoHistoria"));
-            btn_singlePlayerMode.onClick.AddListener(() => SceneManager.LoadScene("Game"));
+            btn_singlePlayerMode.onClick.AddListener(() => SceneManager.LoadScene(2));
+            btn_historyMode.onClick.AddListener(() => SceneManager.LoadScene(1));
             btn_atras.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_atras.onClick.AddListener(() => Invoke("salir", 1.0f));
         }

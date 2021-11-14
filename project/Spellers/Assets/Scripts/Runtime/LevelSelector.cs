@@ -10,7 +10,7 @@ namespace Runtime
     public class LevelSelector : MonoBehaviour
     {
         public bool load_level_dialogue = true;
-        public int last_unlocked_level_index = 0;
+        public int last_unlocked_level_index;
 
         #region Public fields
 
@@ -21,7 +21,7 @@ namespace Runtime
 
         #region Public Methods
 
-        private void Start()
+        private void Awake()
         {
             last_unlocked_level_index = PlayerSettings.lastLevelUnlocked;
         }
@@ -57,7 +57,8 @@ namespace Runtime
         {
             if(selectedLevel != -1)
             {
-                GameController.instance.SetCombatSettings(GetSelectedLevel().gameSettings);
+                GameSettings.combatSettings = GetSelectedLevel().gameSettings;
+                GameSettings.currentLevel = selectedLevel;
                 GameController.instance.LoadCombat();
             }            
         }
