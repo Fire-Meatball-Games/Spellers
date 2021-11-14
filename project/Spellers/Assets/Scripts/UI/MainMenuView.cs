@@ -15,9 +15,9 @@ namespace UIManagement
 
         public override void Init()
         {
-            btn_personalizar.onClick.AddListener(() => ViewManager.Show<ColectionView>());
-            btn_un_jugador.onClick.AddListener(() => ViewManager.Show<PlayModeView>());
-            btn_multijugador.onClick.AddListener(() => ViewManager.Show<CreditsView>());
+            btn_personalizar.onClick.AddListener(() => ViewManager.Show<CustomView>());
+            btn_un_jugador.onClick.AddListener(() => ViewManager.Show<SinglePlayerView>());
+            btn_multijugador.onClick.AddListener(() => ViewManager.Show<MultiplayerView>());
             btn_opciones.onClick.AddListener(() => ViewManager.Show<SettingsView>());            
         }
     }

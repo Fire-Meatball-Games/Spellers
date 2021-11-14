@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace UIManagement
 {
-    public class PlayModeView : View
+    public class SinglePlayerView : View
     {
+        [SerializeField] private Button btn_personalizar;
         [SerializeField] private Button btn_historyMode;
-        [SerializeField] private Button btn_multiplayerMode;
         [SerializeField] private Button btn_singlePlayerMode;
         [SerializeField] private Button btn_tutorial;
 
@@ -15,9 +15,10 @@ namespace UIManagement
 
         public override void Init()
         {
+            btn_personalizar.onClick.AddListener(() => ViewManager.Show<CustomView>());
             //btn_historyMode.onClick.AddListener(() => GameManager.LoadScene("ModoHistoria"));
-            btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
             btn_singlePlayerMode.onClick.AddListener(() => SceneManager.LoadScene("Game"));
+            btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
         }
     } 
 }
