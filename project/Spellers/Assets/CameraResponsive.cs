@@ -14,10 +14,18 @@ public class CameraResponsive : MonoBehaviour
     void Awake()
     {
         cam = GetComponent<Camera>();
+       
+    }
+
+    private void OnEnable()
+    {
         Events.OnBattleBegins.AddListener(MoveToSide);
     }
 
-    [ExecuteInEditMode]
+    private void OnDisable()
+    {
+        Events.OnBattleBegins.RemoveListener(MoveToSide);
+    }
     private void Update()
     {
         SetResponsiveCamera();

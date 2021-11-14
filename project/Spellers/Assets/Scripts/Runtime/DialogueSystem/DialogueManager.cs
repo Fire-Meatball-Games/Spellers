@@ -19,6 +19,7 @@ namespace Runtime.DialogueSystem
 
         public void StartDialogue(Dialogue dialogue)
         {
+            Time.timeScale = 0.0f;
             this.dialogue = dialogue;
             currentLineIndex = 0;
             StartDialogueEvent?.Invoke();
@@ -39,6 +40,7 @@ namespace Runtime.DialogueSystem
 
         public void EndDialogue()
         {
+            Time.timeScale = 1.0f;
             EndDialogueEvent?.Invoke();
             dialogue = null;
         }

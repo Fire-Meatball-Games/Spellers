@@ -27,10 +27,10 @@ namespace Runtime.CombatSystem.GUI
         {
             Events.OnBattleEnds.AddListener(EnableEndPanel);
             start_button.onClick.AddListener(StartCountdown);
-            end_button.onClick.AddListener(() => SceneManager.LoadScene(0));
+            end_button.onClick.AddListener(Return);
             pause_button.onClick.AddListener(() => Pause());
             continue_button.onClick.AddListener(() => UnPause());
-            exit_button.onClick.AddListener(() => SceneManager.LoadScene(0));
+
         }
 
         public void Start()
@@ -40,6 +40,11 @@ namespace Runtime.CombatSystem.GUI
             endPanel.SetActive(false);
         }
 
+        private void Return()
+        {
+            SceneManager.LoadScene(1);
+            Debug.Log("S");
+        }
 
         private void EnableEndPanel(bool victory)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
 using CustomEventSystem;
+using Runtime;
 
 namespace Runtime.CombatSystem
 {
@@ -14,6 +15,15 @@ namespace Runtime.CombatSystem
         #endregion
 
         #region Initialization
+        private void OnEnable()
+        {
+            Events.OnBattleBegins.AddListener(Active);
+        }
+
+        private void OnDisable()
+        {
+            Events.OnBattleBegins.RemoveListener(Active);
+        }
 
         public void SetSettings(SpellerNPCSettings settings)
         {
@@ -30,8 +40,6 @@ namespace Runtime.CombatSystem
 
             stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
             stats.OnDefeatEvent += () => DisableCombat();
-
-            Events.OnBattleBegins.AddListener(Active);
         }
 
         public void Active()

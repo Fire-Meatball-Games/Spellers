@@ -87,7 +87,6 @@ namespace Runtime.CombatSystem.UI
         private void ClickRealPotion()
         {
             hits++;
-            Debug.Log(hits + "");
             if (hits == total_hits)
             {
                 CompleteGame();

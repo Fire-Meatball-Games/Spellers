@@ -7,22 +7,23 @@ namespace Runtime
 {
     public class PlayerEventManager : MonoBehaviour
     {
-        private int total_spells;
+        private int total_hits;
+        private int total_tries;
+        private int total_fails;
 
-        public List<PlayerEvent> TotalSpellsEvents;
 
-        public int TotalSpells { 
-            get => total_spells;
-            set
-            {
-                foreach (PlayerEvent playerEvent in TotalSpellsEvents)
-                {
-                    if (playerEvent.value == value)
-                        playerEvent.Invoke();
-                }
-                total_spells = value;
-            } 
-        }        
+        public PlayerEvent totalSpellsEvent;
+
+        public int TotalHits { 
+            get => total_hits; 
+            set { 
+                totalSpellsEvent.Invoke(value); 
+                total_hits = value; 
+            }  
+        
+        }
+        public int TotalTries{ get => total_tries; set => total_tries = value; }
+        public int TotalFails { get => total_fails; set => total_fails = value; }
 
         private void Awake()
         {
@@ -32,13 +33,17 @@ namespace Runtime
 
         private void AddHit()
         {
-            TotalSpells++;
+            TotalHits++;
+            TotalTries++;
+            Debug.Log("Hits: " + TotalHits);
         }
 
         private void AddFail()
         {
-            TotalSpells++;
+            TotalFails++;
+            TotalTries++;
         }
+
     }
 
 }

@@ -15,10 +15,10 @@ namespace Runtime.CombatSystem
         [SerializeField] List<Spell> spells;
         #endregion
 
+
         #region Initalization
         public void SetSettings()
         {
-            stats = new SpellSystem.SpellerStats();
             table = new SpellTable(new SpellDeck(spells));
             board = new SpellBoard();
 
@@ -27,8 +27,15 @@ namespace Runtime.CombatSystem
             stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
             
             stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
-            stats.OnChangeOrderEvent += board.SetOrderLevel;
+            stats.OnChangeOrderEvent += board.SetOrderLevel;           
 
+            stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
+
+            table.Initialize();
+        }
+
+        private void OnEnable()
+        {
             Events.OnSetTimer.AddListener(StartTimerCorroutine);
             Events.OnCompleteWord.AddListener(StopAllCoroutines);
             Events.OnFailSpell.AddListener(StopAllCoroutines);
@@ -37,11 +44,19 @@ namespace Runtime.CombatSystem
             Events.OnCompletePoisonMinigame.AddListener(stats.CleanRegenerationDebuff);
             Events.OnCompleteBlindMinigame.AddListener(stats.CleanOrderDebuff);
             Events.OnFailSpell.AddListener(stats.CompleteTurn);
+        }
 
-            stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
+        private void OnDisable()
+        {
+            Events.OnSetTimer.RemoveListener(StartTimerCorroutine);
+            Events.OnCompleteWord.RemoveListener(StopAllCoroutines);
+            Events.OnFailSpell.RemoveListener(StopAllCoroutines);
 
-            table.Initialize();
-        }  
+            Events.OnCompleteStrengthMinigame.RemoveListener(stats.CleanAttackDebuff);
+            Events.OnCompletePoisonMinigame.RemoveListener(stats.CleanRegenerationDebuff);
+            Events.OnCompleteBlindMinigame.RemoveListener(stats.CleanOrderDebuff);
+            Events.OnFailSpell.RemoveListener(stats.CompleteTurn);
+        }
         #endregion
 
 

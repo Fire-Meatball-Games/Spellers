@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Runtime
@@ -6,17 +7,22 @@ namespace Runtime
     [CreateAssetMenu(fileName = "PlayerEvent", menuName = "Spellers/PlayerEvent", order = 0)]
     public class PlayerEvent : ScriptableObject
     {
-        public int value;
+        private event Action<int> action = delegate { };
 
-        public void Invoke()
+        public void Invoke(int value)
         {
-
+            action?.Invoke(value);
         }
 
-        public void AddListener()
+        public void SetListener(Action<int> listener)
         {
-
+            action = listener;
         }
-        
+
+        public void Clear()
+        {
+            action = null;
+        }
+
     }
 }

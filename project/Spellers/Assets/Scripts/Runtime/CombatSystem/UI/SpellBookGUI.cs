@@ -36,12 +36,6 @@ namespace Runtime.CombatSystem.UI
         public void Awake()
         {
             spellSlots = new List<SpellSlotGUI>();
-            Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
-            Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
-            Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
-            Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
-            Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
-            Events.OnFailSpell.AddListener(GenerateMinigamesBar);
 
             str_game_button.onClick.AddListener(str_game.EnterGame);
             reg_game_button.onClick.AddListener(reg_game.EnterGame);
@@ -49,7 +43,29 @@ namespace Runtime.CombatSystem.UI
             dif_game_button.onClick.AddListener(dif_game.EnterGame);
         }
 
+        private void OnEnable()
+        {
+            Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
+            Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
+            Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
+            Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
+            Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
+            Events.OnFailSpell.AddListener(GenerateMinigamesBar);
+        }
+
+        private void OnDisable()
+        {
+            Events.OnGenerateSpellSlots.RemoveListener(SetUpSpellSlots);
+            Events.OnChangeSpellSlot.RemoveListener(SetLayoutSlot);
+            Events.OnPlayerUseSpell.RemoveListener(GenerateMinigamesBar);
+            Events.OnCompletePoisonMinigame.RemoveListener(GenerateMinigamesBar);
+            Events.OnCompleteBlindMinigame.RemoveListener(GenerateMinigamesBar);
+            Events.OnFailSpell.RemoveListener(GenerateMinigamesBar);
+        }
+
         #endregion
+
+
 
         #region Private Methods
 
@@ -57,11 +73,10 @@ namespace Runtime.CombatSystem.UI
         private void GenerateMinigamesBar()
         {            
             SpellerStats stats = FindObjectOfType<SpellerPlayer>().stats;
-            Debug.Log("actualizando barra " + stats.Regeneration);
-            str_game_button.gameObject.SetActive(stats.AttackLevel < 2f);
-            reg_game_button.gameObject.SetActive(stats.Regeneration < 1);
-            bln_game_button.gameObject.SetActive(stats.Order < 1);
-            dif_game_button.gameObject.SetActive(stats.Difficulty < 1);
+            str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
+            reg_game_button.gameObject.SetActive(stats.Regeneration < 0);
+            bln_game_button.gameObject.SetActive(stats.Order < 0);
+            dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
         }
 
         // Genera la lista de hechizos:

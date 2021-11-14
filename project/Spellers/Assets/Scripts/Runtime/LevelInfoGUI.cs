@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using CustomEventSystem;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace Runtime
 {
@@ -13,22 +14,68 @@ namespace Runtime
         public GameObject panel;
         public TextMeshProUGUI levelName_text;
         public TextMeshProUGUI levelIndex_text;
+        public TextMeshProUGUI levelScore_text;
+        public TextMeshProUGUI levelStars_text;
+        public Image thumbnail;
         public Button play_button;
+        public Button close_button;
 
-        // Start is called before the first frame update
-        void Awake()
+        public List<Button> level_buttons;
+
+        private LevelSelector levelSelector;
+
+        private void Awake()
         {
-            panel?.SetActive(false);
+            levelSelector = FindObjectOfType<LevelSelector>();
+            for (int i = 0; i < level_buttons.Count; i++)
+            {
+                int idx = i;
+                level_buttons[idx].onClick.AddListener(()=>levelSelector.SelectLevel(idx));
+                level_buttons[idx].interactable = idx <= levelSelector.last_unlocked_level_index;
+            }
+
+            play_button.onClick.AddListener(levelSelector.PlayLevel);
+            close_button.onClick.AddListener(levelSelector.UnselectLevel);
+            
+            panel.SetActive(false);        
+        }
+
+        private void OnEnable()
+        {
             Events.OnSelectLevel.AddListener(UpdateUI);
-            play_button.onClick.AddListener(FindObjectOfType<LevelSelector>().PlayLevel);
+            Events.OnDeselectLevel.AddListener(HidePanel);
+        }
+
+        private void OnDisable()
+        {
+            Events.OnSelectLevel.RemoveListener(UpdateUI);
+            Events.OnDeselectLevel.RemoveListener(HidePanel);
         }
 
         private void UpdateUI(int index)
         {
-            panel?.SetActive(true);
-            Level level = FindObjectOfType<LevelSelector>().SelectedLevel;
+            panel.SetActive(true);
+            Level level = FindObjectOfType<LevelSelector>().GetSelectedLevel();
             levelName_text.text = level.levelname;
             levelIndex_text.text = "Nivel " + (index + 1);
+            if (level.thumbnail != null) thumbnail.sprite = level.thumbnail;
+            if(PlayerSettings.levels.Count > index)
+            {
+                LevelData levelData = PlayerSettings.levels[index];
+                levelScore_text.text = "" + levelData.max_score;
+                levelStars_text.text = "" + levelData.stars;                
+            }            
+        }
+
+
+        private void HidePanel()
+        {
+            panel.SetActive(false);
+        }
+
+        public void GoToMainMenu()
+        {
+            SceneManager.LoadScene(0);
         }
     } 
 }

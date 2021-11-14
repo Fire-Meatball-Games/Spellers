@@ -15,10 +15,6 @@ namespace Runtime.CombatSystem.UI
         public GameObject pnl_wand;
         #endregion
 
-        #region private Fields
-        private GameObject current_panel;
-        #endregion
-
         #region Unity CallBacks and public methods        
 
         public void Start()
@@ -26,25 +22,52 @@ namespace Runtime.CombatSystem.UI
             pnl_book.SetActive(false);
             pnl_board.SetActive(false);
             pnl_wand.SetActive(false);
-            Events.OnBattleBegins.AddListener(() => EnablePanel(pnl_book));
-            Events.OnCompleteWord.AddListener(() => EnablePanel(pnl_wand));
-            Events.OnSelectSpellSlot.AddListener((_) => EnablePanel(pnl_board));
-            Events.OnPlayerUseSpell.AddListener(() => EnablePanel(pnl_book));
-            Events.OnFailSpell.AddListener(() => EnablePanel(pnl_book));
+        }
 
+        private void OnEnable()
+        {
+            Events.OnBattleBegins.AddListener(SetBookView);
+            Events.OnCompleteWord.AddListener(SetWandView);
+            Events.OnSelectSpellSlot.AddListener(SetBoardView);
+            Events.OnPlayerUseSpell.AddListener(SetBookView);
+            Events.OnFailSpell.AddListener(SetBookView);
+        }
+
+        private void OnDisable()
+        {
+            Events.OnBattleBegins.RemoveListener(SetBookView);
+            Events.OnCompleteWord.RemoveListener(SetWandView);
+            Events.OnSelectSpellSlot.RemoveListener(SetBoardView);
+            Events.OnPlayerUseSpell.RemoveListener(SetBookView);
+            Events.OnFailSpell.RemoveListener(SetBookView);
         }
 
         #endregion
 
         #region Private Methods
 
-        // Activa un panel y desactiva el anterior
-        private void EnablePanel(GameObject panel)
+        private void SetBookView()
         {
-            current_panel?.SetActive(false);
-            panel.SetActive(true);
-            current_panel = panel;
+            pnl_book.SetActive(true);
+            pnl_board.SetActive(false);
+            pnl_wand.SetActive(false);
         }
+
+        private void SetBoardView(int n)
+        {
+            pnl_book.SetActive(false);
+            pnl_board.SetActive(true);
+            pnl_wand.SetActive(false);
+        }
+
+        private void SetWandView()
+        {
+            pnl_book.SetActive(false);
+            pnl_board.SetActive(false);
+            pnl_wand.SetActive(true);
+        }
+
+
         #endregion
     }
 

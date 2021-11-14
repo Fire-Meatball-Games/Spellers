@@ -9,60 +9,67 @@ namespace Runtime
 {
     public class LevelSelector : MonoBehaviour
     {
-        public static int last_dialogue_level_index = 0;
-        public static int last_unlocked_level_index = 0;
+        public bool load_level_dialogue = true;
+        public int last_unlocked_level_index = 0;
 
         #region Public fields
 
         public List<Level> levels;
-        public Level SelectedLevel;
+        public int selectedLevel = -1;
 
         #endregion
 
         #region Public Methods
 
+        private void Start()
+        {
+            last_unlocked_level_index = PlayerSettings.lastLevelUnlocked;
+        }
+
         // Selecciona un nivel del modo historia
         public void SelectLevel(int index)
         {
-            int level_idx = index - 1;
-            if (level_idx < levels.Count)
+            if (index >= levels.Count)
+                return;
+
+            if (index <= last_unlocked_level_index)
             {
-                // Si el nivel está desbloqueado:
-                if(level_idx <= last_unlocked_level_index)
+                selectedLevel = index;
+                Events.OnSelectLevel.Invoke(index);
+                // Si el dialogo del nivel aun no se ha mostrado
+                if (load_level_dialogue && index == last_unlocked_level_index)
                 {
-                    SelectedLevel = levels[index - 1];
-                    Events.OnSelectLevel.Invoke(level_idx);
-                    // Si el dialogo del nivel aun no se ha mostrado
-                    if (level_idx >= last_dialogue_level_index)
-                    {
-                        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
-                        last_dialogue_level_index = index;
-                        dialogueManager.StartDialogue(SelectedLevel.map_dialogue);                        
-                    }                    
+                    LoadLevelDialogue();                    
                 }
-                else
-                {
-                    // Accion al pulsar un nivel bloqueado
-                }
-            }                
-            else 
-            {
-                 throw new System.ArgumentOutOfRangeException("LevelManagerError: Level " + index + " doesn't exist.");
-            }           
+            }      
         }
 
+        public void UnselectLevel()
+        {
+            selectedLevel = -1;
+            Events.OnDeselectLevel.Invoke();
+        }
+
+        public Level GetSelectedLevel() => levels[selectedLevel];
 
         // Carga el nivel seleccionado:
         public void PlayLevel()
         {
-            if(SelectedLevel != null)
+            if(selectedLevel != -1)
             {
-                GameController.instance.SetCombatSettings(SelectedLevel.gameSettings);
+                GameController.instance.SetCombatSettings(GetSelectedLevel().gameSettings);
                 GameController.instance.LoadCombat();
             }            
         }
 
         #endregion
+
+        private void LoadLevelDialogue()
+        {
+            DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+            load_level_dialogue = false;
+            dialogueManager.StartDialogue(GetSelectedLevel().map_dialogue);
+        }
 
     } 
 }

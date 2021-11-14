@@ -7,6 +7,7 @@ namespace CustomEventSystem
     {
         // Eventos del modo historia:
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();
+        public static readonly CustomEvent OnDeselectLevel = new CustomEvent();
 
         // Eventos de la partida:
         public static readonly CustomEvent OnEndCountDown = new CustomEvent();              

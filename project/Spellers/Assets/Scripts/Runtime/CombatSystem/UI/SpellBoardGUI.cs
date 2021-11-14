@@ -38,25 +38,53 @@ namespace Runtime
                 public void Awake()
                 {
                     keyButtons = new List<GameObject>();
-                    wordLetters = new List<GameObject>();
-                    Events.OnJoinPlayer.AddListener(()=> board = FindObjectOfType<SpellerPlayer>().board);
+                    wordLetters = new List<GameObject>();                    
+                }
+
+                private void OnEnable()
+                {
+                    Events.OnJoinPlayer.AddListener(SetBoard);
                     Events.OnGenerateBoard.AddListener(GenerateBoardGUI);
                     Events.OnGenerateWord.AddListener(GenerateWordGUI);
-                    Events.OnCheckKey.AddListener((x, y, hit) =>
-                    {
-                        if (hit)
-                            DisableKeyButton(x + dim*y);
-                        else
-                            DisableLayout();
-                    });
+                    Events.OnCheckKey.AddListener(CheckKey);
                     Events.OnCompleteWord.AddListener(DisableLayout);
                     Events.OnFailSpell.AddListener(DisableLayout);
-                    Events.OnSetTimer.AddListener((max) => timer_slider.maxValue = max);
-                    Events.OnUpdateTimer.AddListener((value) => timer_slider.value = timer_slider.maxValue-value);
+                    Events.OnSetTimer.AddListener(SetTotalTime);
+                    Events.OnUpdateTimer.AddListener(SetCurrentTime);
                 }
+
+                private void OnDisable()
+                {
+                    Events.OnJoinPlayer.RemoveListener(SetBoard);
+                    Events.OnGenerateBoard.RemoveListener(GenerateBoardGUI);
+                    Events.OnGenerateWord.RemoveListener(GenerateWordGUI);
+                    Events.OnCheckKey.RemoveListener(CheckKey);
+                    Events.OnCompleteWord.RemoveListener(DisableLayout);
+                    Events.OnFailSpell.RemoveListener(DisableLayout);
+                    Events.OnSetTimer.RemoveListener(SetTotalTime);
+                    Events.OnUpdateTimer.RemoveListener(SetCurrentTime);
+                }
+
+
                 #endregion
 
                 #region Private Methods
+
+                private void SetBoard()
+                {
+                    board = FindObjectOfType<SpellerPlayer>().board;
+                }
+
+                private void CheckKey(int x, int y, bool hit)
+                {
+                    if (hit)
+                        DisableKeyButton(x + dim * y);
+                    else
+                        DisableLayout();
+                }
+
+                private void SetTotalTime(int time) => timer_slider.maxValue = time;
+                private void SetCurrentTime(int time) => timer_slider.value = timer_slider.maxValue - time;
 
                 // Genera los botones del teclado
                 private void GenerateWordGUI(string word, bool flip = false)

@@ -46,6 +46,12 @@ namespace Runtime
             yield return SceneManager.LoadSceneAsync(COMBAT_SCENE);
             SpellerBattle battle = FindObjectOfType<SpellerBattle>();
         }
+
+        public void GoToMainMenu()
+        {
+            Debug.Log("Going to main menu");
+            SceneManager.LoadScene(0);
+        }
     }  
 }
 

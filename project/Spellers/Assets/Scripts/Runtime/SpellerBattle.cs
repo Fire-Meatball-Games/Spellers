@@ -23,34 +23,44 @@ namespace Runtime
             enemies = new List<SpellerNPC>();
         }
 
-        // Añade al jugador
-        public void AddPlayer(SpellerPlayer player)
+        private void OnEnable()
         {
-            this.player = player;
-            player.SetSettings();
-            Events.OnDefeatPlayer.AddListener(() => FinishBattle(false));
-            Events.OnJoinPlayer.Invoke();
+            Events.OnDefeatPlayer.AddListener(FinishBattleWithVictory);
+            Events.OnDefeatEnemy.AddListener(DefeatEnemy);
             Events.OnEndCountDown.AddListener(BeginBattle);
         }
 
-        // Añade un enemigo a la partida
-        public void AddEnemy(SpellerNPC spellerNPC, int idx)
+        private void OnDisable()
         {
-            enemies.Add(spellerNPC);
-            Events.OnDefeatEnemy.AddListener(DefeatEnemy);
-            Events.OnJoinEnemy.Invoke(idx);
+            Events.OnDefeatPlayer.RemoveListener(FinishBattleWithVictory);
+            Events.OnDefeatEnemy.RemoveListener(DefeatEnemy);
+            Events.OnEndCountDown.RemoveListener(BeginBattle);
         }
 
         #endregion
 
         #region Private Methods
 
+        // Añade al jugador
+        public void AddPlayer(SpellerPlayer player)
+        {
+            this.player = player;
+            player.SetSettings();
+            Events.OnJoinPlayer.Invoke();
+        }
+
+        // Añade un enemigo a la partida
+        public void AddEnemy(SpellerNPC spellerNPC, int idx)
+        {
+            enemies.Add(spellerNPC);
+            Events.OnJoinEnemy.Invoke(idx);
+        }
+
         // Comienza la batalla
         private void BeginBattle()
         {
             if (GameController.instance == null) { Events.OnBattleBegins.Invoke(); return; }
 
-            // Si hay dialogo inicial lo carga
             Dialogue dialogue = GameController.instance.game_settings.init_dialogue;
             if (dialogue != null)
             {
@@ -65,7 +75,10 @@ namespace Runtime
         }
 
         // Finaliza la batalla
-        private void FinishBattle(bool victory = true)
+        private void FinishBattleWithVictory() => FinishBattle();
+
+
+        public void FinishBattle(bool victory = true)
         {
             Events.OnBattleEnds.Invoke(victory);
             foreach (var speller in enemies)
@@ -77,7 +90,6 @@ namespace Runtime
         // Elimina un enemigo de la partida
         private void DefeatEnemy(int idx)
         {
-            Debug.Log("Enemigo derrotado");
             SpellerNPC enemy = enemies[idx];
             enemies.RemoveAt(idx);
             if (enemies.Count == 0)
@@ -89,6 +101,11 @@ namespace Runtime
             {
                 player.target = enemies[0];
             }
+        }
+
+        private void RemoveEnemy(int idx)
+        {
+            Events.OnDefeatEnemy.RemoveListener(DefeatEnemy);
         }
 
         // Define la acción que se ejecutará la proxima vez que se termine un diálogo

@@ -19,17 +19,19 @@ namespace Runtime.CombatSystem.UI
         #region Unity CallBacks and public methods
         public void Awake()
         {
-            spellLaunchers = new List<GameObject>();
+            spellLaunchers = new List<GameObject>();            
+        }
+
+        private void OnEnable()
+        {
             Events.OnCompleteWord.AddListener(SetUp);
         }
 
-        public void DisableButtons()
+        private void OnDisable()
         {
-            foreach (var item in spellLaunchers)
-            {
-                item.SetActive(false);
-            }
+            Events.OnCompleteWord.RemoveListener(SetUp);
         }
+       
 
         #endregion
 
@@ -65,6 +67,14 @@ namespace Runtime.CombatSystem.UI
                 var go = Instantiate(SpellLauncher_prefab, content.transform);
                 go.GetComponent<Button>().onClick.AddListener(LaunchSpell);
                 spellLaunchers.Add(go);
+            }
+        }
+
+        private void DisableButtons()
+        {
+            foreach (var item in spellLaunchers)
+            {
+                item.SetActive(false);
             }
         }
 
