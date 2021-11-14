@@ -11,15 +11,40 @@ namespace UIManagement
         [SerializeField] private Button btn_un_jugador;
         [SerializeField] private Button btn_multijugador;
         [SerializeField] private Button btn_opciones;
-        
 
         public override void Init()
         {
-            btn_personalizar.onClick.AddListener(() => ViewManager.Show<ColectionView>());
-            btn_un_jugador.onClick.AddListener(() => ViewManager.Show<PlayModeView>());
-            btn_multijugador.onClick.AddListener(() => ViewManager.Show<CreditsView>());
-            btn_opciones.onClick.AddListener(() => ViewManager.Show<SettingsView>());            
+            Animator animacion = GetComponent<Animator>();
+            btn_personalizar.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_personalizar.onClick.AddListener(() => Invoke("personalizar", 1.0f));
+            btn_un_jugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_un_jugador.onClick.AddListener(() => Invoke("unJugador", 1.0f));
+            btn_multijugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_multijugador.onClick.AddListener(() => Invoke("multijugador", 1.0f));
+            btn_opciones.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_opciones.onClick.AddListener(() => Invoke("opciones", 1.0f));
         }
-    }
 
+        public void personalizar()
+        {
+            ViewManager.Show<CustomView>();
+        }
+
+        public void unJugador()
+        {
+            ViewManager.Show<SinglePlayerView>();
+        }
+
+        public void multijugador()
+        {
+            ViewManager.Show<MultiplayerView>();
+        }
+
+        public void opciones()
+        {
+            ViewManager.Show<SettingsView>();
+        }
+
+
+    }
 }
