@@ -11,8 +11,21 @@ namespace UIManagement
 
         public override void Init()
         {
-            btn_personalizar.onClick.AddListener(() => ViewManager.Show<CustomView>());
-            btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
+            Animator animacion = GetComponent<Animator>();
+            btn_personalizar.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_personalizar.onClick.AddListener(() => Invoke("personalizar", 1.0f));
+            btn_atras.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_atras.onClick.AddListener(() => Invoke("salir", 1.0f));
+        }
+
+        public void personalizar()
+        {
+            ViewManager.Show<CustomView>();
+        }
+
+        public void salir()
+        {
+            ViewManager.ShowLast();
         }
     }
 }
