@@ -9,7 +9,14 @@ namespace UIManagement
 
         public override void Init()
         {
-            btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
+            Animator animacion = GetComponent<Animator>();
+            btn_atras.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_atras.onClick.AddListener(() => Invoke("salir", 1.0f));
+        }
+
+        public void salir()
+        {
+            ViewManager.ShowLast();
         }
     } 
 }
