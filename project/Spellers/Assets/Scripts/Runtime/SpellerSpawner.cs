@@ -2,45 +2,81 @@ using Runtime.CombatSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpellSystem;
 
 namespace Runtime
 {
     public class SpellerSpawner : MonoBehaviour
     {
-        public GameObject npc_prefab;
+        #region Public variables
         public GameObject player_prefab;
-        public Battle battle;
+        public GameObject npc_prefab;        
+        public Transform player_spawn_point;
+        public List<Transform> enemy_spawn_points;
+        public SpellerNPCSettings default_settings;
+        #endregion
 
-        public Transform player_spawn_point, enemy_spawn_point;
-
-        // Start is called before the first frame update
-        void Start()
+        #region UnityCallbacks
+        public void Start()
         {
             Init();
         }
+        #endregion
 
+        #region Private Methods
+        // Genera los jugadores y enemigos de la escena
         private void Init()
         {
-            SpellerPlayer player = GeneratePlayer();
-            battle.SetPlayer(player);
-            foreach (var npc_settings in GameController.instance.settings.speller_Settings)
+            SpellerBattle battle = FindObjectOfType<SpellerBattle>();
+            if (GameController.instance == null)
             {
-                GameObject speller_go = Instantiate(npc_prefab, enemy_spawn_point);
-                SpellerNPC speller = speller_go.GetComponent<SpellerNPC>();
-                speller.SetSettings(npc_settings);
-                speller.SetTarget(player);
-                battle.AddEnemy(speller);
+                SpellerPlayer p = GeneratePlayer();
+                battle.AddPlayer(p);
+                SpellerNPC speller = InstantiateEnemy(enemy_spawn_points[0]);
+                speller.SetSettings(default_settings);                
+                battle.AddEnemy(speller, 0);
+                speller.SetTarget();
+                p.SetTarget(battle.enemies[0], 0);
+                return;
             }
-            player.SetTarget(battle.enemies[0]);
+            
+            List<SpellerNPCSettings> enemy_settings = GameSettings.combatSettings.speller_Settings;
+
+            if (enemy_settings?.Count == 0)
+            {
+                throw new System.Exception("Error en la configuración de la partida: No hay enemigos");
+            }
+
+            SpellerPlayer player = GeneratePlayer();
+            battle.AddPlayer(player);
+            int num_enemies = Mathf.Min(enemy_settings.Count, enemy_spawn_points.Count);
+            for (int i = 0; i < num_enemies; i++)
+            {
+                SpellerNPC speller = InstantiateEnemy(enemy_spawn_points[i]);
+                speller.SetSettings(enemy_settings[i]);
+                speller.SetTarget();
+                battle.AddEnemy(speller, i);
+            }
+            
+            player.SetTarget(battle.enemies[0], 0);
         }
+
+        // Genera un enemigo en la escena
+        private SpellerNPC InstantiateEnemy(Transform tf)
+        {
+            Vector3 spawn_position = tf.position;
+            Quaternion spawn_rotation = tf.rotation;
+            var speller_go = Instantiate(npc_prefab, spawn_position, spawn_rotation, tf);
+            return speller_go.GetComponent<SpellerNPC>();
+        } 
+
 
         // Crea al jugador en la escena
         private SpellerPlayer GeneratePlayer()
         {
             var player_obj = Instantiate(player_prefab, player_spawn_point);
-            SpellerPlayer player = player_obj.GetComponent<SpellerPlayer>();
-            return player;
+            return player_obj.GetComponent<SpellerPlayer>();
         }
+        #endregion
     }
-
 }

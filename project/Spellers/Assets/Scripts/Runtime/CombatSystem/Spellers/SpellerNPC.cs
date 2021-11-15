@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
+using CustomEventSystem;
+using Runtime;
 
 namespace Runtime.CombatSystem
 {
@@ -9,29 +11,53 @@ namespace Runtime.CombatSystem
     {
         #region Private Fields
         private SpellerNPCSettings settings;
+        private readonly int id;
         #endregion
 
         #region Initialization
-        public override void Init()
+        private void OnEnable()
         {
-            base.Init();
-            target = FindObjectOfType<SpellerPlayer>();
-            OnUseSpellEvent += LoadSpell;
-            stats.OnDefeatEvent += DisableCombat;
+            Events.OnBattleBegins.AddListener(Active);
         }
 
-        public void SetSettings(SpellerNPCSettings npc_settings)
+        private void OnDisable()
         {
-            settings = npc_settings;
-            spellerName = npc_settings.spellerName;
+            Events.OnBattleBegins.RemoveListener(Active);
+        }
+
+        public void SetSettings(SpellerNPCSettings settings)
+        {
+            this.settings = settings;
+            spellerName = settings.spellerName;
+            stats = new SpellSystem.SpellerStats();
+
+            stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
+            stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
+            stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(id, n);
+
+            stats.OnChangeSlotLevelsEvent += (n) => settings.cooldown_average -=n;
+            stats.OnChangeOrderEvent += (n) => settings.cooldown_average -= n;
+
+            stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
+            stats.OnDefeatEvent += () => DisableCombat();
         }
 
         public void Active()
         {
             LoadSpell();
         }
-        #endregion
 
+        public void SetTarget()
+        {
+            target = FindObjectOfType<SpellerPlayer>();
+        }
+
+        protected override void UseSpell(SpellUnit spellUnit)
+        {
+            base.UseSpell(spellUnit);
+            LoadSpell();
+        }
+        #endregion
 
         private void DisableCombat()
         {
@@ -52,12 +78,9 @@ namespace Runtime.CombatSystem
             StartCoroutine(corroutine);
         }
 
-        protected override Spell GetActiveSpell()
+        protected override SpellUnit GetActiveSpell()
         {
-            Spell spell = settings.deck.GetRandomSpell();
-            return spell ?? Spell.DefaultSpell();
+            return settings.deck.GetRandomSpell();
         }
-
-        
     }
 }

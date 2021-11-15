@@ -4,50 +4,49 @@ using UnityEngine;
 
 namespace SpellSystem
 {
-    public enum Type
+    public struct SpellUnit
     {
-        Dummy,
-        Attack,
-        Heal,
-        Shield,
-        Sacrifice,
-        AtkBuff,
-        DefBuff,
-        AtkDebuff,
-        DefDebuff
-    }
-
-    [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spell", order = 1)]
-    public class Spell : ScriptableObject
-    {
-        public string spellName;
-        [TextArea] public string description;
+        public Spell spell;
         public int lvl;
-        
-        public Type type;
 
-        public Spell(string spellName, string description, int lvl, Type type)
+        public SpellUnit(Spell spell, int lvl)
         {
-            this.spellName = spellName;
-            this.description = description;
-            this.lvl = lvl;
-            this.type = type;
+            this.spell = spell;
+            this.lvl = spell.power < 3 ? lvl : 3;
         }
 
-        public static Spell DefaultSpell()
-        {
-            return new Spell("Dummy", "Default spell", 1, Type.Dummy);
+        public SpellUnit(Spell spell)
+        {            
+            this.spell = spell;
+            this.lvl = spell.power < 3 ? Random.Range(1,3) : 3;
         }
 
         public override string ToString()
         {
-            return spellName + " Lvl." + lvl;
+            return spell.spellName + " " + lvl;
         }
+    }
 
-        public bool isOffensive()
+
+    [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spells/Spell", order = 0)]
+    public class Spell : ScriptableObject
+    {
+        [SerializeField] public string spellName;
+        [TextArea]
+        [SerializeField] public string description;
+        [SerializeField] public Sprite thumbnail;
+        [SerializeField] public Sprite ingame;
+
+        [Range(1, 3)]
+        [SerializeField] public int power = 1;
+        [SerializeField] public bool offensive;
+
+        [SerializeField] public List<Effect> effects;
+
+
+        public override string ToString()
         {
-            return type == Type.Attack || type == Type.Sacrifice || type == Type.AtkDebuff || type == Type.DefDebuff;
+            return spellName;
         }
-    }  
-
+    }
 }

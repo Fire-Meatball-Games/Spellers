@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Utils
+{
 
     public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
@@ -25,5 +27,6 @@ using UnityEngine;
                 DontDestroyOnLoad(this);
             }
         }
-    }
+    } 
+}
 

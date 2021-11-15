@@ -15,6 +15,8 @@ namespace Runtime
             {
                 return lines[n];
             }
+
+            public int GetNumLines() => lines.Count;
         } 
     }
 }

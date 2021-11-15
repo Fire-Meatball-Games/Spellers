@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using SpellSystem;
-using System;
+using CustomEventSystem;
 using System.Linq;
 
 namespace Runtime.CombatSystem
@@ -10,19 +10,12 @@ namespace Runtime.CombatSystem
     public class SpellTable
     {
         #region Fields 
-        private const int NUM_SLOTS = 3;
+        private const int BASE_SLOTS = 3;
 
         private SpellDeck deck;
-        private List<Spell> spellSlots;
-        private Spell selectedSpell;
-        #endregion
-
-        #region Events
-        public delegate void OnChangeSlotEvent(int id, string spellInfo);
-        public OnChangeSlotEvent OnChangeSlot;
-        public delegate void OnSelectSlotEvent();
-        public OnSelectSlotEvent OnSelectSlot;
-
+        private List<SpellUnit> spellSlots = new List<SpellUnit>(BASE_SLOTS);
+        private SpellUnit selectedSpell;
+        private int num_slots = BASE_SLOTS;
         #endregion
 
         #region Constructor
@@ -32,28 +25,56 @@ namespace Runtime.CombatSystem
             this.deck = deck;
         }
 
+        public int NumSlots
+        {
+            get => num_slots;
+            set
+            {
+
+                value = Mathf.Clamp(value, 1, 6);
+                if(value < num_slots)
+                {
+                    for (int i = 0; i < num_slots - value; i++)
+                        RemoveLastSlot();
+                }
+                else if(value > num_slots)
+                {
+                    for (int i = 0; i < value - num_slots; i++)
+                        AddSlot();
+                }
+                num_slots = value;
+            }
+        }
+
         #endregion
 
         #region public Methods        
 
         // Selecciona el hechizo 
-        public void SelectSpellSlot(int idx)
+        public SpellUnit SelectSpellSlot(int idx)
         {
             selectedSpell = spellSlots[idx];
             ChangeSpellSlot(idx);
-            OnSelectSlot?.Invoke();
-        }
-
-        // Devuelve el hechizo seleccionado
-        public Spell GetSelectedSpell()
-        {
+            Events.OnSelectSpellSlot.Invoke(idx);
             return selectedSpell;
         }
 
+        // Devuelve el hechizo seleccionado
+        public SpellUnit GetSelectedSpell()
+        {
+            return selectedSpell;
+        }
+        
         // Carga los hechizos iniciales
         public void Initialize()
         {
             GenerateSpellSlots();
+        }
+
+        // Cambia el número de hechizos disponibles
+        public void SetNumSlots(int n)
+        {
+            NumSlots = BASE_SLOTS + n;
         }
         #endregion
 
@@ -62,20 +83,33 @@ namespace Runtime.CombatSystem
         // Coloca 3 hechizos aleatorios del mazo del jugador a la mesa
         private void GenerateSpellSlots()
         {
-            var rand = new System.Random();
-            spellSlots = new List<Spell>(deck.spells.OrderBy(x => rand.Next()).Take(NUM_SLOTS));
-            for (int i = 0; i < NUM_SLOTS; i++)
-            {
-                OnChangeSlot?.Invoke(i, spellSlots[i].ToString());
-            }
+            spellSlots.AddRange(deck.GetSpellPool(num_slots));
+            Events.OnGenerateSpellSlots.Invoke(spellSlots);
         }
 
         // Cambia el hechizo de la posición idx de la mesa
         private void ChangeSpellSlot(int idx)
         {
-            spellSlots[idx] = deck.spells[new System.Random().Next(deck.spells.Count)];
-            OnChangeSlot?.Invoke(idx, spellSlots[idx].ToString());
+            spellSlots[idx] = deck.GetRandomSpell();
+            Events.OnChangeSpellSlot.Invoke(idx, spellSlots[idx]);
         }
+
+        // Añade un hechizo
+        private void AddSlot()
+        {
+            int idx = spellSlots.Count;
+            spellSlots.Add(deck.GetRandomSpell());
+            Events.OnGenerateSpellSlots.Invoke(spellSlots);
+        }
+
+        // Borra un hechizo
+        private void RemoveLastSlot()
+        {
+            int idx = spellSlots.Count - 1;
+            spellSlots.RemoveAt(idx);
+            Events.OnGenerateSpellSlots.Invoke(spellSlots);
+        }
+
 
         #endregion
 

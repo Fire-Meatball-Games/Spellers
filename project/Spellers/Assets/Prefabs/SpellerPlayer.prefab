@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164929288915613588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5393550342402758995}
@@ -48,9 +48,12 @@ MonoBehaviour:
   target: {fileID: 0}
   spellPrefab: {fileID: 5557422129974789201, guid: 820d1f4a0df3b244aaebb1418bdcc931, type: 3}
   spells:
-  - {fileID: 11400000, guid: b4c94f195bd42034daa9dce19ee24e31, type: 2}
-  - {fileID: 11400000, guid: 03c3a6ac96f5cfe498f51ff90bec6a4e, type: 2}
-  - {fileID: 11400000, guid: ec7c0f2aba69ae440bb5a36546bb1bf2, type: 2}
+  - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+  - {fileID: 11400000, guid: 107eac2b559334c48b70713056c43bdd, type: 2}
+  - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
+  - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
+  - {fileID: 11400000, guid: 4976ae506240d164ba4c9eaa283cdfa8, type: 2}
+  - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
 --- !u!1 &4497829489640440130
 GameObject:
   m_ObjectHideFlags: 0

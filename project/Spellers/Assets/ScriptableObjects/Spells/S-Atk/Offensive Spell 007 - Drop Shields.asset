@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
+  m_Name: Offensive Spell 007 - Drop Shields
+  m_EditorClassIdentifier: 
+  spellName: "Igneus cr\xE9pitus"
+  description: Deletes user and target shields and deals damage to target
+  thumbnail: {fileID: 0}
+  ingame: {fileID: 0}
+  power: 3
+  offensive: 1
+  effects:
+  - {fileID: 11400000, guid: 076e5db329f737949a3e5708017c3bab, type: 2}
+  - {fileID: 11400000, guid: a36beb361a4b2fa4b85a731ca19be9a6, type: 2}
+  - {fileID: 11400000, guid: d45641f289670434ba44fd94836d7c33, type: 2}

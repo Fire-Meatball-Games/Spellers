@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace SpellSystem
 {
@@ -24,12 +25,23 @@ namespace SpellSystem
             spells.Add(spell);
         }
 
-        public Spell GetRandomSpell()
+        public SpellUnit GetRandomSpell()
         {
-            System.Random random = new System.Random();
-            int index = random.Next(spells.Count);
-            return spells[index];
+            System.Random rnd = new System.Random();
+            Spell spell = spells.OrderBy(x => rnd.Next()).First();
+            return new SpellUnit(spell);          
         }
 
+        public List<SpellUnit> GetSpellPool(int size)
+        {
+            List<SpellUnit> spellUnits = new List<SpellUnit>(size);
+            System.Random rnd = new System.Random();
+            var spellpool = spells.OrderBy(x => rnd.Next()).Take(size);
+            foreach (var spell in spellpool)
+            {
+                spellUnits.Add(new SpellUnit(spell));
+            }
+            return spellUnits;
+        }
     }
 }

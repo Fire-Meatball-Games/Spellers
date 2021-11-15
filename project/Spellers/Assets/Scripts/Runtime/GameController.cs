@@ -8,15 +8,12 @@ using Runtime.CombatSystem;
 
 namespace Runtime
 {
+
     public class GameController : Singleton<GameController>
     {
         const int MAIN_SCENE = 0;
         const int HISTORY_MODE_SCENE = 1;
         const int COMBAT_SCENE = 2;
-
-        public GameSettings settings;
-
-        public void SetCombatSettings(GameSettings settings) => this.settings = settings;
 
         public void LoadScene(string scene)
         {
@@ -32,7 +29,11 @@ namespace Runtime
         private IEnumerator LoadCombatCorroutine()
         {
             yield return SceneManager.LoadSceneAsync(COMBAT_SCENE);
-            Battle battle = FindObjectOfType<Battle>();
+        }
+
+        public void GoToMainMenu()
+        {
+            SceneManager.LoadScene(0);
         }
     }  
 }

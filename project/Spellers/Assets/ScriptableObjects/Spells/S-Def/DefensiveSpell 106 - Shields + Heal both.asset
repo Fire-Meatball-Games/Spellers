@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
+  m_Name: DefensiveSpell 106 - Shields + Heal both
+  m_EditorClassIdentifier: 
+  spellName: Confractus
+  description: 
+  thumbnail: {fileID: 0}
+  ingame: {fileID: 0}
+  power: 2
+  effects:
+  - {fileID: 11400000, guid: 8a6fe35ebd3580147ada6e7d34cbaae3, type: 2}
+  - {fileID: 11400000, guid: 7b102e699d6f62041aebcbcd03717bfe, type: 2}
+  - {fileID: 11400000, guid: 22784691b57754b45953b457199a4cb3, type: 2}
