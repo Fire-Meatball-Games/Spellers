@@ -14,9 +14,9 @@ namespace Runtime
             action?.Invoke(value);
         }
 
-        public void SetListener(Action<int> listener)
+        public void AddListener(Action<int> listener)
         {
-            action = listener;
+            action += listener;
         }
 
         public void Clear()

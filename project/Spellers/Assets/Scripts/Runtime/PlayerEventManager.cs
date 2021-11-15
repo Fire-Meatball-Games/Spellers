@@ -11,19 +11,12 @@ namespace Runtime
         private int total_tries;
         private int total_fails;
 
+        public PlayerEvent totalHitsEvent;
+        public PlayerEvent totalFailsEvent;
 
-        public PlayerEvent totalSpellsEvent;
-
-        public int TotalHits { 
-            get => total_hits; 
-            set { 
-                totalSpellsEvent?.Invoke(value); 
-                total_hits = value; 
-            }  
-        
-        }
+        public int TotalHits { get => total_hits; set { total_hits = value; totalHitsEvent?.Invoke(value); } }
         public int TotalTries{ get => total_tries; set => total_tries = value; }
-        public int TotalFails { get => total_fails; set => total_fails = value; }
+        public int TotalFails { get => total_fails; set { total_fails = value; totalFailsEvent?.Invoke(value); }  }
 
 
         private void OnEnable()
@@ -36,19 +29,24 @@ namespace Runtime
         {
             Events.OnPlayerUseSpell.RemoveListener(AddHit);
             Events.OnFailSpell.RemoveListener(AddFail);
+            totalHitsEvent.Clear();
+            totalFailsEvent.Clear();
         }
 
         private void AddHit()
         {
             TotalHits++;
             TotalTries++;
+            Debug.Log("Acierto");
         }
 
         private void AddFail()
         {
             TotalFails++;
             TotalTries++;
+            Debug.Log("Fallo");
         }
+
 
     }
 

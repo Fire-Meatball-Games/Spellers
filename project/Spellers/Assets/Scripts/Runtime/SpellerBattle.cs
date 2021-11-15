@@ -15,12 +15,15 @@ namespace Runtime
         public SpellerPlayer player;
         public List<SpellerNPC> enemies;
         private DialogueManager dialogueManager;
+
+        public int currentScore;
         #endregion
 
         #region Initialization
         private void Awake()
         {
             enemies = new List<SpellerNPC>();
+            currentScore = 3;
         }
 
         private void OnEnable()
@@ -81,12 +84,13 @@ namespace Runtime
         public void FinishBattle(bool victory = true)
         {
             Events.OnBattleEnds.Invoke(victory);
-            foreach (var speller in enemies)
-            {
-                if(speller != null)
-                    Destroy(speller.gameObject);
-            }
             enemies.Clear();
+
+            if(GameSettings.currentLevel >= 0 && victory)
+            {
+                Debug.Log("Establecida la puntuación del nivel " + GameSettings.currentLevel + " a " + currentScore);
+                PlayerSettings.SetLevelScore(GameSettings.currentLevel, currentScore);
+            }
         }
 
         // Elimina un enemigo de la partida

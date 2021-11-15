@@ -14,7 +14,6 @@ namespace Runtime
         public GameObject panel;
         public TextMeshProUGUI levelName_text;
         public TextMeshProUGUI levelIndex_text;
-        public TextMeshProUGUI levelScore_text;
         public TextMeshProUGUI levelStars_text;
         public Image thumbnail;
         public Button play_button;
@@ -59,12 +58,19 @@ namespace Runtime
             levelName_text.text = level.levelname;
             levelIndex_text.text = "Nivel " + (index + 1);
             if (level.thumbnail != null) thumbnail.sprite = level.thumbnail;
-            if(PlayerSettings.levels.Count > index)
+            if(PlayerSettings.levelScores.Count > index)
             {
-                LevelData levelData = PlayerSettings.levels[index];
-                levelScore_text.text = "" + levelData.max_score;
-                levelStars_text.text = "" + levelData.stars;                
-            }            
+                string stars = "";
+                for (int i = 0; i < PlayerSettings.levelScores[index]; i++)
+                {
+                    stars += "*";
+                }
+                levelStars_text.text = stars;
+            }
+            else
+            {
+                levelStars_text.text = "---";
+            }
         }
 
 

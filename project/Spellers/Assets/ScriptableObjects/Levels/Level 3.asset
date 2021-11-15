@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Level 3
   m_EditorClassIdentifier: 
   levelname: Nivel 3
+  thumbnail: {fileID: 0}
+  map_dialogue: {fileID: 11400000, guid: a91273f6f52902548aa1bdadfedbd531, type: 2}
   gameSettings:
     speller_Settings:
     - {fileID: 11400000, guid: c25bd694f1fceee4b893a27ed49d59db, type: 2}
-  dialogue: {fileID: 11400000, guid: d664068eac6ce104a94c705fb7b4f9c9, type: 2}
+    init_dialogue: {fileID: 0}
+    end_dialogue: {fileID: 0}
+    dialogueHandlers: []
+    endHandlers: []

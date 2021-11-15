@@ -15,9 +15,10 @@ namespace Runtime
         public Dialogue init_dialogue;
         public Dialogue end_dialogue;
 
-        // Eventos de diálogos:
         [SerializeField] public List<DialogueEventHandler> dialogueHandlers;
         [SerializeField] public List<EndConditionHandler> endHandlers;
+        [SerializeField] public List<ScoreEventHandler> scoreHandlers;
+
 
     } 
 
@@ -33,7 +34,7 @@ namespace Runtime
         public void SetUp(DialogueManager manager)
         {
             dialogueManager = manager;
-            playerEvent.SetListener(Listener);
+            playerEvent.AddListener(Listener);
         }
 
         private void Listener(int value)
@@ -55,9 +56,9 @@ namespace Runtime
         private SpellerBattle battle;
 
         public void SetUp(SpellerBattle battle)
-        {
+        {            
             this.battle = battle;
-            playerEvent.SetListener(Listener);
+            playerEvent.AddListener(Listener);
         }
 
         private void Listener(int value)
@@ -67,7 +68,34 @@ namespace Runtime
                 battle.FinishBattle(win);
             }
         }
+    }
 
+    [System.Serializable]
+    public class ScoreEventHandler
+    {
+        [SerializeField] public PlayerEvent playerEvent;
+        [SerializeField] public int value;
+        [SerializeField] public bool removeStarCondition;
+        [SerializeField] public int stars;
+
+        private SpellerBattle battle;
+
+        public void SetUp(SpellerBattle battle)
+        {
+            Debug.Log("E");
+            this.battle = battle;
+            playerEvent.AddListener(Listener);
+        }
+
+        private void Listener(int value)
+        {
+            Debug.Log(value + "/" + value);
+            if (this.value == value)
+            {
+                Debug.Log("Estrellas: " + stars);
+                battle.currentScore = stars;
+            }
+        }
     }
 
 

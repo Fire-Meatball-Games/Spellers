@@ -4,19 +4,28 @@ using UnityEngine;
 
 namespace Runtime
 {
-    public struct LevelData
-    {
-        public int max_score;
-        public int stars;
-    }
-
 
     public static class PlayerSettings
     {
-        public static List<LevelData> levels = new List<LevelData>();
+        public static List<int> levelScores = new List<int>();
 
         public static string playerName;
         public static int lastLevelUnlocked;
+
+        public static void SetLevelScore(int levelIndex, int score)
+        {
+            score = Mathf.Clamp(score, 1, 3);
+
+            if(levelIndex == levelScores.Count)
+            {
+                levelScores.Add(score);
+                lastLevelUnlocked++;
+            }
+            else if(levelIndex < levelScores.Count)
+            {
+                levelScores[levelIndex] = Mathf.Max(score, levelScores[levelIndex]);
+            }
+        }
     }
 
 }

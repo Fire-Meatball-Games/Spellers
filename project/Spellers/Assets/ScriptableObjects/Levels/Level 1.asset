@@ -23,5 +23,14 @@ MonoBehaviour:
     dialogueHandlers: []
     endHandlers:
     - playerEvent: {fileID: 11400000, guid: b0824a0a0d6645941bc3e2bd8abadd84, type: 2}
-      value: 1
+      value: 5
       win: 1
+    scoreHandlers:
+    - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
+      value: 1
+      removeStarCondition: 1
+      stars: 2
+    - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
+      value: 3
+      removeStarCondition: 1
+      stars: 1
