@@ -53,6 +53,8 @@ namespace Runtime.CombatSystem
             Events.OnSelectKey.Invoke(x, y);
             char pressedChar = GetCharAtPos(x, y);
             char currentChar = word[currentCharIdx];
+
+            Debug.Log("Checking (" + pressedChar + ") was (" + currentChar + ")");
             
             if(pressedChar == currentChar)
             {
