@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpellSystem;
 
 namespace Runtime
 {
@@ -8,6 +9,7 @@ namespace Runtime
     public static class PlayerSettings
     {
         public static List<int> levelScores = new List<int>();
+        public static SpellDeck deck;
 
         public static string playerName;
         public static int lastLevelUnlocked = 1;

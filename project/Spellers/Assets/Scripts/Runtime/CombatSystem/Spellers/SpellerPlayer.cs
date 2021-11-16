@@ -19,6 +19,7 @@ namespace Runtime.CombatSystem
         #region Initalization
         public void SetSettings(SpellDeck deck = null)
         {
+            spellWand = FindObjectOfType<SpellWand>();
             SpellDeck playerDeck = deck ?? new SpellDeck(spells);
             table = new SpellTable(playerDeck);
             board = new SpellBoard();
@@ -26,6 +27,10 @@ namespace Runtime.CombatSystem
             stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
             stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
+            stats.OnChangeRegenerationEvent += (n) => Events.OnChangePlayerRegeneration.Invoke(n);
+            stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangePlayerSlots.Invoke(n);
+            stats.OnChangeOrderEvent += (n) => Events.OnChangePlayerOrder.Invoke(n);
+            stats.OnChangeDifficultyEvent += (n) => Events.OnChangePlayerDifficulty.Invoke(n);
             
             stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
             stats.OnChangeOrderEvent += board.SetOrderLevel;           

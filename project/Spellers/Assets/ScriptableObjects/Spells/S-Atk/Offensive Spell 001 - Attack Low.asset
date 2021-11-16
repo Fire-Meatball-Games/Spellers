@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Imperio
   description: Deals damage to the target
-  thumbnail: {fileID: 0}
-  ingame: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 23c0fbd177fe7c44c946befaf56bc49f, type: 3}
+  ingame: {fileID: 21300000, guid: 3c44670f2f99aa146bdccb55d2f0e9e0, type: 3}
   power: 1
   offensive: 1
   effects:

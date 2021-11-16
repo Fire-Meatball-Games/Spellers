@@ -13,7 +13,7 @@ namespace Runtime.CombatSystem
         public string spellerName;
         public SpellerStats stats = new SpellerStats(); 
         public Speller target;
-
+        public SpellWand spellWand;
         #endregion
 
         #region Properties
@@ -28,7 +28,7 @@ namespace Runtime.CombatSystem
 
         protected virtual void UseSpell(SpellUnit spellUnit)
         {
-            SpellWand.UseSpell(spellUnit, this, target);
+            spellWand?.UseSpell(spellUnit, this, target);
             stats.CompleteTurn();
         }
 
@@ -61,19 +61,29 @@ namespace Runtime.CombatSystem
 
         private IEnumerator SpellCorroutine(SpellUnit spellUnit, float time = 1f)
         {
-            GameObject spellShot = Instantiate(spellPrefab);
-            spellShot.transform.position = transform.position;
-            float delta = 0;
-            if (transform.position.x < target.transform.position.x)
-                spellShot.GetComponent<SpriteRenderer>().flipX = true;
-            for(int i = 0; i < time / Time.fixedDeltaTime; i++)
+            if (spellUnit.spell.offensive)
             {
-                delta += Time.fixedDeltaTime;
+                GameObject spellShot = Instantiate(spellPrefab);
+                Sprite sprite = spellUnit.spell.ingame;
+                if(sprite != null)
+                    spellShot.GetComponent<SpriteRenderer>().sprite = sprite;
+                spellShot.transform.position = transform.position;
+                float delta = 0;
+                if (transform.position.x < target.transform.position.x)
+                    spellShot.GetComponent<SpriteRenderer>().flipX = true;
+                for (int i = 0; i < time / Time.fixedDeltaTime; i++)
+                {
+                    delta += Time.fixedDeltaTime;
 
                     spellShot.transform.position = Vector3.Lerp(transform.position, target.transform.position, delta);
-                yield return new WaitForFixedUpdate();
+                    yield return new WaitForFixedUpdate();
+                }
+                Destroy(spellShot);                
             }
-            Destroy(spellShot);
+            else
+            {
+                yield return new WaitForSeconds(time);
+            }
             UseSpell(spellUnit);
         }        
         #endregion

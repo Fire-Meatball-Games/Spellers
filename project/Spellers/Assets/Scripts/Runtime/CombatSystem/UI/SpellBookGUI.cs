@@ -65,8 +65,6 @@ namespace Runtime.CombatSystem.UI
 
         #endregion
 
-
-
         #region Private Methods
 
         // Genera la barra de minijuegos:

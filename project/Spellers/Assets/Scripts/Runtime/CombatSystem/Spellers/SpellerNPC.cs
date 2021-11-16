@@ -27,6 +27,7 @@ namespace Runtime.CombatSystem
 
         public void SetSettings(SpellerNPCSettings settings)
         {
+            spellWand = FindObjectOfType<SpellWand>();
             this.settings = settings;
             spellerName = settings.spellerName;
             stats = new SpellSystem.SpellerStats();

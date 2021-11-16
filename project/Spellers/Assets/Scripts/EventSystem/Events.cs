@@ -20,8 +20,14 @@ namespace CustomEventSystem
         // Eventos del jugador:    
         public static readonly CustomEvent<int> OnChangePlayerHealth = new CustomEvent<int>();
         public static readonly CustomEvent<int> OnChangePlayerShields = new CustomEvent<int>();
+
         public static readonly CustomEvent<float> OnChangePlayerAttack = new CustomEvent<float>();
-        public static readonly CustomEvent<float> OnChangePlayerDefense = new CustomEvent<float>();
+        public static readonly CustomEvent<int> OnChangePlayerRegeneration = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangePlayerSlots = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangePlayerOrder = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangePlayerDifficulty = new CustomEvent<int>();
+
+
         public static readonly CustomEvent OnDefeatPlayer = new CustomEvent();
         public static readonly CustomEvent<int> OnSelectTarget = new CustomEvent<int>();
         public static readonly CustomEvent OnPlayerUseSpell = new CustomEvent();
@@ -51,7 +57,7 @@ namespace CustomEventSystem
         public static readonly CustomEvent<int, int> OnChangeEnemyHealth = new CustomEvent<int, int>();
         public static readonly CustomEvent<int, int> OnChangeEnemyShields = new CustomEvent<int, int>();
         public static readonly CustomEvent<int, float> OnChangeEnemyAttack = new CustomEvent<int, float>();
-        public static readonly CustomEvent<int, float> OnChangeEnemyDefense = new CustomEvent<int, float>();
+
         public static readonly CustomEvent<int> OnDefeatEnemy = new CustomEvent<int>();
 
     }
