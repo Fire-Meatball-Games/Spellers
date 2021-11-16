@@ -17,9 +17,10 @@ namespace Runtime.CombatSystem
 
 
         #region Initalization
-        public void SetSettings()
+        public void SetSettings(SpellDeck deck = null)
         {
-            table = new SpellTable(new SpellDeck(spells));
+            SpellDeck playerDeck = deck ?? new SpellDeck(spells);
+            table = new SpellTable(playerDeck);
             board = new SpellBoard();
 
             stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);

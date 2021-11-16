@@ -48,6 +48,7 @@ namespace Runtime
             }
 
             SpellerPlayer player = GeneratePlayer();
+            player.SetSettings(GameSettings.combatSettings.playerDeck);
             battle.AddPlayer(player);
             int num_enemies = Mathf.Min(enemy_settings.Count, enemy_spawn_points.Count);
             for (int i = 0; i < num_enemies; i++)

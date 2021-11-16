@@ -48,7 +48,6 @@ namespace Runtime
         public void AddPlayer(SpellerPlayer player)
         {
             this.player = player;
-            player.SetSettings();
             Events.OnJoinPlayer.Invoke();
         }
 
@@ -88,6 +87,8 @@ namespace Runtime
 
             if(GameSettings.currentLevel >= 0 && victory)
             {
+                if (GameSettings.combatSettings.scoreHandlers == null)
+                    currentScore = ((player.stats.Health - 10) / 30) + 1;
                 Debug.Log("Establecida la puntuación del nivel " + GameSettings.currentLevel + " a " + currentScore);
                 PlayerSettings.SetLevelScore(GameSettings.currentLevel, currentScore);
             }
@@ -96,17 +97,20 @@ namespace Runtime
         // Elimina un enemigo de la partida
         private void DefeatEnemy(int idx)
         {
-            SpellerNPC enemy = enemies[idx];
-            enemies.RemoveAt(idx);
-            if (enemies.Count == 0)
+            if(enemies.Count > idx && enemies[idx] != null)
             {
-                player.target = null;
-                FinishBattle();
-            }
-            else if (player.target == enemy)
-            {
-                player.target = enemies[0];
-            }
+                SpellerNPC enemy = enemies[idx];
+                enemies.RemoveAt(idx);
+                if (enemies.Count == 0)
+                {
+                    player.target = null;
+                    FinishBattle();
+                }
+                else if (player.target == enemy)
+                {
+                    player.target = enemies[0];
+                }
+            }            
         }
 
         private void RemoveEnemy(int idx)

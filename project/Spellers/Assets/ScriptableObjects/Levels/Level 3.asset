@@ -16,9 +16,12 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   map_dialogue: {fileID: 11400000, guid: a91273f6f52902548aa1bdadfedbd531, type: 2}
   gameSettings:
+    playerDeck:
+      spells: []
     speller_Settings:
-    - {fileID: 11400000, guid: c25bd694f1fceee4b893a27ed49d59db, type: 2}
+    - {fileID: 11400000, guid: b723571bd5c5ce64ba7a35bc6f236ca1, type: 2}
     init_dialogue: {fileID: 0}
     end_dialogue: {fileID: 0}
     dialogueHandlers: []
     endHandlers: []
+    scoreHandlers: []

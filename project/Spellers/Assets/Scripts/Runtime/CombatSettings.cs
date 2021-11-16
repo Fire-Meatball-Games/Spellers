@@ -11,6 +11,7 @@ namespace Runtime
     public class CombatSettings
     {
         // Detalles
+        [SerializeField] public SpellDeck playerDeck;
         [SerializeField] public List<SpellerNPCSettings> speller_Settings;
         public Dialogue init_dialogue;
         public Dialogue end_dialogue;
@@ -18,8 +19,6 @@ namespace Runtime
         [SerializeField] public List<DialogueEventHandler> dialogueHandlers;
         [SerializeField] public List<EndConditionHandler> endHandlers;
         [SerializeField] public List<ScoreEventHandler> scoreHandlers;
-
-
     } 
 
     [System.Serializable]

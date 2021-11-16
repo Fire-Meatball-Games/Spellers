@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d3b26487bebc041aeb2f92b5e45dca, type: 3}
+  m_Name: N15 - Lacert
+  m_EditorClassIdentifier: 
+  spellerName: Turk
+  deck:
+    spells:
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: b9a969061fe167445ab356930238e3ea, type: 2}
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
+    - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
+    - {fileID: 11400000, guid: 1ea0a912ff6443a478a4bbdb4ecdd54e, type: 2}
+    - {fileID: 11400000, guid: ea3949a9c5b878143b05cafc051beead, type: 2}
+    - {fileID: 11400000, guid: 91dc2e09c2cc3f44d860e4b3c934ac5e, type: 2}
+    - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
+  max_health: 100
+  max_spell_lvl: 3
+  cooldown_average: 8
+  cooldown_deviation: 3

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d3b26487bebc041aeb2f92b5e45dca, type: 3}
+  m_Name: N11 - Vivian
+  m_EditorClassIdentifier: 
+  spellerName: Vivian
+  deck:
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: e9d85c89cc8902548907cc155b8a3250, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+  max_health: 100
+  max_spell_lvl: 2
+  cooldown_average: 10
+  cooldown_deviation: 5

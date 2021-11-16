@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90d3b26487bebc041aeb2f92b5e45dca, type: 3}
-  m_Name: Primer enemigo
+  m_Name: N4 - Nigel
   m_EditorClassIdentifier: 
-  spellerName: Primer Enemigo
+  spellerName: Nigel
   deck:
     spells:
-    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
-  max_health: 10
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+  max_health: 100
   max_spell_lvl: 1
-  cooldown_average: 5
-  cooldown_deviation: 2
+  cooldown_average: 15
+  cooldown_deviation: 3

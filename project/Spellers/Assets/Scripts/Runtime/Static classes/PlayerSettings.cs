@@ -10,7 +10,7 @@ namespace Runtime
         public static List<int> levelScores = new List<int>();
 
         public static string playerName;
-        public static int lastLevelUnlocked;
+        public static int lastLevelUnlocked = 1;
 
         public static void SetLevelScore(int levelIndex, int score)
         {
