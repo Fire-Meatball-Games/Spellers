@@ -19459,14 +19459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638e4f05882fad349b48f0996cbcd6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPrincipal: {fileID: 1394983518}
-  menuJugar: {fileID: 454405204}
-  menuColeccion: {fileID: 88155301}
-  menuOpciones: {fileID: 10767992}
-  menuCreditos: {fileID: 312162812}
-  "fuentePeque\xF1aObj": {fileID: 473379830}
-  fuenteMedianaObj: {fileID: 953310621}
-  fuenteGrandeObj: {fileID: 1064194967}
   pantallaCompleta: {fileID: 1556065849}
 --- !u!1 &1956447345
 GameObject:
