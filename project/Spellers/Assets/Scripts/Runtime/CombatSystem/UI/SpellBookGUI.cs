@@ -74,7 +74,7 @@ namespace Runtime.CombatSystem.UI
             str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
             reg_game_button.gameObject.SetActive(stats.Regeneration < 0);
             bln_game_button.gameObject.SetActive(stats.Order < 0);
-            dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
+            dif_game_button.gameObject.SetActive(stats.Difficulty < 1);
         }
 
         // Genera la lista de hechizos:
