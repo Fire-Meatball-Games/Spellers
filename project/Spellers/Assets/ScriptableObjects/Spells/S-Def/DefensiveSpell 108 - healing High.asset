@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: DefensiveSpell 108 - healing High
   m_EditorClassIdentifier: 
-  spellName: 
+  spellName: Lignum vitae
   description: Confractus
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 0d99bec706473d34cbec26e2c3fb1220, type: 3}
   ingame: {fileID: 0}
   power: 3
+  offensive: 0
   effects:
   - {fileID: 11400000, guid: e32989dbca7b50547bbf0a4ac24f45c1, type: 2}

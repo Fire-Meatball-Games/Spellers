@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Scutum armis
   description: Shields the user
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: c66cdd75fa07e404c9265002b57fd677, type: 3}
   ingame: {fileID: 0}
   power: 1
+  offensive: 0
   effects:
   - {fileID: 11400000, guid: bafaefff483f4a94cb13da91d086aaa7, type: 2}

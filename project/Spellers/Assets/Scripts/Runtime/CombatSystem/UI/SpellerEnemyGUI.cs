@@ -12,12 +12,25 @@ namespace Runtime.CombatSystem
         public class SpellerEnemyGUI : MonoBehaviour
         {
             #region GUI Elements
+
+            public Sprite attack_sprite, regen_sprite, poison_sprite, slots_sprite;
+
             public GameObject display;
             public TextMeshProUGUI txt_name;
+            public Image icon;
             public Slider healthSlider;
             public TextMeshProUGUI num_shields;
             public Image img_shield;
             public int index;
+
+            public Image atk_image;
+            public Image regen_image;
+            public Image slots_image;
+
+            public TextMeshProUGUI atk_text;
+            public TextMeshProUGUI regen_text;
+            public TextMeshProUGUI slots_text;
+
             #endregion
 
             #region Set up
@@ -31,7 +44,12 @@ namespace Runtime.CombatSystem
             {
                 Events.OnChangeEnemyHealth.AddListener(SetHealthBar);
                 Events.OnChangeEnemyShields.AddListener(SetShields);
-                Events.OnBattleBegins.AddListener((ShowGUI));
+                Events.OnChangeEnemyAttack.AddListener(SetAttackLevel);
+                Events.OnChangeEnemyRegeneration.AddListener(SetRegenerationLevel);
+                Events.OnChangeEnemySlots.AddListener(SetSlotsLevel);
+                Events.OnChangeEnemyOrder.AddListener(SetOrderLevel);
+                Events.OnChangeEnemyDifficulty.AddListener(SetDifficultyLevel);
+                Events.OnBattleBegins.AddListener(ShowGUI);
             }
 
             private void OnDisable()
@@ -45,6 +63,9 @@ namespace Runtime.CombatSystem
             {
                 index = idx;
                 img_shield.gameObject.SetActive(false);
+                regen_image.gameObject.SetActive(false);
+                atk_image.gameObject.SetActive(false);
+                slots_image.gameObject.SetActive(false);
                 txt_name.text = enemyName;
                 
             }
@@ -72,6 +93,46 @@ namespace Runtime.CombatSystem
                     else
                         img_shield.gameObject.SetActive(true);
                 }
+            }
+
+
+            private void SetAttackLevel(int idx, float lvl)
+            {
+                if (idx == index)
+                {
+                    atk_image.gameObject.SetActive(lvl != 1f);
+                    atk_text.text = "x" + lvl; 
+                }
+
+            }
+
+            private void SetSlotsLevel(int idx, int lvl)
+            {
+                if (idx == index)
+                {
+                    slots_image.gameObject.SetActive(lvl != 0);
+                    slots_text.text = lvl > 0 ? "+" : "" + lvl; 
+                }
+            }
+
+            private void SetRegenerationLevel(int idx, int lvl)
+            {
+                if (idx == index)
+                {
+                    regen_image.gameObject.SetActive(lvl != 0);
+                    regen_image.sprite = lvl > 0 ? regen_sprite : poison_sprite;
+                    regen_text.text = lvl > 0 ? "+" : "" + lvl; 
+                }
+            }
+
+            private void SetOrderLevel(int idx, int lvl)
+            {
+
+            }
+
+            private void SetDifficultyLevel(int idx, int lvl)
+            {
+
             }
 
             #endregion

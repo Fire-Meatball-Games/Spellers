@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Spellers
-  defaultCursor: {fileID: 2800000, guid: 23c0fbd177fe7c44c946befaf56bc49f, type: 3}
+  defaultCursor: {fileID: 2800000, guid: cc3a05a13494fc34483644a0e2010476, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1

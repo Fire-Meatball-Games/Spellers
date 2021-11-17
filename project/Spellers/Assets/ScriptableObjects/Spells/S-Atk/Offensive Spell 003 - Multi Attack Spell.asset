@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Iterato noxia
   description: Deals damage to the target
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 8dc98b32f44d2914fb83351a3f5ee9e2, type: 3}
   ingame: {fileID: 0}
   power: 1
   offensive: 1

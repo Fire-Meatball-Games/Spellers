@@ -56,7 +56,12 @@ namespace CustomEventSystem
         // Eventos de los enemigos:
         public static readonly CustomEvent<int, int> OnChangeEnemyHealth = new CustomEvent<int, int>();
         public static readonly CustomEvent<int, int> OnChangeEnemyShields = new CustomEvent<int, int>();
+
         public static readonly CustomEvent<int, float> OnChangeEnemyAttack = new CustomEvent<int, float>();
+        public static readonly CustomEvent<int, int> OnChangeEnemyRegeneration = new CustomEvent<int, int>();
+        public static readonly CustomEvent<int, int> OnChangeEnemySlots = new CustomEvent<int, int>();
+        public static readonly CustomEvent<int, int> OnChangeEnemyOrder = new CustomEvent<int, int>();
+        public static readonly CustomEvent<int, int> OnChangeEnemyDifficulty = new CustomEvent<int, int>();
 
         public static readonly CustomEvent<int> OnDefeatEnemy = new CustomEvent<int>();
 

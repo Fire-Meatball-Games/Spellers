@@ -81,7 +81,6 @@ namespace Runtime
 
         public void SetUp(SpellerBattle battle)
         {
-            Debug.Log("E");
             this.battle = battle;
             playerEvent.AddListener(Listener);
         }

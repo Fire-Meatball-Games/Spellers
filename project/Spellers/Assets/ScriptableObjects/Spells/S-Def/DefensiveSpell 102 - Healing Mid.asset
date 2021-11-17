@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Renovationis
   description: 
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: efb7c7857aa98984694f98a8ae966be8, type: 3}
   ingame: {fileID: 0}
   power: 2
+  offensive: 0
   effects:
   - {fileID: 11400000, guid: 122aaa80a0f9e0c4a9ccdc3a5f817330, type: 2}

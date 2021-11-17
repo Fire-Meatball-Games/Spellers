@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 87.25
+  m_fontSize: 79.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -271,14 +271,14 @@ MonoBehaviour:
   button: {fileID: 6663164484283734254}
   text: {fileID: 3184275450048941477}
   base_sprites:
-  - {fileID: 21300000, guid: 04dfc65f609c8b24595e9a178ceb0a0a, type: 3}
-  - {fileID: 21300000, guid: 5827d844011a6554cb499c3e2cc0dc43, type: 3}
-  - {fileID: 21300000, guid: 25405b0650402f046a503fdd479fe9ec, type: 3}
-  - {fileID: 21300000, guid: 2f46164d1881cac49aa6c8145aab534d, type: 3}
-  - {fileID: 21300000, guid: ae621d3dd80a9294d8489cc9220ca12c, type: 3}
+  - {fileID: 21300000, guid: a3de31d551c1042409f9895959f43ac7, type: 3}
+  - {fileID: 21300000, guid: 87742bd0d0502a64bb453e1fcaa51da3, type: 3}
+  - {fileID: 21300000, guid: 8142ffc6647f95444a0082919e480016, type: 3}
+  - {fileID: 21300000, guid: 34357d97cbcecbe4db427b89923b572c, type: 3}
+  - {fileID: 21300000, guid: 30940497b58c63c498c90a2947cf4e08, type: 3}
   pressed_sprites:
-  - {fileID: 21300000, guid: 8bad958683b979145aaa909821dc4245, type: 3}
-  - {fileID: 21300000, guid: de2a5b1088ab5c443a9a243237e42576, type: 3}
-  - {fileID: 21300000, guid: fe55f3cef85d8514eb8bf0a3c44ba8db, type: 3}
-  - {fileID: 21300000, guid: 7f20d4dd7c77d5241a92d2970c028649, type: 3}
-  - {fileID: 21300000, guid: f71c83ca47e771c4689d15cf73ef128c, type: 3}
+  - {fileID: 21300000, guid: 718386d3b7d355e4c9c47d74c01bc6b4, type: 3}
+  - {fileID: 21300000, guid: 9a11a2aa637f7684695ce95a0837c761, type: 3}
+  - {fileID: 21300000, guid: 0a99f16fff77799488210c0a0f859264, type: 3}
+  - {fileID: 21300000, guid: 77dd1699f90c97e40bc288ba2641503e, type: 3}
+  - {fileID: 21300000, guid: 5c28f9a5fc646d544aeb909845046f2c, type: 3}

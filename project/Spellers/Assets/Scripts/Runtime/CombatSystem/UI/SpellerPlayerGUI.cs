@@ -10,11 +10,24 @@ namespace Runtime.CombatSystem
         public class SpellerPlayerGUI : MonoBehaviour
         {
             #region GUI Elements
+
+            public Sprite attack_sprite, regen_sprite, poison_sprite, slots_sprite;
+
             public GameObject display;
             public TextMeshProUGUI txt_name;
+            public Image icon;
             public Slider healthSlider;
             public TextMeshProUGUI num_shields;
             public Image img_shield;
+
+            public Image atk_image;
+            public Image regen_image;
+            public Image slots_image;
+
+            public TextMeshProUGUI atk_text;
+            public TextMeshProUGUI regen_text;
+            public TextMeshProUGUI slots_text;
+
             #endregion
 
             #region Set up
@@ -47,10 +60,14 @@ namespace Runtime.CombatSystem
                 Events.OnBattleBegins.RemoveListener(ShowGUI);
             }
 
-            public void SetUpPlayer(string playerName)
+            public void SetUpPlayer(string playerName, Sprite sprite = null)
             {
                 img_shield.gameObject.SetActive(false);
-                txt_name.text = playerName;                
+                regen_image.gameObject.SetActive(false);
+                atk_image.gameObject.SetActive(false);
+                slots_image.gameObject.SetActive(false);
+                txt_name.text = playerName;
+                icon.sprite = sprite ?? icon.sprite;
             }
 
 
@@ -73,17 +90,22 @@ namespace Runtime.CombatSystem
 
             private void SetAttackLevel(float lvl)
             {
+                atk_image.gameObject.SetActive(lvl != 1f);
+                atk_text.text = "x" + lvl;
 
             }
 
             private void SetSlotsLevel(int lvl)
             {
-
+                slots_image.gameObject.SetActive(lvl != 0);
+                slots_text.text = lvl > 0 ? "+" : "" + lvl;  
             }
 
             private void SetRegenerationLevel(int lvl)
             {
-
+                regen_image.gameObject.SetActive(lvl != 0);
+                regen_image.sprite = lvl > 0 ? regen_sprite : poison_sprite;
+                regen_text.text = lvl > 0 ? "+" : "" + lvl;
             }
 
             private void SetOrderLevel(int lvl)

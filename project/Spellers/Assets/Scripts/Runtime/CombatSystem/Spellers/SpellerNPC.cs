@@ -34,7 +34,11 @@ namespace Runtime.CombatSystem
 
             stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
             stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
+
             stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(id, n);
+            stats.OnChangeRegenerationEvent += (n) => Events.OnChangeEnemyRegeneration.Invoke(id, n);
+            stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangeEnemySlots.Invoke(id, n);
+            stats.OnChangeOrderEvent += (n) => Events.OnChangeEnemyOrder.Invoke(id, n);
 
             stats.OnChangeSlotLevelsEvent += (n) => settings.cooldown_average -=n;
             stats.OnChangeOrderEvent += (n) => settings.cooldown_average -= n;

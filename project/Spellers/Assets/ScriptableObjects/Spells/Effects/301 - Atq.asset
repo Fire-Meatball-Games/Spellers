@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: 0
   PointsBase: 0
-  PointsLevel: -20
+  PointsLevel: -0.2
   TurnsBase: 1
   Turnslevel: 0
