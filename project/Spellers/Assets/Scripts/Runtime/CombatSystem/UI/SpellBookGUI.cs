@@ -50,6 +50,7 @@ namespace Runtime.CombatSystem.UI
             Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
             Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
             Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
+            Events.OnCompleteDifficultyMinigame.AddListener(GenerateMinigamesBar);
             Events.OnFailSpell.AddListener(GenerateMinigamesBar);
         }
 
@@ -60,6 +61,7 @@ namespace Runtime.CombatSystem.UI
             Events.OnPlayerUseSpell.RemoveListener(GenerateMinigamesBar);
             Events.OnCompletePoisonMinigame.RemoveListener(GenerateMinigamesBar);
             Events.OnCompleteBlindMinigame.RemoveListener(GenerateMinigamesBar);
+            Events.OnCompleteDifficultyMinigame.RemoveListener(GenerateMinigamesBar);
             Events.OnFailSpell.RemoveListener(GenerateMinigamesBar);
         }
 
@@ -74,7 +76,7 @@ namespace Runtime.CombatSystem.UI
             str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
             reg_game_button.gameObject.SetActive(stats.Regeneration < 0);
             bln_game_button.gameObject.SetActive(stats.Order < 0);
-            dif_game_button.gameObject.SetActive(stats.Difficulty < 1);
+            dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
         }
 
         // Genera la lista de hechizos:

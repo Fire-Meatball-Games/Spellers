@@ -23,7 +23,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
       - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
     speller_Settings:
-    - {fileID: 11400000, guid: 5d46bd0bfc36ccd469051b9ae498017a, type: 2}
+    - {fileID: 11400000, guid: bff9f720dc8b0d14390cb1fcddad65d6, type: 2}
     init_dialogue: {fileID: 11400000, guid: 15eb790a9dfbb8049a0dc8c2cee1e0a9, type: 2}
     end_dialogue: {fileID: 11400000, guid: 6238342afb7e31c4a9b2517bb21f2eaa, type: 2}
     dialogueHandlers: []

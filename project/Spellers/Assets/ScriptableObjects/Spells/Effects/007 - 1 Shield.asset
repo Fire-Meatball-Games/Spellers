@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 007 - 1 Shield
   m_EditorClassIdentifier: 
   target: 0
-  PointsBase: 100
+  PointsBase: -10
   Pointslevel: 0

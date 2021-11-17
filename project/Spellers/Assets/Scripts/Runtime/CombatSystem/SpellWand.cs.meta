@@ -3,7 +3,18 @@ guid: f9c5ec215f9b4a74c9e99d366f57db4a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - effect_prefab: {fileID: 5557422129974789201, guid: 1be0ad8a34937f94fafc116c7595d8cc, type: 3}
+  - heal: {instanceID: 0}
+  - self_damage: {instanceID: 0}
+  - shield: {instanceID: 0}
+  - brokenShield: {instanceID: 0}
+  - regen: {instanceID: 0}
+  - poison: {instanceID: 0}
+  - atkbuff: {instanceID: 0}
+  - atkdebuff: {instanceID: 0}
+  - castbuff: {instanceID: 0}
+  - castDebuff: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -40,8 +40,8 @@ namespace Runtime.CombatSystem
             stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangeEnemySlots.Invoke(id, n);
             stats.OnChangeOrderEvent += (n) => Events.OnChangeEnemyOrder.Invoke(id, n);
 
-            stats.OnChangeSlotLevelsEvent += (n) => settings.cooldown_average -=n;
-            stats.OnChangeOrderEvent += (n) => settings.cooldown_average -= n;
+            stats.OnChangeSlotLevelsEvent += (n) => settings.SetCoolDownAverage(settings.cooldown_average - n);
+            stats.OnChangeOrderEvent += (n) => settings.SetCoolDownAverage(settings.cooldown_average - n);
 
             stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
             stats.OnDefeatEvent += () => DisableCombat();

@@ -25,9 +25,11 @@ namespace Runtime.CombatSystem
         public void UseSpell(SpellUnit spellUnit, Speller user, Speller target)
         {
             Debug.Log(user.spellerName + " (" + spellUnit + " ) --> " + target.spellerName);
+
             int level = spellUnit.lvl;
             foreach(Effect effect in spellUnit.spell.effects)
             {
+                Debug.Log("Applying effect " + effect.name + " (" + effect.target + ")");
                 effect.Apply(user.stats, target.stats, level);
                 Sprite sprite = GetSpriteEffect(effect);
                 Transform tf = effect.target == Target.Other ? target.transform : user.transform;
@@ -63,9 +65,9 @@ namespace Runtime.CombatSystem
 
         private IEnumerator EffectCoroutine(Sprite sprite, Transform tf, int ticks = 20)
         {
-            tf.Translate(Vector3.back);
-            Vector3 init_pos = tf.position + Vector3.up * 0.5f; 
-            Vector3 final_pos = tf.position + Vector3.up;            
+            Vector3 pos = tf.position + Vector3.back;
+            Vector3 init_pos = pos + Vector3.up * 0.5f; 
+            Vector3 final_pos = pos + Vector3.up;            
             var effect_go = Instantiate(effect_prefab, tf);
             effect_go.transform.Translate(Vector3.back);
             effect_go.GetComponent<SpriteRenderer>().sprite = sprite;
