@@ -9,7 +9,13 @@ namespace UIManagement
 
         public override void Init()
         {
-            btn_empezar.onClick.AddListener(() => ViewManager.Show<MainMenuView>());
+            btn_empezar.onClick.AddListener(() => GetComponent<Animator>().SetBool("Salir", true));
+            btn_empezar.onClick.AddListener(() => Invoke("iniciar", 1.0f));
+        }
+
+        public void iniciar()
+        {
+            ViewManager.Show<MainMenuView>();
         }
     } 
 }
