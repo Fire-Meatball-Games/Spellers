@@ -54,7 +54,7 @@ namespace UIManagement
 
         public void combateLibre()
         {
-            SceneManager.LoadScene(2);
+            ViewManager.Show<QuickGameView>();
         }
     } 
 }
