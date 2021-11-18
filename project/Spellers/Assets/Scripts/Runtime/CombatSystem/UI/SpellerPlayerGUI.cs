@@ -11,7 +11,7 @@ namespace Runtime.CombatSystem
         {
             #region GUI Elements
 
-            public Sprite attack_sprite, regen_sprite, poison_sprite, slots_sprite;
+            public Sprite regen_sprite, poison_sprite;
 
             public GameObject display;
             public TextMeshProUGUI txt_name;
@@ -23,10 +23,15 @@ namespace Runtime.CombatSystem
             public Image atk_image;
             public Image regen_image;
             public Image slots_image;
+            public Image order_image;
+            public Image diff_image;
+
 
             public TextMeshProUGUI atk_text;
             public TextMeshProUGUI regen_text;
             public TextMeshProUGUI slots_text;
+            public TextMeshProUGUI order_text;
+            public TextMeshProUGUI diff_text;
 
             #endregion
 
@@ -110,12 +115,14 @@ namespace Runtime.CombatSystem
 
             private void SetOrderLevel(int lvl)
             {
-
+                order_image.gameObject.SetActive(lvl != 0);
+                order_text.text = lvl > 0 ? "+" : "" + lvl;
             }
 
             private void SetDifficultyLevel(int lvl)
             {
-
+                diff_image.gameObject.SetActive(lvl != 0);
+                diff_text.text = lvl > 0 ? "+" : "" + lvl;
             }
 
             private void ShowGUI()
