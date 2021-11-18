@@ -22,6 +22,7 @@ namespace UIManagement
         public override void Init()
         {
             Animator animacion = GetComponent<Animator>();
+
             btn_personalizar.onClick.AddListener(() => inic = 0);
             btn_personalizar.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_personalizar.onClick.AddListener(() => Invoke("personalizar", 1.0f));
@@ -33,10 +34,12 @@ namespace UIManagement
             btn_atras.onClick.AddListener(() => inic = 1);
             btn_atras.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_atras.onClick.AddListener(() => Invoke("salir", 1.0f));
+
             //btn_historyMode.onClick.AddListener(() => GameManager.LoadScene("ModoHistoria"));
             btn_historyMode.onClick.AddListener(() => inic = 0);
             btn_historyMode.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_historyMode.onClick.AddListener(() => Invoke("modoHistoria", 1.0f));
+
             btn_singlePlayerMode.onClick.AddListener(() => inic = 0);
             btn_singlePlayerMode.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_singlePlayerMode.onClick.AddListener(() => Invoke("combateLibre", 1.0f));
