@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Sacrificium
   description: 
   thumbnail: {fileID: 21300000, guid: fd59c81d44378304ea16d54b4a7ec243, type: 3}
-  ingame: {fileID: 0}
+  ingame: {fileID: 21300000, guid: 8ed3146fdfd49844c8e6cecff2a6358e, type: 3}
   power: 3
   offensive: 1
   effects:

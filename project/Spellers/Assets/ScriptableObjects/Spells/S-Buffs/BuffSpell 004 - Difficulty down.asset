@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Totum visio
   description: Mark runes
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 8704d63515898a2489399540f75fd0a7, type: 3}
   ingame: {fileID: 0}
   power: 2
+  offensive: 0
   effects:
   - {fileID: 11400000, guid: c17c1aeb5d912994da56fb1b01e8bc42, type: 2}

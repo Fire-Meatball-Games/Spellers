@@ -5663,7 +5663,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e2ee2c36422ca6469a3404e4a6547a9, type: 2}
   - {fileID: 11400000, guid: 65c6b60b284757640a24bbfd75fd2421, type: 2}
   - {fileID: 11400000, guid: eb42981827d5e3242aa8d8a534925d25, type: 2}
-  btn_play: {fileID: 0}
+  btn_play: {fileID: 653932715}
 --- !u!114 &377684435
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Venenatum
   description: 
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}
   ingame: {fileID: 0}
   power: 2
   offensive: 1

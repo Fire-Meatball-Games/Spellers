@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Autovicens
   description: Deals damage to the target
   thumbnail: {fileID: 21300000, guid: 7671e4cdccbaf7946ae5a75ad26db231, type: 3}
-  ingame: {fileID: 0}
+  ingame: {fileID: 21300000, guid: 2bb601110c89c7b48a22bbb0b8091e38, type: 3}
   power: 2
   offensive: 1
   effects:

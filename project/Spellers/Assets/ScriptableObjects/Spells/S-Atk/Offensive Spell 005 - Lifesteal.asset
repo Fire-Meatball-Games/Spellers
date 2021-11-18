@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Lac vitae
   description: 
   thumbnail: {fileID: 21300000, guid: f87216ca28cdd794f89a3eb5ba182be0, type: 3}
-  ingame: {fileID: 0}
+  ingame: {fileID: 21300000, guid: 5d6db994489d2644b83a37ea5e8df27e, type: 3}
   power: 2
   offensive: 1
   effects:

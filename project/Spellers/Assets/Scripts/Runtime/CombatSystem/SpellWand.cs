@@ -66,8 +66,8 @@ namespace Runtime.CombatSystem
         private IEnumerator EffectCoroutine(Sprite sprite, Transform tf, int ticks = 20)
         {
             Vector3 pos = tf.position + Vector3.back;
-            Vector3 init_pos = pos + Vector3.up * 0.5f; 
-            Vector3 final_pos = pos + Vector3.up;            
+            Vector3 init_pos = pos + Vector3.up; 
+            Vector3 final_pos = pos + Vector3.up * 1.5f;            
             var effect_go = Instantiate(effect_prefab, tf);
             effect_go.transform.Translate(Vector3.back);
             effect_go.GetComponent<SpriteRenderer>().sprite = sprite;

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Purgatum
   description: Increases user's attack
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 50f251f999aa6a94592379b301214e92, type: 3}
   ingame: {fileID: 0}
   power: 3
+  offensive: 0
   effects:
   - {fileID: 11400000, guid: c893cdbc813cd1b44aa63d4135ba1bdc, type: 2}
   - {fileID: 11400000, guid: 19c29dd771c6ec249a534bf6070874f5, type: 2}

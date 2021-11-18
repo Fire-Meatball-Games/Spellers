@@ -69,7 +69,7 @@ namespace Runtime.CombatSystem
                     spellShot.GetComponent<SpriteRenderer>().sprite = sprite;
                 spellShot.transform.position = transform.position;
                 float delta = 0;
-                if (transform.position.x < target.transform.position.x)
+                if (transform.position.x > target.transform.position.x)
                     spellShot.GetComponent<SpriteRenderer>().flipX = true;
                 for (int i = 0; i < time / Time.fixedDeltaTime; i++)
                 {

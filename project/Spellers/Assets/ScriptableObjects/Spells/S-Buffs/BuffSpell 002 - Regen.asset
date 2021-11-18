@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Remedious continuous
   description: Increases user's regeneration
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: dccd06b9b890f364589b700626f91efa, type: 3}
   ingame: {fileID: 0}
   power: 2
+  offensive: 0
   effects:
   - {fileID: 11400000, guid: 490325b9db592224d92ac1ba78d05d8b, type: 2}
