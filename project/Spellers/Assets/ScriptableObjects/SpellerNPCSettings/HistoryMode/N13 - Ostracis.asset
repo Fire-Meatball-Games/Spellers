@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d3b26487bebc041aeb2f92b5e45dca, type: 3}
   m_Name: N13 - Ostracis
   m_EditorClassIdentifier: 
-  spellerName: Turk
+  spellerName: Ostracis
   icon: {fileID: 0}
   skin: {fileID: 5800135421076506562, guid: 46288eb6ae753ea42848a70c457c1369, type: 3}
   deck:

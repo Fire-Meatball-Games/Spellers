@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d3b26487bebc041aeb2f92b5e45dca, type: 3}
   m_Name: N15 - Lacert
   m_EditorClassIdentifier: 
-  spellerName: Turk
+  spellerName: Lacert
   icon: {fileID: 0}
   skin: {fileID: 8595615010596120672, guid: fcad03160f0be3340bdb95b7808c21a7, type: 3}
   deck:
