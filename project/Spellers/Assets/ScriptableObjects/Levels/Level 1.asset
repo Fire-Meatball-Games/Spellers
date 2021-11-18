@@ -33,10 +33,10 @@ MonoBehaviour:
       win: 1
     scoreHandlers:
     - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
-      value: 1
+      value: 3
       removeStarCondition: 1
       stars: 2
     - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
-      value: 3
+      value: 6
       removeStarCondition: 1
       stars: 1

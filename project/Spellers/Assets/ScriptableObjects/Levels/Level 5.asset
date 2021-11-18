@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 5
+  m_EditorClassIdentifier: 
+  levelname: Nivel 5
+  thumbnail: {fileID: 0}
+  map_dialogue: {fileID: 11400000, guid: 1f016a0934c32af41ab122874acb1b78, type: 2}
+  gameSettings:
+    playerDeck:
+      spells:
+      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+      - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
+      - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
+      - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+      - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+      - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+      - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+    speller_Settings:
+    - {fileID: 11400000, guid: a1fa9f7696233ea4b82ee6843ec18573, type: 2}
+    init_dialogue: {fileID: 11400000, guid: 58af1ff604a9a2c4fbe8613a5a1dfe80, type: 2}
+    end_dialogue: {fileID: 11400000, guid: fb7ed953a0a816a4c915cb54b4a438a0, type: 2}
+    dialogueHandlers: []
+    endHandlers: []
+    scoreHandlers: []

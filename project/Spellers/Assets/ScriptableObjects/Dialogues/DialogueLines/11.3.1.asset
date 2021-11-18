@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aa2671365589b4783bb3f5463a374e, type: 3}
+  m_Name: 11.3.1
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: ace4f972d9ec1cf45ad92511837446fd, type: 2}
+  text: "Este a\xF1o va a haber nivel en el torneo, desde luego. Si todos los novatos
+    vienen con tu potencial, vamos a tenerlo complicado el resto\u2026 jeje. \xA1Mucho
+    \xE1nimo!"
+  layout: 0

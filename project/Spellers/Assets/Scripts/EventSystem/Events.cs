@@ -7,7 +7,7 @@ namespace CustomEventSystem
     {
         // Eventos del menú de inicio:
         public static readonly CustomEvent<int, SpellerNPCSettings> OnChangeSpellerNPCSettings = new CustomEvent<int, SpellerNPCSettings>();
-
+        public static readonly CustomEvent OnSecretActivated = new CustomEvent();
 
         // Eventos del modo historia:
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();

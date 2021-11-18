@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aa2671365589b4783bb3f5463a374e, type: 3}
+  m_Name: 10.1.7
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
+  text: "Y por \xFAltimo, y el clan que nos interesa hoy, el Clan del Rat\xF3n, quienes
+    destacan por sus actividades de debilidad hacia los rivales en los duelos. Si
+    pueden hacer har\xE1n trampas y jugar\xE1n todo lo que puedan en tu contra. No
+    son muy fuertes en ataques normales, pero te ir\xE1n minando."
+  layout: 0

@@ -28,14 +28,14 @@ namespace Runtime
 
         private void OnEnable()
         {
-            Events.OnDefeatPlayer.AddListener(FinishBattleWithVictory);
+            Events.OnDefeatPlayer.AddListener(FinishBattleWithLose);
             Events.OnDefeatEnemy.AddListener(DefeatEnemy);
             Events.OnEndCountDown.AddListener(BeginBattle);
         }
 
         private void OnDisable()
         {
-            Events.OnDefeatPlayer.RemoveListener(FinishBattleWithVictory);
+            Events.OnDefeatPlayer.RemoveListener(FinishBattleWithLose);
             Events.OnDefeatEnemy.RemoveListener(DefeatEnemy);
             Events.OnEndCountDown.RemoveListener(BeginBattle);
         }
@@ -77,15 +77,26 @@ namespace Runtime
         }
 
         // Finaliza la batalla
-        private void FinishBattleWithVictory() => FinishBattle();
+        private void FinishBattleWithLose() => FinishBattle(false);
 
 
         public void FinishBattle(bool victory = true)
-        {
-            Events.OnBattleEnds.Invoke(victory);
+        {            
             enemies.Clear();
+            Dialogue dialogue = GameSettings.combatSettings.end_dialogue;
+            Debug.Log(dialogue);
+            if (dialogue != null && victory)
+            {
+                dialogueManager = FindObjectOfType<DialogueManager>();
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogueManager.EndDialogueEvent += () => SetDialogueEventHandler(() => Events.OnBattleEnds.Invoke(victory));
+            }
+            else
+            {
+                Events.OnBattleEnds.Invoke(victory);
+            }
 
-            if(GameSettings.currentLevel >= 0 && victory)
+            if (GameSettings.currentLevel >= 0 && victory)
             {
                 if (GameSettings.combatSettings.scoreHandlers == null)
                     currentScore = ((player.stats.Health - 10) / 30) + 1;
