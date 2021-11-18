@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N7 - Zachary
   m_EditorClassIdentifier: 
   spellerName: Zachary
+  icon: {fileID: 0}
+  skin: {fileID: 8696160025771808260, guid: 5553291cd6cdbf349aea680dc39a8811, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N8 - Saita
   m_EditorClassIdentifier: 
   spellerName: Saita
+  icon: {fileID: 0}
+  skin: {fileID: 3463529708767178120, guid: 3dacf080c99401143ab926173388e2e0, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}

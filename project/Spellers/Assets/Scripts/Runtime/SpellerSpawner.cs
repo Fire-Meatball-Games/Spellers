@@ -54,6 +54,8 @@ namespace Runtime
             for (int i = 0; i < num_enemies; i++)
             {
                 SpellerNPC speller = InstantiateEnemy(enemy_spawn_points[i]);
+                var skin = Instantiate(enemy_settings[i].skin, Vector3.zero, Quaternion.identity, speller.transform);
+                skin.transform.localPosition = Vector3.zero;
                 speller.SetSettings(enemy_settings[i]);
                 speller.SetTarget();
                 battle.AddEnemy(speller, i);

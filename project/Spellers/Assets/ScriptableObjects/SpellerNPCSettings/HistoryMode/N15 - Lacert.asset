@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N15 - Lacert
   m_EditorClassIdentifier: 
   spellerName: Turk
+  icon: {fileID: 0}
+  skin: {fileID: 8595615010596120672, guid: fcad03160f0be3340bdb95b7808c21a7, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}

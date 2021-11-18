@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N6 - Magreb
   m_EditorClassIdentifier: 
   spellerName: Magreb
+  icon: {fileID: 0}
+  skin: {fileID: 6800084669794074652, guid: 8a17b0fe629909644b4e37f1c86e2f48, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}

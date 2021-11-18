@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N3 - Lacert
   m_EditorClassIdentifier: 
   spellerName: Lacert
+  icon: {fileID: 0}
+  skin: {fileID: 8595615010596120672, guid: fcad03160f0be3340bdb95b7808c21a7, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}

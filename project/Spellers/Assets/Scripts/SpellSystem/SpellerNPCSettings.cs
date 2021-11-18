@@ -10,6 +10,7 @@ namespace SpellSystem
         #region Fields
         public string spellerName;
         public Sprite icon;
+        public GameObject skin;
         public SpellDeck deck;
         public int max_health = 100;
         public int max_spell_lvl = 3;

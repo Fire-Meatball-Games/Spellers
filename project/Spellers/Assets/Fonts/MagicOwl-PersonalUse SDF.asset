@@ -94,7 +94,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 0.9236548, b: 0.6745283, a: 1}
+    - _FaceColor: {r: 1, g: 0.9125369, b: 0.6179246, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -1597,12 +1597,12 @@ MonoBehaviour:
     m_GlyphIndex: 333
     m_Scale: 1
   - m_ElementType: 1
-    m_Unicode: 8230
-    m_GlyphIndex: 204
-    m_Scale: 1
-  - m_ElementType: 1
     m_Unicode: 241
     m_GlyphIndex: 348
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 8230
+    m_GlyphIndex: 204
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 5672341189789033143}

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N13 - Ostracis
   m_EditorClassIdentifier: 
   spellerName: Turk
+  icon: {fileID: 0}
+  skin: {fileID: 5800135421076506562, guid: 46288eb6ae753ea42848a70c457c1369, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}

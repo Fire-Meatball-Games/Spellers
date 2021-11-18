@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N11 - Vivian
   m_EditorClassIdentifier: 
   spellerName: Vivian
+  icon: {fileID: 0}
+  skin: {fileID: 7718858252787946321, guid: 9c512366be9403448ae8e738b3f85471, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}

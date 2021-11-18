@@ -9,8 +9,6 @@ namespace UIManagement
 {
     public class QuickGameView : View
     {
-        public List<EnemyConfiguration> enemies;
-
         public override void Init()
         {
 

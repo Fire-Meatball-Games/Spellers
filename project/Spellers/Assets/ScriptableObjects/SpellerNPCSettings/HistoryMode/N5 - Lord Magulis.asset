@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N5 - Lord Magulis
   m_EditorClassIdentifier: 
   spellerName: Lord Magulis
+  icon: {fileID: 0}
+  skin: {fileID: 7804647310832545934, guid: e9179716a25660240b376c6f5d535145, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}

@@ -6,7 +6,7 @@ namespace Runtime
 {
     public static class GameSettings
     {
-        public static int currentLevel;
+        public static int currentLevel = -1;
         public static CombatSettings combatSettings;
     }
 

@@ -51,7 +51,10 @@ namespace Runtime.CombatSystem.GUI
 
         private void Return()
         {
-            SceneManager.LoadScene(1);
+            if(GameSettings.currentLevel < 0)
+                SceneManager.LoadScene(0);
+            else
+                SceneManager.LoadScene(1);
             if(GameController.instance != null)
             {
                 if(GameSettings.currentLevel == PlayerSettings.lastLevelUnlocked)
@@ -60,6 +63,7 @@ namespace Runtime.CombatSystem.GUI
                     Debug.Log("Desbloqueado el nivel " + PlayerSettings.lastLevelUnlocked);
                 }
             }
+            GameSettings.currentLevel = -1;
         }
 
         private void EnableEndPanel(bool victory)

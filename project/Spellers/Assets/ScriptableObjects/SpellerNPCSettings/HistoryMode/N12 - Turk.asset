@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: N12 - Turk
   m_EditorClassIdentifier: 
   spellerName: Turk
+  icon: {fileID: 0}
+  skin: {fileID: 4618079411195040020, guid: 155a310df2cda2c4cbbed0cb64d017ac, type: 3}
   deck:
     spells:
     - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
