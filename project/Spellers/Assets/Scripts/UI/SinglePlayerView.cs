@@ -25,6 +25,11 @@ namespace UIManagement
             btn_personalizar.onClick.AddListener(() => inic = 0);
             btn_personalizar.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_personalizar.onClick.AddListener(() => Invoke("personalizar", 1.0f));
+
+            btn_tutorial.onClick.AddListener(() => inic = 0);
+            btn_tutorial.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_tutorial.onClick.AddListener(() => Invoke("tutoriales", 1.0f));
+
             btn_atras.onClick.AddListener(() => inic = 1);
             btn_atras.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_atras.onClick.AddListener(() => Invoke("salir", 1.0f));
@@ -55,6 +60,11 @@ namespace UIManagement
         public void combateLibre()
         {
             ViewManager.Show<QuickGameView>();
+        }
+
+        public void tutoriales()
+        {
+            ViewManager.Show<TutorialsView>();
         }
     } 
 }
