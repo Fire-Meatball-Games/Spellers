@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6010038975032118789}
   - component: {fileID: 7895251717538687076}
+  - component: {fileID: 2670641892576674812}
   m_Layer: 0
   m_Name: SpellerNPC
   m_TagString: Untagged
@@ -46,4 +47,17 @@ MonoBehaviour:
   spellerName: Enemy
   target: {fileID: 0}
   spellWand: {fileID: 0}
+  spellerAnimator: {fileID: 0}
   spellPrefab: {fileID: 5557422129974789201, guid: 820d1f4a0df3b244aaebb1418bdcc931, type: 3}
+--- !u!114 &2670641892576674812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392151450000503566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd2f1e31e5df6046b7526f2ea025d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -41,6 +41,7 @@ namespace Runtime
             {
                 dialogue_text.text = line.Text;
                 characterName_text.text = line.Character.CharacterName;
+                characterSprite_image.sprite = line.Character.sprite;
             }
         } 
     }

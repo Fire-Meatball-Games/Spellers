@@ -4,6 +4,7 @@ using UnityEngine;
 using SpellSystem;
 using CustomEventSystem;
 
+
 namespace Runtime.CombatSystem
 {
     public abstract class Speller : MonoBehaviour
@@ -14,6 +15,7 @@ namespace Runtime.CombatSystem
         public SpellerStats stats = new SpellerStats(); 
         public Speller target;
         public SpellWand spellWand;
+        public SpellerAnimator spellerAnimator;
         #endregion
 
         #region Properties
@@ -24,6 +26,12 @@ namespace Runtime.CombatSystem
 
         #region Methods
 
+        private void Start()
+        {
+            spellerAnimator = GetComponent<SpellerAnimator>();
+            stats.OnGetHitEvent += spellerAnimator.SetDamagedAnim;
+        }
+
         // Usa un hechizo
 
         protected virtual void UseSpell(SpellUnit spellUnit)
@@ -31,14 +39,6 @@ namespace Runtime.CombatSystem
             spellWand?.UseSpell(spellUnit, this, target);
             stats.CompleteTurn();
         }
-
-        // Recibe daño
-
-        public void GetDamage(int n)
-        {
-            stats.GetDamage(n);
-        }
-
 
         #endregion
 
@@ -61,6 +61,8 @@ namespace Runtime.CombatSystem
 
         private IEnumerator SpellCorroutine(SpellUnit spellUnit, float time = 1f)
         {
+            spellerAnimator.SetUseSpellAnim();
+            yield return new WaitForSeconds(0.5f);
             if (spellUnit.spell.offensive)
             {
                 GameObject spellShot = Instantiate(spellPrefab);

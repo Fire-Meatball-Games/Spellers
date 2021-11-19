@@ -43,10 +43,6 @@ namespace UIManagement
             Events.OnChangeSpellerNPCSettings.RemoveListener(ChangeLayout);
         }
 
-        void Start()
-        {
-                  
-        }
 
         private void ChangeLayout(int idx, SpellerNPCSettings settings)
         {

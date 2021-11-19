@@ -57,7 +57,7 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
     }
 
 
-
+    // Cambiar la dificultad de un enemigo:
     private void ChangeDifficulty(int idx, int diff)
     {
         Debug.Log("Cambiando la dificultad de " + idx + " a " + diff);
@@ -69,6 +69,7 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
 
     }
 
+    // Cambiar un enemigo
     private void GetNextSetting(int idx)
     {
         int index = (selected_settings[idx].Item2 + 1) % GetListByDifficulty(selected_settings[idx].Item1).Count;
@@ -78,6 +79,7 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
         Events.OnChangeSpellerNPCSettings.Invoke(idx, selected_setting);
     }
 
+    // Cambiar un enemigo
     private void GetPreviousSetting(int idx)
     {
         int index = (selected_settings[idx].Item2 - 1 + GetListByDifficulty(selected_settings[idx].Item1).Count) % GetListByDifficulty(selected_settings[idx].Item1).Count;
@@ -87,6 +89,7 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
         Events.OnChangeSpellerNPCSettings.Invoke(idx, selected_setting);
     }
 
+    // Cambiar un enemigo
     private void GetRandomSetting(int idx)
     {
         int newIdx = Random.Range(0, GetListByDifficulty(selected_settings[idx].Item1).Count);        
@@ -116,9 +119,10 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
         }
     }
 
-
+    // Mostrar un enemigo
     private void ShowSetting(int idx)
     {
+        Debug.Log("Mostrar enemigo " + idx);
         SpellerNPCSettings settings = GetSetting(0, 0);
         selected_settings.Add((0, 0));
         Events.OnChangeSpellerNPCSettings.Invoke(idx, settings);
@@ -132,6 +136,7 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
         enemies[idx].remove_button.gameObject.SetActive(true);
     }
 
+    // Ocultar un enemigo
     private void HideSetting(int idx)
     {
         selected_settings.RemoveAt(idx);

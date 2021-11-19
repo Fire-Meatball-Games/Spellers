@@ -23,10 +23,18 @@ namespace Runtime.CombatSystem.GUI
         public Button continue_button;
         public Button exit_button;
 
+        public Image player_icon;
+        public List<Image> enemy_icons;
+        public RectTransform vs_icon;
+
+
+        private SpellerBattle battle;
+
         public void Awake()
         {            
             start_button.onClick.AddListener(StartCountdown);
             end_button.onClick.AddListener(Return);
+            exit_button.onClick.AddListener(ExitGame);
             pause_button.onClick.AddListener(() => Pause());
             continue_button.onClick.AddListener(() => UnPause());
 
@@ -34,9 +42,12 @@ namespace Runtime.CombatSystem.GUI
 
         public void Start()
         {
+            battle = FindObjectOfType<SpellerBattle>();
             UnPause();
+            SetUpInitPanel();
             beginPanel.SetActive(true);
             endPanel.SetActive(false);
+
         }
 
         private void OnEnable()
@@ -49,12 +60,23 @@ namespace Runtime.CombatSystem.GUI
             Events.OnBattleEnds.RemoveListener(EnableEndPanel);
         }
 
-        private void Return()
+        private void ExitGame()
         {
-            if(GameSettings.currentLevel < 0)
+            Time.timeScale = 1f;
+            
+            if (GameSettings.currentLevel == -1)
                 SceneManager.LoadScene(0);
             else
+            {
+                GameSettings.currentLevel = -1;
                 SceneManager.LoadScene(1);
+            }
+                
+
+        }
+
+        private void Return()
+        {            
             if(GameController.instance != null)
             {
                 if(GameSettings.currentLevel == PlayerSettings.lastLevelUnlocked)
@@ -63,7 +85,15 @@ namespace Runtime.CombatSystem.GUI
                     Debug.Log("Desbloqueado el nivel " + PlayerSettings.lastLevelUnlocked);
                 }
             }
-            GameSettings.currentLevel = -1;
+
+            if (GameSettings.currentLevel == -1)
+                SceneManager.LoadScene(0);
+            else
+            {
+                GameSettings.currentLevel = -1;
+                SceneManager.LoadScene(1);
+            }
+
         }
 
         private void EnableEndPanel(bool victory)
@@ -103,7 +133,32 @@ namespace Runtime.CombatSystem.GUI
             yield return new WaitForSeconds(1f);
             Events.OnEndCountDown.Invoke();
             countdownPanel.SetActive(false);
+        }
 
+        private void SetUpInitPanel()
+        {
+            int num_enemies = GameSettings.combatSettings.speller_Settings.Count;
+
+            player_icon.rectTransform.anchorMin = new Vector3(0.3f - 0.1f * num_enemies, 0f);
+            player_icon.rectTransform.anchorMax = new Vector3(0.3f - 0.1f * num_enemies + 0.2f, 1f);
+
+            // Icono del jugador
+            vs_icon.anchorMin = player_icon.rectTransform.anchorMin + new Vector2(0.2f, 0f);
+            vs_icon.anchorMax = vs_icon.anchorMin + new Vector2(0.2f, 1f);
+
+            for (int i = 0; i < enemy_icons.Count; i++)
+            {
+                int idx = i;
+                enemy_icons[idx].gameObject.SetActive(false);
+            }
+            for (int i = 0; i < Mathf.Min(num_enemies, enemy_icons.Count); i++)
+            {
+                int idx = i;
+                enemy_icons[idx].gameObject.SetActive(true);
+                enemy_icons[idx].sprite = GameSettings.combatSettings.speller_Settings[idx].icon;
+                enemy_icons[idx].rectTransform.anchorMin = vs_icon.anchorMin + (i+1) * new Vector2(0.2f, 0f);
+                enemy_icons[idx].rectTransform.anchorMax = enemy_icons[idx].rectTransform.anchorMin + new Vector2(0.2f, 1f);
+            }
         }
     }
 

@@ -30,12 +30,13 @@ namespace SpellSystem
         private int difficulty = 0;
         private int difficultyTurns = 0;
 
-        public delegate void OnDefeatDelegate();
+        public delegate void OnTriggerDelegate();
         public delegate void OnChangeStatDelegate(int value);      
 
         public delegate void OnChangeMultiplierDelegate(float value);
 
-        public event OnDefeatDelegate OnDefeatEvent;
+        public event OnTriggerDelegate OnDefeatEvent;
+        public event OnTriggerDelegate OnGetHitEvent;
         public event OnChangeStatDelegate OnChangeHealthEvent;
         public event OnChangeStatDelegate OnChangeShieldsEvent;
 
@@ -195,6 +196,7 @@ namespace SpellSystem
         // Recibe daño
         public void GetDamage(int damage)
         {
+            OnGetHitEvent?.Invoke();
             if(Shields > 0)
                 Shields--;
             else

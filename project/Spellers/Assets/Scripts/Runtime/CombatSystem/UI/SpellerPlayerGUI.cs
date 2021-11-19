@@ -71,6 +71,8 @@ namespace Runtime.CombatSystem
                 regen_image.gameObject.SetActive(false);
                 atk_image.gameObject.SetActive(false);
                 slots_image.gameObject.SetActive(false);
+                order_image.gameObject.SetActive(false);
+                diff_image.gameObject.SetActive(false);
                 txt_name.text = playerName;
                 icon.sprite = sprite ?? icon.sprite;
             }
