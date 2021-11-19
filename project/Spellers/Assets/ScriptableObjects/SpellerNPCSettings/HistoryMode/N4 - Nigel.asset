@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: N4 - Nigel
   m_EditorClassIdentifier: 
   spellerName: Nigel
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1116ced1547c8dc49972d8cef889a8e0, type: 3}
   skin: {fileID: 8594109417185001721, guid: c5d519094575ff848a305e358abe0ef9, type: 3}
   deck:
     spells:

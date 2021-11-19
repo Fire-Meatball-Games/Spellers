@@ -433,7 +433,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.45
+  m_fontSize: 51.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4748,13 +4748,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1972147047}
-  m_RootOrder: 1
+  m_Father: {fileID: 1901720134}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.275}
-  m_AnchorMax: {x: 0.8, y: 0.675}
-  m_AnchoredPosition: {x: 0, y: -181.91838}
-  m_SizeDelta: {x: 21.92157, y: 231.39412}
+  m_AnchorMax: {x: 0.8, y: 0.725}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.0000076293945, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1391776737
 MonoBehaviour:
@@ -4769,7 +4769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5215,7 +5215,7 @@ RectTransform:
   m_Children:
   - {fileID: 147451987}
   m_Father: {fileID: 1901720134}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.05}
   m_AnchorMax: {x: 0.7, y: 0.125}
@@ -5465,7 +5465,7 @@ RectTransform:
   m_GameObject: {fileID: 1532468692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 930328769}
   m_RootOrder: 0
@@ -5715,7 +5715,7 @@ RectTransform:
   m_Children:
   - {fileID: 126695593}
   m_Father: {fileID: 1901720134}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.15}
   m_AnchorMax: {x: 0.8, y: 0.25}
@@ -6321,6 +6321,7 @@ RectTransform:
   - {fileID: 921693957}
   - {fileID: 2001666449}
   - {fileID: 1972147047}
+  - {fileID: 1391776736}
   - {fileID: 1663514328}
   - {fileID: 1415060247}
   m_Father: {fileID: 507374150}
@@ -6449,7 +6450,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 150532627}
-  - {fileID: 1391776736}
   m_Father: {fileID: 1901720134}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -32,6 +32,15 @@ namespace SpellSystem
             return new SpellUnit(spell);          
         }
 
+        public SpellUnit GetRandomSpellWithlvlMax(int n)
+        {
+            System.Random rnd = new System.Random();
+            Spell spell = spells.OrderBy(x => rnd.Next()).First();
+            int lvl = UnityEngine.Random.Range(1, n + 1);
+            return new SpellUnit(spell, lvl);
+        }
+
+
         public List<SpellUnit> GetSpellPool(int size)
         {
             List<SpellUnit> spellUnits = new List<SpellUnit>(size);

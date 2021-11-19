@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Normal_02_turk
   m_EditorClassIdentifier: 
   spellerName: Turk
-  icon: {fileID: 21300000, guid: 311c8b2f6ae0c064ba25f20f48925870, type: 3}
+  icon: {fileID: 21300000, guid: e13d7f48a04b6c449a74cfb222605aae, type: 3}
   skin: {fileID: 4618079411195040020, guid: 155a310df2cda2c4cbbed0cb64d017ac, type: 3}
   deck:
     spells:
@@ -26,5 +26,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
   max_health: 100
   max_spell_lvl: 2
-  cooldown_average: 12
+  cooldown_average: 15
   cooldown_deviation: 3

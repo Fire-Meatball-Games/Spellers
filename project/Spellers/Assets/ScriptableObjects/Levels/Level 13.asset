@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
   m_Name: Level 13
   m_EditorClassIdentifier: 
-  levelname: Nivel 13
-  thumbnail: {fileID: 0}
+  levelname: Muro inquebrantable
+  thumbnail: {fileID: 21300000, guid: 830dfff70a5fafe42994bc54a848e3fd, type: 3}
   map_dialogue: {fileID: 11400000, guid: 54d1a1d1a79ebb14b95094bdf2e162d9, type: 2}
   gameSettings:
     playerDeck:

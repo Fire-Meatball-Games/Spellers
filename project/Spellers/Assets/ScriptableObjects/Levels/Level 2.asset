@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
   m_Name: Level 2
   m_EditorClassIdentifier: 
-  levelname: Nivel 2
-  thumbnail: {fileID: 0}
+  levelname: Viejos amigos
+  thumbnail: {fileID: 21300000, guid: 5864f9983f7c0834bbe7cfed08d167e7, type: 3}
   map_dialogue: {fileID: 11400000, guid: d664068eac6ce104a94c705fb7b4f9c9, type: 2}
   gameSettings:
     playerDeck:

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
   m_Name: Level 9
   m_EditorClassIdentifier: 
-  levelname: Nivel 9
-  thumbnail: {fileID: 0}
+  levelname: Duelo de magos
+  thumbnail: {fileID: 21300000, guid: 247cf921cf71f2d4ab51524b5bb1f4ff, type: 3}
   map_dialogue: {fileID: 11400000, guid: 0e0e48d5dda7093438d7b6424594f263, type: 2}
   gameSettings:
     playerDeck:

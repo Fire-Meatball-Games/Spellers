@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Lacert
   m_EditorClassIdentifier: 
   characterName: Lacert
-  sprite: {fileID: 21300000, guid: 91fe4199d1d17d9419eebbd47d662702, type: 3}
+  sprite: {fileID: 21300000, guid: b1687bc08f99dff4e8f671e22bde6169, type: 3}

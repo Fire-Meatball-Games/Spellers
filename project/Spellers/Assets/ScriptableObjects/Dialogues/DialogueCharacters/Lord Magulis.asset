@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Lord Magulis
   m_EditorClassIdentifier: 
   characterName: Lord Magulis
-  sprite: {fileID: 21300000, guid: 91fe4199d1d17d9419eebbd47d662702, type: 3}
+  sprite: {fileID: 21300000, guid: ff3d16ccf7fd49540b55a78872ab5616, type: 3}

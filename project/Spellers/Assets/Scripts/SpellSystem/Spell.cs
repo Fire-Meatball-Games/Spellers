@@ -18,7 +18,7 @@ namespace SpellSystem
         public SpellUnit(Spell spell)
         {            
             this.spell = spell;
-            this.lvl = spell.power < 3 ? Random.Range(1,3) : 3;
+            this.lvl = spell.power < 3 ? Random.Range(1,4) : 3;
         }
 
         public override string ToString()

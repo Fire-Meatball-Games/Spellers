@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Easy_03_Magreb
   m_EditorClassIdentifier: 
   spellerName: Magreb
-  icon: {fileID: 21300000, guid: 311c8b2f6ae0c064ba25f20f48925870, type: 3}
+  icon: {fileID: 21300000, guid: e335bcfadb5992a45946c37ea0a74bf6, type: 3}
   skin: {fileID: 6800084669794074652, guid: 8a17b0fe629909644b4e37f1c86e2f48, type: 3}
   deck:
     spells:
@@ -25,5 +25,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
   max_health: 100
   max_spell_lvl: 1
-  cooldown_average: 15
+  cooldown_average: 20
   cooldown_deviation: 5

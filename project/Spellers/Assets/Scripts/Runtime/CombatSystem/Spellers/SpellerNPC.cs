@@ -85,7 +85,7 @@ namespace Runtime.CombatSystem
 
         protected override SpellUnit GetActiveSpell()
         {
-            return settings.deck.GetRandomSpell();
+            return settings.deck.GetRandomSpellWithlvlMax(settings.max_spell_lvl);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Runtime
         public static SpellDeck deck;
 
         public static string playerName;
-        public static int lastLevelUnlocked = 1;
+        public static int lastLevelUnlocked = 2;
 
         public static void SetLevelScore(int levelIndex, int score)
         {

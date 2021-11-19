@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Normal_03_lordmagulis
   m_EditorClassIdentifier: 
   spellerName: Lord Magulis
-  icon: {fileID: 21300000, guid: 311c8b2f6ae0c064ba25f20f48925870, type: 3}
+  icon: {fileID: 21300000, guid: ff3d16ccf7fd49540b55a78872ab5616, type: 3}
   skin: {fileID: 7804647310832545934, guid: e9179716a25660240b376c6f5d535145, type: 3}
   deck:
     spells:
@@ -25,5 +25,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4c16d693548392d46913473f64e86f31, type: 2}
   max_health: 100
   max_spell_lvl: 2
-  cooldown_average: 12
+  cooldown_average: 15
   cooldown_deviation: 3

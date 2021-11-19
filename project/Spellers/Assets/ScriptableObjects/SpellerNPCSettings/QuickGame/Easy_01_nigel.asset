@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Easy_01_nigel
   m_EditorClassIdentifier: 
   spellerName: Nigel
-  icon: {fileID: 21300000, guid: 311c8b2f6ae0c064ba25f20f48925870, type: 3}
+  icon: {fileID: 21300000, guid: 1116ced1547c8dc49972d8cef889a8e0, type: 3}
   skin: {fileID: 8594109417185001721, guid: c5d519094575ff848a305e358abe0ef9, type: 3}
   deck:
     spells:
@@ -25,5 +25,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
   max_health: 100
   max_spell_lvl: 1
-  cooldown_average: 15
+  cooldown_average: 20
   cooldown_deviation: 5

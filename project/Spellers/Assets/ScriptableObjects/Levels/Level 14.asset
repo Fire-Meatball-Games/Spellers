@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
   m_Name: Level 14
   m_EditorClassIdentifier: 
-  levelname: Nivel 14
-  thumbnail: {fileID: 0}
+  levelname: "\xA1Turk!"
+  thumbnail: {fileID: 21300000, guid: 84ea0ac41add1ef42a083c14e636abae, type: 3}
   map_dialogue: {fileID: 11400000, guid: e82be01742974cb4eb78b5a606817f4e, type: 2}
   gameSettings:
     playerDeck:

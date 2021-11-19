@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 5.2.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 667825d2a6f4245448087df04d6829ee, type: 2}
-  text: "Replicar este tipo de hechizos es algo muy repentino para gente de vuestro
-    a\xF1o, pero s\xED que os puedo indicar la forma de salir de ellos, que no depende
-    tanto de la magia sino de vuestra habilidad mental."
+  text: "Intenta librarte de los conjuros que te lanzar\xE9. Usa todas las heramientas
+    de las que dispones y lo lograr\xE1s."
   layout: 0

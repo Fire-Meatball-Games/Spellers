@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hard_04_Lacert
   m_EditorClassIdentifier: 
   spellerName: Lacert
-  icon: {fileID: 21300000, guid: 311c8b2f6ae0c064ba25f20f48925870, type: 3}
+  icon: {fileID: 21300000, guid: b1687bc08f99dff4e8f671e22bde6169, type: 3}
   skin: {fileID: 8595615010596120672, guid: fcad03160f0be3340bdb95b7808c21a7, type: 3}
   deck:
     spells:
@@ -31,5 +31,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ea3949a9c5b878143b05cafc051beead, type: 2}
   max_health: 100
   max_spell_lvl: 2
-  cooldown_average: 8
+  cooldown_average: 10
   cooldown_deviation: 2
