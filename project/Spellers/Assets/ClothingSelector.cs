@@ -24,15 +24,15 @@ public class ClothingSelector : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             int idx = i;
-            buttons[PlayerSettings.body].image.color = PlayerSettings.body == idx ? new Color(1f, 1f, 1f, 1f) : new Color(1f, 1f, 1f, 0.5f);
+            buttons[PlayerSettings.body].image.color = PlayerSettings.body == idx ? new Color(0.945f, 0.549f, 0.552f, 1f) : new Color(0.945f, 0.549f, 0.552f, 0.5f);
         }
     }
 
     void SetPlayerBody(int idx)
     {
-        buttons[last_selected].image.color = new Color(1f, 1f, 1f, 0.5f);
+        buttons[last_selected].image.color = new Color(0.945f, 0.549f, 0.552f, 0.5f);
         PlayerSettings.body = body_idxs[idx];
         last_selected = idx;
-        buttons[last_selected].image.color = new Color(1f, 1f, 1f, 1f);
+        buttons[last_selected].image.color = new Color(0.945f, 0.549f, 0.552f, 1f);
     }
 }

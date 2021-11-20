@@ -22,15 +22,19 @@ namespace UIManagement
         public override void Init()
         {
             Animator animacion = GetComponent<Animator>();
+
             btn_personalizar.onClick.AddListener(() => inic = 2);
             btn_personalizar.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_personalizar.onClick.AddListener(() => Invoke("personalizar", 1.0f));
+
             btn_un_jugador.onClick.AddListener(() => inic = 0);
             btn_un_jugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_un_jugador.onClick.AddListener(() => Invoke("unJugador", 1.0f));
+
             btn_multijugador.onClick.AddListener(() => inic = 0);
             btn_multijugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_multijugador.onClick.AddListener(() => Invoke("multijugador", 1.0f));
+
             btn_opciones.onClick.AddListener(() => inic = 1);
             btn_opciones.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_opciones.onClick.AddListener(() => Invoke("opciones", 1.0f));
