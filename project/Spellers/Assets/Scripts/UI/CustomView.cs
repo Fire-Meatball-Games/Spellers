@@ -8,6 +8,7 @@ namespace UIManagement
     {
         [SerializeField] private Button btn_editarMazo;
         [SerializeField] private Button btn_editarSombrero;
+        [SerializeField] private Button btn_editarAtuendo;
         [SerializeField] private Button btn_atras;
 
         public override void Init()
@@ -22,6 +23,9 @@ namespace UIManagement
 
             btn_editarSombrero.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_editarSombrero.onClick.AddListener(() => Invoke("editarSombrero", 1.0f));
+
+            btn_editarAtuendo.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_editarAtuendo.onClick.AddListener(() => Invoke("editarAtuendo", 1.0f));
         }
 
         public void salir()
@@ -37,6 +41,11 @@ namespace UIManagement
         public void editarSombrero()
         {
             ViewManager.Show<HatView>();
+        }
+
+        public void editarAtuendo()
+        {
+            ViewManager.Show<ClothingView>();
         }
     }
 }

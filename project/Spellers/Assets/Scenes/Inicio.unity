@@ -41775,6 +41775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btn_editarMazo: {fileID: 1512178557}
   btn_editarSombrero: {fileID: 1448834835}
+  btn_editarAtuendo: {fileID: 759615619}
   btn_atras: {fileID: 1390525409}
 --- !u!95 &1995922752
 Animator:
