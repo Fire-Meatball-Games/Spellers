@@ -11,8 +11,11 @@ namespace Runtime
         public static List<int> levelScores = new List<int>();
         public static SpellDeck deck = new SpellDeck();
 
+        public static int hat = 0;
+        public static int body = 0;
+
         public static string playerName;
-        public static int lastLevelUnlocked = 2;
+        public static int lastLevelUnlocked = 0;
 
         public static void SetLevelScore(int levelIndex, int score)
         {
