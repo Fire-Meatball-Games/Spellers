@@ -9,13 +9,10 @@ namespace UIManagement
     {
         public List<TutorialDisplay> tutorialDisplays;
         public List<Button> display_buttons;
-
-        public Button back_button;
         int current_tutorial;
 
         public override void Init()
         {
-            back_button.onClick.AddListener(ViewManager.ShowLast);
             int count = Mathf.Min(tutorialDisplays.Count, display_buttons.Count);
             for (int i = 0; i < count; i++)
             {                
