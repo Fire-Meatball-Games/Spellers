@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefensiveSpell 103 - Shield
   m_EditorClassIdentifier: 
   spellName: Scutum armis
-  description: Shields the user
+  description: Otorga un escudo al usuario.
   thumbnail: {fileID: 21300000, guid: c66cdd75fa07e404c9265002b57fd677, type: 3}
   ingame: {fileID: 0}
   power: 1

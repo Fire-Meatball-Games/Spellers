@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefensiveSpell 106 - Shields + Heal both
   m_EditorClassIdentifier: 
   spellName: Confractus
-  description: 
+  description: Cura tanto al usuario como al objetivo y otorga escudos al usuario.
   thumbnail: {fileID: 21300000, guid: df8521d4f34ba1546932671f0048d7df, type: 3}
   ingame: {fileID: 0}
   power: 2

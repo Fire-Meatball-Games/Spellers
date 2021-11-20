@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuffSpell 001 - Inc. Attack
   m_EditorClassIdentifier: 
   spellName: Melius leo
-  description: Increases user's attack
+  description: Aumenta el poder de ataque del usuario.
   thumbnail: {fileID: 21300000, guid: 2b2926e10f09eb849b16b2ed7d6f9897, type: 3}
   ingame: {fileID: 0}
   power: 1

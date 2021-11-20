@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Offensive Spell 002 - Attack Mid
   m_EditorClassIdentifier: 
   spellName: Vastare
-  description: Deals damage to the target
+  description: "Inflige da\xF1o medio al objetivo."
   thumbnail: {fileID: 21300000, guid: 713a5f934cf69dc4aa4dd0d24b74491b, type: 3}
   ingame: {fileID: 21300000, guid: 70a2bfa47e8ae9e4d8c182b431739350, type: 3}
   power: 2

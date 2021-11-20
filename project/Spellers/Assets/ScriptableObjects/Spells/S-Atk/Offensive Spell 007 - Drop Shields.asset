@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Offensive Spell 007 - Drop Shields
   m_EditorClassIdentifier: 
   spellName: "Igneus cr\xE9pitus"
-  description: Deletes user and target shields and deals damage to target
+  description: "Elimina todos los escudos del usuario y del objetivo e inflige algo
+    de da\xF1o."
   thumbnail: {fileID: 21300000, guid: 68190a22cea5813459fb6721d10681df, type: 3}
   ingame: {fileID: 21300000, guid: f947d59b4dc19104b9091fe744d688f2, type: 3}
   power: 3

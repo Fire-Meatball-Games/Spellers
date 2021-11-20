@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DebuffSpell 006 - Clean buffs
   m_EditorClassIdentifier: 
   spellName: Redetus normalem
-  description: 
+  description: Elimina todas las mejoras activas del objetivo.
   thumbnail: {fileID: 21300000, guid: f40603bb78caa58498bc067611d03f34, type: 3}
   ingame: {fileID: 0}
   power: 3

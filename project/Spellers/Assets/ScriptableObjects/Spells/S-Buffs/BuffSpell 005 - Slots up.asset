@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuffSpell 005 - Slots up
   m_EditorClassIdentifier: 
   spellName: Commodum
-  description: Increases user's attack
+  description: Incrementa la cantidad de hechizos disponibles en el libro de hechizos.
   thumbnail: {fileID: 21300000, guid: b4c42ee968df93545b6533e81708a620, type: 3}
   ingame: {fileID: 0}
   power: 2

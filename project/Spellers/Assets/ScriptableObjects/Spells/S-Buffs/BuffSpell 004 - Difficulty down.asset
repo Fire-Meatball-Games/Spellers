@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: BuffSpell 004 - Difficulty down
   m_EditorClassIdentifier: 
   spellName: Totum visio
-  description: Mark runes
+  description: "Aumenta la habilidad del usuario, haciendo que tenga m\xE1s tiempo
+    para lanzar hechizos."
   thumbnail: {fileID: 21300000, guid: 8704d63515898a2489399540f75fd0a7, type: 3}
   ingame: {fileID: 0}
   power: 2

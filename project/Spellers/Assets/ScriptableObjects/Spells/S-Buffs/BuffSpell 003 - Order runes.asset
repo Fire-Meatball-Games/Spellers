@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: BuffSpell 003 - Order runes
   m_EditorClassIdentifier: 
   spellName: Locus totallum
-  description: Order runes
+  description: "Aumenta la concentraci\xF3n del usuario, haciendo que parte de las
+    runas de los hechizos aparezcan ordenadas."
   thumbnail: {fileID: 21300000, guid: 9e0d2500c01ce8c4fa0df5efa1ae1c17, type: 3}
   ingame: {fileID: 0}
   power: 1

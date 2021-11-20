@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Offensive Spell 003 - Multi Attack Spell
   m_EditorClassIdentifier: 
   spellName: Iterato noxia
-  description: Deals damage to the target
+  description: "Inflige da\xF1o muy reducido al objetivo, m\xFAltiples veces."
   thumbnail: {fileID: 21300000, guid: 8dc98b32f44d2914fb83351a3f5ee9e2, type: 3}
   ingame: {fileID: 21300000, guid: 268f5a2319e28844cad50264cd0a920c, type: 3}
   power: 1

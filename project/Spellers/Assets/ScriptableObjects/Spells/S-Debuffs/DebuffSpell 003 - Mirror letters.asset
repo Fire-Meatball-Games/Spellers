@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DebuffSpell 003 - Mirror letters
   m_EditorClassIdentifier: 
   spellName: Hallucinatio
-  description: 
+  description: "Reduce la concentraci\xF3n del objetivo, haciendo que las runas aparezcan
+    al rev\xE9s."
   thumbnail: {fileID: 21300000, guid: cb980c3cf156ada43ad3d8e6ebe09033, type: 3}
   ingame: {fileID: 0}
   power: 1

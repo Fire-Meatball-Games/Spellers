@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuffSpell 002 - Regen
   m_EditorClassIdentifier: 
   spellName: Remedious continuous
-  description: Increases user's regeneration
+  description: "Aumenta la regeneraci\xF3n de vida del usuario."
   thumbnail: {fileID: 21300000, guid: dccd06b9b890f364589b700626f91efa, type: 3}
   ingame: {fileID: 0}
   power: 2

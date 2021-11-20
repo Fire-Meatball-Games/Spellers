@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DebuffSpell 001 - Dec. Attack
   m_EditorClassIdentifier: 
   spellName: Mollis Macula
-  description: 
+  description: Reduce el ataque del objetivo.
   thumbnail: {fileID: 21300000, guid: c13d1ca36c343a04480106c69c2c2d95, type: 3}
   ingame: {fileID: 0}
   power: 1

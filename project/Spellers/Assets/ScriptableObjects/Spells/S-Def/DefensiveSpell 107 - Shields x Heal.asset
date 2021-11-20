@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DefensiveSpell 107 - Shields x Heal
   m_EditorClassIdentifier: 
   spellName: Ferum Core
-  description: Confractus
+  description: "Otorga el m\xE1ximo de escudos al usuario a cambio de la mitad de
+    su vida actual."
   thumbnail: {fileID: 21300000, guid: 7ae5909d406e57c4a8a7fb44c44157b1, type: 3}
   ingame: {fileID: 0}
   power: 3

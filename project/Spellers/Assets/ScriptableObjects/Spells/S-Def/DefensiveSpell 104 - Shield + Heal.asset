@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DefensiveSpell 104 - Shield + Heal
   m_EditorClassIdentifier: 
   spellName: Defensus turtur
-  description: Shield and heals user
+  description: "Otorga un escudo al usuario y le cura una peque\xF1a cantidad de
+    vida."
   thumbnail: {fileID: 21300000, guid: 8c6e801713f16704db70ab2926bd55ec, type: 3}
   ingame: {fileID: 0}
   power: 2

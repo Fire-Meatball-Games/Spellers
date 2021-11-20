@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DebuffSpell 002 - Poison
   m_EditorClassIdentifier: 
   spellName: Venenatum
-  description: 
+  description: Provoca que el enemigo pierda vida cada vez que lance un hechizo.
   thumbnail: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}
   ingame: {fileID: 0}
   power: 2

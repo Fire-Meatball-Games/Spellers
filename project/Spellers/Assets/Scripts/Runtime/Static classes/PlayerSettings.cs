@@ -9,7 +9,7 @@ namespace Runtime
     public static class PlayerSettings
     {
         public static List<int> levelScores = new List<int>();
-        public static SpellDeck deck;
+        public static SpellDeck deck = new SpellDeck();
 
         public static string playerName;
         public static int lastLevelUnlocked = 2;

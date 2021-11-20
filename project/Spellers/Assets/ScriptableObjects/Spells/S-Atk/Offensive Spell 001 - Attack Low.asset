@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Offensive Spell 001 - Attack Low
   m_EditorClassIdentifier: 
   spellName: Imperio
-  description: Deals damage to the target
+  description: "Inflige da\xF1o reducido al objetivo."
   thumbnail: {fileID: 21300000, guid: 9f2f186f42fb4634383561f338075f61, type: 3}
   ingame: {fileID: 21300000, guid: 4a0a896fb276ed14387faa2afe9fe61c, type: 3}
   power: 1
