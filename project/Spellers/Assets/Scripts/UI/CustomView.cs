@@ -6,10 +6,11 @@ namespace UIManagement
 {
     public class CustomView : View
     {
+        [SerializeField] private Button btn_atras;
         [SerializeField] private Button btn_editarMazo;
         [SerializeField] private Button btn_editarSombrero;
         [SerializeField] private Button btn_editarAtuendo;
-        [SerializeField] private Button btn_atras;
+        [SerializeField] private Button btn_tienda;
 
         public override void Init()
         {
@@ -26,6 +27,9 @@ namespace UIManagement
 
             btn_editarAtuendo.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_editarAtuendo.onClick.AddListener(() => Invoke("editarAtuendo", 1.0f));
+
+            btn_tienda.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_tienda.onClick.AddListener(() => Invoke("tienda", 1.0f));
         }
 
         public void salir()
@@ -46,6 +50,11 @@ namespace UIManagement
         public void editarAtuendo()
         {
             ViewManager.Show<ClothingView>();
+        }
+
+        public void tienda()
+        {
+            ViewManager.Show<ShopView>();
         }
     }
 }
