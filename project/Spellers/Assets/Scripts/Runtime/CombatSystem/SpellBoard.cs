@@ -54,7 +54,6 @@ namespace Runtime.CombatSystem
             char pressedChar = GetCharAtPos(x, y);
             char currentChar = word[currentCharIdx];
 
-            Debug.Log("Checking (" + pressedChar + ") was (" + currentChar + ")");
             
             if(pressedChar == currentChar)
             {

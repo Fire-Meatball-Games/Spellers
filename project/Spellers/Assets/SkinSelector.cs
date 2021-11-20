@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class SkinSelector : MonoBehaviour
 {
     public List<Button> buttons;
+    public int[] hats_idxs;
+    private int last_selected = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +30,9 @@ public class SkinSelector : MonoBehaviour
 
     void SetPlayerHat(int idx)
     {
-        buttons[PlayerSettings.hat].image.color = new Color(1f, 1f, 1f, 0.5f);
-        PlayerSettings.hat = idx;
-        buttons[PlayerSettings.hat].image.color = new Color(1f, 1f, 1f, 1f);
-        Debug.Log("Cambiando gorro del jugador a " + idx);
+        buttons[last_selected].image.color = new Color(1f, 1f, 1f, 0.5f);
+        PlayerSettings.hat = hats_idxs[idx];
+        last_selected = idx;
+        buttons[last_selected].image.color = new Color(1f, 1f, 1f, 1f);
     }
 }

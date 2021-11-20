@@ -38,7 +38,6 @@ namespace Runtime.CombatSystem
 
         public void SetDamagedAnim()
         {
-            Debug.Log("EEEEEEE");
             animator.SetTrigger("Damaged");
         }
 
