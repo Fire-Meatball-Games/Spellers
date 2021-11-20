@@ -32,5 +32,8 @@ MonoBehaviour:
     init_dialogue: {fileID: 11400000, guid: 58af1ff604a9a2c4fbe8613a5a1dfe80, type: 2}
     end_dialogue: {fileID: 11400000, guid: fb7ed953a0a816a4c915cb54b4a438a0, type: 2}
     dialogueHandlers: []
-    endHandlers: []
+    endHandlers:
+    - playerEvent: {fileID: 11400000, guid: b0824a0a0d6645941bc3e2bd8abadd84, type: 2}
+      value: 6
+      win: 1
     scoreHandlers: []

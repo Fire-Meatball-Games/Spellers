@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
 using Runtime.CombatSystem;
+using SpellSystem;
 
 namespace Runtime
 {
@@ -14,6 +15,20 @@ namespace Runtime
         const int MAIN_SCENE = 0;
         const int HISTORY_MODE_SCENE = 1;
         const int COMBAT_SCENE = 2;
+
+        public Spell basic_spell;
+
+        public void Start()
+        {
+            if(PlayerSettings.deck.spells.Count < 10)
+            {
+                PlayerSettings.deck.spells.Clear();
+                for (int i = 0; i < 10; i++)
+                {
+                    PlayerSettings.deck.AddSpell(basic_spell);
+                }
+            }
+        }
 
         public void LoadScene(string scene)
         {

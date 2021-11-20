@@ -78,7 +78,7 @@ namespace Runtime.CombatSystem
             int power = spellUnit.spell.power;
             int wordLength = 2 * (power % 2 + 1) + level + 1; // 4/5/6 para p1, 6/7/8 para p2, 8 para p3.
             int boardDimension = 2 + level;
-            int ticks = 300  + 150 * level; // tick = 0.02s
+            int ticks = 500  + 250 * level; // tick = 0.02s
             board.GenerateBoard(wordLength, boardDimension, ticks);            
         }
 

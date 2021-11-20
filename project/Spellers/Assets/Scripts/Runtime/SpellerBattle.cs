@@ -61,8 +61,9 @@ namespace Runtime
         // Comienza la batalla
         private void BeginBattle()
         {
+            Time.timeScale = 1f;
             if (GameController.instance == null) { Events.OnBattleBegins.Invoke(); return; }
-
+            
             Dialogue dialogue = GameSettings.combatSettings.init_dialogue;
             if (dialogue != null)
             {
