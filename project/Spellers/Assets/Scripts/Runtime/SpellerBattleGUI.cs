@@ -17,6 +17,7 @@ namespace Runtime.CombatSystem.GUI
 
         public TextMeshProUGUI txt_countdown;
         public TextMeshProUGUI txt_results;
+        public TextMeshProUGUI txt_score;
         public Button start_button;
         public Button end_button;
         public Button pause_button;
@@ -100,6 +101,11 @@ namespace Runtime.CombatSystem.GUI
         {
             endPanel.SetActive(true);
             txt_results.text = victory ? "¡Has ganado!" : "¡Has perdido!";
+            txt_score.text = "";
+            for (int i = 0; i < battle.currentScore; i++)
+            {
+                txt_score.text += "*";
+            }
         }
 
         public void Pause()
