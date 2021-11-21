@@ -66,11 +66,11 @@ namespace Runtime.CombatSystem.GUI
             Time.timeScale = 1f;
             
             if (GameSettings.currentLevel == -1)
-                SceneManager.LoadScene(0);
+                GameController.instance.GoToMainMenu();
             else
             {
                 GameSettings.currentLevel = -1;
-                SceneManager.LoadScene(1);
+                GameController.instance.GoToHistoryMode();
             }
                 
 
@@ -88,11 +88,11 @@ namespace Runtime.CombatSystem.GUI
             }
 
             if (GameSettings.currentLevel == -1)
-                SceneManager.LoadScene(0);
+                GameController.instance.GoToMainMenu();
             else
             {
                 GameSettings.currentLevel = -1;
-                SceneManager.LoadScene(1);
+                GameController.instance.GoToHistoryMode();
             }
 
         }

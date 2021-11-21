@@ -2654,7 +2654,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.55
+  m_fontSize: 69.5
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8508,7 +8508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361281859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 688378734}
+        m_TargetAssemblyTypeName: Runtime.GameController, Runtime
+        m_MethodName: GoToHistoryMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &361281859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21389,7 +21401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.575, y: 0.075}
   m_AnchorMax: {x: 0.95, y: 0.45100003}
-  m_AnchoredPosition: {x: 0, y: -0.4989624}
+  m_AnchoredPosition: {x: 0, y: -0.49894714}
   m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &971836930
@@ -49413,7 +49425,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2042538294}
   soundEffectSource: {fileID: 2042538293}
-  musicClips: []
+  musicClips:
+  - {fileID: 8300000, guid: 1f28f6d220da7714a9b1eac0c5f4fef2, type: 3}
+  - {fileID: 8300000, guid: daaef4cca441fd9478989d09ba637354, type: 3}
+  - {fileID: 8300000, guid: f2a1e8ae211fc1448b34962460cd557f, type: 3}
   soundEffectClips:
   - {fileID: 8300000, guid: 7990ce0babc69aa47a97a4066da77265, type: 3}
 --- !u!4 &2042538292
@@ -49441,10 +49456,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.594
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -49537,7 +49552,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

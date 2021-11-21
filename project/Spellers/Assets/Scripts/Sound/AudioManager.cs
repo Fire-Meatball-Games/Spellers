@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomEventSystem;
 
 public class AudioManager : MonoBehaviour
 {
@@ -30,6 +31,25 @@ public class AudioManager : MonoBehaviour
         {
             soundsEffect.Add(clip.name, clip);
         }
+    }
+
+
+    private void OnEnable()
+    {
+        Debug.Log("Sub");
+        Events.OnLoadScene.AddListener(PlayMusicTheme);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnLoadScene.RemoveListener(PlayMusicTheme);
+        soundEffectSource.Stop();
+    }
+
+    private void PlayMusicTheme(int sceneIdx)
+    {
+        soundEffectSource.clip = musicClips[sceneIdx];
+        soundEffectSource.Play();
     }
 
     //Método para reproducir un efecto de sonido

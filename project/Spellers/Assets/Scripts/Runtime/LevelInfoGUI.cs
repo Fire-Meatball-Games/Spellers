@@ -81,7 +81,7 @@ namespace Runtime
 
         public void GoToMainMenu()
         {
-            SceneManager.LoadScene(0);
+            FindObjectOfType<GameController>().GoToMainMenu();
         }
     } 
 }

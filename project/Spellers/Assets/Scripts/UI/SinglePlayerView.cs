@@ -35,7 +35,6 @@ namespace UIManagement
             btn_atras.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_atras.onClick.AddListener(() => Invoke("salir", 1.0f));
 
-            //btn_historyMode.onClick.AddListener(() => GameManager.LoadScene("ModoHistoria"));
             btn_historyMode.onClick.AddListener(() => inic = 0);
             btn_historyMode.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_historyMode.onClick.AddListener(() => Invoke("modoHistoria", 1.0f));
@@ -57,7 +56,6 @@ namespace UIManagement
 
         public void modoHistoria()
         {
-            SceneManager.LoadScene(1);
         }
 
         public void combateLibre()

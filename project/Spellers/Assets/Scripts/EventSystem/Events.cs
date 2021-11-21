@@ -5,6 +5,8 @@ namespace CustomEventSystem
 {
     public static class Events
     {
+        public static readonly CustomEvent<int> OnLoadScene = new CustomEvent<int>();
+
         // Eventos del menú de inicio:
         public static readonly CustomEvent<int, SpellerNPCSettings> OnChangeSpellerNPCSettings = new CustomEvent<int, SpellerNPCSettings>();
         public static readonly CustomEvent OnSecretActivated = new CustomEvent();
