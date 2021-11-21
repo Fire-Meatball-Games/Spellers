@@ -7,12 +7,14 @@ namespace UIManagement
 {
     public class TutorialsView : View
     {
+        public Button btn_back;
         public List<TutorialDisplay> tutorialDisplays;
         public List<Button> display_buttons;
         int current_tutorial;
 
         public override void Init()
         {
+            btn_back.onClick.AddListener(ViewManager.ShowLast);
             int count = Mathf.Min(tutorialDisplays.Count, display_buttons.Count);
             for (int i = 0; i < count; i++)
             {                
@@ -25,7 +27,6 @@ namespace UIManagement
         
         private void LoadTutorial(int idx)
         {
-            Debug.Log("Load Tut " + idx);
             tutorialDisplays[current_tutorial].Hide();
             display_buttons[current_tutorial].interactable = true;
 
@@ -73,7 +74,6 @@ namespace UIManagement
 
         private void LoadPage(int idx)
         {
-            Debug.Log("Load page " + idx);
             pages[currentPage].SetActive(false);
             currentPage = idx;
             pages[idx].SetActive(true);

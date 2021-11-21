@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: text:speller_name
+  m_text: Jugador
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c7ab49810014794eb7963eb94112c02, type: 2}
   m_sharedMaterial: {fileID: -2501075493240276324, guid: 1c7ab49810014794eb7963eb94112c02, type: 2}
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.35
+  m_fontSize: 46.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1730,12 +1730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efa532115e3c5c4896aee443fe4f4b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_sprite: {fileID: 21300000, guid: 23c0fbd177fe7c44c946befaf56bc49f, type: 3}
   regen_sprite: {fileID: 21300000, guid: 9d5cb5a81d42a75499e90635a4ae6577, type: 3}
   poison_sprite: {fileID: 21300000, guid: 79e4d80ac2d0a9144afaef06eb66975c, type: 3}
-  slots_sprite: {fileID: 21300000, guid: 0752581554a4d2542b14d70e9f9dbe25, type: 3}
-  order_sprite: {fileID: 21300000, guid: 338acc185348e984094988c84d03c51a, type: 3}
-  diff_sprite: {fileID: 21300000, guid: ceba914de3ba20c4d8591fe65385c3d1, type: 3}
   display: {fileID: 4949586712888978772}
   txt_name: {fileID: 4949586714172157123}
   icon: {fileID: 5126276168550007523}
@@ -2131,7 +2127,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.05
+  m_fontSize: 43.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
