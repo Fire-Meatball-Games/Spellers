@@ -56,6 +56,7 @@ namespace CustomEventSystem
         public static readonly CustomEvent<char[], int> OnGenerateBoard = new CustomEvent<char[], int>();
         public static readonly CustomEvent<int, int> OnSelectKey = new CustomEvent<int, int>();
         public static readonly CustomEvent<int, int, bool> OnCheckKey = new CustomEvent<int, int, bool>();
+        public static readonly CustomEvent OnHitkey = new CustomEvent();
         public static readonly CustomEvent OnCompleteWord = new CustomEvent();
         public static readonly CustomEvent<int> OnSetTimer = new CustomEvent<int>();
         public static readonly CustomEvent<int> OnUpdateTimer = new CustomEvent<int>();

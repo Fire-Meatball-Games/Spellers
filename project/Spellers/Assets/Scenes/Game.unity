@@ -8747,7 +8747,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.594
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8843,7 +8843,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8945,6 +8945,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f2a1e8ae211fc1448b34962460cd557f, type: 3}
   soundEffectClips:
   - {fileID: 8300000, guid: 7990ce0babc69aa47a97a4066da77265, type: 3}
+  - {fileID: 8300000, guid: c0c5811cc01f22641bdf9071d4609127, type: 3}
 --- !u!4 &1587152307
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ namespace Utils
     public static class Extensions
     {
         #region String Methods
-        private const string CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWZYZ";
+        private const string CHARSET = "ABCDEFGHIKLMNOPQRSTUWZYZ";
 
         // Devuelve un string con las letras de una palabra que no están en otro.
         public static string RemoveIntersect(this string str, string chars)

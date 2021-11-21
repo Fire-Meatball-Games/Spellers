@@ -36,12 +36,17 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Sub");
         Events.OnLoadScene.AddListener(PlayMusicTheme);
+        Events.OnHitkey.AddListener(PlayRuneEffect);
     }
 
+    private void PlayRuneEffect()
+    {
+        playSoundEffect("Runa");
+    }
     private void OnDisable()
     {
+        Events.OnHitkey.RemoveListener(PlayRuneEffect);
         Events.OnLoadScene.RemoveListener(PlayMusicTheme);
         musicSource.Stop();
     }

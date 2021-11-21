@@ -11,7 +11,7 @@ namespace Runtime.CombatSystem
     public class SpellBoard
     {
         #region Private Fields
-        const string CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string CHARS = "ABCDEFGHIKLMNOPQRSTUWXYZ";
         private string word;
         private char[] keys;
         private int keyDimension;
@@ -41,7 +41,7 @@ namespace Runtime.CombatSystem
 
         public void SetOrderLevel(int value)
         {            
-            flip = value < 0;
+            flip = value < 1;
             orderedLetters = Mathf.Max(0, value);
         }
 
@@ -57,7 +57,8 @@ namespace Runtime.CombatSystem
             
             if(pressedChar == currentChar)
             {
-                Events.OnCheckKey.Invoke(x, y, true);                
+                Events.OnCheckKey.Invoke(x, y, true);
+                Events.OnHitkey.Invoke();
                 currentCharIdx++;                
                 if (currentCharIdx == word.Length)
                 {
@@ -65,8 +66,7 @@ namespace Runtime.CombatSystem
                 }                    
             }
             else
-            {
-                Events.OnCheckKey.Invoke(x, y, flip);
+            {               
                 Events.OnFailSpell.Invoke();
             }
         }

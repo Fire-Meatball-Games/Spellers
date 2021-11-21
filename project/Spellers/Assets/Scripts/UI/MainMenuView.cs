@@ -35,9 +35,9 @@ namespace UIManagement
             //btn_multijugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
             //btn_multijugador.onClick.AddListener(() => Invoke("multijugador", 1.0f));
 
-            //btn_opciones.onClick.AddListener(() => inic = 1);
-            //btn_opciones.onClick.AddListener(() => animacion.SetBool("Salir", true));
-            //btn_opciones.onClick.AddListener(() => Invoke("opciones", 1.0f));
+            btn_opciones.onClick.AddListener(() => inic = 1);
+            btn_opciones.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            btn_opciones.onClick.AddListener(() => Invoke("opciones", 1.0f));
         }
 
         public void personalizar()
@@ -57,7 +57,7 @@ namespace UIManagement
 
         public void opciones()
         {
-            ViewManager.Show<SettingsView>();
+            ViewManager.Show<CreditsView>();
         }
     }
 }
