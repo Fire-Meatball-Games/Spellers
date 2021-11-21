@@ -17,9 +17,11 @@ namespace Runtime
         const int COMBAT_SCENE = 2;
 
         public Spell basic_spell;
+        public Sprite player_icon;
 
         public void Start()
         {
+            PlayerSettings.icon = player_icon;
             if(PlayerSettings.deck.spells.Count < 10)
             {
                 PlayerSettings.deck.spells.Clear();

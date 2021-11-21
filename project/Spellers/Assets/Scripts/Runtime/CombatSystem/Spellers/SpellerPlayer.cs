@@ -31,7 +31,12 @@ namespace Runtime.CombatSystem
             stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangePlayerSlots.Invoke(n);
             stats.OnChangeOrderEvent += (n) => Events.OnChangePlayerOrder.Invoke(n);
             stats.OnChangeDifficultyEvent += (n) => Events.OnChangePlayerDifficulty.Invoke(n);
-            
+
+            stats.OnChangeAttackEvent += (_) => Events.OnChangeStat.Invoke();
+            stats.OnChangeRegenerationEvent += (_) => Events.OnChangeStat.Invoke();
+            stats.OnChangeOrderEvent += (_) => Events.OnChangeStat.Invoke();
+            stats.OnChangeDifficultyEvent += (_) => Events.OnChangeStat.Invoke();
+
             stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
             stats.OnChangeOrderEvent += board.SetOrderLevel;           
 
@@ -49,6 +54,7 @@ namespace Runtime.CombatSystem
             Events.OnCompleteStrengthMinigame.AddListener(stats.CleanAttackDebuff);
             Events.OnCompletePoisonMinigame.AddListener(stats.CleanRegenerationDebuff);
             Events.OnCompleteBlindMinigame.AddListener(stats.CleanOrderDebuff);
+            Events.OnCompleteDifficultyMinigame.AddListener(stats.CleanDifficultyDebuff);
             Events.OnFailSpell.AddListener(stats.CompleteTurn);
         }
 
@@ -61,6 +67,7 @@ namespace Runtime.CombatSystem
             Events.OnCompleteStrengthMinigame.RemoveListener(stats.CleanAttackDebuff);
             Events.OnCompletePoisonMinigame.RemoveListener(stats.CleanRegenerationDebuff);
             Events.OnCompleteBlindMinigame.RemoveListener(stats.CleanOrderDebuff);
+            Events.OnCompleteDifficultyMinigame.RemoveListener(stats.CleanDifficultyDebuff);
             Events.OnFailSpell.RemoveListener(stats.CompleteTurn);
         }
         #endregion
@@ -76,7 +83,7 @@ namespace Runtime.CombatSystem
             SpellUnit spellUnit = table.SelectSpellSlot(idx);
             int level = spellUnit.lvl;
             int power = spellUnit.spell.power;
-            int wordLength = 2 * (power % 2 + 1) + level + 1; // 4/5/6 para p1, 6/7/8 para p2, 8 para p3.
+            int wordLength = 2 + (power - 1) + level;
             int boardDimension = 2 + level;
             int ticks = 500  + 250 * level; // tick = 0.02s
             board.GenerateBoard(wordLength, boardDimension, ticks);            

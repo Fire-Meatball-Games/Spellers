@@ -30,6 +30,7 @@ namespace CustomEventSystem
         public static readonly CustomEvent<int> OnChangePlayerSlots = new CustomEvent<int>();
         public static readonly CustomEvent<int> OnChangePlayerOrder = new CustomEvent<int>();
         public static readonly CustomEvent<int> OnChangePlayerDifficulty = new CustomEvent<int>();
+        public static readonly CustomEvent OnChangeStat = new CustomEvent();
 
 
         public static readonly CustomEvent OnDefeatPlayer = new CustomEvent();

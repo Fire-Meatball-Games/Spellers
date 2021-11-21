@@ -29,7 +29,6 @@ namespace Runtime
                 private SpellBoard board;
                 private List<Key> keyButtons;
                 private int dim;
-                private int current_char;
 
                 #endregion
 
@@ -109,7 +108,6 @@ namespace Runtime
                 private void GenerateBoardGUI(char[] keys, int dim)
                 {
                     this.dim = dim;
-                    this.current_char = 0;
                     float size = Mathf.Max((1 - (dim - 1) * SPACING) / dim, 0);
                     for (int i = 0; i < dim; i++)
                     {

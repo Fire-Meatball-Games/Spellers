@@ -102,10 +102,18 @@ namespace Runtime.CombatSystem.GUI
             endPanel.SetActive(true);
             txt_results.text = victory ? "¡Has ganado!" : "¡Has perdido!";
             txt_score.text = "";
-            for (int i = 0; i < battle.currentScore; i++)
+            if (victory)
             {
-                txt_score.text += "*";
+                for (int i = 0; i < battle.currentScore; i++)
+                {
+                    txt_score.text += "*";
+                }
             }
+            else
+            {
+                txt_score.text = "-";
+            }
+            
         }
 
         public void Pause()
@@ -147,8 +155,8 @@ namespace Runtime.CombatSystem.GUI
 
             player_icon.rectTransform.anchorMin = new Vector3(0.3f - 0.1f * num_enemies, 0f);
             player_icon.rectTransform.anchorMax = new Vector3(0.3f - 0.1f * num_enemies + 0.2f, 1f);
+            player_icon.sprite = PlayerSettings.icon;
 
-            // Icono del jugador
             vs_icon.anchorMin = player_icon.rectTransform.anchorMin + new Vector2(0.2f, 0f);
             vs_icon.anchorMax = vs_icon.anchorMin + new Vector2(0.2f, 1f);
 

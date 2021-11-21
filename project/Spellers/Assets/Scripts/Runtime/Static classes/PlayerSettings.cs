@@ -13,6 +13,7 @@ namespace Runtime
 
         public static int hat = 0;
         public static int body = 0;
+        public static Sprite icon = default;
 
         public static string playerName;
         public static int lastLevelUnlocked = 0;

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: 1
   PointsBase: -6
-  pointslevel: -2
+  pointslevel: -3
   Scale: 0

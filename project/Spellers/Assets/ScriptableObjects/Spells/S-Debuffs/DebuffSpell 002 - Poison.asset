@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Venenatum
   description: Provoca que el enemigo pierda vida cada vez que lance un hechizo.
   thumbnail: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}
-  ingame: {fileID: 0}
+  ingame: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}
   power: 2
   offensive: 1
   effects:

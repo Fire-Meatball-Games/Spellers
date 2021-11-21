@@ -2654,7 +2654,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65.6
+  m_fontSize: 69.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16395,6 +16395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basic_spell: {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+  player_icon: {fileID: 21300000, guid: 4380491b11f288947a5bc14987d6c0d6, type: 3}
 --- !u!4 &688378735
 Transform:
   m_ObjectHideFlags: 0

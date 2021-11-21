@@ -95,6 +95,7 @@ namespace SpellSystem
                 }
             }
         }
+       
 
         public int Regeneration
         {
@@ -167,31 +168,39 @@ namespace SpellSystem
 
         public void CleanAttackDebuff()
         {
-            if (attackMultiplier < 0)
+            if (AttackLevel< 0)
             {
-                attackMultiplier = 0;
-                attackMultiplierTurns = 0;
+                AttackLevel = 0;
+                AttacklevelTurns = 0;
             }
         }
 
         public void CleanRegenerationDebuff()
         {
-            if (regeneration < 0)
+            if (Regeneration < 0)
             {
-                regeneration = 0;
-                regenerationTurns = 0;
+                Regeneration = 0;
+                RegenerationTurns = 0;
             }
         }
 
         public void CleanOrderDebuff()
         {
-            if (order < 0)
+            if (Order < 0)
             {
-                order = 0;
-                orderTurns = 0;
+                Order = 0;
+                OrderTurns = 0;
             }
         }
 
+        public void CleanDifficultyDebuff()
+        {
+            if (Difficulty < 0)
+            {
+                Difficulty = 0;
+                DifficultyTurns = 0;
+            }
+        }
 
         // Recibe daño
         public void GetDamage(int damage)

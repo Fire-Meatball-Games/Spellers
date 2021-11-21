@@ -48,9 +48,10 @@ namespace Runtime.CombatSystem.UI
             Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
             Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
             Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
-            Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
-            Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
-            Events.OnCompleteDifficultyMinigame.AddListener(GenerateMinigamesBar);
+            //Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
+            //Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
+            //Events.OnCompleteDifficultyMinigame.AddListener(GenerateMinigamesBar);
+            Events.OnChangeStat.AddListener(GenerateMinigamesBar);
             Events.OnFailSpell.AddListener(GenerateMinigamesBar);
         }
 
@@ -59,9 +60,10 @@ namespace Runtime.CombatSystem.UI
             Events.OnGenerateSpellSlots.RemoveListener(SetUpSpellSlots);
             Events.OnChangeSpellSlot.RemoveListener(SetLayoutSlot);
             Events.OnPlayerUseSpell.RemoveListener(GenerateMinigamesBar);
-            Events.OnCompletePoisonMinigame.RemoveListener(GenerateMinigamesBar);
-            Events.OnCompleteBlindMinigame.RemoveListener(GenerateMinigamesBar);
-            Events.OnCompleteDifficultyMinigame.RemoveListener(GenerateMinigamesBar);
+            //Events.OnCompletePoisonMinigame.RemoveListener(GenerateMinigamesBar);
+            //Events.OnCompleteBlindMinigame.RemoveListener(GenerateMinigamesBar);
+            //Events.OnCompleteDifficultyMinigame.RemoveListener(GenerateMinigamesBar);
+            Events.OnChangeStat.RemoveListener(GenerateMinigamesBar);
             Events.OnFailSpell.RemoveListener(GenerateMinigamesBar);
         }
 
@@ -73,10 +75,10 @@ namespace Runtime.CombatSystem.UI
         private void GenerateMinigamesBar()
         {            
             SpellerStats stats = FindObjectOfType<SpellerPlayer>().stats;
-            str_game_button.gameObject.SetActive(stats.AttackLevel < 2f);
-            reg_game_button.gameObject.SetActive(stats.Regeneration < 1);
-            bln_game_button.gameObject.SetActive(stats.Order < 1);
-            dif_game_button.gameObject.SetActive(stats.Difficulty < 1);
+            str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
+            reg_game_button.gameObject.SetActive(stats.Regeneration < 0);
+            bln_game_button.gameObject.SetActive(stats.Order < 0);
+            dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
         }
 
         // Genera la lista de hechizos:
