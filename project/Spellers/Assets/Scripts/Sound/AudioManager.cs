@@ -43,13 +43,13 @@ public class AudioManager : MonoBehaviour
     private void OnDisable()
     {
         Events.OnLoadScene.RemoveListener(PlayMusicTheme);
-        soundEffectSource.Stop();
+        musicSource.Stop();
     }
 
     private void PlayMusicTheme(int sceneIdx)
     {
-        soundEffectSource.clip = musicClips[sceneIdx];
-        soundEffectSource.Play();
+        musicSource.clip = musicClips[sceneIdx];
+        musicSource.Play();
     }
 
     //Método para reproducir un efecto de sonido

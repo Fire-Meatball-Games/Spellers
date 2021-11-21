@@ -31,13 +31,13 @@ namespace UIManagement
             btn_un_jugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
             btn_un_jugador.onClick.AddListener(() => Invoke("unJugador", 1.0f));
 
-            btn_multijugador.onClick.AddListener(() => inic = 0);
-            btn_multijugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
-            btn_multijugador.onClick.AddListener(() => Invoke("multijugador", 1.0f));
+            //btn_multijugador.onClick.AddListener(() => inic = 0);
+            //btn_multijugador.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            //btn_multijugador.onClick.AddListener(() => Invoke("multijugador", 1.0f));
 
-            btn_opciones.onClick.AddListener(() => inic = 1);
-            btn_opciones.onClick.AddListener(() => animacion.SetBool("Salir", true));
-            btn_opciones.onClick.AddListener(() => Invoke("opciones", 1.0f));
+            //btn_opciones.onClick.AddListener(() => inic = 1);
+            //btn_opciones.onClick.AddListener(() => animacion.SetBool("Salir", true));
+            //btn_opciones.onClick.AddListener(() => Invoke("opciones", 1.0f));
         }
 
         public void personalizar()
