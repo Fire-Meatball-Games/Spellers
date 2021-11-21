@@ -78,7 +78,7 @@ namespace Runtime.CombatSystem
             float max_cd = settings.cooldown_average + settings.cooldown_deviation;
             float time = Random.Range(min_cd, max_cd);
             int cd_level = Mathf.Clamp(stats.Order + stats.Difficulty, -3, 3);
-            IEnumerator corroutine = LoadSpellCorroutine(time * (1f - 3f/cd_level));
+            IEnumerator corroutine = LoadSpellCorroutine(time * (1f - cd_level / 10f));
             StartCoroutine(corroutine);
         }
 
