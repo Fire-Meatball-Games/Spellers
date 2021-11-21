@@ -40,9 +40,6 @@ namespace Runtime.CombatSystem
             stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangeEnemySlots.Invoke(id, n);
             stats.OnChangeOrderEvent += (n) => Events.OnChangeEnemyOrder.Invoke(id, n);
 
-            stats.OnChangeSlotLevelsEvent += (n) => settings.SetCoolDownAverage(settings.cooldown_average - n);
-            stats.OnChangeOrderEvent += (n) => settings.SetCoolDownAverage(settings.cooldown_average - n);
-
             stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
             stats.OnDefeatEvent += () => DisableCombat();
         }
@@ -79,7 +76,9 @@ namespace Runtime.CombatSystem
         {
             float min_cd = settings.cooldown_average - settings.cooldown_deviation;
             float max_cd = settings.cooldown_average + settings.cooldown_deviation;
-            IEnumerator corroutine = LoadSpellCorroutine(Random.Range(min_cd, max_cd));
+            float time = Random.Range(min_cd, max_cd);
+            int cd_level = Mathf.Clamp(stats.Order + stats.Difficulty, -3, 3);
+            IEnumerator corroutine = LoadSpellCorroutine(time * (1f - 3f/cd_level));
             StartCoroutine(corroutine);
         }
 
