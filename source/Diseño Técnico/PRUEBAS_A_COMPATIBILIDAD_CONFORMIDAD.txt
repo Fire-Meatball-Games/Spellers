@@ -1,6 +1,0 @@
-Con respecto a la COMPATIBILIDAD, este juego es compatible con la mayoría de navegadores y plataformas.
-Salvo en el navegador Safari, hemos conseguido lanzarlo en varios sistemas operativos (MacOS, Windows y Android) con distintos navegadores (Google Chrome, Mozilla Firefox, Vivaldi, Opera y Opera Touch).
-
-Por la parte de CONFORMIDAD, haremos hincapié en varios aspectos. 
-Primero, las resoluciones, salvo resoluciones muy pequeñas, se adaptan adecuadamente a las pantallas en las que se ha probado, tanto en modo ventana como en pantalla completa.
-Por otro lado, con respecto a la cohesión entre menúes, son plenamente funcionales, con la salvedad de que puedes navegar entre ellos con otras pantallas superpuestas, por ejemplo, abrir una de las personas de los créditos y poder seguir navegando sin cerrarla. También se ha quedado disfuncional el botón de vuuelta de créditos un par de veces. El control por ratón a veces puede no hacer lo que el jugador desee debido a la cantidad de inputs. Por el resto, todo funciona como se pretende.
