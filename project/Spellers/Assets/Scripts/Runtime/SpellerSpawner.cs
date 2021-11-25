@@ -28,23 +28,23 @@ namespace Runtime
         private void Init()
         {
             SpellerBattle battle = FindObjectOfType<SpellerBattle>();
-            if (GameController.instance == null)
-            {
-                SpellerPlayer p = GeneratePlayer();
-                battle.AddPlayer(p);
-                SpellerNPC speller = InstantiateEnemy(enemy_spawn_points[0]);
-                speller.SetSettings(default_settings);                
-                battle.AddEnemy(speller, 0);
-                speller.SetTarget();
-                p.SetTarget(battle.enemies[0], 0);
-                return;
-            }
+            // if (GameController.instance == null)
+            // {
+            //     SpellerPlayer p = GeneratePlayer();
+            //     battle.AddPlayer(p);
+            //     SpellerNPC speller = InstantiateEnemy(enemy_spawn_points[0]);
+            //     speller.SetSettings(default_settings);                
+            //     battle.AddEnemy(speller, 0);
+            //     speller.SetTarget();
+            //     p.SetTarget(battle.enemies[0], 0);
+            //     return;
+            // }
             
             List<SpellerNPCSettings> enemy_settings = GameSettings.combatSettings.speller_Settings;
 
             if (enemy_settings?.Count == 0)
             {
-                throw new System.Exception("Error en la configuración de la partida: No hay enemigos");
+                throw new System.Exception("Error en la configuraciï¿½n de la partida: No hay enemigos");
             }
 
             SpellerPlayer player = GeneratePlayer();

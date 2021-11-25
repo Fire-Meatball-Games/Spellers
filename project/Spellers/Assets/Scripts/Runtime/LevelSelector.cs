@@ -59,7 +59,7 @@ namespace Runtime
             {
                 GameSettings.combatSettings = GetSelectedLevel().gameSettings;
                 GameSettings.currentLevel = selectedLevel;
-                GameController.instance.LoadCombat();
+                //GameController.instance.LoadCombat();
             }            
         }
 

@@ -11,6 +11,13 @@ namespace Tweening
         private Color color;
         private float time;
 
+        public ImageColorEffect(Image target, Color color, float time)
+        {
+            this.target = target;
+            this.color = color;
+            this.time = time;
+        }
+
         public IEnumerator Execute()
         {
             var current_time = 0f;

@@ -12,7 +12,7 @@ namespace Runtime
         void Start()
         {
             SpellerBattle battle = FindObjectOfType<SpellerBattle>();
-            if (GameController.instance == null) return;
+            //if (GameController.instance == null) return;
             CombatSettings settings = GameSettings.combatSettings;
 
             if(settings.dialogueHandlers != null)

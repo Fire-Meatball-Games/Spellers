@@ -44,14 +44,14 @@ namespace Runtime
 
         #region Private Methods
 
-        // Añade al jugador
+        // Aï¿½ade al jugador
         public void AddPlayer(SpellerPlayer player)
         {
             this.player = player;
             Events.OnJoinPlayer.Invoke();
         }
 
-        // Añade un enemigo a la partida
+        // Aï¿½ade un enemigo a la partida
         public void AddEnemy(SpellerNPC spellerNPC, int idx)
         {
             enemies.Add(spellerNPC);
@@ -62,7 +62,7 @@ namespace Runtime
         private void BeginBattle()
         {
             Time.timeScale = 1f;
-            if (GameController.instance == null) { Events.OnBattleBegins.Invoke(); return; }
+            //if (GameController.instance == null) { Events.OnBattleBegins.Invoke(); return; }
             
             Dialogue dialogue = GameSettings.combatSettings.init_dialogue;
             if (dialogue != null)
@@ -101,7 +101,7 @@ namespace Runtime
             {
                 if (GameSettings.combatSettings.scoreHandlers == null)
                     currentScore = ((player.stats.Health - 10) / 30) + 1;
-                Debug.Log("Establecida la puntuación del nivel " + GameSettings.currentLevel + " a " + currentScore);
+                Debug.Log("Establecida la puntuaciï¿½n del nivel " + GameSettings.currentLevel + " a " + currentScore);
                 PlayerSettings.SetLevelScore(GameSettings.currentLevel, currentScore);
             }
         }
@@ -130,7 +130,7 @@ namespace Runtime
             Events.OnDefeatEnemy.RemoveListener(DefeatEnemy);
         }
 
-        // Define la acción que se ejecutará la proxima vez que se termine un diálogo
+        // Define la acciï¿½n que se ejecutarï¿½ la proxima vez que se termine un diï¿½logo
         private void SetDialogueEventHandler(Action action)
         {
             action.Invoke();

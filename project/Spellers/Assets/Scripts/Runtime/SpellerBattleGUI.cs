@@ -65,42 +65,42 @@ namespace Runtime.CombatSystem.GUI
         {
             Time.timeScale = 1f;
             
-            if (GameSettings.currentLevel == -1)
-                GameController.instance.GoToMainMenu();
-            else
-            {
-                GameSettings.currentLevel = -1;
-                GameController.instance.GoToHistoryMode();
-            }
+            // if (GameSettings.currentLevel == -1)
+            //     GameController.instance.GoToMainMenu();
+            // else
+            // {
+            //     GameSettings.currentLevel = -1;
+            //     GameController.instance.GoToHistoryMode();
+            // }
                 
 
         }
 
         private void Return()
         {            
-            if(GameController.instance != null)
-            {
-                if(GameSettings.currentLevel == PlayerSettings.lastLevelUnlocked)
-                {
-                    PlayerSettings.lastLevelUnlocked++;
-                    Debug.Log("Desbloqueado el nivel " + PlayerSettings.lastLevelUnlocked);
-                }
-            }
+            // if(GameController.instance != null)
+            // {
+            //     if(GameSettings.currentLevel == PlayerSettings.lastLevelUnlocked)
+            //     {
+            //         PlayerSettings.lastLevelUnlocked++;
+            //         Debug.Log("Desbloqueado el nivel " + PlayerSettings.lastLevelUnlocked);
+            //     }
+            // }
 
-            if (GameSettings.currentLevel == -1)
-                GameController.instance.GoToMainMenu();
-            else
-            {
-                GameSettings.currentLevel = -1;
-                GameController.instance.GoToHistoryMode();
-            }
+            // if (GameSettings.currentLevel == -1)
+            //     GameController.instance.GoToMainMenu();
+            // else
+            // {
+            //     GameSettings.currentLevel = -1;
+            //     GameController.instance.GoToHistoryMode();
+            // }
 
         }
 
         private void EnableEndPanel(bool victory)
         {
             endPanel.SetActive(true);
-            txt_results.text = victory ? "¡Has ganado!" : "¡Has perdido!";
+            txt_results.text = victory ? "ï¿½Has ganado!" : "ï¿½Has perdido!";
             txt_score.text = "";
             if (victory)
             {

@@ -7,7 +7,7 @@ using System;
 
 namespace UIManagement
 {
-    public class QuickGameView : View
+    public class GameView : View
     {
         public override void Init()
         {

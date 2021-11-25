@@ -51,9 +51,9 @@ public class SpellerNPCSettingsSelector : MonoBehaviour
             SpellerNPCSettings setting = GetSetting(item.Item1, item.Item2);
             GameSettings.combatSettings.speller_Settings.Add(setting);            
         }
-        Debug.Log("Añadido " + selected_settings.Count + " enemigos" );
+        Debug.Log("Aï¿½adido " + selected_settings.Count + " enemigos" );
         GameSettings.combatSettings.playerDeck = PlayerSettings.deck;
-        GameController.instance.LoadCombat();
+       //GameController.instance.LoadCombat();
     }
 
 

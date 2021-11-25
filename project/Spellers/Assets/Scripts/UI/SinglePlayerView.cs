@@ -60,7 +60,7 @@ namespace UIManagement
 
         public void combateLibre()
         {
-            ViewManager.Show<QuickGameView>();
+            ViewManager.Show<GameView>();
         }
 
         public void tutoriales()

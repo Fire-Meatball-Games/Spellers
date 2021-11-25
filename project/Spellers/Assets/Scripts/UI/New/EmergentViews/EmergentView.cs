@@ -32,6 +32,7 @@ namespace UIManagement
 
         public override void Show()
         {
+            Debug.Log("S");
             base.Show();
             show_effects.ExecuteEffects();
         }

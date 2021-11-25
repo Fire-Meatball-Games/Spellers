@@ -81,7 +81,7 @@ namespace Runtime
 
         public void GoToMainMenu()
         {
-            FindObjectOfType<GameController>().GoToMainMenu();
+            //
         }
     } 
 }

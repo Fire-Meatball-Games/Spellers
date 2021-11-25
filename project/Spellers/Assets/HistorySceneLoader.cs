@@ -10,6 +10,6 @@ public class HistorySceneLoader : MonoBehaviour
 
     private void Awake()
     {
-        load_button.onClick.AddListener(GameController.instance.GoToHistoryMode);
+        //load_button.onClick.AddListener(GameController.instance.GoToHistoryMode);
     }
 }

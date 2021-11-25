@@ -36,7 +36,7 @@ namespace Tweening
             }
 
             current_time = 0f;
-            var final_time = time * Mathf.Abs(offset_multiplier);
+            var final_time = time * Mathf.Abs(1f - offset_multiplier);
 
             while(rectTransform.localScale != final_scale)
             {
