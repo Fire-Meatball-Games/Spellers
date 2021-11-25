@@ -64,6 +64,17 @@ namespace Utils
             return randomString;
         }
         #endregion
+
+        #region Vector2 Methods
+
+        public static Vector2 SmoothLerp(Vector2 a, Vector2 b, float t)
+        {
+            Vector2 l = Vector2.Lerp(a, b, t);
+            Vector2 a1 = Vector2.Lerp(a, l, t);
+            Vector2 a2 = Vector2.Lerp(l, b, t);
+            return Vector2.Lerp(a1, a2, t);
+        }
+        #endregion
     }
 
 
