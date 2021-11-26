@@ -54,7 +54,7 @@ namespace Runtime.CombatSystem
             target = FindObjectOfType<SpellerPlayer>();
         }
 
-        protected override void UseSpell(SpellUnit spellUnit)
+        protected override void UseSpell(SpellSystem.SpellUnit spellUnit)
         {
             base.UseSpell(spellUnit);
             LoadSpell();
@@ -82,7 +82,7 @@ namespace Runtime.CombatSystem
             StartCoroutine(corroutine);
         }
 
-        protected override SpellUnit GetActiveSpell()
+        protected override SpellSystem.SpellUnit GetActiveSpell()
         {
             return settings.deck.GetRandomSpellWithlvlMax(settings.max_spell_lvl);
         }

@@ -13,7 +13,7 @@ namespace Runtime.CombatSystem.UI
         public Sprite L1, L2, L3;
         public Button button;
 
-        public void SetSpellGUI(SpellUnit spellUnit)
+        public void SetSpellGUI(SpellSystem.SpellUnit spellUnit)
         {
             spell_name_text.text = spellUnit.spell.spellName;
             switch (spellUnit.lvl)

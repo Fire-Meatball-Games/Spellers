@@ -10,7 +10,7 @@ namespace UIManagement
     {
         [SerializeField] private RectTransform ViewLayout;
 
-        [Header("Menús")]
+        [Header("Menï¿½s")]
         [SerializeField] private List<MenuView> views;
         [SerializeField] private int init_view;
 
@@ -31,7 +31,7 @@ namespace UIManagement
         // Coloca las pantallas en fila con la vista actual en el centro
         private void EnableSlideLayout()
         {
-            var layout_size = new Vector2(Screen.width, 0);
+            var layout_size = new Vector2(ScreenSettings.WIDTH, 0);
             for (int i = 0; i < views.Count; i++)
             {
                 views[i].Show();
@@ -41,7 +41,7 @@ namespace UIManagement
             isSlideDisplay = true;
         }
 
-        // Coloca las pantallas en la misma posición
+        // Coloca las pantallas en la misma posiciï¿½n
         private void DisableSlideLayout()
         {
             for (int i = 0; i < views.Count; i++)

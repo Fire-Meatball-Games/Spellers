@@ -82,7 +82,7 @@ namespace Runtime.CombatSystem.UI
         }
 
         // Genera la lista de hechizos:
-        private void SetUpSpellSlots(List<SpellUnit> spells)
+        private void SetUpSpellSlots(List<SpellSystem.SpellUnit> spells)
         {
             ShutDownSpellSlots();
             for (int i = 0; i < spells.Count; i++)
@@ -106,7 +106,7 @@ namespace Runtime.CombatSystem.UI
         }
 
         // Pinta el layout del hechizo:
-        private void SetLayoutSlot(int idx, SpellUnit spellUnit)
+        private void SetLayoutSlot(int idx, SpellSystem.SpellUnit spellUnit)
         {
             spellSlots[idx].SetSpellGUI(spellUnit);
         }

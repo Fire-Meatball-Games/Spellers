@@ -34,7 +34,7 @@ namespace Runtime.CombatSystem
 
         // Usa un hechizo
 
-        protected virtual void UseSpell(SpellUnit spellUnit)
+        protected virtual void UseSpell(SpellSystem.SpellUnit spellUnit)
         {
             spellWand?.UseSpell(spellUnit, this, target);
             stats.CompleteTurn();
@@ -54,12 +54,12 @@ namespace Runtime.CombatSystem
 
         // Devuelve el hechizo que va a lanzar el personaje (implementar en subclases).
 
-        protected abstract SpellUnit GetActiveSpell();
+        protected abstract SpellSystem.SpellUnit GetActiveSpell();
 
 
-        // Corroutina para la animación del hechizo
+        // Corroutina para la animaciï¿½n del hechizo
 
-        private IEnumerator SpellCorroutine(SpellUnit spellUnit, float time = 1f)
+        private IEnumerator SpellCorroutine(SpellSystem.SpellUnit spellUnit, float time = 1f)
         {
             spellerAnimator.SetUseSpellAnim();
             yield return new WaitForSeconds(0.5f);

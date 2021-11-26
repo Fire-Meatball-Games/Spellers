@@ -75,12 +75,12 @@ namespace Runtime.CombatSystem
 
         #region Public methods
 
-        // Selecciona el hechizo en la posición idx de la mesa.
+        // Selecciona el hechizo en la posiciï¿½n idx de la mesa.
         // Activa el tablero correspondiente al tipo de hechizo seleccionado
 
         public void SelectSpell(int idx)
         {
-            SpellUnit spellUnit = table.SelectSpellSlot(idx);
+            SpellSystem.SpellUnit spellUnit = table.SelectSpellSlot(idx);
             int level = spellUnit.lvl;
             int power = spellUnit.spell.power;
             int wordLength = 2 + (power - 1) + level;
@@ -107,12 +107,12 @@ namespace Runtime.CombatSystem
 
         #region Private Methods
 
-        protected override SpellUnit GetActiveSpell()
+        protected override SpellSystem.SpellUnit GetActiveSpell()
         {
             return table.GetSelectedSpell();
         }
 
-        protected override void UseSpell(SpellUnit spell)
+        protected override void UseSpell(SpellSystem.SpellUnit spell)
         {
             Events.OnPlayerUseSpell.Invoke();
             base.UseSpell(spell);

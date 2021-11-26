@@ -22,12 +22,15 @@ namespace GameManagement
         private void Start() => LoadScene(SceneIndexes.MAIN_MENU);
         private IEnumerator GetSceneLoadProgress()
         {
+            loadingScreen.Show();
             while(!m_loadSceneAsyncOperation.isDone){
 
                 var loadingProgress = m_loadSceneAsyncOperation.progress;
                 loadingScreen.SetProgressBarValue(loadingProgress);
                 yield return null;
             }
+            loadingScreen.SetProgressBarValue(m_loadSceneAsyncOperation.progress);
+            yield return new WaitForSeconds(2f);
             loadingScreen.Hide();
         }
     }   

@@ -7,7 +7,7 @@ namespace CustomEventSystem
     {
         public static readonly CustomEvent<int> OnLoadScene = new CustomEvent<int>();
 
-        // Eventos del menú de inicio:
+        // Eventos del menï¿½ de inicio:
         public static readonly CustomEvent<int, SpellerNPCSettings> OnChangeSpellerNPCSettings = new CustomEvent<int, SpellerNPCSettings>();
         public static readonly CustomEvent OnSecretActivated = new CustomEvent();
 
@@ -41,8 +41,8 @@ namespace CustomEventSystem
 
         // Eventos del libro de hechizos:
         public static readonly CustomEvent<int> OnSelectSpellSlot = new CustomEvent<int>();
-        public static readonly CustomEvent<int, SpellUnit> OnChangeSpellSlot = new CustomEvent<int, SpellUnit>();
-        public static readonly CustomEvent<List<SpellUnit>> OnGenerateSpellSlots = new CustomEvent<List<SpellUnit>>();
+        public static readonly CustomEvent<int, SpellSystem.SpellUnit> OnChangeSpellSlot = new CustomEvent<int, SpellSystem.SpellUnit>();
+        public static readonly CustomEvent<List<SpellSystem.SpellUnit>> OnGenerateSpellSlots = new CustomEvent<List<SpellSystem.SpellUnit>>();
 
         // Eventos de minijuegos:        
         public static readonly CustomEvent OnCompleteStrengthMinigame = new CustomEvent(); 

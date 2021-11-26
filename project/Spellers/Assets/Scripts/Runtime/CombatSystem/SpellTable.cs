@@ -13,8 +13,8 @@ namespace Runtime.CombatSystem
         private const int BASE_SLOTS = 3;
 
         private SpellDeck deck;
-        private List<SpellUnit> spellSlots = new List<SpellUnit>(BASE_SLOTS);
-        private SpellUnit selectedSpell;
+        private List<SpellSystem.SpellUnit> spellSlots = new List<SpellSystem.SpellUnit>(BASE_SLOTS);
+        private SpellSystem.SpellUnit selectedSpell;
         private int num_slots = BASE_SLOTS;
         #endregion
 
@@ -51,7 +51,7 @@ namespace Runtime.CombatSystem
         #region public Methods        
 
         // Selecciona el hechizo 
-        public SpellUnit SelectSpellSlot(int idx)
+        public SpellSystem.SpellUnit SelectSpellSlot(int idx)
         {
             selectedSpell = spellSlots[idx];
             ChangeSpellSlot(idx);
@@ -60,7 +60,7 @@ namespace Runtime.CombatSystem
         }
 
         // Devuelve el hechizo seleccionado
-        public SpellUnit GetSelectedSpell()
+        public SpellSystem.SpellUnit GetSelectedSpell()
         {
             return selectedSpell;
         }

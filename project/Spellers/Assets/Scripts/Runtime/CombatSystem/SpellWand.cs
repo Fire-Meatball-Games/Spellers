@@ -22,7 +22,7 @@ namespace Runtime.CombatSystem
         public Sprite castbuff;
         public Sprite castDebuff;
 
-        public void UseSpell(SpellUnit spellUnit, Speller user, Speller target)
+        public void UseSpell(SpellSystem.SpellUnit spellUnit, Speller user, Speller target)
         {
             Debug.Log(user.spellerName + " (" + spellUnit + " ) --> " + target.spellerName);
 

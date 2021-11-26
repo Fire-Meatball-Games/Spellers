@@ -18,7 +18,6 @@ namespace UIManagement
 
         public override void Init()
         {
-            Debug.Log(close_time);
             show_effects = new EffectBuilder(this);
             hide_effects = new EffectBuilder(this)
                 .AddEffect(new EnableEffect(gameObject, close_time, false));
@@ -32,7 +31,6 @@ namespace UIManagement
 
         public override void Show()
         {
-            Debug.Log("S");
             base.Show();
             show_effects.ExecuteEffects();
         }

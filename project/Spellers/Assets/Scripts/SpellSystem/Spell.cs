@@ -4,33 +4,16 @@ using UnityEngine;
 
 namespace SpellSystem
 {
-    public struct SpellUnit
-    {
-        public Spell spell;
-        public int lvl;
-
-        public SpellUnit(Spell spell, int lvl)
-        {
-            this.spell = spell;
-            this.lvl = spell.power < 3 ? lvl : 3;
-        }
-
-        public SpellUnit(Spell spell)
-        {            
-            this.spell = spell;
-            this.lvl = spell.power < 3 ? Random.Range(1,4) : 3;
-        }
-
-        public override string ToString()
-        {
-            return spell.spellName + " " + lvl;
-        }
-    }
-
-
     [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spells/Spell", order = 0)]
     public class Spell : ScriptableObject
     {
+        public enum Type
+        {
+            Ataque = 0,
+            Defensa = 1,
+            Mejora = 2,
+            Debilitación = 3
+        }
         [SerializeField] public string spellName;
         [TextArea]
         [SerializeField] public string description;
@@ -40,6 +23,7 @@ namespace SpellSystem
         [Range(1, 3)]
         [SerializeField] public int power = 1;
         [SerializeField] public bool offensive;
+        [SerializeField] public Type type;
 
         [SerializeField] public List<Effect> effects;
 

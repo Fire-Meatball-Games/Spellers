@@ -8,11 +8,12 @@ namespace SpellSystem
     [Serializable]
     public class SpellDeck
     {
+        public static readonly int DECKSIZE = 12;
         public List<Spell> spells;
 
         public SpellDeck()
         {
-            this.spells = new List<Spell>();
+            this.spells = new List<Spell>(DECKSIZE);
         }
 
         public SpellDeck(IEnumerable<Spell> spells)
@@ -51,6 +52,16 @@ namespace SpellSystem
                 spellUnits.Add(new SpellUnit(spell));
             }
             return spellUnits;
+        }
+
+        public float GetAveragePower()
+        {
+            float total_power = 0f;
+            foreach (var spell in spells)
+            {
+                total_power += spell.power;
+            }
+            return total_power / spells.Count;
         }
     }
 }
