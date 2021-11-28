@@ -327,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &683688090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &985146180
 Transform:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -247.82513, y: 0}
+  m_SizeDelta: {x: -76.79999, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066018194
 MonoBehaviour:
@@ -783,6 +783,80 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1942817031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942817034}
+  - component: {fileID: 1942817033}
+  - component: {fileID: 1942817032}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1942817032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942817031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_PointAction: {fileID: -4437075951505925331, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_MoveAction: {fileID: 2054441112710618350, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_SubmitAction: {fileID: 3252163071654748492, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_CancelAction: {fileID: 5710735877527685902, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_LeftClickAction: {fileID: 1664361311123683405, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_MiddleClickAction: {fileID: -2794720769606726952, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_RightClickAction: {fileID: -6355527049040051209, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_ScrollWheelAction: {fileID: -9083015360540677292, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 2557123017613878073, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -4138795872209747609, guid: 665efdc6221b1dd41b1a7a19ea0e1f50, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!114 &1942817033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942817031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1942817034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942817031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945400298
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,10 +916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellerName_default: Jugador
   icon_default: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  deck_default:
-    spells:
-    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-  all_spells: {fileID: 11400000, guid: ba75d0c7d48bf224a883aa91bdfff537, type: 2}
 --- !u!1 &2027351453
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,7 +76,7 @@ namespace Runtime.CombatSystem.UI
         {            
             SpellerStats stats = FindObjectOfType<SpellerPlayer>().stats;
             str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
-            reg_game_button.gameObject.SetActive(stats.Regeneration < 0);
+            reg_game_button.gameObject.SetActive(stats.Regeneration < 1f);
             bln_game_button.gameObject.SetActive(stats.Order < 0);
             dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
         }

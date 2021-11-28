@@ -24,7 +24,7 @@ namespace GameManagement
             base.Init();
         }
 
-        private void Start() => LoadScene(SceneIndexes.MAIN_MENU);
+        //private void Start() => LoadScene(SceneIndexes.MAIN_MENU);
         private IEnumerator GetSceneLoadProgress()
         {
             loadingScreen.Show();
