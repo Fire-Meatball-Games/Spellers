@@ -9,6 +9,7 @@ namespace UIManagement
     public abstract class EmergentView : View
     {
         [SerializeField] private Button btn_close;
+        [SerializeField] private GameObject layout;
 
         protected float close_time;
         protected EffectBuilder show_effects;
@@ -20,7 +21,7 @@ namespace UIManagement
         {
             show_effects = new EffectBuilder(this);
             hide_effects = new EffectBuilder(this)
-                .AddEffect(new EnableEffect(gameObject, close_time, false));
+                .AddEffect(new EnableEffect(layout, close_time, false));
             btn_close.onClick.AddListener(Hide);
         }
 
@@ -31,11 +32,10 @@ namespace UIManagement
 
         public override void Show()
         {
-            base.Show();
+            Debug.Log("AA");
+            layout.SetActive(true);
             show_effects.ExecuteEffects();
         }
-
-
     }
 
 }

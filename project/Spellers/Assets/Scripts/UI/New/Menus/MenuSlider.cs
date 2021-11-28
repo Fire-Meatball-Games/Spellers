@@ -10,7 +10,7 @@ namespace UIManagement
     {
         [SerializeField] private RectTransform ViewLayout;
 
-        [Header("Men�s")]
+        [Header("Menus")]
         [SerializeField] private List<MenuView> views;
         [SerializeField] private int init_view;
 
@@ -21,7 +21,7 @@ namespace UIManagement
         private int current_view;
         private bool isSlideDisplay;
 
-        private void Awake()
+        public void SetUp()
         {
             current_view = init_view;
             DisableSlideLayout();

@@ -21,17 +21,15 @@ namespace UIManagement
 
         private List<CardSection> sections;
 
-        private void Awake() => Init();
-
-        private void Init()
+        public void Init()
         {            
             sections = new List<CardSection>();
             CardSection all_section = AddCardSection("Hechizos", allSpells.NumSpells);
             for (int i = 0; i < allSpells.NumSpells; i++)
             {     
                 Spell spell = allSpells[i];
-                CardView card = Instantiate(cardView_prefab).GetComponent<CardView>(); 
-                card.SetUp(spell.thumbnail,() => LoadSpellDetails(spell));
+                SpellCardView card = Instantiate(cardView_prefab).GetComponent<SpellCardView>(); 
+                card.SetUp(spell, false);
                 all_section.AddToLayout(card);
             }
         }
@@ -43,12 +41,6 @@ namespace UIManagement
             sections.Add(section);
             return section;
         }    
-
-        private void LoadSpellDetails(Spell spell)
-        {
-            spellDetailsView.SetUp(spell);
-            spellDetailsView.Show();
-        }
     }
 }
 

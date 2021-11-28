@@ -7,9 +7,15 @@ namespace CustomEventSystem
     {
         public static readonly CustomEvent<int> OnLoadScene = new CustomEvent<int>();
 
-        // Eventos del men� de inicio:
+        // Eventos del menu de inicio:
         public static readonly CustomEvent<int, SpellerNPCSettings> OnChangeSpellerNPCSettings = new CustomEvent<int, SpellerNPCSettings>();
         public static readonly CustomEvent OnSecretActivated = new CustomEvent();
+
+        // Eventos de la coleccion de hechizos del jugador:
+        public static readonly CustomEvent OnSelectSpellCard = new CustomEvent();
+
+        public static readonly CustomEvent<Spell> OnDisplaySpellDetails = new CustomEvent<Spell>();
+        public static readonly CustomEvent OnAddSpellToDeck = new CustomEvent();
 
         // Eventos del modo historia:
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();

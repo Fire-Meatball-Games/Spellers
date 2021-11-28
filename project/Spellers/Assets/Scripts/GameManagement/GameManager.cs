@@ -19,6 +19,11 @@ namespace GameManagement
             StartCoroutine(GetSceneLoadProgress());
         }
 
+        public override void Init() 
+        {
+            base.Init();
+        }
+
         private void Start() => LoadScene(SceneIndexes.MAIN_MENU);
         private IEnumerator GetSceneLoadProgress()
         {

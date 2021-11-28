@@ -16,7 +16,6 @@ namespace UIManagement
         [SerializeField] private Button quickGame_btn;
         [SerializeField] private Button multiplayer_btn;
 
-        private void Awake() => Init();
         public override void Init()
         {
             quickGame_btn.onClick.AddListener(quickGameView.Show);           

@@ -7,25 +7,13 @@ namespace UIManagement
 {
     public class SpellDeckView : MenuView
     {
-        [Header("Context Menu")]
-        [SerializeField] private RectTransform contextMenu_rt;
-        [SerializeField] private Button info_btn;
-        [SerializeField] private Button use_btn;
-
-        [Header("Spell Collection")]
-        [SerializeField] private GameObject spellGridList;
-        [SerializeField] private GameObject spellCard_prefab;
-
-        [Header("Spell Deck")]
-        
-        [SerializeField] private GameObject spellDeckList;
-
-
-
+        [SerializeField] private PlayerDecksGUI playerDecksGUI;
+        [SerializeField] private SpellCollectionGUI spellCollectionGUI;
 
         public override void Init()
         {
-            
+            playerDecksGUI.Init();
+            spellCollectionGUI.Init();
         }
     }
 

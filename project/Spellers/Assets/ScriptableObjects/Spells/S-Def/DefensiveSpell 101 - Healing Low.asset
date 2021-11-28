@@ -18,5 +18,6 @@ MonoBehaviour:
   ingame: {fileID: 0}
   power: 1
   offensive: 0
+  type: 1
   effects:
   - {fileID: 11400000, guid: d7cebf7772cf7664ba4e6d3596a9a6df, type: 2}

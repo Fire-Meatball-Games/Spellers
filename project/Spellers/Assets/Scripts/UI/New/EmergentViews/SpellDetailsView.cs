@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using SpellSystem;
 using Tweening;
+using CustomEventSystem;
 
 namespace UIManagement
 {
@@ -32,13 +33,23 @@ namespace UIManagement
             hide_effects.AddEffect(new ScreenSlideEffect(panel, Vector3.zero, Vector2.up, 1f, 0.1f));
         }
 
-        public void SetUp(Spell spell)
+        private void OnEnable() 
+        {
+            Events.OnDisplaySpellDetails.AddListener(SetUp);
+        }
+
+        private void OnDisable() 
+        {
+            Events.OnDisplaySpellDetails.RemoveListener(SetUp);
+        }
+        private void SetUp(Spell spell)
         {
             icon.sprite = spell.thumbnail;
             name_txt.text = spell.spellName;
             power_txt.text = ((Category) spell.power).ToString();
             type_txt.text = spell.type.ToString();
-            desc_txt.text = spell.description;            
+            desc_txt.text = spell.description;  
+            Show();          
         }
 
     }

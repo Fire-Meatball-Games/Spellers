@@ -19,39 +19,76 @@ namespace UIManagement
         [SerializeField] private List<Button> deckSelector_buttons;
 
         [Header("Deck display")]
-        [SerializeField] private RectTransform deckDisplay;
+        [SerializeField] private CardSection cardSection;
         [SerializeField] private GameObject spellCard_prefab;
+        [SerializeField] private SpellDetailsView spellDetailsView;
 
-        private List<CardView> spellCards;
+        private SpellDeck selectedDeck;
 
-        void Start()
+        public void Init()
         {
-            deckPower_slider.maxValue = 3f;            
-            SetUpDeckDisplay();
+            deckPower_slider.maxValue = 3f;     
+            cardSection.SetUp("Mazo de hechizos", SpellDeck.DECKSIZE);    
 
+            selectedDeck = PlayerSettings.instance.SelectedDeck;
+
+            for (int i = 0; i < SpellDeck.DECKSIZE; i++)
+            {
+                SpellCardView cardView = Instantiate(spellCard_prefab).GetComponent<SpellCardView>();    
+                cardView.SetUp();
+                cardSection.AddToLayout(cardView);
+            }
+
+            for(int i = 0; i < deckSelector_buttons.Count; i++)
+            {
+                int idx = i;
+                deckSelector_buttons[i].onClick.AddListener(() => SelectDeck(idx));
+            }
         }
+
+        private void OnEnable() 
+        {
+            Events.OnAddSpellToDeck.AddListener(DisplaySelectedDeck);
+        }
+        private void OnDisable() 
+        {
+            Events.OnAddSpellToDeck.RemoveListener(DisplaySelectedDeck);
+        }
+
+        private void DisplaySelectedDeck() => DisplayDeck(PlayerSettings.instance.SelectedDeck);
 
         private void DisplayDeck(SpellDeck deck)
         {
-            float averagePower = deck.GetAveragePower();
+            //cardSection.Clear();
+
+            if(deck == null)
+                deck = new SpellDeck();
+
+            float averagePower =  deck.GetAveragePower();
             deckPower_text.text = averagePower.ToString("0.00");
             deckPower_slider.value = averagePower;
-        }
 
-        private void ClearDeckDisplay()
-        {
-
-        }
-
-        private void SetUpDeckDisplay()
-        {
-            spellCards = new List<CardView>(SpellDeck.DECKSIZE);
-            for (var i = 0; i < SpellDeck.DECKSIZE; i++)
+            for (int i = 0; i < SpellDeck.DECKSIZE; i++)
             {
-                var cardView_go = Instantiate(spellCard_prefab, deckDisplay);
-                CardView cardView = cardView_go.GetComponent<CardView>();
-                spellCards.Add(cardView);
+                if(i < selectedDeck.Count)
+                {
+                    Spell spell = deck.spells[i]; 
+                    cardSection.GetCardView(i).SetUp(spell, true);              
+                }
+                else
+                {
+                    cardSection.GetCardView(i).SetUp();
+                }
+
+                
             }
+        }
+
+        private void SelectDeck(int idx)
+        {
+            PlayerSettings.instance.SetSelectedDeckIdx(idx);
+            selectedDeck = PlayerSettings.instance.SelectedDeck;
+            DisplaySelectedDeck();            
         }
     }    
 }
