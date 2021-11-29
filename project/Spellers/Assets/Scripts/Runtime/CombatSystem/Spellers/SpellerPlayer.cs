@@ -82,7 +82,7 @@ namespace Runtime.CombatSystem
         {
             SpellSystem.SpellUnit spellUnit = table.SelectSpellSlot(idx);
             int level = spellUnit.lvl;
-            int power = spellUnit.spell.power;
+            int power = spellUnit.spell.Power;
             int wordLength = 2 + (power - 1) + level;
             int boardDimension = 2 + level;
             int ticks = 500  + 250 * level; // tick = 0.02s

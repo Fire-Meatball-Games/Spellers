@@ -32,7 +32,7 @@ public class SpellSelector : MonoBehaviour
         {
             if(i < PlayerSettings.deck.spells.Count)
             {
-                spellDeckslot_panels[i].GetComponentInChildren<Image>().sprite = PlayerSettings.deck.spells[i].thumbnail;
+                spellDeckslot_panels[i].GetComponentInChildren<Image>().sprite = PlayerSettings.deck.spells[i].Icon;
                 spellDeckslot_panels[i].GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
             }
             else
@@ -46,8 +46,8 @@ public class SpellSelector : MonoBehaviour
     {
         selected_spell_idx = idx;
         Spell spell = spells[idx];
-        spellName_text.text = spell.spellName;
-        description_text.text = spell.description;
+        spellName_text.text = spell.Name;
+        description_text.text = spell.Description;
     }
 
 
@@ -64,7 +64,7 @@ public class SpellSelector : MonoBehaviour
         {
             PlayerSettings.deck.spells[idx] = spells[selected_spell_idx];
         }
-        spellDeckslot_panels[idx].GetComponentInChildren<Image>().sprite = PlayerSettings.deck.spells[idx].thumbnail;
+        spellDeckslot_panels[idx].GetComponentInChildren<Image>().sprite = PlayerSettings.deck.spells[idx].Icon;
     }
 
 

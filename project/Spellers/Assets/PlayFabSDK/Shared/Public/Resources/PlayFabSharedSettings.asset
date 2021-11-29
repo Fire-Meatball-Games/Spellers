@@ -15,7 +15,7 @@ MonoBehaviour:
   TitleId: 6E790
   DeveloperSecretKey: OOPBJNXHHRCQJQPZACQXTUU9Y43BPC9D1719QNDN7D4OWPBJEO
   ProductionEnvironmentUrl: 
-  RequestType: 2
+  RequestType: 0
   DisableDeviceInfo: 0
   DisableFocusTimeCollection: 0
   RequestTimeout: 2000

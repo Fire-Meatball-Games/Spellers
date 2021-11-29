@@ -44,11 +44,11 @@ namespace UIManagement
         }
         private void SetUp(Spell spell)
         {
-            icon.sprite = spell.thumbnail;
-            name_txt.text = spell.spellName;
-            power_txt.text = ((Category) spell.power).ToString();
+            icon.sprite = spell.Icon;
+            name_txt.text = spell.Name;
+            power_txt.text = ((Category) spell.Power).ToString();
             type_txt.text = spell.type.ToString();
-            desc_txt.text = spell.description;  
+            desc_txt.text = spell.Description;  
             Show();          
         }
 

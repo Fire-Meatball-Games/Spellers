@@ -77,7 +77,7 @@ namespace SpellSystem
             float total_power = 0f;
             foreach (var spell in spells)
             {
-                total_power += spell.power;
+                total_power += spell.Power;
             }
             return total_power / spells.Count;            
         }      

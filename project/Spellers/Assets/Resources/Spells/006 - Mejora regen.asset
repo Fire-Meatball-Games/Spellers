@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
+  m_Name: 006 - Mejora regen
+  m_EditorClassIdentifier: 
+  spellName: Remedious continuous
+  description: "Aumenta la regeneraci\xF3n de vida del usuario."
+  thumbnail: {fileID: 21300000, guid: dccd06b9b890f364589b700626f91efa, type: 3}
+  ingame: {fileID: 0}
+  power: 2
+  offensive: 0
+  type: 2
+  effects:
+  - {fileID: 11400000, guid: 490325b9db592224d92ac1ba78d05d8b, type: 2}

@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Management.unity
     guid: 2ecb4d95778a1fa4293b860022019b20
   - enabled: 1
-    path: Assets/Scenes/Inicio.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Registro.unity
+    guid: b82696818e1cf694c9d946714054f7c1
   - enabled: 1
     path: Assets/Scenes/MenuPrincipal.unity
     guid: ea624a4f2dece81428ce22fd108b6e89
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: bac92d401e9ce4747b66d21143c57aa7
+  - enabled: 0
+    path: Assets/Scenes/Inicio.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

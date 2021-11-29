@@ -66,7 +66,7 @@ namespace Runtime.CombatSystem
             if (spellUnit.spell.offensive)
             {
                 GameObject spellShot = Instantiate(spellPrefab);
-                Sprite sprite = spellUnit.spell.ingame;
+                Sprite sprite = spellUnit.spell.Sprite;
                 if(sprite != null)
                     spellShot.GetComponent<SpriteRenderer>().sprite = sprite;
                 spellShot.transform.position = transform.position;

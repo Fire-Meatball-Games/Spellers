@@ -112,7 +112,7 @@ namespace UIManagement
         {           
             this.inDeck = inDeck;
             this.spell = spell;
-            icon_img.sprite = spell.thumbnail;
+            icon_img.sprite = spell.Icon;
             lock_img.gameObject.SetActive(!unlocked);
             icon_button.interactable = unlocked;      
             use_txt.text = inDeck ? STR_REMOVE : STR_USE;  

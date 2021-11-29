@@ -15,7 +15,7 @@ namespace Runtime.CombatSystem.UI
 
         public void SetSpellGUI(SpellSystem.SpellUnit spellUnit)
         {
-            spell_name_text.text = spellUnit.spell.spellName;
+            spell_name_text.text = spellUnit.spell.Name;
             switch (spellUnit.lvl)
             {
                 case 1: level_image.sprite = L1; break;
@@ -23,7 +23,7 @@ namespace Runtime.CombatSystem.UI
                 case 3: level_image.sprite = L3; break;
                 default: break;
             }
-            icon_L.sprite = spellUnit.spell.thumbnail;
+            icon_L.sprite = spellUnit.spell.Icon;
         }
 
         public void AddListener(UnityEngine.Events.UnityAction action)

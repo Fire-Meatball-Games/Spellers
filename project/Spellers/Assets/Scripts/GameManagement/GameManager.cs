@@ -12,17 +12,25 @@ namespace GameManagement
         [SerializeField] private LoadingScreen loadingScreen;  
         private AsyncOperation m_loadSceneAsyncOperation; 
 
-        public void LoadScene(SceneIndexes index)
+        public void LoadSceneAsync(SceneIndexes index)
         {
-            Debug.Log("Cargando escena 1");
-            m_loadSceneAsyncOperation = SceneManager.LoadSceneAsync((int)index, LoadSceneMode.Additive);
+            int build_idx = (int)index;
+            Debug.Log("Cargando escena " + build_idx);
+            m_loadSceneAsyncOperation = SceneManager.LoadSceneAsync(build_idx, LoadSceneMode.Additive);
             StartCoroutine(GetSceneLoadProgress());
         }
 
+        public void UnloadScene(SceneIndexes index)
+        {
+            int build_idx = (int)index;
+            SceneManager.UnloadSceneAsync(build_idx);
+        }
         public override void Init() 
         {
             base.Init();
         }
+
+        public void Start() => LoadSceneAsync(SceneIndexes.TITLE_SCREEN);
 
         //private void Start() => LoadScene(SceneIndexes.MAIN_MENU);
         private IEnumerator GetSceneLoadProgress()

@@ -12,18 +12,18 @@ namespace SpellSystem
         public SpellUnit(Spell spell, int lvl)
         {
             this.spell = spell;
-            this.lvl = spell.power < 3 ? lvl : 3;
+            this.lvl = spell.Power < 3 ? lvl : 3;
         }
 
         public SpellUnit(Spell spell)
         {            
             this.spell = spell;
-            this.lvl = spell.power < 3 ? Random.Range(1,4) : 3;
+            this.lvl = spell.Power < 3 ? Random.Range(1,4) : 3;
         }
 
         public override string ToString()
         {
-            return spell.spellName + " " + lvl;
+            return spell.Name + " " + lvl;
         }
     }   
 }
