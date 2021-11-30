@@ -36,5 +36,7 @@ namespace NetworkManagement
             Debug.Log("Playfab: Error while login");
             OnFailure?.Invoke(error.ErrorMessage);
         }
+
+        
     }
 }

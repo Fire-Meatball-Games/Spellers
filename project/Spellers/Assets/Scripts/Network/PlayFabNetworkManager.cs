@@ -33,5 +33,12 @@ namespace NetworkManagement
             register.OnFailure += OnError;
             register.Register(username, password);
         }
+
+        public static void GetInventory(Action<int> OnSuccess)
+        {
+            PlayFabInventory inventory = new PlayFabInventory();
+            inventory.OnSuccess += OnSuccess;
+            inventory.GetItems(_playerId);
+        }
     }  
 }

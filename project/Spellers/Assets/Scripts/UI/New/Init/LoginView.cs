@@ -48,6 +48,7 @@ namespace UIManagement
 
         private void CompleteLogin(string playerId)
         {
+            PlayFabNetworkManager.GetInventory(OnGetCurrency);            
             message_text.text = "Bienvenid@ " + submitted_playername;
             if(PlayerSettings.instance != null)
             {
@@ -55,13 +56,17 @@ namespace UIManagement
                 PlayerSettings.instance.Id = playerId;
             }
 
-            if(GameManager.instance != null)
-            {
-                GameManager.instance.UnloadScene(SceneIndexes.TITLE_SCREEN);
-                GameManager.instance.LoadSceneAsync(SceneIndexes.MAIN_MENU);
-            }
+           
         }
 
+        private void OnGetCurrency(int currency)
+        {
+            if(PlayerSettings.instance != null)
+            {
+                PlayerSettings.instance.Coins = currency;
+            }
+            GoToMainMenu();
+        }
         private void ShowErrorMessage(string error)
         {
             message_text.text = error;
@@ -73,6 +78,15 @@ namespace UIManagement
             message_text.text = "";
             Username_inputField.text = "";
             Password_inputField.text = "";
+        }
+
+        private void GoToMainMenu()
+        {
+            if(GameManager.instance != null)
+            {
+                GameManager.instance.UnloadScene(SceneIndexes.TITLE_SCREEN);
+                GameManager.instance.LoadSceneAsync(SceneIndexes.MAIN_MENU);
+            }
         }
     }
 }

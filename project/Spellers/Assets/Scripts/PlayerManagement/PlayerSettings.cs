@@ -12,9 +12,6 @@ namespace PlayerManagement
 
         #region Public fields
 
-        [Header("Default Settings")]        
-        [SerializeField] private Sprite icon_default;  
-
         #endregion     
 
         #region Private fields
@@ -22,6 +19,8 @@ namespace PlayerManagement
         private string m_ID;
         private string m_playerName;
         private Sprite m_icon;
+
+        private int coins;
         private SpellDeck[] m_decks;
         private int m_selectedDeckId;
 
@@ -29,12 +28,16 @@ namespace PlayerManagement
 
         public override void Init()
         {
-            base.Init();
-            Icon = icon_default;            
-            m_decks = new SpellDeck[NUM_DECKS];
+            base.Init();      
+            InitDecks();     
+        }
+
+        private void InitDecks()
+        {
+             m_decks = new SpellDeck[NUM_DECKS];
 
             for (int i = 0; i < NUM_DECKS; i++)
-                m_decks[i] = new SpellDeck();            
+                m_decks[i] = new SpellDeck();      
         }
 
         public SpellDeck GetDeck(int idx)
@@ -51,6 +54,7 @@ namespace PlayerManagement
         public string Id { get => m_ID; set => m_ID = value; }
         public Sprite Icon { get => m_icon; set => m_icon = value; }
         public int SelectedDeck1 { get => m_selectedDeckId; set => m_selectedDeckId = value; }
+        public int Coins { get => coins; set => coins = value; }
 
         public void SetSelectedDeckIdx(int idx)
         {
