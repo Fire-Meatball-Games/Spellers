@@ -19,8 +19,8 @@ namespace UIManagement
         private SkinPart skinPart;
         protected override void SetContextMenu()
         {
-            bool showUseContext = PlayerSettings.instance.Skin.Contains(skinPart);
-            use_btn.gameObject.SetActive(false);
+            bool showUseContext = !PlayerSettings.instance.Skin.Contains(skinPart);
+            use_btn.gameObject.SetActive(showUseContext);
         }
 
         protected override void Init()
@@ -45,6 +45,11 @@ namespace UIManagement
             lock_img.gameObject.SetActive(!unlocked);
             icon_button.interactable = unlocked;
             use_txt.text = STR_USE;
+        }
+
+        public void SetUp()
+        {
+
         }
     }
 

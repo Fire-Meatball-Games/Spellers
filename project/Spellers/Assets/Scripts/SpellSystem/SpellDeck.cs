@@ -69,6 +69,11 @@ namespace SpellSystem
             return spellUnits;
         }
 
+        public List<Spell> ToList()
+        {
+            return spells;
+        }
+
         // Devuelve la potencia media de los hechizos del mazo
         public float GetAveragePower()
         {

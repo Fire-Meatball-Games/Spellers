@@ -49,7 +49,6 @@ namespace UIManagement
         // Este metodo se lanza cuando pulsas esta carta
         private void OnSelectThisCallback()
         {
-            Debug.Log("E");
             if(selected_cardView != this)
             {
                 OnSelectCard?.Invoke();

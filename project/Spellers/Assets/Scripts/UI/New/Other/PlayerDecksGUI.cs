@@ -15,40 +15,13 @@ namespace UIManagement
         [SerializeField] private Slider deckPower_slider;
         [SerializeField] private TextMeshProUGUI deckPower_text;
 
-        [Header("Deck selector")]
-        [SerializeField] private List<Button> deckSelector_buttons;
-
         [Header("Deck display")]
-        [SerializeField] private CardSection cardSection;
-        [SerializeField] private GameObject spellCard_prefab;
-        [SerializeField] private SpellDetailsView spellDetailsView;
+        [SerializeField] private GameObject cardList_prefab;
+        [SerializeField] private GameObject cardView_prefab;
+        [SerializeField] private RectTransform display;
+        private CardSection section;
 
-        private SpellDeck selectedDeck;
-
-        public void Init()
-        {
-            deckPower_slider.maxValue = 3f;     
-            cardSection.SetUp("Mazo de hechizos", SpellDeck.DECKSIZE);    
-
-            if(PlayerSettings.instance != null)
-                selectedDeck = PlayerSettings.instance.SelectedDeck;
-            else
-                selectedDeck = new SpellDeck();
-
-            for (int i = 0; i < SpellDeck.DECKSIZE; i++)
-            {
-                SpellCardView cardView = Instantiate(spellCard_prefab).GetComponent<SpellCardView>();    
-                cardView.SetUp();
-                cardSection.AddToLayout(cardView);
-            }
-
-            for(int i = 0; i < deckSelector_buttons.Count; i++)
-            {
-                int idx = i;
-                deckSelector_buttons[i].onClick.AddListener(() => SelectDeck(idx));
-            }
-        }
-
+        #region Unity Callbacks
         private void OnEnable() 
         {
             Events.OnModifyPlayerDeck.AddListener(DisplaySelectedDeck);
@@ -57,42 +30,87 @@ namespace UIManagement
         {
             Events.OnModifyPlayerDeck.RemoveListener(DisplaySelectedDeck);
         }
+        #endregion
 
-        private void DisplaySelectedDeck() => DisplayDeck(PlayerSettings.instance.SelectedDeck);
+        #region Initialization
+        public void Init()
+        {            
+            List<Spell> playerSpells = PlayerSettings.instance.Deck.ToList();
+            AddCardSection("Hechizos", playerSpells);
+            deckPower_slider.maxValue = 3f;
+        }  
+        #endregion     
 
+        #region Private Methods
+
+        // Añade una seccion de cartas:
+        private void AddCardSection(string title, List<Spell> spells)
+        {
+            section = Instantiate(cardList_prefab, display).GetComponent<CardSection>();
+            section.SetLayout(title, GetCardViewList(spells, SpellDeck.DECKSIZE));
+        }
+        
+        // Genera una lista de cartas a partir de una lista de hechizos. La diferencia entre el tamaño de la lista
+        // y el valor de size será el número de cartas en blanco:
+        private List<CardView> GetCardViewList(List<Spell> spells, int size = 0)
+        {
+            List<CardView> cards = new List<CardView>();
+            foreach (var spell in spells)
+            {
+                cards.Add(GenerateCardView(spell));                
+            }
+            for (var i = spells.Count; i < size; i++)
+            {
+                cards.Add(GenerateBlankCard());   
+            }
+            return cards;
+        }
+
+        // Genera una carta a partir de un hechizo:
+        private SpellCardView GenerateCardView(Spell spell)
+        {
+            SpellCardView card = Instantiate(cardView_prefab).GetComponent<SpellCardView>(); 
+            card.SetUp(spell, true);
+            return card;
+        }
+
+        // Genera una carta en blanco:
+        private SpellCardView GenerateBlankCard()
+        {
+            SpellCardView card = Instantiate(cardView_prefab).GetComponent<SpellCardView>(); 
+            card.SetUp();
+            return card;
+        }
+        #endregion
+
+        #region Callbacks
+
+        // Metodo llamado cuando el mazo del jugador cambia:
+        private void DisplaySelectedDeck() => DisplayDeck(PlayerSettings.instance.Deck);
+
+        // Actualiza las cartas del mazo
         private void DisplayDeck(SpellDeck deck)
         {
-            //cardSection.Clear();
-
-            if(deck == null)
-                deck = new SpellDeck();
-
             float averagePower =  deck.GetAveragePower();
             deckPower_text.text = averagePower.ToString("0.00");
             deckPower_slider.value = averagePower;
 
             for (int i = 0; i < SpellDeck.DECKSIZE; i++)
             {
-                if(i < selectedDeck.Count)
+                if(i < deck.Count)
                 {
                     Spell spell = deck.spells[i]; 
-                    cardSection.GetCardView(i).SetUp(spell, true);              
+                    CardView cardView = GenerateCardView(spell);
+                    section.SetCardAt(cardView, i);              
                 }
                 else
                 {
-                    cardSection.GetCardView(i).SetUp();
-                }
-
-                
+                    CardView cardView = GenerateBlankCard();
+                    section.SetCardAt(cardView, i);          
+                }                
             }
         }
-
-        private void SelectDeck(int idx)
-        {
-            PlayerSettings.instance.SetSelectedDeckIdx(idx);
-            selectedDeck = PlayerSettings.instance.SelectedDeck;
-            DisplaySelectedDeck();            
-        }
+        #endregion        
     }    
 }
 

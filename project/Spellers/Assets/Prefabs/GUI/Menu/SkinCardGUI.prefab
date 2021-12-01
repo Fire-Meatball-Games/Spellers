@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2396742526372506193}
   - component: {fileID: 7966315104222465758}
   - component: {fileID: 8812653826733682101}
-  - component: {fileID: 1622053146347428790}
+  - component: {fileID: 8553681220270300727}
   m_Layer: 5
   m_Name: SkinCardGUI
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1622053146347428790
+--- !u!114 &8553681220270300727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2396742526372506190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88fb8ae7c36afb4f97b62759a5edb2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 738ab2119096ed6409e53dbcd8ba7ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   default_icon: {fileID: 21300000, guid: 0752581554a4d2542b14d70e9f9dbe25, type: 3}
@@ -139,7 +139,6 @@ MonoBehaviour:
   icon_button: {fileID: 8812653826733682101}
   lock_img: {fileID: 7847171735969550371}
   contextMenu_rt: {fileID: 3019785581320255429}
-  info_btn: {fileID: 0}
   use_btn: {fileID: 8756729327761662839}
   use_txt: {fileID: 3832703081472402283}
 --- !u!1 &4039418557691549244

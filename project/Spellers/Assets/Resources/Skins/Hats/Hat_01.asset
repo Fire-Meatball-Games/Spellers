@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0854f754bc7c1d141bb51cb3a2a89b0b, type: 3}
-  m_Name: Hat_00
+  m_Name: Hat_01
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 21300000, guid: 3c44670f2f99aa146bdccb55d2f0e9e0, type: 3}
+  thumbnail: {fileID: -3276805165046946882, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
   id: 0
   typePart: 0
-  spriteSkin: {fileID: -6109177203454723378, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
+  spriteSkin: {fileID: -3276805165046946882, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}

@@ -11,32 +11,40 @@ namespace UIManagement
     {
         [SerializeField] private TextMeshProUGUI title_txt;
         [SerializeField] private RectTransform rectTransform;
+        private List<CardView> m_cards;
 
-        private string tittle;
-        private int maxItems;
-        private List<SpellCardView> cards;
+        public int num_cards => m_cards.Count;
 
-        public int num_cards => cards.Count;
-
-        public void SetUp(string title, int maxItems = 0)
+        public void SetLayout(string title, List<CardView> cards)
         {
-            this.tittle = title;
-            this.maxItems = maxItems;
-            cards = new List<SpellCardView>(maxItems);
-        }
-
-        public void AddToLayout(SpellCardView card)
-        {
-            cards.Add(card);
-            card.transform.SetParent(rectTransform);
-            card.transform.localScale = Vector3.one;
-        }
-
-        public SpellCardView GetCardView(int idx)
-        {
-            if(idx >= 0 && idx < cards.Count)
+            title_txt.text = title;
+            m_cards = new List<CardView>();
+            foreach (var card in cards)
             {
-                return cards[idx];
+                m_cards.Add(card);
+                card.transform.SetParent(rectTransform);
+                card.transform.localScale = Vector3.one;
+            }
+        }
+
+        public void SetCardAt(CardView cardView, int index)
+        {          
+            if(index >= 0 && index < m_cards.Count)
+            {
+                CardView card = m_cards[index];
+                m_cards.RemoveAt(index);
+                GameObject.Destroy(card.gameObject);
+                m_cards.Insert(index, cardView);
+                cardView.transform.SetParent(rectTransform);
+                cardView.transform.localScale = Vector3.one;
+            }
+        }
+
+        public CardView GetCardView(int idx)
+        {
+            if(idx >= 0 && idx < m_cards.Count)
+            {
+                return m_cards[idx];
             }
             else
             {
@@ -46,13 +54,13 @@ namespace UIManagement
 
         public void Clear()
         {
-            for (int i = cards.Count - 1; i >= 0; i--)
+            for (int i = m_cards.Count - 1; i >= 0; i--)
             {
-                SpellCardView card = cards[i];
-                cards.RemoveAt(i);
+                CardView card = m_cards[i];
+                m_cards.RemoveAt(i);
                 GameObject.Destroy(card.gameObject);
             }
-            cards.Clear();
+            m_cards.Clear();
         }
 
     }

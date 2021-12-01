@@ -13,30 +13,37 @@ namespace UIManagement
     {   
         [SerializeField] private GameObject cardList_prefab;
         [SerializeField] private GameObject cardView_prefab;
-        [SerializeField] private SpellCollection allSpells;
         [SerializeField] private RectTransform display;
-        private List<CardSection> sections;
+        private CardSection section;
 
         public void Init()
-        {            
-            sections = new List<CardSection>();
-            CardSection all_section = AddCardSection("Hechizos", allSpells.NumSpells);
-            for (int i = 0; i < allSpells.NumSpells; i++)
-            {     
-                Spell spell = allSpells[i];
-                SpellCardView card = Instantiate(cardView_prefab).GetComponent<SpellCardView>(); 
-                card.SetUp(spell, false);
-                all_section.AddToLayout(card);
-            }
+        {      
+            List<Spell> allSpells = Spell.GetAllSpells();
+            AddCardSection("Hechizos", allSpells);              
         }
 
-        private CardSection AddCardSection(string title, int max_items)
+        private void AddCardSection(string title, List<Spell> spells)
         {
-            CardSection section = Instantiate(cardList_prefab, display).GetComponent<CardSection>();
-            section.SetUp(title, max_items);
-            sections.Add(section);
-            return section;
-        }    
+            section = Instantiate(cardList_prefab, display).GetComponent<CardSection>();
+            section.SetLayout(title, GetCardViewList(spells));            
+        }
+
+        private List<CardView> GetCardViewList(List<Spell> spells)
+        {
+            List<CardView> cards = new List<CardView>();
+            foreach (var spell in spells)
+            {
+                cards.Add(GenerateCardView(spell));                
+            }
+            return cards;
+        }
+
+        private SpellCardView GenerateCardView(Spell spell)
+        {
+            SpellCardView card = Instantiate(cardView_prefab).GetComponent<SpellCardView>(); 
+            card.SetUp(spell, false);
+            return card;
+        }
     }
 }
 

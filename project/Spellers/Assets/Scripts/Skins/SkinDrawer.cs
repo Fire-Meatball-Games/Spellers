@@ -50,5 +50,10 @@ namespace Skins
             spriteLibrary.AddOverride(sprite, category, customLabel);
             resolver.SetCategoryAndLabel(category, customLabel);
         }
+
+        public void UpdateSkin(Skin skin)
+        {
+            SwapSprite(hat_resolver, skin.Hat.SpriteSkin);
+        }
     }
 }
