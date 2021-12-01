@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hat_01
   m_EditorClassIdentifier: 
   thumbnail: {fileID: -3276805165046946882, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
-  id: 0
+  id: 1
   typePart: 0
   spriteSkin: {fileID: -3276805165046946882, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
