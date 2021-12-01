@@ -30,7 +30,10 @@ namespace UIManagement
             deckPower_slider.maxValue = 3f;     
             cardSection.SetUp("Mazo de hechizos", SpellDeck.DECKSIZE);    
 
-            selectedDeck = PlayerSettings.instance.SelectedDeck;
+            if(PlayerSettings.instance != null)
+                selectedDeck = PlayerSettings.instance.SelectedDeck;
+            else
+                selectedDeck = new SpellDeck();
 
             for (int i = 0; i < SpellDeck.DECKSIZE; i++)
             {
@@ -48,11 +51,11 @@ namespace UIManagement
 
         private void OnEnable() 
         {
-            Events.OnAddSpellToDeck.AddListener(DisplaySelectedDeck);
+            Events.OnModifyPlayerDeck.AddListener(DisplaySelectedDeck);
         }
         private void OnDisable() 
         {
-            Events.OnAddSpellToDeck.RemoveListener(DisplaySelectedDeck);
+            Events.OnModifyPlayerDeck.RemoveListener(DisplaySelectedDeck);
         }
 
         private void DisplaySelectedDeck() => DisplayDeck(PlayerSettings.instance.SelectedDeck);

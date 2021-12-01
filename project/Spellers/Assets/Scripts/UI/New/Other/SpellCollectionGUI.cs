@@ -10,15 +10,11 @@ using CustomEventSystem;
 namespace UIManagement
 {
     public class SpellCollectionGUI : MonoBehaviour
-    {    
-
+    {   
         [SerializeField] private GameObject cardList_prefab;
         [SerializeField] private GameObject cardView_prefab;
         [SerializeField] private SpellCollection allSpells;
         [SerializeField] private RectTransform display;
-
-        [SerializeField] private SpellDetailsView spellDetailsView;
-
         private List<CardSection> sections;
 
         public void Init()

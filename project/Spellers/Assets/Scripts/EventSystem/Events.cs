@@ -15,7 +15,8 @@ namespace CustomEventSystem
         public static readonly CustomEvent OnSelectSpellCard = new CustomEvent();
 
         public static readonly CustomEvent<Spell> OnDisplaySpellDetails = new CustomEvent<Spell>();
-        public static readonly CustomEvent OnAddSpellToDeck = new CustomEvent();
+        public static readonly CustomEvent OnModifyPlayerDeck = new CustomEvent();
+        public static readonly CustomEvent OnModifyPlayerSkin = new CustomEvent();
 
         // Eventos del modo historia:
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();

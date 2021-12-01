@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8812653826733682101}
   - component: {fileID: 1622053146347428790}
   m_Layer: 5
-  m_Name: CardGUI
+  m_Name: SpellCardGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,14 +134,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88fb8ae7c36afb4f97b62759a5edb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  default_icon: {fileID: 21300000, guid: 0752581554a4d2542b14d70e9f9dbe25, type: 3}
   icon_img: {fileID: 6592156118569055303}
+  icon_button: {fileID: 8812653826733682101}
   lock_img: {fileID: 7847171735969550371}
   contextMenu_rt: {fileID: 3019785581320255429}
-  icon_button: {fileID: 8812653826733682101}
   info_btn: {fileID: 5678856489965175432}
   use_btn: {fileID: 8756729327761662839}
   use_txt: {fileID: 3832703081472402283}
-  default_icon: {fileID: 21300000, guid: 0752581554a4d2542b14d70e9f9dbe25, type: 3}
 --- !u!1 &3794564432548416765
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,8 +294,8 @@ RectTransform:
   m_Father: {fileID: 6684945871816195742}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.1, y: 0.1}
+  m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
