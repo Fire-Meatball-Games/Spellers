@@ -79,14 +79,14 @@ namespace NetworkManagement
         private void OnRegisterSuccess(RegisterPlayFabUserResult result)
         {            
             register_message_text.text = "Bienvenid@ " + result.Username;
-            PlayerSettings.instance.PlayerName = result.Username;
+            Player.instance.PlayerName = result.Username;
 
         }
         
         private void OnLoginSuccess(LoginResult result)
         {
             login_message_text.text = "Bienvenid@ " + result.InfoResultPayload.AccountInfo.Username;
-            PlayerSettings.instance.PlayerName = result.InfoResultPayload.AccountInfo.Username;
+            Player.instance.PlayerName = result.InfoResultPayload.AccountInfo.Username;
         }
 
         private void OnLoginError(PlayFabError error)

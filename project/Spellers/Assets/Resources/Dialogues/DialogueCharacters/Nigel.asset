@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238f1dcf3260bd64383a4da28c540fac, type: 3}
+  m_Script: {fileID: 11500000, guid: 66aa2671365589b4783bb3f5463a374e, type: 3}
   m_Name: Nigel
   m_EditorClassIdentifier: 
-  characterName: Nigel
-  sprite: {fileID: 21300000, guid: 1116ced1547c8dc49972d8cef889a8e0, type: 3}
+  character: {fileID: 0}
+  text: 
+  layout: 0

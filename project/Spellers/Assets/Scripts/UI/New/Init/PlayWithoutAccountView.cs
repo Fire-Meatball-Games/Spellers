@@ -32,10 +32,10 @@ namespace UIManagement
             else
             {
                 message_text.text = "Bienvenid@ " + username;
-                if(PlayerSettings.instance != null)
+                if(Player.instance != null)
                 {
                     Debug.Log(username);
-                    PlayerSettings.instance.PlayerName = username;
+                    Player.instance.PlayerName = username;
                 }               
 
                 if(GameManager.instance != null)

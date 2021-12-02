@@ -109,7 +109,7 @@ namespace SpellSystem
         // Devuelve si un mazo está lleno
         public bool isFull()
         {
-            return spells.Count == DECKSIZE;
+            return spells.Count >= DECKSIZE;
         }
         #endregion
 

@@ -24,7 +24,7 @@ namespace UIManagement
         
         private void UpdatePlayerSkin()
         {
-            Skin skin = PlayerSettings.instance.Skin;
+            Skin skin = Player.instance.Skin;
             drawer.UpdateSkin(skin);
         }
     }

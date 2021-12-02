@@ -10,7 +10,7 @@ namespace SpellSystem
         [SerializeField] public int PointsBase;
         [SerializeField] public int Pointslevel;
 
-        public override void Execute(SpellerStats user_stats, SpellerStats target_stats, int level)
+        public override void Execute(Stats user_stats, Stats target_stats, int level)
         {
             int shields = PointsBase + Pointslevel * level;
             target_stats.Shields += shields;

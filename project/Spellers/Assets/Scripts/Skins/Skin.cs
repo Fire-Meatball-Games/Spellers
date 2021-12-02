@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Skins
 {
+    [System.Serializable]
     public class Skin
     {
         private BasicSkinPart face, hair, hat, eyes, nose, mouth, coat;

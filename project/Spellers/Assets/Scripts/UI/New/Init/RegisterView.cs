@@ -47,11 +47,11 @@ namespace UIManagement
         private void CompleteRegister(string playerId)
         {
             message_text.text = "Bienvenid@ " + submitted_playername;
-            if(PlayerSettings.instance != null)
+            if(Player.instance != null)
             {
                 Debug.Log(submitted_playername);
-                PlayerSettings.instance.PlayerName = submitted_playername;
-                PlayerSettings.instance.Id = playerId;
+                Player.instance.PlayerName = submitted_playername;
+                Player.instance.Id = playerId;
             }
 
             if(GameManager.instance != null)

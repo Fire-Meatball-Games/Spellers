@@ -35,7 +35,7 @@ namespace UIManagement
         #region Initialization
         public void Init()
         {            
-            List<Spell> playerSpells = PlayerSettings.instance.Deck.ToList();
+            List<Spell> playerSpells = Player.instance.Deck.ToList();
             AddCardSection("Hechizos", playerSpells);
             deckPower_slider.maxValue = 3f;
         }  
@@ -86,7 +86,7 @@ namespace UIManagement
         #region Callbacks
 
         // Metodo llamado cuando el mazo del jugador cambia:
-        private void DisplaySelectedDeck() => DisplayDeck(PlayerSettings.instance.Deck);
+        private void DisplaySelectedDeck() => DisplayDeck(Player.instance.Deck);
 
         // Actualiza las cartas del mazo
         private void DisplayDeck(SpellDeck deck)

@@ -50,10 +50,10 @@ namespace UIManagement
         {
             PlayFabNetworkManager.GetInventory(OnGetCurrency);            
             message_text.text = "Bienvenid@ " + submitted_playername;
-            if(PlayerSettings.instance != null)
+            if(Player.instance != null)
             {
-                PlayerSettings.instance.PlayerName = submitted_playername;
-                PlayerSettings.instance.Id = playerId;
+                Player.instance.PlayerName = submitted_playername;
+                Player.instance.Id = playerId;
             }
 
            
@@ -61,9 +61,9 @@ namespace UIManagement
 
         private void OnGetCurrency(int currency)
         {
-            if(PlayerSettings.instance != null)
+            if(Player.instance != null)
             {
-                PlayerSettings.instance.Coins = currency;
+                Player.instance.Coins = currency;
             }
             GoToMainMenu();
         }

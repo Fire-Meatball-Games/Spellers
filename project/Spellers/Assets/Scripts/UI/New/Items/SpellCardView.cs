@@ -32,7 +32,7 @@ namespace UIManagement
         } 
         protected override void SetContextMenu()
         {
-            bool showUseContext = inDeck || (!PlayerSettings.instance.Deck.Contains(spell)&& !PlayerSettings.instance.Deck.isFull());
+            bool showUseContext = inDeck || (!Player.instance.Deck.Contains(spell)&& !Player.instance.Deck.isFull());
             use_btn.gameObject.SetActive(showUseContext);
         }
         
@@ -43,7 +43,7 @@ namespace UIManagement
 
         private void OnUseThisCallback()
         {
-            SpellDeck currentDeck = PlayerSettings.instance.Deck;
+            SpellDeck currentDeck = Player.instance.Deck;
             if(!inDeck && currentDeck.CanAdd(spell))
             {
                 currentDeck.AddSpell(spell);                   

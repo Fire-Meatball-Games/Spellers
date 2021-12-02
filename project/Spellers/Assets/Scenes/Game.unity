@@ -4960,6 +4960,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: eb7e4a9c9a2ba904fa7a506ae0d29620, type: 3}
+    - target: {fileID: 4901509004639165632, guid: 3e620ebefbfa1ba4c8a53f8f3aad90eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9bcc8301337f73d4aa5923a3fe6ad16c, type: 3}
     - target: {fileID: 4903394649845608270, guid: 3e620ebefbfa1ba4c8a53f8f3aad90eb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7123,7 +7127,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1cd6a69f0eb598f4c8e4a77a095f8cec, type: 3}
-  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7145,11 +7149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543f96a0c1a0fe24cb2ee6ab87d64182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgrounds:
-  - {fileID: 21300000, guid: 1cd6a69f0eb598f4c8e4a77a095f8cec, type: 3}
-  - {fileID: 21300000, guid: 7605c50a03425c04ebfe599c33f89fad, type: 3}
-  - {fileID: 21300000, guid: 42d9e8b60aa422e47a23050393c76946, type: 3}
-  bg_image: {fileID: 1393885877}
 --- !u!1 &1395737112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8147,17 +8146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e824308cb842c409ac96571ef4a5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  book_content: {fileID: 440008931}
-  spellSlot_prefab: {fileID: 5450772820607341838, guid: 0cfce691b6abb3a408155e4fbfe0cee0, type: 3}
-  minigame_bar: {fileID: 683795825}
-  str_game_button: {fileID: 1583022078}
-  reg_game_button: {fileID: 1408989207}
-  bln_game_button: {fileID: 555684197}
-  dif_game_button: {fileID: 712730214}
-  str_game: {fileID: 1561793832}
-  reg_game: {fileID: 1561793825}
-  blind_game: {fileID: 1561793831}
-  dif_game: {fileID: 1561793833}
 --- !u!114 &1561793830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8297,6 +8285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  dialogueManager: {fileID: 0}
   currentScore: 0
 --- !u!114 &1562779130
 MonoBehaviour:

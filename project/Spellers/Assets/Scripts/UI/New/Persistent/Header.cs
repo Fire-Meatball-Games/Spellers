@@ -16,16 +16,16 @@ namespace UIManagemet
 
         private void Awake() 
         {
-            if(PlayerSettings.instance != null)
+            if(Player.instance != null)
             {
-                string name = PlayerSettings.instance.PlayerName;
+                string name = Player.instance.PlayerName;
                 if(!string.IsNullOrEmpty(name))
                     playerName_txt.text = name;
 
-                Sprite icon = PlayerSettings.instance.Icon;
+                Sprite icon = Player.instance.Icon;
                 if(icon != null)
                     playerIcon_img.sprite = icon;
-                int currency = PlayerSettings.instance.Coins;
+                int currency = Player.instance.Coins;
                 playerCurrency_txt.text = currency.ToString();              
             }
         }

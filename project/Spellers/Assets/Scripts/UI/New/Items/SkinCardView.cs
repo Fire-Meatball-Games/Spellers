@@ -19,7 +19,7 @@ namespace UIManagement
         private SkinPart skinPart;
         protected override void SetContextMenu()
         {
-            bool showUseContext = !PlayerSettings.instance.Skin.Contains(skinPart);
+            bool showUseContext = !Player.instance.Skin.Contains(skinPart);
             use_btn.gameObject.SetActive(showUseContext);
         }
 
@@ -31,7 +31,7 @@ namespace UIManagement
 
         private void OnUseThisCallback()
         {
-            Skin skin = PlayerSettings.instance.Skin;
+            Skin skin = Player.instance.Skin;
             skin.SetSkinPart(skinPart);
             hideContextMenuEffects.ExecuteEffects();
             Events.OnModifyPlayerSkin.Invoke();

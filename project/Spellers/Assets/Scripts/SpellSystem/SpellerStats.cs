@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SpellSystem
 {
-    public class SpellerStats
+    public class Stats
     {
         #region Fields
 
@@ -19,7 +19,7 @@ namespace SpellSystem
         private int attackMultiplierTurns = 0;
 
         private int regeneration;
-        private int regenerationTurns = 0;
+        private int regenerationTurns = 0; 
 
         private int slotLevels = 0;
         private int slotLevelTurns = 0;
@@ -51,7 +51,7 @@ namespace SpellSystem
 
         #region Properties
 
-        public SpellerStats() { }
+        public Stats() { }
 
         public int Health
         {
@@ -202,7 +202,7 @@ namespace SpellSystem
             }
         }
 
-        // Recibe daño
+        // Recibe daï¿½o
         public void GetDamage(int damage)
         {
             OnGetHitEvent?.Invoke();

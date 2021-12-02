@@ -7,7 +7,7 @@ using Skins;
 
 namespace PlayerManagement 
 {
-    public class PlayerSettings : Singleton<PlayerSettings>
+    public class Player : Singleton<Player>
     {
         public static readonly int NUM_DECKS = 5; 
 
@@ -19,6 +19,7 @@ namespace PlayerManagement
         private Skin m_skin;
         private int coins;
         private int points;
+        private int lastLevelUnlocked;
         private SpellDeck m_deck;
 
         #endregion
@@ -37,6 +38,7 @@ namespace PlayerManagement
         public Skin Skin { get => m_skin; }
         public SpellDeck Deck { get => m_deck;}
         public int Points { get => points; set => points = value; }
+        public int LastLevelUnlocked { get => lastLevelUnlocked; set => lastLevelUnlocked = value; }
     }
 
 }
