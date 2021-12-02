@@ -29,7 +29,7 @@ namespace Runtime.CombatSystem.GUI
         public RectTransform vs_icon;
 
 
-        private SpellerBattle battle;
+        private BattleManager battle;
 
         public void Awake()
         {            
@@ -43,7 +43,7 @@ namespace Runtime.CombatSystem.GUI
 
         public void Start()
         {
-            battle = FindObjectOfType<SpellerBattle>();
+            battle = FindObjectOfType<BattleManager>();
             UnPause();
             SetUpInitPanel();
             beginPanel.SetActive(true);

@@ -3,33 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using SpellSystem;
 using CustomEventSystem;
+using Skins;
 
 
 namespace Runtime.CombatSystem
 {
     public abstract class Speller : MonoBehaviour
     {
-        #region Public fields
+        #region Inspector Fields
+        [SerializeField] protected SpellerAnimator spellerAnimator;
+        [SerializeField] protected SkinDrawer skinDrawer;
+        [SerializeField] protected SpellWand spellWand;
 
-        public string spellerName;
-        public SpellerStats stats = new SpellerStats(); 
-        public Speller target;
-        public SpellWand spellWand;
-        public SpellerAnimator spellerAnimator;
+        #endregion
+        
+        #region Public fields
+        private SpellerStats stats = new SpellerStats();
+        private Speller target;
+        private SpellDeck spellDeck;
+
         #endregion
 
         #region Properties
-
-        // Borrar:
         public GameObject spellPrefab;
+        public SpellerStats Stats { get => stats; }
+
         #endregion
 
         #region Methods
 
         private void Start()
         {
-            spellerAnimator = GetComponent<SpellerAnimator>();
-            stats.OnGetHitEvent += spellerAnimator.SetDamagedAnim;
+            Stats.OnGetHitEvent += spellerAnimator.SetDamagedAnim;
         }
 
         // Usa un hechizo
@@ -37,7 +42,7 @@ namespace Runtime.CombatSystem
         protected virtual void UseSpell(SpellSystem.SpellUnit spellUnit)
         {
             spellWand?.UseSpell(spellUnit, this, target);
-            stats.CompleteTurn();
+            Stats.CompleteTurn();
         }
 
         #endregion

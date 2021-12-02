@@ -18,6 +18,7 @@ namespace PlayerManagement
         private Sprite m_icon;
         private Skin m_skin;
         private int coins;
+        private int points;
         private SpellDeck m_deck;
 
         #endregion
@@ -35,6 +36,7 @@ namespace PlayerManagement
         public int Coins { get => coins; set => coins = value; }
         public Skin Skin { get => m_skin; }
         public SpellDeck Deck { get => m_deck;}
+        public int Points { get => points; set => points = value; }
     }
 
 }

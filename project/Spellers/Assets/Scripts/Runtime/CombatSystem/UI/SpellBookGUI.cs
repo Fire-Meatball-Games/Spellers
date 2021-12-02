@@ -74,7 +74,7 @@ namespace Runtime.CombatSystem.UI
         // Genera la barra de minijuegos:
         private void GenerateMinigamesBar()
         {            
-            SpellerStats stats = FindObjectOfType<SpellerPlayer>().stats;
+            SpellerStats stats = FindObjectOfType<SpellerPlayer>().Stats;
             str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
             reg_game_button.gameObject.SetActive(stats.Regeneration < 1f);
             bln_game_button.gameObject.SetActive(stats.Order < 0);

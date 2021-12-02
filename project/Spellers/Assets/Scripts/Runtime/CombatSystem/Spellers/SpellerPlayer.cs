@@ -12,35 +12,31 @@ namespace Runtime.CombatSystem
         public SpellTable table;
         public SpellBoard board;
 
-        [SerializeField] List<Spell> spells;
         #endregion
 
-
         #region Initalization
-        public void SetSettings(SpellDeck deck = null)
+        public void SetSettings(SpellDeck deck)
         {
-            spellWand = FindObjectOfType<SpellWand>();
-            SpellDeck playerDeck = deck ?? new SpellDeck(spells);
-            table = new SpellTable(playerDeck);
+            table = new SpellTable(deck);
             board = new SpellBoard();
 
-            stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
-            stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
-            stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
-            stats.OnChangeRegenerationEvent += (n) => Events.OnChangePlayerRegeneration.Invoke(n);
-            stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangePlayerSlots.Invoke(n);
-            stats.OnChangeOrderEvent += (n) => Events.OnChangePlayerOrder.Invoke(n);
-            stats.OnChangeDifficultyEvent += (n) => Events.OnChangePlayerDifficulty.Invoke(n);
+            Stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
+            Stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
+            Stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
+            Stats.OnChangeRegenerationEvent += (n) => Events.OnChangePlayerRegeneration.Invoke(n);
+            Stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangePlayerSlots.Invoke(n);
+            Stats.OnChangeOrderEvent += (n) => Events.OnChangePlayerOrder.Invoke(n);
+            Stats.OnChangeDifficultyEvent += (n) => Events.OnChangePlayerDifficulty.Invoke(n);
 
-            stats.OnChangeAttackEvent += (_) => Events.OnChangeStat.Invoke();
-            stats.OnChangeRegenerationEvent += (_) => Events.OnChangeStat.Invoke();
-            stats.OnChangeOrderEvent += (_) => Events.OnChangeStat.Invoke();
-            stats.OnChangeDifficultyEvent += (_) => Events.OnChangeStat.Invoke();
+            Stats.OnChangeAttackEvent += (_) => Events.OnChangeStat.Invoke();
+            Stats.OnChangeRegenerationEvent += (_) => Events.OnChangeStat.Invoke();
+            Stats.OnChangeOrderEvent += (_) => Events.OnChangeStat.Invoke();
+            Stats.OnChangeDifficultyEvent += (_) => Events.OnChangeStat.Invoke();
 
-            stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
-            stats.OnChangeOrderEvent += board.SetOrderLevel;           
+            Stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
+            Stats.OnChangeOrderEvent += board.SetOrderLevel;           
 
-            stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
+            Stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
 
             table.Initialize();
         }
@@ -51,11 +47,11 @@ namespace Runtime.CombatSystem
             Events.OnCompleteWord.AddListener(StopAllCoroutines);
             Events.OnFailSpell.AddListener(StopAllCoroutines);
 
-            Events.OnCompleteStrengthMinigame.AddListener(stats.CleanAttackDebuff);
-            Events.OnCompletePoisonMinigame.AddListener(stats.CleanRegenerationDebuff);
-            Events.OnCompleteBlindMinigame.AddListener(stats.CleanOrderDebuff);
-            Events.OnCompleteDifficultyMinigame.AddListener(stats.CleanDifficultyDebuff);
-            Events.OnFailSpell.AddListener(stats.CompleteTurn);
+            Events.OnCompleteStrengthMinigame.AddListener(Stats.CleanAttackDebuff);
+            Events.OnCompletePoisonMinigame.AddListener(Stats.CleanRegenerationDebuff);
+            Events.OnCompleteBlindMinigame.AddListener(Stats.CleanOrderDebuff);
+            Events.OnCompleteDifficultyMinigame.AddListener(Stats.CleanDifficultyDebuff);
+            Events.OnFailSpell.AddListener(Stats.CompleteTurn);
         }
 
         private void OnDisable()
@@ -64,11 +60,11 @@ namespace Runtime.CombatSystem
             Events.OnCompleteWord.RemoveListener(StopAllCoroutines);
             Events.OnFailSpell.RemoveListener(StopAllCoroutines);
 
-            Events.OnCompleteStrengthMinigame.RemoveListener(stats.CleanAttackDebuff);
-            Events.OnCompletePoisonMinigame.RemoveListener(stats.CleanRegenerationDebuff);
-            Events.OnCompleteBlindMinigame.RemoveListener(stats.CleanOrderDebuff);
-            Events.OnCompleteDifficultyMinigame.RemoveListener(stats.CleanDifficultyDebuff);
-            Events.OnFailSpell.RemoveListener(stats.CompleteTurn);
+            Events.OnCompleteStrengthMinigame.RemoveListener(Stats.CleanAttackDebuff);
+            Events.OnCompletePoisonMinigame.RemoveListener(Stats.CleanRegenerationDebuff);
+            Events.OnCompleteBlindMinigame.RemoveListener(Stats.CleanOrderDebuff);
+            Events.OnCompleteDifficultyMinigame.RemoveListener(Stats.CleanDifficultyDebuff);
+            Events.OnFailSpell.RemoveListener(Stats.CompleteTurn);
         }
         #endregion
 

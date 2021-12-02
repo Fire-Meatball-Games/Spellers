@@ -11,7 +11,6 @@ namespace Runtime.CombatSystem
     {
         #region Private Fields
         private SpellerNPCSettings settings;
-        private readonly int id;
         #endregion
 
         #region Initialization
@@ -29,29 +28,22 @@ namespace Runtime.CombatSystem
         {
             spellWand = FindObjectOfType<SpellWand>();
             this.settings = settings;
-            spellerName = settings.spellerName;
-            stats = new SpellSystem.SpellerStats();
 
-            stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(id, n);
-            stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(id, n);
+            Stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(n);
+            Stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(n);
 
-            stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(id, n);
-            stats.OnChangeRegenerationEvent += (n) => Events.OnChangeEnemyRegeneration.Invoke(id, n);
-            stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangeEnemySlots.Invoke(id, n);
-            stats.OnChangeOrderEvent += (n) => Events.OnChangeEnemyOrder.Invoke(id, n);
+            Stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(n);
+            Stats.OnChangeRegenerationEvent += (n) => Events.OnChangeEnemyRegeneration.Invoke( n);
+            Stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangeEnemySlots.Invoke(n);
+            Stats.OnChangeOrderEvent += (n) => Events.OnChangeEnemyOrder.Invoke(n);
 
-            stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke(id);
-            stats.OnDefeatEvent += () => DisableCombat();
+            Stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke();
+            Stats.OnDefeatEvent += () => DisableCombat();
         }
 
         public void Active()
         {
             LoadSpell();
-        }
-
-        public void SetTarget()
-        {
-            target = FindObjectOfType<SpellerPlayer>();
         }
 
         protected override void UseSpell(SpellSystem.SpellUnit spellUnit)
@@ -77,7 +69,7 @@ namespace Runtime.CombatSystem
             float min_cd = settings.cooldown_average - settings.cooldown_deviation;
             float max_cd = settings.cooldown_average + settings.cooldown_deviation;
             float time = Random.Range(min_cd, max_cd);
-            int cd_level = Mathf.Clamp(stats.Order + stats.Difficulty, -3, 3);
+            int cd_level = Mathf.Clamp(Stats.Order + Stats.Difficulty, -3, 3);
             IEnumerator corroutine = LoadSpellCorroutine(time * (1f - cd_level / 10f));
             StartCoroutine(corroutine);
         }

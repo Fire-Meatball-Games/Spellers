@@ -11,7 +11,7 @@ namespace Runtime
         // Start is called before the first frame update
         void Start()
         {
-            SpellerBattle battle = FindObjectOfType<SpellerBattle>();
+            BattleManager battle = FindObjectOfType<BattleManager>();
             //if (GameController.instance == null) return;
             CombatSettings settings = GameSettings.combatSettings;
 

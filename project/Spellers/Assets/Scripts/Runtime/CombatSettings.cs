@@ -52,9 +52,9 @@ namespace Runtime
         [SerializeField] public int value;
         [SerializeField] public bool win;
 
-        private SpellerBattle battle;
+        private BattleManager battle;
 
-        public void SetUp(SpellerBattle battle)
+        public void SetUp(BattleManager battle)
         {            
             this.battle = battle;
             playerEvent.AddListener(Listener);
@@ -77,9 +77,9 @@ namespace Runtime
         [SerializeField] public bool removeStarCondition;
         [SerializeField] public int stars;
 
-        private SpellerBattle battle;
+        private BattleManager battle;
 
-        public void SetUp(SpellerBattle battle)
+        public void SetUp(BattleManager battle)
         {
             this.battle = battle;
             playerEvent.AddListener(Listener);

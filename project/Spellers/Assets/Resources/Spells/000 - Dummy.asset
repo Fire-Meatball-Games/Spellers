@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 000 - Dummy
   m_EditorClassIdentifier: 
-  spellName: Dummy
+  id: 0
+  spellname: Dummy
   description: Does nothing
-  thumbnail: {fileID: 0}
-  ingame: {fileID: 0}
-  power: 1
+  icon: {fileID: 0}
+  sprite: {fileID: 0}
+  category: 0
+  offensive: 0
+  type: 0
   effects: []

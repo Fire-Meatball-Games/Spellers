@@ -1,0 +1,17 @@
+{
+    "name": "BattleManagament",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a80c3b033e7b4e7419e653f57d850b96",
+        "GUID:bda54f2976ea2224bba447af7e108e24"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

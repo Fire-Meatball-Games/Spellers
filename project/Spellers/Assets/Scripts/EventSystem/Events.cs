@@ -28,7 +28,7 @@ namespace CustomEventSystem
         public static readonly CustomEvent<bool> OnPauseBattle = new CustomEvent<bool>();   
         public static readonly CustomEvent<bool> OnBattleEnds = new CustomEvent<bool>();
         public static readonly CustomEvent OnJoinPlayer = new CustomEvent();
-        public static readonly CustomEvent<int> OnJoinEnemy = new CustomEvent<int>();
+        public static readonly CustomEvent OnJoinEnemy = new CustomEvent();
 
         // Eventos del jugador:    
         public static readonly CustomEvent<int> OnChangePlayerHealth = new CustomEvent<int>();
@@ -70,16 +70,14 @@ namespace CustomEventSystem
         public static readonly CustomEvent OnFailSpell = new CustomEvent();
 
         // Eventos de los enemigos:
-        public static readonly CustomEvent<int, int> OnChangeEnemyHealth = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyShields = new CustomEvent<int, int>();
-
-        public static readonly CustomEvent<int, float> OnChangeEnemyAttack = new CustomEvent<int, float>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyRegeneration = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemySlots = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyOrder = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyDifficulty = new CustomEvent<int, int>();
-
-        public static readonly CustomEvent<int> OnDefeatEnemy = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangeEnemyHealth = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangeEnemyShields = new CustomEvent<int>();
+        public static readonly CustomEvent<float> OnChangeEnemyAttack = new CustomEvent<float>();
+        public static readonly CustomEvent<int> OnChangeEnemyRegeneration = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangeEnemySlots = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangeEnemyOrder = new CustomEvent<int>();
+        public static readonly CustomEvent<int> OnChangeEnemyDifficulty = new CustomEvent<int>();
+        public static readonly CustomEvent OnDefeatEnemy = new CustomEvent();
 
     }
 }

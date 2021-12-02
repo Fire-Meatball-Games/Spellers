@@ -24,13 +24,11 @@ namespace Runtime.CombatSystem
 
         public void UseSpell(SpellSystem.SpellUnit spellUnit, Speller user, Speller target)
         {
-            Debug.Log(user.spellerName + " (" + spellUnit + " ) --> " + target.spellerName);
-
             int level = spellUnit.lvl;
             foreach(Effect effect in spellUnit.spell.effects)
             {
                 Debug.Log("Applying effect " + effect.name + " (" + effect.target + ")");
-                effect.Apply(user.stats, target.stats, level);
+                effect.Apply(user.Stats, target.Stats, level);
                 Sprite sprite = GetSpriteEffect(effect);
                 Transform tf = effect.target == Target.Other ? target.transform : user.transform;
                 StartCoroutine(EffectCoroutine(sprite, tf));
