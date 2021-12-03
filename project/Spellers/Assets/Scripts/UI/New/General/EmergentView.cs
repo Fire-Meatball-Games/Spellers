@@ -15,8 +15,6 @@ namespace UIManagement
         protected EffectBuilder show_effects;
         protected EffectBuilder hide_effects;
 
-        private void Awake() => Init();
-
         public override void Init()
         {
             show_effects = new EffectBuilder(this);
@@ -32,7 +30,6 @@ namespace UIManagement
 
         public override void Show()
         {
-            Debug.Log("AA");
             layout.SetActive(true);
             show_effects.ExecuteEffects();
         }

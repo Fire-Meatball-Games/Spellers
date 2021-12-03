@@ -6,6 +6,9 @@ using Ingame.UI;
 using PlayerManagement;
 using Utils;
 using System;
+using CustomEventSystem;
+using GameManagement;
+using Levels;
 
 namespace BattleManagement
 {
@@ -16,50 +19,69 @@ namespace BattleManagement
         [SerializeField] private Spawner spawner;
         [SerializeField] private HUD player_HUD;
         [SerializeField] private HUD enemy_HUD;
+        [SerializeField] private SpellTableGUI game_GUI;
 
         #endregion
 
         #region Private fields
-        private SpellerPlayer player;
-        private SpellerNPC enemy;
+        [HideInInspector] public SpellerPlayer Player;
+        [HideInInspector] public SpellerNPC Enemy;
 
         #endregion
 
-        private void Awake() 
+        private void Start() 
         {
             SetUpPlayer();
-            SetUpEnemy();
-
-            // Cargar Pantalla de inicio de combate.
+            SetUpEnemy();  
+            Player.SetTarget(Enemy);
+            Enemy.SetTarget(Player); 
+                    
+            Events.OnBattleReady.Invoke();
+            Debug.Log("Batalla lista");
         }
 
         // Configurar el jugador a partir de los datos de Player:
         private void SetUpPlayer()
-        {
-            player = spawner.GeneratePlayer();
-            Player settings = Player.instance;
-            player.Icon = settings.Icon;
-            player.SpellerName = settings.PlayerName;
-            player.SetDeck(settings.Deck);
-            player.SetUp();
-            player_HUD.SetSpeller(player);
+        {            
+            Player = spawner.GeneratePlayer();
+            Player settings = PlayerManagement.Player.instance;
+            Player.Icon = settings.Icon;
+            Player.SpellerName = settings.PlayerName;
+            Player.SetUp(settings.Deck);
+
+            player_HUD.SetSpeller(Player);
+            Debug.Log("Jugador generado");
+
+            game_GUI.SetUp(Player);            
         }
 
-        // Configurar el enemigo a partir de los datos de Enemy
-
+        // Configurar el enemigo a partir de los datos de GameManager:
         private void SetUpEnemy()
         {
-            enemy = spawner.GenerateEnemy();
-            //EnemySettings settings; 
-            enemy_HUD.SetSpeller(enemy);
+            Enemy = spawner.GenerateEnemy();
+            BaseGameSettings settings = GameManager.instance.GetSettings(); 
+            Enemy.Icon = settings.Icon;
+            Enemy.SpellerName = settings.EnemyName;
+            EnemyController controller = new EnemyController{
+                deck = settings.Deck,
+                max_spell_lvl = settings.MaxSpellLvl,
+                cooldown_average = settings.Cooldown_average,
+                cooldown_deviation = settings.Cooldown_deviation
+            };
+            Enemy.SetUp(controller);
+            enemy_HUD.SetSpeller(Enemy);
+            Debug.Log("Enemigo generado");
         }
 
-        private void StartBattle()
+        public void StartBattle()
         {
-
+            Events.OnBattleBegins.Invoke();
+            Player.Active();
+            Enemy.Active();
+            Debug.Log("batalla comenzada");
         }
 
-        private void PauseBattle()
+        public void PauseBattle()
         {
 
         }

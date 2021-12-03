@@ -34,7 +34,6 @@ namespace UIManagement
                 message_text.text = "Bienvenid@ " + username;
                 if(Player.instance != null)
                 {
-                    Debug.Log(username);
                     Player.instance.PlayerName = username;
                 }               
 

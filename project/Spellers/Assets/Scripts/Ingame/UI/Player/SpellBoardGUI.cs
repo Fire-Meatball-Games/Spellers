@@ -11,7 +11,6 @@ namespace Ingame.UI
     public class SpellBoardGUI : MonoBehaviour
     {
         #region Public variables
-
         public const float SPACING = 0.01f;
         public GameObject pnl_word, pnl_keys;
         public TextMeshProUGUI word_text;
@@ -68,7 +67,7 @@ namespace Ingame.UI
 
         private void SetBoard()
         {
-            board = FindObjectOfType<SpellerPlayer>().board;
+            //board = FindObjectOfType<SpellerPlayer>().board;
         }
 
         private void CheckKey(int x, int y, bool hit)
@@ -114,7 +113,7 @@ namespace Ingame.UI
                     keyButtons.Add(key);
                     int row = i;
                     int column = j;
-                    key.SetListener(() => FindObjectOfType<SpellerPlayer>()?.OnKey(column, row));
+                    //key.SetListener(() => FindObjectOfType<SpellerPlayer>()?.OnKey(column, row));
                     key.SetUp(keys[i * dim + j]);
 
                     var rt = go.GetComponent<RectTransform>();

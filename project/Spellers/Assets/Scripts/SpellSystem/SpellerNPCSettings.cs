@@ -15,8 +15,6 @@ namespace SpellSystem
         public float cooldown_average;
         public float cooldown_deviation;
 
-        private float cooldown_average_base;
-        private float cooldown_deviation_base;
         #endregion
 
 

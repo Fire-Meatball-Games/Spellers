@@ -7,7 +7,7 @@ using CustomEventSystem;
 using System;
 using UnityEngine.SceneManagement;
 
-namespace Runtime
+namespace Levels
 {
     public class LevelInfoGUI : MonoBehaviour
     {
@@ -21,22 +21,22 @@ namespace Runtime
 
         public List<Button> level_buttons;
 
-        private LevelSelector levelSelector;
+        //private LevelSelector levelSelector;
 
         private void Start()
         {
-            levelSelector = FindObjectOfType<LevelSelector>();
-            for (int i = 0; i < level_buttons.Count; i++)
-            {
-                int idx = i;
-                level_buttons[idx].onClick.AddListener(()=>levelSelector.SelectLevel(idx));
-                level_buttons[idx].interactable = idx <= levelSelector.last_unlocked_level_index;
-            }
+            // levelSelector = FindObjectOfType<LevelSelector>();
+            // for (int i = 0; i < level_buttons.Count; i++)
+            // {
+            //     int idx = i;
+            //     level_buttons[idx].onClick.AddListener(()=>levelSelector.SelectLevel(idx));
+            //     level_buttons[idx].interactable = idx <= levelSelector.last_unlocked_level_index;
+            // }
 
-            play_button.onClick.AddListener(levelSelector.PlayLevel);
-            close_button.onClick.AddListener(levelSelector.UnselectLevel);
+            // play_button.onClick.AddListener(levelSelector.PlayLevel);
+            // close_button.onClick.AddListener(levelSelector.UnselectLevel);
             
-            panel.SetActive(false);        
+            // panel.SetActive(false);        
         }
 
         private void OnEnable()
@@ -53,11 +53,11 @@ namespace Runtime
 
         private void UpdateUI(int index)
         {
-            panel.SetActive(true);
-            Level level = FindObjectOfType<LevelSelector>().GetSelectedLevel();
-            levelName_text.text = level.levelname;
-            levelIndex_text.text = "Nivel " + (index + 1);
-            if (level.thumbnail != null) thumbnail.sprite = level.thumbnail;
+            // panel.SetActive(true);
+            // Level level = FindObjectOfType<LevelSelector>().GetSelectedLevel();
+            // levelName_text.text = level.levelname;
+            // levelIndex_text.text = "Nivel " + (index + 1);
+            // if (level.thumbnail != null) thumbnail.sprite = level.thumbnail;
             // if(PlayerSettings.levelScores.Count > index)
             // {
             //     string stars = "";

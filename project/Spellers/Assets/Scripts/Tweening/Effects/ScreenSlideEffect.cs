@@ -7,7 +7,6 @@ namespace Tweening{
     {
         private readonly RectTransform rectTransform;
         private readonly Vector3 init_offset, final_offset;
-
         private readonly float offset_multiplier;
         private readonly float time;
 

@@ -9,7 +9,8 @@ namespace Ingame
     public class SpellerNPC : Speller
     {
         #region Private Fields
-        private SpellerNPCSettings settings;
+        private EnemyController controller;
+        
         #endregion
 
         #region Initialization
@@ -23,24 +24,12 @@ namespace Ingame
             Events.OnBattleBegins.RemoveListener(Active);
         }
 
-        public void SetSettings(SpellerNPCSettings settings)
+        public void SetUp(EnemyController controller)
         {
-            spellWand = FindObjectOfType<SpellWand>();
-            this.settings = settings;
-
-            Stats.OnChangeHealthEvent += (n) => Events.OnChangeEnemyHealth.Invoke(n);
-            Stats.OnChangeShieldsEvent += (n) => Events.OnChangeEnemyShields.Invoke(n);
-
-            Stats.OnChangeAttackEvent += (n) => Events.OnChangeEnemyAttack.Invoke(n);
-            Stats.OnChangeRegenerationEvent += (n) => Events.OnChangeEnemyRegeneration.Invoke( n);
-            Stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangeEnemySlots.Invoke(n);
-            Stats.OnChangeOrderEvent += (n) => Events.OnChangeEnemyOrder.Invoke(n);
-
-            Stats.OnDefeatEvent += () => Events.OnDefeatEnemy.Invoke();
-            Stats.OnDefeatEvent += () => DisableCombat();
+            this.controller = controller;           
         }
 
-        public void Active()
+        public override void Active()
         {
             LoadSpell();
         }
@@ -52,11 +41,6 @@ namespace Ingame
         }
         #endregion
 
-        private void DisableCombat()
-        {
-            StopAllCoroutines();
-        }
-
         IEnumerator LoadSpellCorroutine(float time)
         {
             yield return new WaitForSeconds(time);
@@ -65,8 +49,8 @@ namespace Ingame
 
         private void LoadSpell()
         {
-            float min_cd = settings.cooldown_average - settings.cooldown_deviation;
-            float max_cd = settings.cooldown_average + settings.cooldown_deviation;
+            float min_cd = controller.cooldown_average - controller.cooldown_deviation;
+            float max_cd = controller.cooldown_average + controller.cooldown_deviation;
             float time = Random.Range(min_cd, max_cd);
             int cd_level = Mathf.Clamp(Stats.Order + Stats.Difficulty, -3, 3);
             IEnumerator corroutine = LoadSpellCorroutine(time * (1f - cd_level / 10f));
@@ -75,12 +59,7 @@ namespace Ingame
 
         protected override SpellSystem.SpellUnit GetActiveSpell()
         {
-            return settings.deck.GetRandomSpell(settings.max_spell_lvl);
-        }
-
-        public override void SetUp()
-        {
-            throw new System.NotImplementedException();
+            return controller.deck.GetRandomSpell(controller.max_spell_lvl);
         }
     }
 }

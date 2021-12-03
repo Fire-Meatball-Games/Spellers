@@ -7,39 +7,44 @@ namespace Tweening
     public class LinearSlideEffect : IUIEffect
     {
         private readonly RectTransform rectTransform;
+        private readonly Vector2 init_pos, final_pos;
+        private readonly float offset_multiplier;
         private readonly float time;
-        private readonly Vector2 direction;
-        private readonly bool slideIn;
 
-        public LinearSlideEffect(RectTransform rectTransform, Vector2 direction, bool slideIn, float time)
+       public LinearSlideEffect(RectTransform rectTransform, Vector2 init_pos, Vector2 final_pos, float offset_multiplier, float time)
         {
             this.rectTransform = rectTransform;
+            this.init_pos = init_pos;
+            this.final_pos = final_pos;
+            this.offset_multiplier = offset_multiplier;
             this.time = time;
-            this.direction = direction;
-            this.slideIn = slideIn;
         }
 
         public IEnumerator Execute()
         {
             var current_time = 0f;
             var delta = 1f / time;
-            var screensize = new Vector2(Screen.width, Screen.height);
-            var displacement = screensize * direction;
+            var max_pos = final_pos * offset_multiplier;
+            rectTransform.anchoredPosition = init_pos;
 
-            if(slideIn)
-                rectTransform.anchoredPosition = displacement;
-
-            while (rectTransform.anchoredPosition.x != 0)
+            while(rectTransform.anchoredPosition != max_pos)
             {
                 current_time += Time.deltaTime;
                 var t = delta * current_time;
-                var anchoredPos = Vector2.Lerp(displacement, Vector2.zero, slideIn ? t : 1 - t);
-                rectTransform.anchoredPosition = anchoredPos;
+                rectTransform.anchoredPosition = Extensions.SmoothLerp(init_pos, max_pos, t);
                 yield return null;
             }
 
-            if (!slideIn)
-                rectTransform.anchoredPosition = Vector2.zero;
+            current_time = 0f;
+            var final_time = time * Mathf.Abs(1f - offset_multiplier);
+
+            while(rectTransform.anchoredPosition != final_pos)
+            {
+                current_time += Time.deltaTime;
+                var t = delta * current_time;
+                rectTransform.anchoredPosition = Extensions.SmoothLerp(max_pos, final_pos, t);
+                yield return null;
+            }
         }
     }
 }

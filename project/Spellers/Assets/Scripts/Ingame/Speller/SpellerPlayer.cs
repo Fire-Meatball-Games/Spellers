@@ -9,8 +9,8 @@ namespace Ingame
     public class SpellerPlayer : Speller
     {
         #region Public variables
-        public SpellTable table;
-        public SpellBoard board;
+        public SpellBook book;
+        public Board board;
 
         #endregion
 
@@ -21,38 +21,25 @@ namespace Ingame
         #endregion
 
         #region Initalization
-        public override void SetUp()
+        
+        public void SetUp(SpellDeck deck)
         {
-            table = new SpellTable(deck);
-            board = new SpellBoard();
+            this.deck = deck;
+            book = new SpellBook(deck);
+            Stats.OnChangeSlotLevelsEvent += book.SetNumSlots;
 
-            Stats.OnChangeHealthEvent += (n) => Events.OnChangePlayerHealth.Invoke(n);
-            Stats.OnChangeShieldsEvent += (n) => Events.OnChangePlayerShields.Invoke(n);
-            Stats.OnChangeAttackEvent += (n) => Events.OnChangePlayerAttack.Invoke(n);
-            Stats.OnChangeRegenerationEvent += (n) => Events.OnChangePlayerRegeneration.Invoke(n);
-            Stats.OnChangeSlotLevelsEvent += (n) => Events.OnChangePlayerSlots.Invoke(n);
-            Stats.OnChangeOrderEvent += (n) => Events.OnChangePlayerOrder.Invoke(n);
-            Stats.OnChangeDifficultyEvent += (n) => Events.OnChangePlayerDifficulty.Invoke(n);
+            board = new Board(this);
+            //Stats.OnChangeOrderEvent += board.SetOrderLevel; 
+            //Stats.OnChangeTimeEvent += board.SetTime;       
+        }
 
-            Stats.OnChangeAttackEvent += (_) => Events.OnChangeStat.Invoke();
-            Stats.OnChangeRegenerationEvent += (_) => Events.OnChangeStat.Invoke();
-            Stats.OnChangeOrderEvent += (_) => Events.OnChangeStat.Invoke();
-            Stats.OnChangeDifficultyEvent += (_) => Events.OnChangeStat.Invoke();
-
-            Stats.OnChangeSlotLevelsEvent += table.SetNumSlots;
-            Stats.OnChangeOrderEvent += board.SetOrderLevel;           
-
-            Stats.OnDefeatEvent += () => Events.OnDefeatPlayer.Invoke();
-
-            table.Initialize();
+        public override void Active()
+        {
+            book.Initialize();
         }
 
         private void OnEnable()
         {
-            Events.OnSetTimer.AddListener(StartTimerCorroutine);
-            Events.OnCompleteWord.AddListener(StopAllCoroutines);
-            Events.OnFailSpell.AddListener(StopAllCoroutines);
-
             Events.OnCompleteStrengthMinigame.AddListener(Stats.CleanAttackDebuff);
             Events.OnCompletePoisonMinigame.AddListener(Stats.CleanRegenerationDebuff);
             Events.OnCompleteBlindMinigame.AddListener(Stats.CleanOrderDebuff);
@@ -62,10 +49,6 @@ namespace Ingame
 
         private void OnDisable()
         {
-            Events.OnSetTimer.RemoveListener(StartTimerCorroutine);
-            Events.OnCompleteWord.RemoveListener(StopAllCoroutines);
-            Events.OnFailSpell.RemoveListener(StopAllCoroutines);
-
             Events.OnCompleteStrengthMinigame.RemoveListener(Stats.CleanAttackDebuff);
             Events.OnCompletePoisonMinigame.RemoveListener(Stats.CleanRegenerationDebuff);
             Events.OnCompleteBlindMinigame.RemoveListener(Stats.CleanOrderDebuff);
@@ -77,57 +60,27 @@ namespace Ingame
 
         #region Public methods
 
-        public void SetDeck(SpellDeck deck)
-        {
-            this.deck = deck;
-        }
-        // Selecciona el hechizo en la posici�n idx de la mesa.
+        // Selecciona el hechizo en la posición idx de la mesa.
         // Activa el tablero correspondiente al tipo de hechizo seleccionado
-
         public void SelectSpell(int idx)
         {
-            SpellSystem.SpellUnit spellUnit = table.SelectSpellSlot(idx);
-            int level = spellUnit.lvl;
-            int power = spellUnit.spell.Power;
-            int wordLength = 2 + (power - 1) + level;
-            int boardDimension = 2 + level;
-            int ticks = 500  + 250 * level; // tick = 0.02s
-            board.GenerateBoard(wordLength, boardDimension, ticks);            
+            SpellUnit spellUnit = book.SelectSpellSlot(idx);
+            board.GenerateGame(spellUnit);            
         }
 
-        // Pulsa la tecla (x, y) del tablero de juego
-
-        public void OnKey(int column, int row)
-        {
-            board.CheckCharacterKey(column, row);
-        }
-
-        // Seleccionar un objetivo
-
-        public void SetTarget(SpellerNPC target, int idx)
-        {
-            this.target = target;
-            Events.OnSelectTarget.Invoke(idx);
-        }
         #endregion
 
-        #region Private Methods
+        #region Inherited Methods
 
-        protected override SpellSystem.SpellUnit GetActiveSpell()
+        protected override SpellUnit GetActiveSpell()
         {
-            return table.GetSelectedSpell();
+            return book.GetSelectedSpell();
         }
 
-        protected override void UseSpell(SpellSystem.SpellUnit spell)
+        protected override void UseSpell(SpellUnit spell)
         {
             Events.OnPlayerUseSpell.Invoke();
             base.UseSpell(spell);
-        }
-
-        private void StartTimerCorroutine(int ticks)
-        {
-            IEnumerator timerCorroutine = board.TimerCorroutine(ticks);
-            StartCoroutine(timerCorroutine);
         }
 
         #endregion

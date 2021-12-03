@@ -1,9 +1,12 @@
 {
-    "name": "Runtime.DialogueSystem",
+    "name": "BattleManagement.UI",
     "rootNamespace": "",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:12e8a3fbfcda8ac4285fbb6c54f186d3"
+        "GUID:2cf4471dbb47af14b8298f06e3cc09bf",
+        "GUID:d0372069061ded64fbb12b98c31cc9e2",
+        "GUID:f41174dad46999d49b37d48357a04332",
+        "GUID:6b2f1e2aef4e998448711d68c045399a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

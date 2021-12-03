@@ -14,15 +14,14 @@ namespace Ingame
         [SerializeField] protected SpellerAnimator spellerAnimator;
         [SerializeField] protected SkinDrawer skinDrawer;
         [SerializeField] protected SpellWand spellWand;
-        [SerializeField] private GameObject spellPrefab;
+        [SerializeField] protected SpellEffectGenerator spellEffectGenerator;
 
         #endregion
         
         #region Public fields
         private string spellerName;
         private Sprite icon;
-        private Stats stats = new Stats();
-        protected Speller target;
+        private Stats stats;
 
         #endregion
 
@@ -33,70 +32,44 @@ namespace Ingame
 
         #endregion
 
-        #region Methods
+        #region Initialization
 
         private void Start()
         {
+            stats = new Stats();
             Stats.OnGetHitEvent += spellerAnimator.SetDamagedAnim;
         }
 
-        public abstract void SetUp();
-
-        // Usa un hechizo
-        protected virtual void UseSpell(SpellSystem.SpellUnit spellUnit)
+        public void SetTarget(Speller target)
         {
-            spellWand?.UseSpell(spellUnit, this, target);
-            Stats.CompleteTurn();
-        }
+            spellWand.SetUp(this, target);
+        }        
+
+        public abstract void Active();
 
         #endregion
 
         #region Private Methods
 
-        // Lanza el hechizo activo
-
-        public virtual void LaunchSpell()
-        {
-            IEnumerator spellCorroutine = SpellCorroutine(GetActiveSpell());
-            StartCoroutine(spellCorroutine);
+        // Usa un hechizo
+        protected virtual void UseSpell(SpellUnit spellUnit)
+        {            
+            Stats.CompleteTurn();
         }
 
-        // Devuelve el hechizo que va a lanzar el personaje (implementar en subclases).
+        // Devuelve el hechizo que va a lanzar el personaje (implementar en subclases)
+        protected abstract SpellUnit GetActiveSpell();
 
-        protected abstract SpellSystem.SpellUnit GetActiveSpell();
-
-
-        // Corroutina para la animaci�n del hechizo
-
-        private IEnumerator SpellCorroutine(SpellSystem.SpellUnit spellUnit, float time = 1f)
+        // Lanza el hechizo activo
+        public virtual void LaunchSpell()
         {
-            spellerAnimator.SetUseSpellAnim();
-            yield return new WaitForSeconds(0.5f);
-            if (spellUnit.spell.offensive)
-            {
-                GameObject spellShot = Instantiate(spellPrefab);
-                Sprite sprite = spellUnit.spell.Sprite;
-                if(sprite != null)
-                    spellShot.GetComponent<SpriteRenderer>().sprite = sprite;
-                spellShot.transform.position = transform.position;
-                float delta = 0;
-                if (transform.position.x > target.transform.position.x)
-                    spellShot.GetComponent<SpriteRenderer>().flipX = true;
-                for (int i = 0; i < time / Time.fixedDeltaTime; i++)
-                {
-                    delta += Time.fixedDeltaTime;
+            SpellUnit unit = GetActiveSpell();
+            spellWand.LaunchSpell(unit);
+        }
 
-                    spellShot.transform.position = Vector3.Lerp(transform.position, target.transform.position, delta);
-                    yield return new WaitForFixedUpdate();
-                }
-                Destroy(spellShot);                
-            }
-            else
-            {
-                yield return new WaitForSeconds(time);
-            }
-            UseSpell(spellUnit);
-        }        
+        
+        
+       
         #endregion
     }
 }

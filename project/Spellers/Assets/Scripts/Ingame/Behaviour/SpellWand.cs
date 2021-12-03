@@ -7,77 +7,76 @@ using CustomEventSystem;
 
 namespace Ingame
 {
+    // Componente que permite lanzar hechizos a los personajes:
     public class SpellWand : MonoBehaviour
     {
-        public GameObject effect_prefab;
+        public static readonly float LAUNCHTIME = 1f;
 
-        public Sprite heal;
-        public Sprite self_damage;
-        public Sprite shield;
-        public Sprite brokenShield;
-        public Sprite regen;
-        public Sprite poison;
-        public Sprite atkbuff;
-        public Sprite atkdebuff;
-        public Sprite castbuff;
-        public Sprite castDebuff;
+        [SerializeField] private GameObject spell_prefab;
+        
+        private Speller user;
+        private Speller target;
+        
+        #region Public methods
 
-        public void UseSpell(SpellSystem.SpellUnit spellUnit, Speller user, Speller target)
+        public void SetUp(Speller user, Speller target)
         {
-            int level = spellUnit.lvl;
-            foreach(Effect effect in spellUnit.spell.effects)
+            this.user = user;
+            this.target = target;
+        }
+
+        public void LaunchSpell(SpellUnit unit)
+        {
+            StartCoroutine(LaunchSpellCoroutine(unit));
+        }
+
+        #endregion
+
+        private IEnumerator LaunchSpellCoroutine(SpellUnit unit)
+        {
+            Spell spell = unit.spell;
+            if(spell.offensive)
             {
-                Debug.Log("Applying effect " + effect.name + " (" + effect.target + ")");
+                var current_time = 0f;
+                var delta = 1f / LAUNCHTIME;                
+                var spellShot = Instantiate(spell_prefab);
+                var renderer = spellShot.GetComponent<SpriteRenderer>();
+                var tf = spellShot.transform;
+
+                renderer.sprite = spell.Sprite;
+                tf.position = user.transform.position;
+
+                while(tf.position != target.transform.position)
+                {
+                    current_time += Time.deltaTime;
+                    var t = delta * current_time;
+                    tf.position = Vector3.Lerp(user.transform.position, target.transform.position, t);
+                    yield return null;
+                }
+                Destroy(spellShot);
+            }
+            else
+            {
+                yield return new WaitForSeconds(LAUNCHTIME);
+            }
+            ApplySpell(unit);
+        }
+
+
+        // Aplica los efectos correspondientes del hechizo lanzado
+        public void ApplySpell(SpellUnit unit)
+        {
+            int level = unit.lvl;
+            Spell spell = unit.spell;
+            foreach(Effect effect in spell.effects)
+            {
                 effect.Apply(user.Stats, target.Stats, level);
-                Sprite sprite = GetSpriteEffect(effect);
-                Transform tf = effect.target == Target.Other ? target.transform : user.transform;
-                StartCoroutine(EffectCoroutine(sprite, tf));
             }
         }     
 
-        private Sprite GetSpriteEffect(Effect effect)
-        {
-            Sprite s = null;
-            if(effect is HealingEffect h_effect)
-            {
-                s = h_effect.PointsBase > 0 ? heal : self_damage; 
-            }
-            else if(effect is ShieldEffect s_effect)
-            {
-                s = s_effect.PointsBase > 0 ? shield : brokenShield;
-            }
-            else if (effect is RegenerationEffect r_effect)
-            {
-                s = r_effect.PointsBase > 0 ? regen : poison;
-            }
-            else if (effect is AttackBuffEffect a_effect)
-            {
-                s = a_effect.PointsBase > 0 ? atkbuff : atkdebuff;
-            }
-            else if (effect is GameEffect g_effect)
-            {
-                s = g_effect.PointsBase > 0 ? castbuff : castDebuff;
-            }
-            return s;
-        }
+        
 
-        private IEnumerator EffectCoroutine(Sprite sprite, Transform tf, int ticks = 20)
-        {
-            Vector3 pos = tf.position + Vector3.back;
-            Vector3 init_pos = pos + Vector3.up; 
-            Vector3 final_pos = pos + Vector3.up * 1.5f;            
-            var effect_go = Instantiate(effect_prefab, tf);
-            effect_go.transform.Translate(Vector3.back);
-            effect_go.GetComponent<SpriteRenderer>().sprite = sprite;
-
-            float delta = 1f / ticks;
-            for (int i = 0; i < ticks; i++)
-            {
-                effect_go.transform.position = Vector3.Lerp(init_pos, final_pos, (i + 1) * delta);
-                yield return new WaitForFixedUpdate();
-            }
-            Destroy(effect_go);
-        }
+        
 
     } 
 }

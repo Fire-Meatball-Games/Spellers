@@ -4,15 +4,42 @@ using UnityEngine.UI;
 using SpellSystem;
 using TMPro;
 using CustomEventSystem;
+using Ingame;
 
 namespace Ingame.UI
 {
     public class SpellBookGUI : MonoBehaviour
     {
-        // #region Public variables
-        // public RectTransform book_content;
-        // public GameObject spellSlot_prefab;
- 
+        #region Inspector fields
+        [SerializeField] private RectTransform layout;
+        [SerializeField] private RectTransform spellSlotsContent;
+        [SerializeField] private GameObject spellSlot_prefab;
+        [SerializeField] private Button reload_button;
+
+        #endregion
+
+        #region Private fields
+        private SpellerPlayer player;
+        private SpellBook playerBook;
+        private List<SpellSlotGUI> spellSlots;
+
+        #endregion
+
+        private void Awake() 
+        {
+            spellSlots = new List<SpellSlotGUI>();
+        }
+
+        public void SetUp(SpellerPlayer spellerPlayer)
+        {
+            player = spellerPlayer;
+            playerBook = player.book;
+            playerBook.OnAddSpellUnit += AddSpellUnit;
+            playerBook.OnRemoveSpellUnit += RemoveSpellUnit;
+            playerBook.OnUpdateSpellUnit += UpdateSpellUnit;
+            //Debug.Log("Interfaz de libro de hechizos configurada");
+        } 
+
         // public RectTransform minigame_bar;
 
         // public Button str_game_button;
@@ -25,10 +52,6 @@ namespace Ingame.UI
         // public BlindMinigame blind_game;
         // public DifficultyMinigame dif_game;
 
-        // #endregion
-
-        // #region private Fields
-        // private List<SpellSlotGUI> spellSlots;
         // #endregion
 
         // #region Unity CallBacks and public methods
@@ -46,6 +69,7 @@ namespace Ingame.UI
         // {
         //     Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
         //     Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
+
         //     Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
         //     //Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
         //     //Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
@@ -58,6 +82,7 @@ namespace Ingame.UI
         // {
         //     Events.OnGenerateSpellSlots.RemoveListener(SetUpSpellSlots);
         //     Events.OnChangeSpellSlot.RemoveListener(SetLayoutSlot);
+
         //     Events.OnPlayerUseSpell.RemoveListener(GenerateMinigamesBar);
         //     //Events.OnCompletePoisonMinigame.RemoveListener(GenerateMinigamesBar);
         //     //Events.OnCompleteBlindMinigame.RemoveListener(GenerateMinigamesBar);
@@ -79,39 +104,44 @@ namespace Ingame.UI
         //     bln_game_button.gameObject.SetActive(stats.Order < 0);
         //     dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
         // }
-
-        // // Genera la lista de hechizos:
-        // private void SetUpSpellSlots(List<SpellSystem.SpellUnit> spells)
-        // {
-        //     ShutDownSpellSlots();
-        //     for (int i = 0; i < spells.Count; i++)
-        //     {
-        //         int idx = i;
-        //         SpellSlotGUI spellSlot = Instantiate(spellSlot_prefab, book_content).GetComponent<SpellSlotGUI>();
-        //         spellSlot.AddListener(() => FindObjectOfType<SpellerPlayer>().SelectSpell(idx));
-        //         spellSlots.Add(spellSlot);
-        //         SetLayoutSlot(idx, spells[idx]);
-        //     }
-        // }
-
-        // // Destruye la lista de hechizos:
-        // private void ShutDownSpellSlots()
-        // {
-        //     for (int i = spellSlots.Count - 1; i >= 0; i--)
-        //     {
-        //         Destroy(spellSlots[i].gameObject);
-        //     }
-        //     spellSlots.Clear();          
-        // }
-
-        // // Pinta el layout del hechizo:
-        // private void SetLayoutSlot(int idx, SpellSystem.SpellUnit spellUnit)
-        // {
-        //     spellSlots[idx].SetSpellGUI(spellUnit);
-        // }
-   
-
         // #endregion
+
+        private void AddSpellUnit(SpellUnit unit, int idx)
+        {
+            Debug.Log("Interfaz de Libro de hechizos: hechizo añadido: " + unit + " (" + idx + ")");
+            var obj = Instantiate(spellSlot_prefab, spellSlotsContent);
+            obj.transform.SetSiblingIndex(idx);
+            var spellSlot = obj.GetComponent<SpellSlotGUI>();
+            spellSlot.SetSpellGUI(unit);
+            spellSlot.AddSelectButtonCallback(() => player.SelectSpell(idx));
+            spellSlots.Insert(idx, spellSlot);
+            // TODO: 
+            //spellSlot.AddInfoButtonCallback(...);
+        }
+
+        private void RemoveSpellUnit()
+        {
+            var slot = spellSlots[spellSlots.Count - 1];
+            spellSlots.Remove(slot);
+            Destroy(slot.gameObject);
+        }
+
+        private void UpdateSpellUnit(SpellUnit unit, int idx)
+        {
+            var slot = spellSlots[idx];
+            spellSlots.Remove(slot);
+            Destroy(slot.gameObject);
+            AddSpellUnit(unit, idx);
+        }
+
+        private void Clear()
+        {
+            for (int i = spellSlots.Count - 1; i >= 0; i--)
+            {      
+                 Destroy(spellSlots[i].gameObject);
+            }
+            spellSlots.Clear();
+        }
     }
 
 

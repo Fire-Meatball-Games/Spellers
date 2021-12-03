@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Skins;
 using SpellSystem;
+using Skins;
 
-namespace BattleManagement
+namespace Levels
 {    
-    public abstract class EnemySettings : ScriptableObject 
+    public class BaseGameSettings : ScriptableObject 
     {
         [SerializeField] private string enemyName;
         [SerializeField] private Sprite icon;       
@@ -16,14 +16,13 @@ namespace BattleManagement
         [SerializeField] private float cooldown_average;
         [SerializeField] private float cooldown_deviation;
 
+        public string EnemyName { get => enemyName; }
         public Sprite Icon { get => icon; }
         public Skin Skin { get => skin; }
         public SpellDeck Deck { get => deck; }
         public int MaxSpellLvl { get => maxSpellLvl; }
         public float Cooldown_average { get => cooldown_average; }
         public float Cooldown_deviation { get => cooldown_deviation;  }
-        public string EnemyName { get => enemyName; }
-    }
-   
+        
+    }  
 }
-

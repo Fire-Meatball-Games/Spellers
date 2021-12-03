@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
+using Levels;
 
 namespace GameManagement
 {
@@ -12,10 +13,20 @@ namespace GameManagement
         [SerializeField] private LoadingScreen loadingScreen;  
         private AsyncOperation m_loadSceneAsyncOperation; 
 
+        private BaseGameSettings settings;
+
+        private void Start() => LoadSceneAsync(SceneIndexes.TITLE_SCREEN);
+
         public void LoadSceneAsync(SceneIndexes index)
         {
+            Debug.Log("Load scene " + index.ToString());
+            if(index == SceneIndexes.GAME && settings == null)
+            {
+                Debug.LogWarning("Error: No se puede comenzar una partida sin una configuración de partida.");
+                return;
+            }
+
             int build_idx = (int)index;
-            Debug.Log("Cargando escena " + build_idx);
             m_loadSceneAsyncOperation = SceneManager.LoadSceneAsync(build_idx, LoadSceneMode.Additive);
             StartCoroutine(GetSceneLoadProgress());
         }
@@ -30,7 +41,20 @@ namespace GameManagement
             base.Init();
         }
 
-        public void Start() => LoadSceneAsync(SceneIndexes.TITLE_SCREEN);
+        public void SetSettings(BaseGameSettings settings)
+        {
+            if(settings != null)
+                this.settings = settings;
+        }
+
+        public void RemoveSettings()
+        {
+            settings = null;
+        }
+
+        public BaseGameSettings GetSettings() => settings;
+
+        
 
         //private void Start() => LoadScene(SceneIndexes.MAIN_MENU);
         private IEnumerator GetSceneLoadProgress()
@@ -45,6 +69,11 @@ namespace GameManagement
             loadingScreen.SetProgressBarValue(m_loadSceneAsyncOperation.progress);
             yield return new WaitForSeconds(2f);
             loadingScreen.Hide();
+        }
+
+        private void Initialize()
+        {
+
         }
     }   
 }
