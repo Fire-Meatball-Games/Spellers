@@ -34,7 +34,7 @@ namespace Ingame
 
         #region Initialization
 
-        private void Start()
+        private void Awake()
         {
             stats = new Stats();
             Stats.OnGetHitEvent += spellerAnimator.SetDamagedAnim;

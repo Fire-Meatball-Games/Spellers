@@ -40,20 +40,20 @@ namespace Ingame
 
         private void OnEnable()
         {
-            Events.OnCompleteStrengthMinigame.AddListener(Stats.CleanAttackDebuff);
-            Events.OnCompletePoisonMinigame.AddListener(Stats.CleanRegenerationDebuff);
-            Events.OnCompleteBlindMinigame.AddListener(Stats.CleanOrderDebuff);
-            Events.OnCompleteDifficultyMinigame.AddListener(Stats.CleanDifficultyDebuff);
-            Events.OnFailSpell.AddListener(Stats.CompleteTurn);
+            // Events.OnCompleteStrengthMinigame.AddListener(Stats.CleanAttackDebuff);
+            // Events.OnCompletePoisonMinigame.AddListener(Stats.CleanRegenerationDebuff);
+            // Events.OnCompleteBlindMinigame.AddListener(Stats.CleanOrderDebuff);
+            // Events.OnCompleteDifficultyMinigame.AddListener(Stats.CleanDifficultyDebuff);
+            // Events.OnFailSpell.AddListener(Stats.CompleteTurn);
         }
 
         private void OnDisable()
         {
-            Events.OnCompleteStrengthMinigame.RemoveListener(Stats.CleanAttackDebuff);
-            Events.OnCompletePoisonMinigame.RemoveListener(Stats.CleanRegenerationDebuff);
-            Events.OnCompleteBlindMinigame.RemoveListener(Stats.CleanOrderDebuff);
-            Events.OnCompleteDifficultyMinigame.RemoveListener(Stats.CleanDifficultyDebuff);
-            Events.OnFailSpell.RemoveListener(Stats.CompleteTurn);
+            // Events.OnCompleteStrengthMinigame.RemoveListener(Stats.CleanAttackDebuff);
+            // Events.OnCompletePoisonMinigame.RemoveListener(Stats.CleanRegenerationDebuff);
+            // Events.OnCompleteBlindMinigame.RemoveListener(Stats.CleanOrderDebuff);
+            // Events.OnCompleteDifficultyMinigame.RemoveListener(Stats.CleanDifficultyDebuff);
+            // Events.OnFailSpell.RemoveListener(Stats.CompleteTurn);
         }
         #endregion
 
@@ -65,7 +65,7 @@ namespace Ingame
         public void SelectSpell(int idx)
         {
             SpellUnit spellUnit = book.SelectSpellSlot(idx);
-            board.GenerateGame(spellUnit);            
+            board.GenerateSpellGame(spellUnit);            
         }
 
         #endregion

@@ -34,6 +34,7 @@ namespace Ingame
 
         private IEnumerator LaunchSpellCoroutine(SpellUnit unit)
         {
+            Debug.Log("Spellwand: Using spell" + unit);
             Spell spell = unit.spell;
             if(spell.offensive)
             {
@@ -60,6 +61,7 @@ namespace Ingame
                 yield return new WaitForSeconds(LAUNCHTIME);
             }
             ApplySpell(unit);
+            Events.OnPlayerUseSpell.Invoke();
         }
 
 

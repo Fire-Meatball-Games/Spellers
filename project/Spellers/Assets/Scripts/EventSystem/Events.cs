@@ -31,7 +31,11 @@ namespace CustomEventSystem
         public static readonly CustomEvent OnJoinPlayer = new CustomEvent();
         public static readonly CustomEvent OnJoinEnemy = new CustomEvent();
 
-        // Eventos del jugador:    
+
+        //Eventos de la interfaz del jugador:
+        public static readonly CustomEvent OnSelectSpellSlot = new CustomEvent();
+        public static readonly CustomEvent OnFailGame = new CustomEvent();
+        public static readonly CustomEvent OnCompleteGame = new CustomEvent();
         public static readonly CustomEvent OnPlayerUseSpell = new CustomEvent();
         
         // Eventos de minijuegos:        

@@ -9,6 +9,7 @@ using System;
 using CustomEventSystem;
 using GameManagement;
 using Levels;
+using SpellSystem;
 
 namespace BattleManagement
 {
@@ -20,6 +21,9 @@ namespace BattleManagement
         [SerializeField] private HUD player_HUD;
         [SerializeField] private HUD enemy_HUD;
         [SerializeField] private SpellTableGUI game_GUI;
+
+        [SerializeField] private BaseGameSettings default_settings;
+        [SerializeField] private SpellDeck default_deck;
 
         #endregion
 
@@ -43,6 +47,7 @@ namespace BattleManagement
         // Configurar el jugador a partir de los datos de Player:
         private void SetUpPlayer()
         {            
+            SetUpPlayerSettings();
             Player = spawner.GeneratePlayer();
             Player settings = PlayerManagement.Player.instance;
             Player.Icon = settings.Icon;
@@ -50,7 +55,7 @@ namespace BattleManagement
             Player.SetUp(settings.Deck);
 
             player_HUD.SetSpeller(Player);
-            Debug.Log("Jugador generado");
+            Debug.Log("Jugador generado" + Player.ToString());
 
             game_GUI.SetUp(Player);            
         }
@@ -58,6 +63,7 @@ namespace BattleManagement
         // Configurar el enemigo a partir de los datos de GameManager:
         private void SetUpEnemy()
         {
+            SetUpGameSettings();
             Enemy = spawner.GenerateEnemy();
             BaseGameSettings settings = GameManager.instance.GetSettings(); 
             Enemy.Icon = settings.Icon;
@@ -70,20 +76,48 @@ namespace BattleManagement
             };
             Enemy.SetUp(controller);
             enemy_HUD.SetSpeller(Enemy);
-            Debug.Log("Enemigo generado");
+            Debug.Log("Enemigo generado: " + Enemy.ToString());
         }
 
+        // Comenzar la batalla:
         public void StartBattle()
         {
             Events.OnBattleBegins.Invoke();
             Player.Active();
             Enemy.Active();
+            game_GUI.Active();
             Debug.Log("batalla comenzada");
         }
 
+        // Pausar la partida:
         public void PauseBattle()
         {
+            Time.timeScale = 0f;
+        }
 
+        // Despausar la partida:
+        public void UnpauseBattle()
+        {
+            Time.timeScale = 1f;
+        }
+
+
+        private void SetUpGameSettings()
+        {
+            if(GameManager.instance == null)
+            {
+                GameManager.instance = new GameManager();
+                GameManager.instance.SetSettings(default_settings);
+            }
+        }
+
+        private void SetUpPlayerSettings()
+        {
+            if(PlayerManagement.Player.instance == null)
+            {
+                PlayerManagement.Player.instance = new Player();
+                PlayerManagement.Player.instance.Deck = default_deck;
+            }
         }
 
 

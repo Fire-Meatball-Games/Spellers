@@ -8,10 +8,9 @@ using Ingame;
 
 namespace Ingame.UI
 {
-    public class SpellBookGUI : MonoBehaviour
+    public class SpellBookGUI : SpellPlayerGUI
     {
         #region Inspector fields
-        [SerializeField] private RectTransform layout;
         [SerializeField] private RectTransform spellSlotsContent;
         [SerializeField] private GameObject spellSlot_prefab;
         [SerializeField] private Button reload_button;
@@ -19,24 +18,25 @@ namespace Ingame.UI
         #endregion
 
         #region Private fields
-        private SpellerPlayer player;
         private SpellBook playerBook;
         private List<SpellSlotGUI> spellSlots;
 
         #endregion
 
-        private void Awake() 
+        protected override void Init() 
         {
+            base.Init();
             spellSlots = new List<SpellSlotGUI>();
         }
 
-        public void SetUp(SpellerPlayer spellerPlayer)
+        public override void SetUp(SpellerPlayer spellerPlayer)
         {
-            player = spellerPlayer;
+            base.SetUp(spellerPlayer);
             playerBook = player.book;
             playerBook.OnAddSpellUnit += AddSpellUnit;
             playerBook.OnRemoveSpellUnit += RemoveSpellUnit;
             playerBook.OnUpdateSpellUnit += UpdateSpellUnit;
+            //reload_button.onClick.AddListener...
             //Debug.Log("Interfaz de libro de hechizos configurada");
         } 
 
@@ -113,7 +113,8 @@ namespace Ingame.UI
             obj.transform.SetSiblingIndex(idx);
             var spellSlot = obj.GetComponent<SpellSlotGUI>();
             spellSlot.SetSpellGUI(unit);
-            spellSlot.AddSelectButtonCallback(() => player.SelectSpell(idx));
+            spellSlot.AddSelectButtonCallback(() => SelectSpellListener(idx));
+            spellSlot.AddSelectButtonCallback(Hide);
             spellSlots.Insert(idx, spellSlot);
             // TODO: 
             //spellSlot.AddInfoButtonCallback(...);
@@ -141,6 +142,12 @@ namespace Ingame.UI
                  Destroy(spellSlots[i].gameObject);
             }
             spellSlots.Clear();
+        }
+
+        private void SelectSpellListener(int idx)
+        {
+            player.SelectSpell(idx);
+            Events.OnSelectSpellSlot.Invoke();
         }
     }
 

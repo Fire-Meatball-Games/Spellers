@@ -36,7 +36,7 @@ namespace PlayerManagement
         public Sprite Icon { get => m_icon; set => m_icon = value; }
         public int Coins { get => coins; set => coins = value; }
         public Skin Skin { get => m_skin; }
-        public SpellDeck Deck { get => m_deck;}
+        public SpellDeck Deck { get => m_deck; set => m_deck = value; }
         public int Points { get => points; set => points = value; }
         public int LastLevelUnlocked { get => lastLevelUnlocked; set => lastLevelUnlocked = value; }
     }
