@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: "007 - Debil da\xF1o"
   m_EditorClassIdentifier: 
   id: 23
-  spellname: 
-  description: Reduce el ataque del objetivo.
-  icon: {fileID: 0}
+  spellname: Mollis macula
+  description: "El pr\xF3ximo ataque del rival ve reducida su potencia en 20/40/60%,
+    redondeado por arriba."
+  icon: {fileID: 21300000, guid: c13d1ca36c343a04480106c69c2c2d95, type: 3}
   sprite: {fileID: 0}
-  power: 1
+  category: 1
   offensive: 1
   type: 3
   effects:

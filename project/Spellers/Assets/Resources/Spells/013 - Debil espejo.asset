@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 013 - Debil espejo
   m_EditorClassIdentifier: 
-  spellName: Hallucinatio
-  description: "Reduce la concentraci\xF3n del objetivo, haciendo que las runas aparezcan
-    al rev\xE9s."
-  thumbnail: {fileID: 21300000, guid: cb980c3cf156ada43ad3d8e6ebe09033, type: 3}
-  ingame: {fileID: 21300000, guid: cb980c3cf156ada43ad3d8e6ebe09033, type: 3}
-  power: 1
+  id: 0
+  spellname: Hallucinatio
+  description: "Las letras de los siguientes 1/2/3 hechizos del rival aparecer\xE1n
+    invertidas, a modo de espejo."
+  icon: {fileID: 21300000, guid: cb980c3cf156ada43ad3d8e6ebe09033, type: 3}
+  sprite: {fileID: 0}
+  category: 1
   offensive: 1
   type: 3
   effects:

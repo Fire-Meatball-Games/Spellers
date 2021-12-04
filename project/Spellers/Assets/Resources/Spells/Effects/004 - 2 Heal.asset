@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 004 - 2 Heal
   m_EditorClassIdentifier: 
   target: 1
-  PointsBase: -6
+  PointsBase: -5
   pointslevel: -3
   Scale: 0

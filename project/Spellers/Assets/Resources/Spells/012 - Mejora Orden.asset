@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 012 - Mejora Orden
   m_EditorClassIdentifier: 
-  spellName: Locus totallum
-  description: "Aumenta la concentraci\xF3n del usuario, haciendo que parte de las
-    runas de los hechizos aparezcan ordenadas."
-  thumbnail: {fileID: 21300000, guid: 9e0d2500c01ce8c4fa0df5efa1ae1c17, type: 3}
-  ingame: {fileID: 0}
-  power: 1
+  id: 0
+  spellname: Locus totallum
+  description: "Las primeras 2/4/6 letras aparecer\xE1n ordenadas para el siguiente
+    hechizo en la tablilla de letras."
+  icon: {fileID: 21300000, guid: 9e0d2500c01ce8c4fa0df5efa1ae1c17, type: 3}
+  sprite: {fileID: 0}
+  category: 1
   offensive: 0
   type: 2
   effects:

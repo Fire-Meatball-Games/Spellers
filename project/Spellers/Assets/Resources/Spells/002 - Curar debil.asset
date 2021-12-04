@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 002 - Curar debil
   m_EditorClassIdentifier: 
   id: 2
-  spellname: 
-  description: "Cura una peque\xF1a cantidad de vida."
-  icon: {fileID: 0}
+  spellname: Vitale
+  description: Restaura un 9/12/15% de vida al jugador.
+  icon: {fileID: 21300000, guid: 9746d3cf8bb988e4587ace4fd05b16be, type: 3}
   sprite: {fileID: 0}
   category: 1
   offensive: 0

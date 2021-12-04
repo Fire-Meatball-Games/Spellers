@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0199c11aa6f514784c5c69cd8378d8, type: 3}
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
-  DevAccountEmail: alejandroorejudo2000@gmail.com
-  DevAccountToken: e4pdie57gcjkt1tr6bg8rxphysajtgkzz1ud1ff4c516na3j6uz6j8jmgz699irrb1gj7ndye5189q7nzg47du8ghzb9tyk7np665xf9dhj8z7oh65prd3k1b1xa53fx1h1jjhtp3augs8w49gk5kyemygyd3q7k1hs4k9tz8encsdbr5ro6ju7oteo8jqjtkudziowz
-  SelectedStudio: FireMeatballGames
-  SdkPath: Assets/PlayFabSDK
+  DevAccountEmail: 
+  DevAccountToken: 
+  SelectedStudio: 
+  SdkPath: 
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 2
+  curMainMenuIdx: 0
   curSubMenuIdx: 0

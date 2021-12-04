@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 023 - Mejora limpiar
   m_EditorClassIdentifier: 
-  spellName: Purgatum
-  description: Elimina todos los efectos negativos.
-  thumbnail: {fileID: 21300000, guid: 50f251f999aa6a94592379b301214e92, type: 3}
-  ingame: {fileID: 0}
-  power: 3
+  id: 0
+  spellname: Purgatum
+  description: "Elimina cualquier incapacitaci\xF3n activa en el jugador y a\xF1ade
+    4 escudos."
+  icon: {fileID: 21300000, guid: 50f251f999aa6a94592379b301214e92, type: 3}
+  sprite: {fileID: 0}
+  category: 3
   offensive: 0
   type: 2
   effects:

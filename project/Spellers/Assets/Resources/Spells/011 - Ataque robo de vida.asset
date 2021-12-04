@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 011 - Ataque robo de vida
   m_EditorClassIdentifier: 
-  spellName: Lac vitae
-  description: "Inflige algo de da\xF1o al objetivo y cura al usuario."
-  thumbnail: {fileID: 21300000, guid: f87216ca28cdd794f89a3eb5ba182be0, type: 3}
-  ingame: {fileID: 21300000, guid: 5d6db994489d2644b83a37ea5e8df27e, type: 3}
-  power: 2
+  id: 0
+  spellname: Lac vitae
+  description: Resta un 11/14/17% de vida al rival y restaura un 8/11/14% de vida
+    al jugador.
+  icon: {fileID: 21300000, guid: f87216ca28cdd794f89a3eb5ba182be0, type: 3}
+  sprite: {fileID: 0}
+  category: 2
   offensive: 1
+  type: 0
   effects:
   - {fileID: 11400000, guid: 34d4e60a755b03c4e8e673f4b1665f1f, type: 2}
   - {fileID: 11400000, guid: 5498fd596765acb428887ce2c6911041, type: 2}

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 001 - Ataque debil
   m_EditorClassIdentifier: 
   id: 1
-  spellname: 
-  description: "Inflige da\xF1o reducido al objetivo."
-  icon: {fileID: 0}
+  spellname: Imperio
+  description: Resta un 11/14/17% de vida al rival.
+  icon: {fileID: 21300000, guid: 9f2f186f42fb4634383561f338075f61, type: 3}
   sprite: {fileID: 0}
-  power: 1
+  category: 1
   offensive: 1
   type: 0
   effects:

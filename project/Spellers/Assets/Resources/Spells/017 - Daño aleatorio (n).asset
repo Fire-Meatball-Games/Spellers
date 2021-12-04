@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: "017 - Da\xF1o aleatorio (n)"
   m_EditorClassIdentifier: 
   id: 0
-  spellname: 
-  description: "Inflige algo de da\xF1o al objetivo y otorga un escudo al usuario."
-  icon: {fileID: 0}
+  spellname: Spinae
+  description: 
+  icon: {fileID: 21300000, guid: bf25efcab5b91604d9a74c6c9bc20958, type: 3}
   sprite: {fileID: 0}
-  power: 2
+  category: 2
   offensive: 1
-  type: 0
+  type: 1
   effects:
   - {fileID: 11400000, guid: 899fc45061c06f042a1bf68766e72f34, type: 2}
   - {fileID: 11400000, guid: 3dd31c0a4f9adab49b1cc3d671128c8c, type: 2}

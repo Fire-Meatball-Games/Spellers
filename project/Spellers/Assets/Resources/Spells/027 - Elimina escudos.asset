@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 027 - Elimina escudos
   m_EditorClassIdentifier: 
-  spellName: "Igneus cr\xE9pitus"
-  description: "Elimina todos los escudos del usuario y del objetivo e inflige algo
-    de da\xF1o."
-  thumbnail: {fileID: 21300000, guid: 68190a22cea5813459fb6721d10681df, type: 3}
-  ingame: {fileID: 21300000, guid: f947d59b4dc19104b9091fe744d688f2, type: 3}
-  power: 3
+  id: 0
+  spellname: "Igneus cr\xE9pitus"
+  description: Elimina los escudos de ambos jugadores y resta un 11% de vida al rival.
+  icon: {fileID: 21300000, guid: 68190a22cea5813459fb6721d10681df, type: 3}
+  sprite: {fileID: 0}
+  category: 3
   offensive: 1
+  type: 0
   effects:
   - {fileID: 11400000, guid: 076e5db329f737949a3e5708017c3bab, type: 2}
   - {fileID: 11400000, guid: a36beb361a4b2fa4b85a731ca19be9a6, type: 2}

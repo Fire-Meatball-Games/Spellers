@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 004 - 1 Damage
   m_EditorClassIdentifier: 
   target: 0
-  PointsBase: 15
+  PointsBase: 20
   PointsLevel: 5
   HitsBase: 1
   HitsLevel: 0

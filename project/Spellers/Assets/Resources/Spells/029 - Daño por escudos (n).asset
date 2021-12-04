@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 28
   spellname: 
-  description: "Inflige  gran cantidad de da\xF1o a costa de una parte de la salud
-    actual del usuario."
-  icon: {fileID: 0}
+  description: "Inflige da\xF1o al rival en funci\xF3n de la cantidad de escudos
+    del usuario."
+  icon: {fileID: 21300000, guid: 27d28e5ae40978e4fba2bc42303bb8de, type: 3}
   sprite: {fileID: 0}
-  power: 3
+  category: 3
   offensive: 1
   type: 0
   effects:

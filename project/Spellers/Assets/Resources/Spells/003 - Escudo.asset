@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 003 - Escudo
   m_EditorClassIdentifier: 
-  spellName: Scutum armis
-  description: Otorga un escudo al usuario.
-  thumbnail: {fileID: 21300000, guid: c66cdd75fa07e404c9265002b57fd677, type: 3}
-  ingame: {fileID: 0}
-  power: 1
+  id: 0
+  spellname: Scutum armis
+  description: "A\xF1ade 1/2/3 escudos, capaces de bloquear un ataque."
+  icon: {fileID: 21300000, guid: c66cdd75fa07e404c9265002b57fd677, type: 3}
+  sprite: {fileID: 0}
+  category: 1
   offensive: 0
   type: 1
   effects:

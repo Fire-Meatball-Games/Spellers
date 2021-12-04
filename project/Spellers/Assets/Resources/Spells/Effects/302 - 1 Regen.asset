@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 302 - 1 Regen
   m_EditorClassIdentifier: 
   target: 0
-  PointsBase: -5
+  PointsBase: -6
   Pointslevel: 0
   TurnsBase: 2
   Turnslevel: 1

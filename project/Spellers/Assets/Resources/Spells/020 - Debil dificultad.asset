@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 020 - Debil dificultad
   m_EditorClassIdentifier: 
-  spellName: Caecus
-  description: Disminuye la habilidad del rival, haciendo que disponga de menos tiempo
-    para lanzar los hechizos.
-  thumbnail: {fileID: 21300000, guid: af7e877b8a22337409456e545d1208d6, type: 3}
-  ingame: {fileID: 21300000, guid: af7e877b8a22337409456e545d1208d6, type: 3}
-  power: 2
+  id: 0
+  spellname: Caecus
+  description: Disminuye el tiempo de los siguientes 1/2/3 hechizos del rival.
+  icon: {fileID: 21300000, guid: af7e877b8a22337409456e545d1208d6, type: 3}
+  sprite: {fileID: 0}
+  category: 2
   offensive: 1
   type: 3
   effects:
