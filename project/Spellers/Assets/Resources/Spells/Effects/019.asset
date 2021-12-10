@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 019
   m_EditorClassIdentifier: 
   target: 1
-  type: 4
+  type: 2
   PointsBase: 1
   Pointslevel: 0
   TurnsBase: 0

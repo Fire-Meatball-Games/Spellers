@@ -6,7 +6,7 @@ using Skins;
 
 namespace Levels
 {    
-    public class BaseGameSettings : ScriptableObject 
+    public abstract class BaseGameSettings : ScriptableObject 
     {
         [SerializeField] private string enemyName;
         [SerializeField] private Sprite icon;       

@@ -15,28 +15,4 @@ MonoBehaviour:
   levelname: Prueba de habilidad
   thumbnail: {fileID: 21300000, guid: 9bc58f360f7712642b43f26f5d96d4a2, type: 3}
   map_dialogue: {fileID: 11400000, guid: 30922edca1b02634985a13884626fe69, type: 2}
-  gameSettings:
-    playerDeck:
-      spells:
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
-    speller_Settings:
-    - {fileID: 11400000, guid: c25bd694f1fceee4b893a27ed49d59db, type: 2}
-    init_dialogue: {fileID: 11400000, guid: 15eb790a9dfbb8049a0dc8c2cee1e0a9, type: 2}
-    end_dialogue: {fileID: 11400000, guid: 6238342afb7e31c4a9b2517bb21f2eaa, type: 2}
-    dialogueHandlers: []
-    endHandlers:
-    - playerEvent: {fileID: 11400000, guid: b0824a0a0d6645941bc3e2bd8abadd84, type: 2}
-      value: 5
-      win: 1
-    scoreHandlers:
-    - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
-      value: 3
-      removeStarCondition: 1
-      stars: 2
-    - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
-      value: 6
-      removeStarCondition: 1
-      stars: 1
+  settings: {fileID: 11400000, guid: 2f86891b22c7c3242a5625dbe5d81ac5, type: 2}

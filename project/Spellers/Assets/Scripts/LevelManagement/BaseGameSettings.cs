@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Levels
+namespace LevelManagement
 {
     public abstract class BaseGameSettings
     {

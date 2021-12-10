@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DialogueSystem;
 
-namespace Runtime
+namespace Levels
 {
     [CreateAssetMenu(fileName = "Level", menuName = "Spellers/Level", order = 2)]
 
@@ -12,7 +12,7 @@ namespace Runtime
         [SerializeField] public string levelname;
         [SerializeField] public Sprite thumbnail;
         [SerializeField] public Dialogue map_dialogue;
-        [SerializeField] public CombatSettings gameSettings;
+        [SerializeField] public LevelGameSettings settings;
               
     }
 

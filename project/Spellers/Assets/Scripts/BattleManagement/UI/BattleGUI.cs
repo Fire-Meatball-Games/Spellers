@@ -12,18 +12,21 @@ namespace BattleManagement.UI
         [SerializeField] private BattleSign battleSign;
         [SerializeField] private BattleCountDown countDown;
 
+        [SerializeField] private BattlePause pause;
+        [SerializeField] private BattleResults results;
+
         public void SetUp()
         {
             Sprite playerIcon = battleManager.Player.Icon;
             Sprite enemyIcon = battleManager.Enemy.Icon;            
             battleSign.SetUp(playerIcon, enemyIcon);
-            Debug.Log("Battle sign setted up");
         }
 
         private void Awake() 
-        {           
+        {        
+            battleManager.OnBattleEnds += ShowResults;
             battleSign.OnPressStart += countDown.StartCountDown;
-            countDown.OnEndCountDown += battleManager.StartBattle;
+            countDown.OnEndCountDown += battleManager.StartBattle;           
         }
 
         private void OnEnable() 
@@ -36,8 +39,7 @@ namespace BattleManagement.UI
             Events.OnBattleReady.RemoveListener(SetUp);
         }
 
-
-
+        private void ShowResults(bool win) => results.Show(win);
 
 
 

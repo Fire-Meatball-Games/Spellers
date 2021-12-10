@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Skins
 {
-    [System.Serializable]
-    public class Skin
+     [CreateAssetMenu(fileName = "Skin", menuName = "Spellers/Skin/Skin")]
+    public class Skin : ScriptableObject
     {
-        private BasicSkinPart face, hair, hat, eyes, nose, mouth, coat;
-        private CompoundSkinPart bodyPart;
+        [SerializeField] private BasicSkinPart face, hair, hat, eyes, nose, mouth, coat;
+        [SerializeField] private CompoundSkinPart bodyPart;
         public BasicSkinPart Face { get => face; set{ if(value.Part == BasicSkinPart.TypePart.hat) face = value;} }
         public BasicSkinPart Hair { get => hair; set{ if(value.Part == BasicSkinPart.TypePart.hair) hair = value;} }
         public BasicSkinPart Hat { get => hat; set{ if(value.Part == BasicSkinPart.TypePart.hat) hat = value;} }

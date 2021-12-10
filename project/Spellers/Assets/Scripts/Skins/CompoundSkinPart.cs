@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Skins
 {
+
+    [CreateAssetMenu(fileName = "CompoundSkinPart", menuName = "Spellers/Skin/CompoundSkinPart")]    
     public class CompoundSkinPart : SkinPart
     {
          public static List<CompoundSkinPart> GetAllSkinParts()

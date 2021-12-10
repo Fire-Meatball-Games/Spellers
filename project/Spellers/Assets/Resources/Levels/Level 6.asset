@@ -15,22 +15,4 @@ MonoBehaviour:
   levelname: El Escupitajo Llameante
   thumbnail: {fileID: 21300000, guid: 3540cdc51ace4f447a361daf8f77f30b, type: 3}
   map_dialogue: {fileID: 11400000, guid: 6bab045c478d57c43a0f59e430f13fa8, type: 2}
-  gameSettings:
-    playerDeck:
-      spells:
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
-      - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
-      - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
-      - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
-      - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
-      - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
-    speller_Settings:
-    - {fileID: 11400000, guid: 01e661d771f4d714680c192df9625046, type: 2}
-    init_dialogue: {fileID: 0}
-    end_dialogue: {fileID: 11400000, guid: b494948de81f0ce4fa6ad1bde501203d, type: 2}
-    dialogueHandlers: []
-    endHandlers: []
-    scoreHandlers: []
+  settings: {fileID: 11400000, guid: f204a89bdbe58e34f832cc76c99224f6, type: 2}

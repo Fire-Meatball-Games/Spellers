@@ -22,4 +22,4 @@ MonoBehaviour:
   offensive: 1
   type: 3
   effects:
-  - {fileID: 11400000, guid: 98419eee3da41a14695031c6580b2faf, type: 2}
+  - {fileID: 11400000, guid: a0f19c998af11d24db3e32b4e13d34bc, type: 2}

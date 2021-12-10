@@ -14,7 +14,7 @@ namespace Runtime
 
         #region Public fields
 
-        public List<Level> levels;
+        //public List<Level> levels;
         public int selectedLevel = -1;
 
         #endregion
@@ -29,8 +29,8 @@ namespace Runtime
         // Selecciona un nivel del modo historia
         public void SelectLevel(int index)
         {
-            if (index >= levels.Count)
-                return;
+            // if (index >= levels.Count)
+            //     return;
 
             if (index <= last_unlocked_level_index)
             {
@@ -50,7 +50,7 @@ namespace Runtime
             Events.OnDeselectLevel.Invoke();
         }
 
-        public Level GetSelectedLevel() => levels[selectedLevel];
+        //public Level GetSelectedLevel() => levels[selectedLevel];
 
         // Carga el nivel seleccionado:
         public void PlayLevel()
@@ -69,7 +69,7 @@ namespace Runtime
         {
             DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
             load_level_dialogue = false;
-            dialogueManager.StartDialogue(GetSelectedLevel().map_dialogue);
+            //dialogueManager.StartDialogue(GetSelectedLevel().map_dialogue);
         }
 
     } 

@@ -25,6 +25,8 @@ namespace BattleManagement
         [SerializeField] private BaseGameSettings default_settings;
         [SerializeField] private SpellDeck default_deck;
 
+        public event Action<bool> OnBattleEnds = delegate{};
+
         #endregion
 
         #region Private fields
@@ -90,18 +92,6 @@ namespace BattleManagement
             Debug.Log("batalla comenzada");
         }
 
-        // Pausar la partida:
-        public void PauseBattle()
-        {
-            Time.timeScale = 0f;
-        }
-
-        // Despausar la partida:
-        public void UnpauseBattle()
-        {
-            Time.timeScale = 1f;
-        }
-
 
         private void SetUpGameSettings()
         {
@@ -124,11 +114,21 @@ namespace BattleManagement
         private void Win()
         {
             Debug.Log("Has ganado");
+            OnBattleEnds?.Invoke(true);
+            EndBattle();
         }
 
         private void Lose()
         {
             Debug.Log("Has perdido");
+            OnBattleEnds?.Invoke(false);
+            EndBattle();
+        }
+
+        private void EndBattle()
+        {
+            Destroy(Player.gameObject);
+            Destroy(Enemy.gameObject);
         }
 
 

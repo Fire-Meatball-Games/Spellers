@@ -15,18 +15,4 @@ MonoBehaviour:
   levelname: Viejos amigos
   thumbnail: {fileID: 21300000, guid: 5864f9983f7c0834bbe7cfed08d167e7, type: 3}
   map_dialogue: {fileID: 11400000, guid: d664068eac6ce104a94c705fb7b4f9c9, type: 2}
-  gameSettings:
-    playerDeck:
-      spells:
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
-      - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
-      - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
-    speller_Settings:
-    - {fileID: 11400000, guid: 98718233ee048a243b28f5b65c39367f, type: 2}
-    init_dialogue: {fileID: 0}
-    end_dialogue: {fileID: 0}
-    dialogueHandlers: []
-    endHandlers: []
-    scoreHandlers: []
+  settings: {fileID: 11400000, guid: 3e6725541bba9924783c1063ada58651, type: 2}

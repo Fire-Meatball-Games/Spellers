@@ -15,31 +15,4 @@ MonoBehaviour:
   levelname: La aprendiz
   thumbnail: {fileID: 21300000, guid: 247cf921cf71f2d4ab51524b5bb1f4ff, type: 3}
   map_dialogue: {fileID: 11400000, guid: 174c35aca66093c4f8a4512f7109b523, type: 2}
-  gameSettings:
-    playerDeck:
-      spells:
-      - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
-      - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
-      - {fileID: 11400000, guid: 50bbe8cd9de3d9b4db45deda748726ba, type: 2}
-      - {fileID: 11400000, guid: 4c16d693548392d46913473f64e86f31, type: 2}
-      - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
-      - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
-      - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
-    speller_Settings:
-    - {fileID: 11400000, guid: 7a6518c0116e0e14fac989acf3c23add, type: 2}
-    init_dialogue: {fileID: 0}
-    end_dialogue: {fileID: 0}
-    dialogueHandlers: []
-    endHandlers:
-    - playerEvent: {fileID: 11400000, guid: b0824a0a0d6645941bc3e2bd8abadd84, type: 2}
-      value: 5
-      win: 1
-    scoreHandlers:
-    - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
-      value: 2
-      removeStarCondition: 1
-      stars: 2
-    - playerEvent: {fileID: 11400000, guid: 3cab654e7dadc6b4596defcc79b1ba31, type: 2}
-      value: 3
-      removeStarCondition: 1
-      stars: 1
+  settings: {fileID: 11400000, guid: 0cf8559d740410a42b0a9ba97d47a0e7, type: 2}
