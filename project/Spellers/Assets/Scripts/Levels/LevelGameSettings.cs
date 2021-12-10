@@ -11,14 +11,12 @@ namespace Levels
     {
         [SerializeField] private int levelIndex;
         [SerializeField] private string levelname;
-        [SerializeField] private Sprite thumbnail;
         [SerializeField] private SpellDeck playerDeck;
         [SerializeField] private Dialogue initDialogue;
         [SerializeField] private Dialogue endDialogue;
 
         public int LevelIndex { get => levelIndex; }
         public string Levelname { get => levelname; }
-        public Sprite Thumbnail { get => thumbnail; }
         public SpellDeck PlayerDeck { get => playerDeck; }
         public Dialogue InitDialogue { get => initDialogue; }
         public Dialogue EndDialogue { get => endDialogue; }
