@@ -21,14 +21,47 @@ namespace BattleManagement.UI
 
         private IEnumerator CountDown()
         {
+            var time = 0f;
             CoundDown_txt.text = "" + 3;
-            yield return new WaitForSeconds(1f);
+
+            while(time < 1f)
+            {
+                time += Time.deltaTime;
+                CoundDown_txt.transform.localScale = Vector3.one * (1f + time / 2); 
+                yield return null;                
+            }
+            time = 0f;
+            CoundDown_txt.transform.localScale = Vector3.one;
             CoundDown_txt.text = "" + 2;
-            yield return new WaitForSeconds(1f);
+
+            while(time < 1f)
+            {
+                time += Time.deltaTime;
+                CoundDown_txt.transform.localScale = Vector3.one * (1f + time / 2);  
+                yield return null;              
+            }
+
+            time = 0f;
+            CoundDown_txt.transform.localScale = Vector3.one;
             CoundDown_txt.text = "" + 1;
-            yield return new WaitForSeconds(1f);
+
+            while(time < 1f)
+            {
+                time += Time.deltaTime;
+                CoundDown_txt.transform.localScale = Vector3.one * (1f + time / 2);  
+                yield return null;               
+            }
+
+            time = 0f;
+            CoundDown_txt.transform.localScale = Vector3.one;
             CoundDown_txt.text = "Spell!";
-            yield return new WaitForSeconds(1f);
+
+            while(time < 1f)
+            {
+                time += Time.deltaTime;
+                CoundDown_txt.transform.localScale = Vector3.one * (1f + time / 2);    
+                yield return null;             
+            }
 
             OnEndCountDown?.Invoke();
             layout.SetActive(false);

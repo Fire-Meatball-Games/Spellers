@@ -4,7 +4,7 @@ using UnityEngine;
 using SpellSystem;
 using CustomEventSystem;
 using Skins;
-
+using System;
 
 namespace Ingame
 {
@@ -40,6 +40,7 @@ namespace Ingame
             Stats.OnGetHitEvent += spellerAnimator.SetDamagedAnim;
         }
 
+        // Establece un objetivo:
         public void SetTarget(Speller target)
         {
             spellWand.SetUp(this, target);
@@ -51,25 +52,24 @@ namespace Ingame
 
         #region Private Methods
 
-        // Usa un hechizo
-        protected virtual void UseSpell(SpellUnit spellUnit)
-        {            
-            Stats.CompleteTurn();
-        }
-
         // Devuelve el hechizo que va a lanzar el personaje (implementar en subclases)
         protected abstract SpellUnit GetActiveSpell();
+
 
         // Lanza el hechizo activo
         public virtual void LaunchSpell()
         {
             SpellUnit unit = GetActiveSpell();
             spellWand.LaunchSpell(unit);
+            spellerAnimator.SetUseSpellAnim();
         }
 
-        
-        
-       
+        public virtual void OnUseSpell()
+        {
+            stats.CompleteTurn();
+        }
+
+
         #endregion
     }
 }

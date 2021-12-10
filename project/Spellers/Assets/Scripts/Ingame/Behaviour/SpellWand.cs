@@ -19,12 +19,14 @@ namespace Ingame
         
         #region Public methods
 
+        // Inicializacion:
         public void SetUp(Speller user, Speller target)
         {
             this.user = user;
             this.target = target;
         }
 
+        // Lanzar hechizo:
         public void LaunchSpell(SpellUnit unit)
         {
             StartCoroutine(LaunchSpellCoroutine(unit));
@@ -34,17 +36,18 @@ namespace Ingame
 
         private IEnumerator LaunchSpellCoroutine(SpellUnit unit)
         {
-            Debug.Log("Spellwand: Using spell" + unit);
+            Debug.Log("Spellwand: Using spell" + unit.ToString());
             Spell spell = unit.spell;
             if(spell.offensive)
             {
+                Debug.Log("E");
                 var current_time = 0f;
                 var delta = 1f / LAUNCHTIME;                
                 var spellShot = Instantiate(spell_prefab);
                 var renderer = spellShot.GetComponent<SpriteRenderer>();
                 var tf = spellShot.transform;
-
                 renderer.sprite = spell.Sprite;
+                renderer.flipX = user.transform.position.x < target.transform.position.x;
                 tf.position = user.transform.position;
 
                 while(tf.position != target.transform.position)
@@ -61,7 +64,7 @@ namespace Ingame
                 yield return new WaitForSeconds(LAUNCHTIME);
             }
             ApplySpell(unit);
-            Events.OnPlayerUseSpell.Invoke();
+            user.OnUseSpell();
         }
 
 
@@ -75,10 +78,5 @@ namespace Ingame
                 effect.Apply(user.Stats, target.Stats, level);
             }
         }     
-
-        
-
-        
-
     } 
 }

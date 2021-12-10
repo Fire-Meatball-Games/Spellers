@@ -563,6 +563,42 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2308163985163327656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3972640805177665644}
+  m_Layer: 5
+  m_Name: Layout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3972640805177665644
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308163985163327656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4949586712888978771}
+  m_Father: {fileID: 1084646726020420610}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2554254503974056294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.825, y: 0.05}
   m_AnchorMax: {x: 0.975, y: 0.6}
-  m_AnchoredPosition: {x: 0, y: 0.00000029802322}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.00000059604645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6188535857787830658
@@ -1802,7 +1838,7 @@ RectTransform:
   - {fileID: 6477777277543821047}
   - {fileID: 6192309740285352629}
   - {fileID: 4949586713848730122}
-  m_Father: {fileID: 1084646726020420610}
+  m_Father: {fileID: 3972640805177665644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2061,7 +2097,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4949586712888978771}
+  - {fileID: 3972640805177665644}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2085,6 +2121,8 @@ MonoBehaviour:
   rectTransform: {fileID: 4949586712888978771}
   icon_image: {fileID: 5126276168550007523}
   healthSlider: {fileID: 1178492891991949600}
+  shieldImage: {fileID: 1963366883358827051}
+  shield_txt: {fileID: 5349144928123745307}
   attackStateDisplay: {fileID: 7772308241977325813}
   regenerationStateDisplay: {fileID: 2891429363515906842}
   cardsStateDisplay: {fileID: 7746537613923515309}

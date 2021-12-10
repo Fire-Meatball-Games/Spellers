@@ -15,21 +15,13 @@ namespace Ingame.UI
 
         [SerializeField] private TextMeshProUGUI textDisplay;
         
-        private int currentValue;
-
-
         public void UpdateState(int value)
         {
-            
+            icon_image.gameObject.SetActive(value != 0);
+            icon_image.sprite = value > 0 ? positive_icon : negative_icon;
+            textDisplay.text = value != 0? value.ToString() : "";
         }
-
-        private void SetTransition(int currentValue, int newValue)
-        {
-
-        }
-
-
-        
+      
 
     }
 }

@@ -46,7 +46,7 @@ namespace Ingame.UI
         {
             switch(type)
             {
-                case Board.GameType.spell: runestoneGame.Generate(); break;
+                case Board.GameType.spell: testGame.Generate(); break;
                 default: break;
             }
                         
@@ -71,6 +71,8 @@ namespace Ingame.UI
         {
             runestoneGame.AddSuccessListener(SuccessListener);
             runestoneGame.AddFailListener(FailListener);
+            testGame.AddSuccessListener(SuccessListener);
+            testGame.AddFailListener(FailListener);
         }
 
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   spellname: Sacrificium
   description: Resta un 50% de la vida actual a ambos jugadores, redondeado por arriba.
   icon: {fileID: 21300000, guid: fd59c81d44378304ea16d54b4a7ec243, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
   category: 3
   offensive: 1
   type: 0

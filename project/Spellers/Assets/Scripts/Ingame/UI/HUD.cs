@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using SpellSystem;
 using Tweening;
 using CustomEventSystem;
+using TMPro;
 
 namespace Ingame.UI
 {
@@ -15,6 +16,8 @@ namespace Ingame.UI
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private Image icon_image;
         [SerializeField] private Slider healthSlider;
+        [SerializeField] private Image shieldImage;
+        [SerializeField] private TextMeshProUGUI shield_txt;
         [SerializeField] private StateDisplay attackStateDisplay;
         [SerializeField] private StateDisplay regenerationStateDisplay;
         [SerializeField] private StateDisplay cardsStateDisplay;
@@ -27,6 +30,7 @@ namespace Ingame.UI
         public void SetSpeller(Speller speller)
         {
             icon_image.sprite = speller.Icon;
+            healthSlider.maxValue = Stats.MAX_HEALTH;
 
             Stats stats = speller.Stats;
             stats.OnChangeHealthEvent += OnHealthChangedCallback;
@@ -36,16 +40,26 @@ namespace Ingame.UI
             stats.OnChangeSlotLevelsEvent += OnCardsChangedCallback;
             stats.OnChangeOrderEvent += OnOrderChangedCallback;
             stats.OnChangeDifficultyEvent += OnTimeChangedCallback;
+
+            OnHealthChangedCallback(stats.Health);
+            OnShieldChangedCallback(stats.Shields);
+            OnAttackPowerChangedCallback(stats.AttackState.CurrentValue);
+            OnRegenerationChangedCallback(stats.RegenerationState.CurrentValue);
+            OnCardsChangedCallback(stats.CardsState.CurrentValue);
+            OnOrderChangedCallback(stats.OrderState.CurrentValue);
+            OnTimeChangedCallback(stats.TimeState.CurrentValue);
         }
 
         private void Awake() 
         {
             show_effects = new EffectBuilder(this)            
-            .AddEffect(new EnableEffect(rectTransform.gameObject, 0f, true));
+            .AddEffect(new EnableEffect(rectTransform.gameObject, 0f, true))
+            .AddEffect(new ScreenSlideEffect(rectTransform, Vector2.up * 0.5f, Vector2.zero, 1.2f, 0.2f));
             hide_effects = new EffectBuilder(this)            
-            .AddEffect(new EnableEffect(rectTransform.gameObject, 0.2f, false));
+            .AddEffect(new EnableEffect(rectTransform.gameObject, 0.2f, false))
+            .AddEffect(new ScreenSlideEffect(rectTransform, Vector3.zero, Vector2.up * 0.5f, 1f, 0.2f));
             
-            Hide();
+            HideInstant();
         }
 
         private void OnEnable() 
@@ -61,19 +75,19 @@ namespace Ingame.UI
         // Metodo lanzado cuando la vida del jugador cambia:
         private void OnHealthChangedCallback(int value)
         {
-            
+            healthSlider.value = value;
         }
 
         // Metodo lanzado cuando los escudos del jugador cambian:
         private void OnShieldChangedCallback(int value)
         {
-            
+            shield_txt.text = value.ToString();
         }
 
         // Metodo lanzado cuando el poder de ataque del jugador cambia:
-        private void OnAttackPowerChangedCallback(float value)
+        private void OnAttackPowerChangedCallback(int value)
         {
-            attackStateDisplay.UpdateState((int)value);
+            attackStateDisplay.UpdateState(value);
         }
 
         // Metodo lanzado cuando el poder de ataque del jugador cambia:
@@ -109,6 +123,8 @@ namespace Ingame.UI
         {
             hide_effects.ExecuteEffects();
         }
+
+        private void HideInstant() => rectTransform.gameObject.SetActive(false);
 
     }
 

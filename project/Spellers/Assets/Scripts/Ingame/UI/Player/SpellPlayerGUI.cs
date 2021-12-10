@@ -15,9 +15,12 @@ namespace Ingame.UI
         protected virtual void Init() 
         {
             showEffects = new EffectBuilder(this)
-            .AddEffect(new EnableEffect(layout.gameObject, 0, true));
+            .AddEffect(new EnableEffect(layout.gameObject, 0, true))
+            .AddEffect(new ScreenSlideEffect(layout, Vector2.right * 0.5f, Vector2.zero, 1.2f, 0.3f));
+
             hideEffects = new EffectBuilder(this)
-            .AddEffect(new EnableEffect(layout.gameObject, 0.2f, false));
+            .AddEffect(new EnableEffect(layout.gameObject, 0.2f, false))
+            .AddEffect(new ScreenSlideEffect(layout, Vector2.zero, Vector2.right * 0.5f, 1f, 0.2f));
         }
         
         public virtual void SetUp(SpellerPlayer player)

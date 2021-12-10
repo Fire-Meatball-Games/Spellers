@@ -2,6 +2,8 @@
 using UnityEngine;
 using SpellSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using Tweening;
 
 namespace Ingame.UI
 {
@@ -13,6 +15,13 @@ namespace Ingame.UI
         [SerializeField] private Sprite L1, L2, L3;
         [SerializeField] private Button select_button;
         [SerializeField] private Button info_button;
+        [SerializeField] private HoldButton holdButton;
+
+        private void Awake()
+        {
+            holdButton.OnHoldTime += () => Debug.Log("BBBBBBBBBBBBBB");
+
+        }
 
         public void SetSpellGUI(SpellUnit spellUnit)
         {
@@ -34,8 +43,9 @@ namespace Ingame.UI
 
         public void AddInfoButtonCallback(UnityEngine.Events.UnityAction action)
         {
-            select_button.onClick.AddListener(action);
+            Debug.Log("Display info");
+            info_button.onClick.AddListener(action);
+            holdButton.OnHoldTime += action.Invoke;
         }
-
     }
 }

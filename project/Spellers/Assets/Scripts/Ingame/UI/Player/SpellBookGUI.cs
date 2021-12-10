@@ -14,6 +14,7 @@ namespace Ingame.UI
         [SerializeField] private RectTransform spellSlotsContent;
         [SerializeField] private GameObject spellSlot_prefab;
         [SerializeField] private Button reload_button;
+        [SerializeField] private SpellInfoGUI infoGUI;
 
         #endregion
 
@@ -27,6 +28,7 @@ namespace Ingame.UI
         {
             base.Init();
             spellSlots = new List<SpellSlotGUI>();
+            infoGUI.HideInstant();
         }
 
         public override void SetUp(SpellerPlayer spellerPlayer)
@@ -115,9 +117,8 @@ namespace Ingame.UI
             spellSlot.SetSpellGUI(unit);
             spellSlot.AddSelectButtonCallback(() => SelectSpellListener(idx));
             spellSlot.AddSelectButtonCallback(Hide);
+            spellSlot.AddInfoButtonCallback(() => ShowSpellDetails(unit.spell));
             spellSlots.Insert(idx, spellSlot);
-            // TODO: 
-            //spellSlot.AddInfoButtonCallback(...);
         }
 
         private void RemoveSpellUnit()
@@ -149,12 +150,18 @@ namespace Ingame.UI
             player.SelectSpell(idx);
             Events.OnSelectSpellSlot.Invoke();
         }
+
+        private void ShowSpellDetails(Spell spell)
+        {
+            infoGUI.SetUp(spell);
+        }
+
+        public override void Hide()
+        {
+            base.Hide();
+            if(infoGUI.active)
+                infoGUI.Hide();
+        }
     }
-
-
-
-    
-
-    
 
 }

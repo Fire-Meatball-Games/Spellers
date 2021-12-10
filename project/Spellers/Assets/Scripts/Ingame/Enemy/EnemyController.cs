@@ -5,6 +5,7 @@ using SpellSystem;
 
 namespace Ingame
 {
+    [System.Serializable]
     public class EnemyController
     {
         public SpellDeck deck;

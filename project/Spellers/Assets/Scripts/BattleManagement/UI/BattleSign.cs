@@ -16,6 +16,7 @@ namespace BattleManagement.UI
         [SerializeField] private Image player_icon;
         [SerializeField] private Image enemy_icon;
         [SerializeField] private Button start_button;    
+        [SerializeField] private TextMeshProUGUI start_message_text;   
 
         public event Action OnPressStart = delegate{}; 
 
@@ -25,8 +26,8 @@ namespace BattleManagement.UI
         {   
             start_button.onClick.AddListener(StartButtonCallback);
             effects = new EffectBuilder(this)
-            .AddEffect(new ScreenSlideEffect(rectTransform, Vector3.zero, Vector3.up, 1.0f, 0.2f))
-            .AddEffect(new EnableEffect(rectTransform.gameObject, 0.2f, false));
+            .AddEffect(new ScreenSlideEffect(rectTransform, Vector3.zero, Vector3.up * 1.5f, 1.0f, 0.3f))
+            .AddEffect(new EnableEffect(rectTransform.gameObject, 0.3f, false));
         }
 
         public void SetUp(Sprite playerSprite, Sprite enemySprite)
@@ -40,6 +41,7 @@ namespace BattleManagement.UI
         {
             effects.ExecuteEffects();
             OnPressStart?.Invoke();
+            start_message_text.text = "";
         }
         
     }

@@ -9,7 +9,7 @@ namespace Ingame
     public class SpellerNPC : Speller
     {
         #region Private Fields
-        private EnemyController controller;
+        [SerializeField] private EnemyController controller;
         
         #endregion
 
@@ -32,12 +32,13 @@ namespace Ingame
         public override void Active()
         {
             LoadSpell();
-        }
+        } 
 
-        protected override void UseSpell(SpellSystem.SpellUnit spellUnit)
+        public override void OnUseSpell()
         {
-            base.UseSpell(spellUnit);
+            base.OnUseSpell();
             LoadSpell();
+            
         }
         #endregion
 
@@ -52,7 +53,7 @@ namespace Ingame
             float min_cd = controller.cooldown_average - controller.cooldown_deviation;
             float max_cd = controller.cooldown_average + controller.cooldown_deviation;
             float time = Random.Range(min_cd, max_cd);
-            int cd_level = Mathf.Clamp(Stats.Order + Stats.Difficulty, -3, 3);
+            int cd_level = Mathf.Clamp(Stats.OrderState.CurrentValue + Stats.TimeState.CurrentValue, -3, 3);
             IEnumerator corroutine = LoadSpellCorroutine(time * (1f - cd_level / 10f));
             StartCoroutine(corroutine);
         }

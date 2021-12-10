@@ -30,26 +30,26 @@ namespace Ingame
         private Sprite GetSpriteEffect(Effect effect)
         {
             Sprite s = null;
-            if(effect is HealingEffect h_effect)
-            {
-                s = h_effect.PointsBase > 0 ? heal : self_damage; 
-            }
-            else if(effect is ShieldEffect s_effect)
-            {
-                s = s_effect.PointsBase > 0 ? shield : brokenShield;
-            }
-            else if (effect is RegenerationEffect r_effect)
-            {
-                s = r_effect.PointsBase > 0 ? regen : poison;
-            }
-            else if (effect is AttackBuffEffect a_effect)
-            {
-                s = a_effect.PointsBase > 0 ? atkbuff : atkdebuff;
-            }
-            else if (effect is GameEffect g_effect)
-            {
-                s = g_effect.PointsBase > 0 ? castbuff : castDebuff;
-            }
+            // if(effect is HealingEffect h_effect)
+            // {
+            //     s = h_effect.PointsBase > 0 ? heal : self_damage; 
+            // }
+            // else if(effect is ShieldEffect s_effect)
+            // {
+            //     s = s_effect.PointsBase > 0 ? shield : brokenShield;
+            // }
+            // else if (effect is RegenerationEffect r_effect)
+            // {
+            //     s = r_effect.PointsBase > 0 ? regen : poison;
+            // }
+            // else if (effect is AttackBuffEffect a_effect)
+            // {
+            //     s = a_effect.PointsBase > 0 ? atkbuff : atkdebuff;
+            // }
+            // else if (effect is GameEffect g_effect)
+            // {
+            //     s = g_effect.PointsBase > 0 ? castbuff : castDebuff;
+            // }
             return s;
         }
 

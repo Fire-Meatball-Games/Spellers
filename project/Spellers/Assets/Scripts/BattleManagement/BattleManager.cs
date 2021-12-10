@@ -52,8 +52,8 @@ namespace BattleManagement
             Player settings = PlayerManagement.Player.instance;
             Player.Icon = settings.Icon;
             Player.SpellerName = settings.PlayerName;
-            Player.SetUp(settings.Deck);
-
+            Player.SetUp(settings.Deck);       
+            Player.Stats.OnDefeatEvent += Lose;
             player_HUD.SetSpeller(Player);
             Debug.Log("Jugador generado" + Player.ToString());
 
@@ -75,6 +75,7 @@ namespace BattleManagement
                 cooldown_deviation = settings.Cooldown_deviation
             };
             Enemy.SetUp(controller);
+            Enemy.Stats.OnDefeatEvent += Win;
             enemy_HUD.SetSpeller(Enemy);
             Debug.Log("Enemigo generado: " + Enemy.ToString());
         }
@@ -118,6 +119,16 @@ namespace BattleManagement
                 PlayerManagement.Player.instance = new Player();
                 PlayerManagement.Player.instance.Deck = default_deck;
             }
+        }
+
+        private void Win()
+        {
+            Debug.Log("Has ganado");
+        }
+
+        private void Lose()
+        {
+            Debug.Log("Has perdido");
         }
 
 

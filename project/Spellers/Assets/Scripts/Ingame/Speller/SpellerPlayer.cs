@@ -68,6 +68,12 @@ namespace Ingame
             board.GenerateSpellGame(spellUnit);            
         }
 
+        public override void OnUseSpell()
+        {
+            base.OnUseSpell();
+            Events.OnPlayerUseSpell.Invoke();
+        }
+
         #endregion
 
         #region Inherited Methods
@@ -75,12 +81,6 @@ namespace Ingame
         protected override SpellUnit GetActiveSpell()
         {
             return book.GetSelectedSpell();
-        }
-
-        protected override void UseSpell(SpellUnit spell)
-        {
-            Events.OnPlayerUseSpell.Invoke();
-            base.UseSpell(spell);
         }
 
         #endregion
