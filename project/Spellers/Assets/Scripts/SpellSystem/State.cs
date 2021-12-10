@@ -20,7 +20,7 @@ namespace SpellSystem
             this.minValue = minValue;
             this.maxValue = maxValue;
             this.initialValue = initialValue;
-            this.OnChangeValue = OnChangeValue;
+            this.OnChangeValue += OnChangeValue;
             this.currentValue = initialValue;
         }
 
@@ -32,6 +32,7 @@ namespace SpellSystem
                 int clampedValue = Mathf.Clamp(value, minValue, maxValue);
                 if(clampedValue != currentValue)
                 {
+                    Debug.Log("Estado modificado");
                     currentValue = clampedValue;
                     OnChangeValue?.Invoke(currentValue);
                 }
@@ -46,6 +47,7 @@ namespace SpellSystem
                 int adjustedValue = Mathf.Max(0, value);
                 if(turns != adjustedValue)
                 {
+                    Debug.Log(turns + " !!!!!===== " + adjustedValue);
                     turns = adjustedValue;
                     if(turns == 0)
                     {

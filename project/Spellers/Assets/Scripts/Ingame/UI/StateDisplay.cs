@@ -17,6 +17,7 @@ namespace Ingame.UI
         
         public void UpdateState(int value)
         {
+
             icon_image.gameObject.SetActive(value != 0);
             icon_image.sprite = value > 0 ? positive_icon : negative_icon;
             textDisplay.text = value != 0? value.ToString() : "";

@@ -63,8 +63,8 @@ namespace Ingame
             {
                 yield return new WaitForSeconds(LAUNCHTIME);
             }
-            ApplySpell(unit);
             user.OnUseSpell();
+            ApplySpell(unit);            
         }
 
 

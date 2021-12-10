@@ -62,10 +62,11 @@ namespace Ingame
             SpellUnit unit = GetActiveSpell();
             spellWand.LaunchSpell(unit);
             spellerAnimator.SetUseSpellAnim();
+            
         }
 
         public virtual void OnUseSpell()
-        {
+        { 
             stats.CompleteTurn();
         }
 

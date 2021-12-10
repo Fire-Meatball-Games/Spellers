@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9879c730a398b41b78e6df4e6e1209, type: 3}
   m_Name: 008
   m_EditorClassIdentifier: 
-  target: 1
+  target: 0
   type: 1
   PointsBase: -1
   Pointslevel: 0
-  TurnsBase: 0
-  Turnslevel: 2
+  TurnsBase: 2
+  Turnslevel: 1

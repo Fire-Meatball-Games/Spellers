@@ -81,12 +81,14 @@ namespace Ingame.UI
         // Metodo lanzado cuando los escudos del jugador cambian:
         private void OnShieldChangedCallback(int value)
         {
+            shieldImage.gameObject.SetActive(value != 0);
             shield_txt.text = value.ToString();
         }
 
         // Metodo lanzado cuando el poder de ataque del jugador cambia:
         private void OnAttackPowerChangedCallback(int value)
         {
+            Debug.Log("Ataque: " + value);
             attackStateDisplay.UpdateState(value);
         }
 

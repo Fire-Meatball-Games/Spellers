@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Lord Magulis
   icon: {fileID: 21300000, guid: ff3d16ccf7fd49540b55a78872ab5616, type: 3}
   skin: {fileID: 11400000, guid: e9f1d0530b926894abf0236d8a544653, type: 2}
   deck:
@@ -22,7 +22,6 @@ MonoBehaviour:
   cooldown_deviation: 0
   levelIndex: 1
   levelname: Nivel 1
-  thumbnail: {fileID: 21300000, guid: 9bc58f360f7712642b43f26f5d96d4a2, type: 3}
   playerDeck:
     spells: []
   initDialogue: {fileID: 11400000, guid: 15eb790a9dfbb8049a0dc8c2cee1e0a9, type: 2}

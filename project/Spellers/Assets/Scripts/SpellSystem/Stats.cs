@@ -57,12 +57,18 @@ namespace SpellSystem
         {
             health = MAX_HEALTH;
 
-            AttackState = new State(MIN_ATKPOWER, MAX_ATKPOWER, 0, OnChangeAttackEvent);
-            RegenerationState = new State(MIN_REGENERATION, MAX_REGENERATION, 0, OnChangeRegenerationEvent);
-            CardsState = new State(MIN_CARDS, MAX_CARDS, 0, OnChangeSlotLevelsEvent);
-            OrderState = new State(MIN_ORDER, MAX_ORDER, 0, OnChangeOrderEvent);
-            TimeState = new State(MIN_TIME, MAX_TIME, 0, OnChangeDifficultyEvent);
+            AttackState = new State(MIN_ATKPOWER, MAX_ATKPOWER, 0, OnChangeAttack);
+            RegenerationState = new State(MIN_REGENERATION, MAX_REGENERATION, 0, OnChangeRegeneration);
+            CardsState = new State(MIN_CARDS, MAX_CARDS, 0, OnChangeCards);
+            OrderState = new State(MIN_ORDER, MAX_ORDER, 0, OnChangeOrder);
+            TimeState = new State(MIN_TIME, MAX_TIME, 0, OnChangeTime);
         }
+
+        private void OnChangeAttack(int n) =>  OnChangeAttackEvent.Invoke(n);
+        private void OnChangeRegeneration(int n) =>  OnChangeRegenerationEvent.Invoke(n);
+        private void OnChangeCards(int n) =>  OnChangeSlotLevelsEvent.Invoke(n);
+        private void OnChangeOrder(int n) =>  OnChangeOrderEvent.Invoke(n);
+        private void OnChangeTime(int n) =>  OnChangeDifficultyEvent.Invoke(n);
 
         public int Health
         {
