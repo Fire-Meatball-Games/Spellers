@@ -12,7 +12,6 @@ namespace PlayerManagement
         public static readonly int NUM_DECKS = 5; 
 
         #region Private fields
-
         private string m_ID;
         private string m_playerName;
         private Sprite m_icon;

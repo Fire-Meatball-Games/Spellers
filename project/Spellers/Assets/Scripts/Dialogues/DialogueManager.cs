@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,18 +9,15 @@ namespace DialogueSystem
     {
         private Dialogue dialogue;
         private int currentLineIndex;
-
-        public delegate void DialogueDelegate();
-        public delegate void LoadDialogueLineDelegate(DialogueLine line);
-
-        public event DialogueDelegate StartDialogueEvent;
-        public event DialogueDelegate EndDialogueEvent;
-        public event LoadDialogueLineDelegate LoadDialogueLineEvent;
+        public event Action StartDialogueEvent = delegate{};
+        public event Action EndDialogueEvent = delegate{};
+        private event Action dialogueCallback = delegate{};
+        public event Action<DialogueLine> LoadDialogueLineEvent = delegate{};
 
 
-        public void StartDialogue(Dialogue dialogue)
+        public void StartDialogue(Dialogue dialogue, Action dialogueCallback = null)
         {
-            Time.timeScale = 0.0f;
+            this.dialogueCallback = dialogueCallback;
             this.dialogue = dialogue;
             currentLineIndex = 0;
             StartDialogueEvent?.Invoke();
@@ -40,8 +38,9 @@ namespace DialogueSystem
 
         public void EndDialogue()
         {
-            Time.timeScale = 1.0f;
             EndDialogueEvent?.Invoke();
+            dialogueCallback?.Invoke();
+            dialogueCallback = null;
             dialogue = null;
         }
     }

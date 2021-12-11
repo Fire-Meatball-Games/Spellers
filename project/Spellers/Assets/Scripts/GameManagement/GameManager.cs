@@ -12,7 +12,6 @@ namespace GameManagement
     {
         [SerializeField] private LoadingScreen loadingScreen;  
         private AsyncOperation m_loadSceneAsyncOperation; 
-
         private BaseGameSettings settings;
 
         private void Start() => LoadSceneAsync(SceneIndexes.TITLE_SCREEN);
