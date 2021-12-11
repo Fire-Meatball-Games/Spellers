@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 12.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "Vale, solo falta que veamos al Clan de la Pantera a groso modo y sepas c\xF3mo
-    funcionan. Aqu\xED vas a ver a Turk, es un prometedor atleta que tiene bastante
-    futuro en el duelo de varitas, adem\xE1s de usar muy bien los hechizos para fortalecerte.
-    Ten cuidado con \xE9l porque parece menos de lo que es y no suele hablar mucho."
+  text: "Vale, solo falta que veamos al Clan de la Salamandra y entiendas c\xF3mo
+    funcionan. Aqu\xED vas a ver a Turk, un prometedor atleta que tiene bastante
+    futuro en el duelo de varitas. Ten cuidado con \xE9l, porque parece menos de
+    lo que es y no suele hablar mucho."
   layout: 0

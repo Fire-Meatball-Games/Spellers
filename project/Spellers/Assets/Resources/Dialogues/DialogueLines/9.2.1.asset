@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: 9.2.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: Adelante, no te cortes, ve con todo que yo tampoco me voy a cortar.
+  text: "Adelante, no te cortes, ve con todo que yo tampoco me voy a contener. Pon
+    en pr\xE1ctica hechizos para mermar mis capacidades ofensivas como los que usa
+    Lacert."
   layout: 0

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 13.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "El d\xEDa clave ha llegado. Ya hemos pasado de grupos y ya solo falta la
-    clasificatoria. Sabes lo que tienes que hacer, hemos entrenado duro. \xA1Son
-    tuyos!"
+  text: "El d\xEDa clave ha llegado. Ya hemos pasado de grupos y solo falta la clasificatoria.
+    Sabes lo que tienes que hacer, hemos entrenado duro. \xA1Son tuyos!"
   layout: 0

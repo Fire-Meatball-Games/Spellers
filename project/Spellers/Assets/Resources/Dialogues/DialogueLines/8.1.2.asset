@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 8.1.2
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "-\tExisten dos formas de mantener estados en un duelo entre varitas: mejorarse
-    uno mismo o empeorar a tu rival. Conoces al dedillo lo que se sufre al recibir
-    uno de estos hechizos, pero hay que saber lanzarlos y estar preparado con los
-    empoderamientos de uno mismo. Pru\xE9balos conmigo para que aprendas mejor a
-    usarlos."
+  text: "Existen dos formas de modificar las capacidades de un mago en un duelo entre
+    varitas: mejorar la de uno mismo o empeorar la de tu rival. Conoces al dedillo
+    lo que se sufre al recibir uno de estos hechizos, pero hay que saber lanzarlos.
+    Primero prueba a mejorar tus capacidades en esta pr\xE1ctica y luego pasaremos
+    a probar hechizos m\xE1s peligrosos."
   layout: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10.1.4
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "Quiz\xE1s hab\xE9is empezado muy fuerte. Efectivamente el Clan de la Salamandra
+  text: "Quiz\xE1s hab\xE9is empezado muy fuerte. Efectivamente, el Clan de la Pantera
     es uno de los cuatro que existen. Ya sab\xE9is que tipo de cala\xF1a se mueve
-    ah\xED, pero es importante que sep\xE1is los otros que puede haber"
+    ah\xED, pero es importante que sep\xE1is como pelean los otros."
   layout: 0

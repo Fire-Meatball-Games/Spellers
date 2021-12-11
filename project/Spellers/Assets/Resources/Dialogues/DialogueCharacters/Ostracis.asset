@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238f1dcf3260bd64383a4da28c540fac, type: 3}
   m_Name: Ostracis
   m_EditorClassIdentifier: 
-  characterName: Magreb
+  characterName: Ostracis
   sprite: {fileID: 21300000, guid: a52639d8feafa114c9adb55fe2d7ce87, type: 3}

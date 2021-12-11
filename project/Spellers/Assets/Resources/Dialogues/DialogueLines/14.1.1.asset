@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
   text: "Muy bien, lo est\xE1s haciendo genial. El siguiente es el l\xEDder del Clan
-    de la Pantera. Ya le conoces. S\xED se trata de Turk. En su momento no te lo
-    quise decir, pero me hizo el favor de servir como ejemplo aquel d\xEDa. Hoy te
-    enfrentar\xE1s de verdad a \xE9l, as\xED que \xE1ndate con cuidado que va completamente
-    en serio."
+    de la Pantera. Se trata de Turk. En su momento no te lo quise decir, pero me
+    hizo el favor de servir como ejemplo aquel d\xEDa. Hoy te enfrentar\xE1s de verdad
+    a \xE9l, as\xED que \xE1ndate con cuidado que va completamente en serio."
   layout: 0

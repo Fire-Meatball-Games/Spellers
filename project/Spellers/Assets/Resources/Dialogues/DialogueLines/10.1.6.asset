@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10.1.6
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "Tras ellos viene el Clan de la Pantera, aqu\xED residen los grandes deportistas
-    que usan la magia para potenciarse y mejorar su estado f\xEDsico. Muy conocidos
-    por su forma de potenciarse. No obstante, tenemos de todo tipo de individuos."
+  text: "Tras ellos viene el Clan de la Salamandra, aqu\xED residen los grandes deportistas
+    que usan la magia para potenciarse y mejorar su estado f\xEDsico. No obstante,
+    tenemos de todo tipo de individuos."
   layout: 0

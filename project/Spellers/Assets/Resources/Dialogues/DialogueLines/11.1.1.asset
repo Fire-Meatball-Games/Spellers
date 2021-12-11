@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 11.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "Vale, con el Clan del Rat\xF3n lo has hecho muy bien, pero vamos con la
-    buena defensa. Ahora nos toca venir a la universidad y hacerlo a escondidas,
-    pero tenemos que visitar a Vivian. Es una alumna muy aventajada del Clan del
-    B\xFAho y seguramente nos ayuda a que comprendas su modo de lucha."
+  text: "Vale, con el Clan del Rat\xF3n lo has hecho muy bien, pero vamos contra
+    una buena defensa. Ahora nos toca venir a la universidad y hacerlo a escondidas.
+    Tenemos que visitar a Vivian. Es una alumna muy aventajada del Clan del B\xFAho
+    y seguramente te ayude a que comprendas su modo de lucha."
   layout: 0

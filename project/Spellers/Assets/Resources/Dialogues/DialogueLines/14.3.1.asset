@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: 14.3.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 906c5378991de744d9776793fa7082f6, type: 2}
-  text: "Ahora solo te queda un paso m\xE1s y los dos sabemos de qui\xE9n se trata.
-    Acaba con \xE9l, te lo mereces."
+  text: "Bueno, pues hasta aqu\xED he llegado. No est\xE1 mal tu manera de combatir."
   layout: 0

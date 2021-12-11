@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 3.2.2
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 382b397e4bfc6be45af851a43007fd6e, type: 2}
-  text: "Para probar tu potencial, vamos a complicarte un poco las cosas, bravuc\xF3n."
+  text: "Para probar tu potencial, vamos a complicarte un poco las cosas, bravuc\xF3n.
+    A ver si tan bueno eres si voy en serio y uso escudos m\xE1gicos."
   layout: 0

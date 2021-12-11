@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 9.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "Teniendo en cuenta ya todo lo que sabes, es el momento de que me demuestres
-    que vamos a ir a por todas en el pr\xF3ximo torneo y acabar\xE1s con Lacert."
+  text: "Teniendo en cuenta ya todo lo que sabes, es el momento de que me lo demuestres.
+    Vamos a ir a por todas en el pr\xF3ximo torneo y acabar\xE1s con Lacert."
   layout: 0

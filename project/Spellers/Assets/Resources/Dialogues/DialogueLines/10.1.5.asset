@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
   text: "En primer lugar, el Clan del B\xFAho, de los m\xE1s sabios y ben\xE9volos
-    entre los clanes. Destacan mucho por su magia defensiva, ya que controlan hechizos
-    de lo m\xE1s antiguos."
+    entre los clanes. Destacan mucho por su magia defensiva, ya que controlan los
+    hechizos m\xE1s antiguos."
   layout: 0

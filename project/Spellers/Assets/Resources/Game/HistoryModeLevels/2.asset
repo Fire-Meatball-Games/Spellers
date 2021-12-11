@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
-  skin: {fileID: 0}
+  enemyName: Nigel
+  icon: {fileID: 21300000, guid: 1116ced1547c8dc49972d8cef889a8e0, type: 3}
+  skin: {fileID: 11400000, guid: fca1b7004d3696140aa6b927d756ad69, type: 2}
   deck:
     spells: []
   maxSpellLvl: 1
@@ -24,5 +24,5 @@ MonoBehaviour:
   levelname: Nivel 2
   playerDeck:
     spells: []
-  initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+  initDialogue: {fileID: 11400000, guid: 14966820c85feb344a60f79ebdd7ab46, type: 2}
+  endDialogue: {fileID: 11400000, guid: 8f41607d619fc38428a090442e8b9aa8, type: 2}

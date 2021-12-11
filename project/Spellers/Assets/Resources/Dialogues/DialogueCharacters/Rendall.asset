@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238f1dcf3260bd64383a4da28c540fac, type: 3}
   m_Name: Rendall
   m_EditorClassIdentifier: 
-  characterName: Magreb
+  characterName: Rendall
   sprite: {fileID: 21300000, guid: 88aba15b3ff6eeb46b1fcb3b32d35526, type: 3}

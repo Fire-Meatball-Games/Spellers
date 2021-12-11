@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238f1dcf3260bd64383a4da28c540fac, type: 3}
   m_Name: Vivian
   m_EditorClassIdentifier: 
-  characterName: Zachary
+  characterName: Vivian
   sprite: {fileID: 21300000, guid: fc9a8ebae88e2f74983a3d1536502e2c, type: 3}
