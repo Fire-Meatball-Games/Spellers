@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: "016 - Escudo + Da\xF1o"
   m_EditorClassIdentifier: 
-  id: 0
+  id: 6
   spellname: Spicula
   description: "Resta un 4/6/8% de vida 2 veces al rival y a\xF1ade 1 escudo. Cada
     golpe cuenta como un ataque completo, eliminando escudos."

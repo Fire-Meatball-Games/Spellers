@@ -16,13 +16,15 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ff3d16ccf7fd49540b55a78872ab5616, type: 3}
   skin: {fileID: 11400000, guid: e9f1d0530b926894abf0236d8a544653, type: 2}
   deck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 1ebc5b6c26fe587408fd4cd38be22b2b, type: 2}
   maxSpellLvl: 1
   cooldown_average: 10000000
   cooldown_deviation: 0
   levelIndex: 1
   levelname: Nivel 1
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
   initDialogue: {fileID: 11400000, guid: 15eb790a9dfbb8049a0dc8c2cee1e0a9, type: 2}
   endDialogue: {fileID: 11400000, guid: 6238342afb7e31c4a9b2517bb21f2eaa, type: 2}

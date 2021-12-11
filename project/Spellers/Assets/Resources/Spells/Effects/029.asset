@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 029
   m_EditorClassIdentifier: 
   target: 0
-  DamagePerShield: 6
+  DamagePerShield: 7

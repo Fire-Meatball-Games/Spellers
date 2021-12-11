@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 013 - Debil espejo
   m_EditorClassIdentifier: 
-  id: 0
+  id: 25
   spellname: Hallucinatio
   description: "Las letras de los siguientes 1/2/3 hechizos del rival aparecer\xE1n
     invertidas, a modo de espejo."

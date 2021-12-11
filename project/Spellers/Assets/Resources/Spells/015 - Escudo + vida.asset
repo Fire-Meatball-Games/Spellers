@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 015 - Escudo + vida
   m_EditorClassIdentifier: 
-  id: 0
+  id: 12
   spellname: Defensus turtur
   description: "A\xF1ade 1 escudo y restaura un 8/11/14% de vida al jugador."
   icon: {fileID: 21300000, guid: 8c6e801713f16704db70ab2926bd55ec, type: 3}

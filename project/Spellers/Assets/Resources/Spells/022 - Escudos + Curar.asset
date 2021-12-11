@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 022 - Escudos + Curar
   m_EditorClassIdentifier: 
-  id: 0
+  id: 14
   spellname: Confractus
   description: "A\xF1ade 1/2/3 escudos y restaura un 8% de vida al jugador."
   icon: {fileID: 21300000, guid: df8521d4f34ba1546932671f0048d7df, type: 3}
