@@ -18,7 +18,6 @@ namespace Skins
             hat,
             hair,
             face,
-            eyes,
             nose,
             mouth,
             coat,

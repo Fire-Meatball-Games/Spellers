@@ -14,15 +14,6 @@ namespace Ingame
         #endregion
 
         #region Initialization
-        private void OnEnable()
-        {
-            Events.OnBattleBegins.AddListener(Active);
-        }
-
-        private void OnDisable()
-        {
-            Events.OnBattleBegins.RemoveListener(Active);
-        }
 
         public void SetUp(EnemyController controller)
         {

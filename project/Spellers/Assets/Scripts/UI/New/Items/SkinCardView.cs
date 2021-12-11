@@ -47,10 +47,6 @@ namespace UIManagement
             use_txt.text = STR_USE;
         }
 
-        public void SetUp()
-        {
-
-        }
     }
 
 }

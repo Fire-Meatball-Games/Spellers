@@ -12,3 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b668ea66e39e4796df1989b570495, type: 3}
   m_Name: Lord Magulis
   m_EditorClassIdentifier: 
+  face: {fileID: 11400000, guid: 1eb556e6849247f44b1d786a66317cc9, type: 2}
+  hair: {fileID: 11400000, guid: 94c4375a249ce464e8a57aa6e73e4b2b, type: 2}
+  hat: {fileID: 11400000, guid: 84efa1a80674d904c802ee73c1b2c462, type: 2}
+  nose: {fileID: 11400000, guid: cf158387328ff464392beedcb7c07add, type: 2}
+  mouth: {fileID: 11400000, guid: ffe965a97b3bd0e41ae17df0e15dfd93, type: 2}
+  coat: {fileID: 11400000, guid: c6085a7349a23b24486b2618204674fb, type: 2}
+  eyes: {fileID: 11400000, guid: 5d88e3f2228ff434893ed31387824838, type: 2}
+  bodyPart: {fileID: 11400000, guid: 50107c0a74bcb5d4aa037f51fcb0a52a, type: 2}

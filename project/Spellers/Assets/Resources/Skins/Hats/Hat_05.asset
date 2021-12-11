@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0854f754bc7c1d141bb51cb3a2a89b0b, type: 3}
+  m_Name: Hat_05
+  m_EditorClassIdentifier: 
+  thumbnail: {fileID: 1233176121317940945, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
+  id: 5
+  typePart: 0
+  spriteSkin: {fileID: 1233176121317940945, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}

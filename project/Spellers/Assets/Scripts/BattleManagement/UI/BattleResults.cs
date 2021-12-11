@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Tweening;
+using System;
 
 namespace BattleManagement.UI
 {
@@ -16,10 +17,13 @@ namespace BattleManagement.UI
         [SerializeField] private List<Image> stars;
         [SerializeField] private TextMeshProUGUI text_details;
         [SerializeField] private Button exit_button;
+
+        public event Action OnExitBattle = delegate{};
         
         private EffectBuilder showEffects;
         private void Awake() 
         {
+            exit_button.onClick.AddListener(ExitBattle);
             showEffects = new EffectBuilder(this)
             .AddEffect(new ScreenSlideEffect(layout, Vector3.up * 1.2f, Vector3.zero,  1.1f, 0.2f))
             .AddEffect(new EnableEffect(layout.gameObject, 0f, true));
@@ -66,6 +70,11 @@ namespace BattleManagement.UI
 
             exit_button.gameObject.SetActive(true);
         }
-    }
+
+        private void ExitBattle()
+        {
+            OnExitBattle?.Invoke();
+        }
+    } 
 
 }

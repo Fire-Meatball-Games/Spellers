@@ -20,6 +20,7 @@ namespace DialogueSystem
         private EffectBuilder showEffects, hideEffects;
 
         private bool coroutineRunning;
+        private string currentLine;
 
         public void Awake()
         {            
@@ -55,6 +56,7 @@ namespace DialogueSystem
             if(coroutineRunning)
             {
                 StopAllCoroutines();
+                dialogue_text.text = currentLine;
                 coroutineRunning = false;
             }
             else
@@ -62,7 +64,6 @@ namespace DialogueSystem
                 dialogueManager.LoadNextLine();
             }
         }
-
 
         private void StartDialogueLine(DialogueLine line)
         {
@@ -73,6 +74,7 @@ namespace DialogueSystem
 
         private IEnumerator ShowTextCorroutine(string line)
         {
+            currentLine = line;
             coroutineRunning = true;
             int index = 0;
             float time = 0;

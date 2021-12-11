@@ -840,7 +840,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1d207571b181a48a1c54bd902811b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon_default: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_ID: 0
+  m_playerName: Player
+  m_icon: {fileID: 21300000, guid: 4380491b11f288947a5bc14987d6c0d6, type: 3}
+  m_skin: {fileID: 11400000, guid: 8a3f77c9afe4e314eba698661bde80a3, type: 2}
+  coins: 0
+  points: 0
+  lastLevelUnlocked: 0
+  m_deck:
+    spells: []
 --- !u!1 &2027351453
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,8 +17,8 @@ namespace BattleManagement.UI
 
         public void SetUp()
         {
-            Sprite playerIcon = battleManager.Player.Icon;
-            Sprite enemyIcon = battleManager.Enemy.Icon;            
+            Sprite playerIcon = battleManager.player.Icon;
+            Sprite enemyIcon = battleManager.enemy.Icon;            
             battleSign.SetUp(playerIcon, enemyIcon);
         }
 
@@ -26,7 +26,8 @@ namespace BattleManagement.UI
         {        
             battleManager.OnBattleEnds += ShowResults;
             battleSign.OnPressStart += countDown.StartCountDown;
-            countDown.OnEndCountDown += battleManager.StartBattle;           
+            countDown.OnEndCountDown += battleManager.StartBattle;
+            results.OnExitBattle += battleManager.ExitBattle;         
         }
 
         private void OnEnable() 

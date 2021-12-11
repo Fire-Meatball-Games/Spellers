@@ -19490,8 +19490,8 @@ ScriptedImporter:
     uvTransform: {x: -802, y: 8637}
   - name: hair_01
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.44862935, y: 0.5606969}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

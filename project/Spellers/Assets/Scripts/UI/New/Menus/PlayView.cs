@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using GameManagement;
 
 namespace UIManagement
 {
@@ -18,9 +19,15 @@ namespace UIManagement
 
         public override void Init()
         {
+            historyMode_btn.onClick.AddListener(LoadHistoryMode);
             quickGame_btn.onClick.AddListener(quickGameView.Show);           
         }
 
+        private void LoadHistoryMode()
+        {
+            GameManager.instance.UnloadScene(SceneIndexes.MAIN_MENU);
+            GameManager.instance.LoadSceneAsync(SceneIndexes.LEVEL_MAP);
+        }
 
 
 

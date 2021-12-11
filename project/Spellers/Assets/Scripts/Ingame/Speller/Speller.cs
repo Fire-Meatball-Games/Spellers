@@ -12,7 +12,7 @@ namespace Ingame
     {
         #region Inspector Fields
         [SerializeField] protected SpellerAnimator spellerAnimator;
-        [SerializeField] protected SkinDrawer skinDrawer;
+        [SerializeField] public SkinDrawer skinDrawer;
         [SerializeField] protected SpellWand spellWand;
         [SerializeField] protected SpellEffectGenerator spellEffectGenerator;
 
