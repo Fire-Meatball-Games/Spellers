@@ -40,7 +40,6 @@ namespace Ingame
             Spell spell = unit.spell;
             if(spell.offensive)
             {
-                Debug.Log("E");
                 var current_time = 0f;
                 var delta = 1f / LAUNCHTIME;                
                 var spellShot = Instantiate(spell_prefab);

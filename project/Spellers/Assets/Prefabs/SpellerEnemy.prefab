@@ -52,6 +52,12 @@ MonoBehaviour:
   skinDrawer: {fileID: 1161877879290599639}
   spellWand: {fileID: 4298165527342368156}
   spellEffectGenerator: {fileID: 4845569463703612836}
+  controller:
+    deck:
+      spells: []
+    max_spell_lvl: 0
+    cooldown_average: 0
+    cooldown_deviation: 0
 --- !u!114 &674058629783621484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,21 +171,25 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 0.30750012
       objectReference: {fileID: 0}
+    - target: {fileID: 431180649509661888, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8759417066555527104, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
     - target: {fileID: 620817622863553309, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 1.211072
+      value: 1.2969756
       objectReference: {fileID: 0}
     - target: {fileID: 620817622863553309, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 3.6158369
+      value: 3.6856208
       objectReference: {fileID: 0}
     - target: {fileID: 620817622863553309, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 6.820094
+      value: 6.8461523
       objectReference: {fileID: 0}
     - target: {fileID: 620817622863553309, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 5.2602944
+      value: 5.195837
       objectReference: {fileID: 0}
     - target: {fileID: 640142694398672299, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_LocalRotation.w
@@ -240,6 +250,10 @@ PrefabInstance:
     - target: {fileID: 1753635131529356872, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_LocalPosition.y
       value: 7.65635
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854266857015739766, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
+      propertyPath: m_labelHash
+      value: 1.3444003e-37
       objectReference: {fileID: 0}
     - target: {fileID: 1876791482648435413, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -305,6 +319,14 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 5.8929873
       objectReference: {fileID: 0}
+    - target: {fileID: 4101070418310141320, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
+      propertyPath: m_labelHash
+      value: -0.00000047545655
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369528367977488423, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2456500361576435827, guid: 467cfcb992b0e3844b6a05b8329112e0, type: 3}
     - target: {fileID: 4417035626868897731, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00048090518
@@ -347,19 +369,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371611235419521632, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 1.4046936
+      value: 1.083108
       objectReference: {fileID: 0}
     - target: {fileID: 5371611235419521632, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.31212854
+      value: 0.34691906
       objectReference: {fileID: 0}
     - target: {fileID: 5371611235419521632, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 8.398457
+      value: 8.745167
       objectReference: {fileID: 0}
     - target: {fileID: 5371611235419521632, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 6.3245373
+      value: 6.072425
       objectReference: {fileID: 0}
     - target: {fileID: 5787776752966334805, guid: bf674abd94b23d14d9650a39f7b1c912, type: 3}
       propertyPath: m_Bounds.m_Center.x

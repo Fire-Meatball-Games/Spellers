@@ -53,7 +53,21 @@ namespace Skins
 
         public void UpdateSkin(Skin skin)
         {
-            SwapSprite(hat_resolver, skin.Hat.SpriteSkin);
+            if(skin == null) return;
+            if(skin.Hat != null) SwapSprite(hat_resolver, skin.Hat.SpriteSkin); else SwapSprite(hat_resolver, null);
+            if(skin.Hair != null) SwapSprite(hair_resolver, skin.Hair.SpriteSkin); else SwapSprite(hair_resolver, null);
+            if(skin.Face != null) SwapSprite(face_resolver, skin.Face.SpriteSkin); else SwapSprite(face_resolver, null);
+            if(skin.Eyes != null) SwapSprite(right_eye_resolver, skin.Eyes.RightEye); else SwapSprite(right_eye_resolver, null);
+            if(skin.Eyes != null) SwapSprite(left_eye_resolver, skin.Eyes.LeftEye); else SwapSprite(left_eye_resolver, null);
+            if(skin.Nose != null) SwapSprite(nose_resolver, skin.Nose.SpriteSkin); else SwapSprite(nose_resolver, null);
+            if(skin.Mouth != null) SwapSprite(mouth_resolver, skin.Mouth.SpriteSkin); else SwapSprite(mouth_resolver, null);
+            if(skin.Coat != null) SwapSprite(coat_resolver, skin.Coat.SpriteSkin); else SwapSprite(coat_resolver, null);
+            if(skin.Body != null) SwapSprite(body_resolver, skin.Body.BodySkin); else SwapSprite(body_resolver, null);
+            if(skin.Body != null) SwapSprite(la_resolver, skin.Body.LeftArmSkin); else SwapSprite(la_resolver, null);
+            if(skin.Body != null) SwapSprite(ra_resolver, skin.Body.RightArmSkin); else SwapSprite(ra_resolver, null);
+            if(skin.Body != null) SwapSprite(ll_resolver, skin.Body.LeftLegSkin); else SwapSprite(ll_resolver, null);
+            if(skin.Body != null) SwapSprite(rl_resolver, skin.Body.RightLegSkin); else SwapSprite(rl_resolver, null);
+
         }
     }
 }

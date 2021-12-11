@@ -17,12 +17,6 @@ namespace Ingame.UI
         [SerializeField] private Button info_button;
         [SerializeField] private HoldButton holdButton;
 
-        private void Awake()
-        {
-            holdButton.OnHoldTime += () => Debug.Log("BBBBBBBBBBBBBB");
-
-        }
-
         public void SetSpellGUI(SpellUnit spellUnit)
         {
             spell_name_text.text = spellUnit.spell.Name;

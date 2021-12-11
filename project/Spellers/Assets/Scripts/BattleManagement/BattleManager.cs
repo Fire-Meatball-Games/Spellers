@@ -10,6 +10,7 @@ using CustomEventSystem;
 using GameManagement;
 using Levels;
 using SpellSystem;
+using DialogueSystem;
 
 namespace BattleManagement
 {
@@ -21,6 +22,7 @@ namespace BattleManagement
         [SerializeField] private HUD player_HUD;
         [SerializeField] private HUD enemy_HUD;
         [SerializeField] private SpellTableGUI game_GUI;
+        [SerializeField] private DialogueManager dialogueManager;
 
         [SerializeField] private BaseGameSettings default_settings;
         [SerializeField] private SpellDeck default_deck;
@@ -29,70 +31,114 @@ namespace BattleManagement
 
         #endregion
 
-        #region Private fields
-        [HideInInspector] public SpellerPlayer Player;
-        [HideInInspector] public SpellerNPC Enemy;
+        #region Fields
+        [HideInInspector] public SpellerPlayer player;
+        [HideInInspector] public SpellerNPC enemy;
+        private BaseGameSettings gameSettings;
 
         #endregion
 
         private void Start() 
         {
+            SetUpBattleSettings();
             SetUpPlayer();
             SetUpEnemy();  
-            Player.SetTarget(Enemy);
-            Enemy.SetTarget(Player); 
+            player.SetTarget(enemy);
+            enemy.SetTarget(player); 
                     
             Events.OnBattleReady.Invoke();
             Debug.Log("Batalla lista");
+        }
+
+        // Configura la partida
+        private void SetUpBattleSettings()
+        {
+            gameSettings = GameManager.instance.GetSettings(); 
         }
 
         // Configurar el jugador a partir de los datos de Player:
         private void SetUpPlayer()
         {            
             SetUpPlayerSettings();
-            Player = spawner.GeneratePlayer();
-            Player settings = PlayerManagement.Player.instance;
-            Player.Icon = settings.Icon;
-            Player.SpellerName = settings.PlayerName;
-            Player.SetUp(settings.Deck);       
-            Player.Stats.OnDefeatEvent += Lose;
-            player_HUD.SetSpeller(Player);
-            Debug.Log("Jugador generado" + Player.ToString());
 
-            game_GUI.SetUp(Player);            
+            // Generar jugador:
+            player = spawner.GeneratePlayer();
+
+            // Configurar icono y nombre:
+            Player settings = PlayerManagement.Player.instance;
+            player.Icon = settings.Icon;
+            player.SpellerName = settings.PlayerName;
+
+            // Configurar mazo del jugador:
+            if(gameSettings is LevelGameSettings levelGameSettings)
+            {
+                player.SetUp(levelGameSettings.PlayerDeck);
+            }
+            else if(gameSettings is QuickGameSettings quickGameSettings)
+            {
+                player.SetUp(settings.Deck);   
+                player.skinDrawer.UpdateSkin(settings.Skin);
+            }
+
+            // Configurar eventos:    
+            player.Stats.OnDefeatEvent += Lose;
+            player_HUD.SetSpeller(player);
+
+            // Configurar interfaz de juego:
+            game_GUI.SetUp(player);            
         }
 
         // Configurar el enemigo a partir de los datos de GameManager:
         private void SetUpEnemy()
         {
             SetUpGameSettings();
-            Enemy = spawner.GenerateEnemy();
-            BaseGameSettings settings = GameManager.instance.GetSettings(); 
-            Enemy.Icon = settings.Icon;
-            Enemy.SpellerName = settings.EnemyName;
+
+            // Generar enemigo:
+            enemy = spawner.GenerateEnemy();
+
+            // Configurar icono y nombre:
+            gameSettings = GameManager.instance.GetSettings(); 
+            enemy.Icon = gameSettings.Icon;
+            enemy.SpellerName = gameSettings.EnemyName;
+
+            // Configurar mazo y estadisticas del enemigo:
             EnemyController controller = new EnemyController{
-                deck = settings.Deck,
-                max_spell_lvl = settings.MaxSpellLvl,
-                cooldown_average = settings.Cooldown_average,
-                cooldown_deviation = settings.Cooldown_deviation
+                deck = gameSettings.Deck,
+                max_spell_lvl = gameSettings.MaxSpellLvl,
+                cooldown_average = gameSettings.Cooldown_average,
+                cooldown_deviation = gameSettings.Cooldown_deviation
             };
-            Enemy.SetUp(controller);
-            Enemy.Stats.OnDefeatEvent += Win;
-            enemy_HUD.SetSpeller(Enemy);
-            Debug.Log("Enemigo generado: " + Enemy.ToString());
+            enemy.SetUp(controller);
+            enemy.skinDrawer.UpdateSkin(gameSettings.Skin);
+
+            // Configurar eventos
+            enemy.Stats.OnDefeatEvent += Win;
+            enemy_HUD.SetSpeller(enemy);
         }
 
         // Comenzar la batalla:
         public void StartBattle()
         {
+            if(gameSettings is LevelGameSettings levelGameSettings)
+            {
+                dialogueManager.StartDialogue(levelGameSettings.InitDialogue, EnableBattle);
+            }
+            else
+            {
+                EnableBattle();
+            }
+        }
+
+        private void EnableBattle()
+        {
             Events.OnBattleBegins.Invoke();
-            Player.Active();
-            Enemy.Active();
+            player.Active();
+            enemy.Active();
             game_GUI.Active();
             Debug.Log("batalla comenzada");
         }
 
-
+        // Genera una configuracion de partida por defecto si no existe:
         private void SetUpGameSettings()
         {
             if(GameManager.instance == null)
@@ -101,6 +147,8 @@ namespace BattleManagement
                 GameManager.instance.SetSettings(default_settings);
             }
         }
+
+        // Genera una configuracion del jugador por defecto si no existe:
 
         private void SetUpPlayerSettings()
         {
@@ -111,27 +159,56 @@ namespace BattleManagement
             }
         }
 
+        // Victoria:
         private void Win()
         {
-            Debug.Log("Has ganado");
-            OnBattleEnds?.Invoke(true);
-            EndBattle();
+            EndBattle(true);
         }
 
+        // Derrota:
         private void Lose()
-        {
-            Debug.Log("Has perdido");
-            OnBattleEnds?.Invoke(false);
-            EndBattle();
+        {            
+            EndBattle(false);
         }
 
-        private void EndBattle()
+        // 
+        private void EndBattle(bool win)
         {
-            Destroy(Player.gameObject);
-            Destroy(Enemy.gameObject);
+            if(gameSettings is LevelGameSettings levelGameSettings)
+            {
+                dialogueManager.StartDialogue(levelGameSettings.EndDialogue, () => DisableBattle(win));
+                Debug.Log(levelGameSettings.LevelIndex + "/" +  Player.instance.LastLevelUnlocked);
+                if(levelGameSettings.LevelIndex == Player.instance.LastLevelUnlocked + 1)
+                {
+                    Player.instance.LastLevelUnlocked++;
+                }
+            }
+            else
+            {
+                DisableBattle(win);
+            }
+            
         }
 
+        private void DisableBattle(bool win)
+        {
+            OnBattleEnds?.Invoke(win);
+            Destroy(player.gameObject);
+            Destroy(enemy.gameObject);
+        }
 
+        public void ExitBattle()
+        {
+            GameManager.instance.UnloadScene(SceneIndexes.GAME);
+            if(gameSettings is LevelGameSettings)
+            {
+                GameManager.instance.LoadSceneAsync(SceneIndexes.LEVEL_MAP);
+            }
+            else
+            {
+                GameManager.instance.LoadSceneAsync(SceneIndexes.MAIN_MENU);
+            }
+        }
     }
 
 }

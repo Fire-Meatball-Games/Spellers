@@ -12,13 +12,11 @@ namespace Tweening
         public float holdTime;
         public void OnPointerDown(PointerEventData eventData)
         {
-            Debug.Log("Down");
             StartCoroutine(HoldCorroutine());
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            Debug.Log("Up");
             StopCoroutine(HoldCorroutine());
         }
 

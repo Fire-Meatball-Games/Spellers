@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Skins;
 using System.Linq;
+using CustomEventSystem;
 
 namespace UIManagement
 {
@@ -28,12 +29,15 @@ namespace UIManagement
             face_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.face));
             hair_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.hair));
             hat_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.hat));
-            eyes_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.eyes));
+            eyes_btn.onClick.AddListener(()=>SetCardEyesSection());
             nose_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.nose));
             mouth_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.mouth));
             coat_btn.onClick.AddListener(()=>SetCardSection(BasicSkinPart.TypePart.coat));
             body_btn.onClick.AddListener(()=>SetCardSection());
             SetCardSection(BasicSkinPart.TypePart.face);
+
+            Events.OnModifyPlayerSkin.Invoke();
+
         }
 
         private void AddCardSection(string title, List<SkinPart> skins)
@@ -84,6 +88,19 @@ namespace UIManagement
             }
             List<SkinPart> skins = CompoundSkinPart.GetAllSkinParts().Cast<SkinPart>().ToList();
             AddCardSection("Trajes", skins);
+        }
+
+        private void SetCardEyesSection()
+        {
+            if(section != null)
+            {
+                section.Clear();
+                CardSection oldsection = section;
+                Destroy(oldsection.gameObject);
+                section = null;
+            }
+            List<SkinPart> skins = DoubleSkinPart.GetAllSkinParts().Cast<SkinPart>().ToList();
+            AddCardSection("Ojos", skins);
         }
 
 
