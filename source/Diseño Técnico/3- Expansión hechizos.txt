@@ -1,3 +1,5 @@
+---------- HECHIZOS ----------
+
 Cartas ofensivas (9):
 	Imperio: resta un 11/14/17% de vida al rival. (*)
 	Vastare: resta un 17/20/23% de vida al rival. (**)
@@ -7,14 +9,14 @@ Cartas ofensivas (9):
 	Spicula: resta un 4/6/8% de vida 2 veces al rival y añade 1 escudo. Cada golpe cuenta como un ataque completo, eliminando escudos. (*)
 	Igneus crépitus: elimina los escudos de ambos jugadores y resta un 11% de vida al rival. (***)
 	Sacrificium: resta un 50% de la vida actual a ambos jugadores, redondeado por arriba. (***)
-	(*) Impetu: inflige daño al rival en función de la cantidad de escudos del usuario. (***)
+	Impetu: resta un 6% de vida al rival por cada escudo del usuario. Cada golpe cuenta como un ataque completo, eliminando escudos. (***)
 	
 Cartas defensivas (8):
 	Vitale: restaura un 8/11/14% de vida al jugador. (*)
 	Renovationis: restaura un 14/17/20% de vida al jugador. (**)
 	Scutum armis: añade 1/2/3 escudos, capaces de bloquear un ataque. (*)
 	Defensus turtur: añade 1 escudo y restaura un 8/11/14% de vida al jugador. (**)
-	(*) Spinae: resta un 11% de vida al rival y restaura un 8/11/14% de vida al jugador. (**)
+	Spinae: resta un 4% de vida al rival 2 veces y restaura un 8/11/14% de vida al jugador. Cada golpe cuenta como un ataque completo, eliminando escudos. (*)
 	Confractus: añade 1/2/3 escudos y restaura un 8% de vida al jugador. (**)
 	Ferrum core: resta un 50% de la vida actual al jugador y añade 6 escudos, redondeado por arriba. (***)
 	Lignum vitae: restaura un 50% de la vida que le falte al jugador, redondeado por arriba. (***)
