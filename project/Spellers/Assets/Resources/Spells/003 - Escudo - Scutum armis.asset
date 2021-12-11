@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: 008 - Debil veneno
+  m_Name: 003 - Escudo - Scutum armis
   m_EditorClassIdentifier: 
-  id: 24
-  spellname: Venenatum
-  description: "El rival pierde un 6% de vida durante los pr\xF3ximos 3/4/5 turnos."
-  icon: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}
+  id: 11
+  spellname: Scutum armis
+  description: "A\xF1ade 1/2/3 escudos, capaces de bloquear un ataque."
+  icon: {fileID: 21300000, guid: c66cdd75fa07e404c9265002b57fd677, type: 3}
   sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
-  category: 2
-  offensive: 1
-  type: 3
+  category: 1
+  offensive: 0
+  type: 1
   effects:
-  - {fileID: 11400000, guid: 9ce81c2cf4f6d3846a844102a121d499, type: 2}
+  - {fileID: 11400000, guid: bafaefff483f4a94cb13da91d086aaa7, type: 2}

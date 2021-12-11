@@ -16,13 +16,19 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 1116ced1547c8dc49972d8cef889a8e0, type: 3}
   skin: {fileID: 11400000, guid: fca1b7004d3696140aa6b927d756ad69, type: 2}
   deck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 1ebc5b6c26fe587408fd4cd38be22b2b, type: 2}
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
   maxSpellLvl: 1
   cooldown_average: 15
-  cooldown_deviation: 5
+  cooldown_deviation: 3
   levelIndex: 2
   levelname: Nivel 2
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
   initDialogue: {fileID: 11400000, guid: 14966820c85feb344a60f79ebdd7ab46, type: 2}
   endDialogue: {fileID: 11400000, guid: 8f41607d619fc38428a090442e8b9aa8, type: 2}

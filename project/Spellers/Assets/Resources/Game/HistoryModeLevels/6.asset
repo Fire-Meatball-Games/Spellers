@@ -12,17 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 6
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Magreb
+  icon: {fileID: 21300000, guid: e335bcfadb5992a45946c37ea0a74bf6, type: 3}
+  skin: {fileID: 11400000, guid: c53fd67169867524c8804cf9eeaa5022, type: 2}
   deck:
-    spells: []
-  maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+  maxSpellLvl: 2
+  cooldown_average: 15
+  cooldown_deviation: 3
+  levelIndex: 6
+  levelname: Nivel 6
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 74d66abe95b9d0e4f875448d59222ba0, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
   initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+  endDialogue: {fileID: 11400000, guid: b494948de81f0ce4fa6ad1bde501203d, type: 2}

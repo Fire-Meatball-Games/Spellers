@@ -12,17 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 8
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Saita
+  icon: {fileID: 21300000, guid: 153a18f1a74e489439fdcd31c340f21d, type: 3}
+  skin: {fileID: 11400000, guid: 5ae389ba8478d6c4da62adc3d18ef2ed, type: 2}
   deck:
-    spells: []
-  maxSpellLvl: 3
-  cooldown_average: 0
+    spells:
+    - {fileID: 11400000, guid: 1ebc5b6c26fe587408fd4cd38be22b2b, type: 2}
+  maxSpellLvl: 1
+  cooldown_average: 10000000
   cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+  levelIndex: 8
+  levelname: Nivel 8
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
+    - {fileID: 11400000, guid: 2c0d85a7e270559429cdd271875a5dd1, type: 2}
+    - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
+    - {fileID: 11400000, guid: 50bbe8cd9de3d9b4db45deda748726ba, type: 2}
+    - {fileID: 11400000, guid: 4c16d693548392d46913473f64e86f31, type: 2}
+    - {fileID: 11400000, guid: 107eac2b559334c48b70713056c43bdd, type: 2}
   initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+  endDialogue: {fileID: 11400000, guid: 59af480852ce99e4d83443643d9b8691, type: 2}
