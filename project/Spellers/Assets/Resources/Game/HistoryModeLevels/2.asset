@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   icon: {fileID: 0}
+  skin: {fileID: 0}
   deck:
     spells: []
-  maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+  maxSpellLvl: 1
+  cooldown_average: 15
+  cooldown_deviation: 5
+  levelIndex: 2
+  levelname: Nivel 2
   playerDeck:
     spells: []
   initDialogue: {fileID: 0}

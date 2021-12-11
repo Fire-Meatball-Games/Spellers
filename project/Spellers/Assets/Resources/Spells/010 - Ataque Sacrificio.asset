@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 010 - Ataque Sacrificio
   m_EditorClassIdentifier: 
-  id: 0
+  id: 4
   spellname: Autovincens
   description: Resta un 25/30/35% de vida al rival, pero un 8/11/14% de vida al jugador.
   icon: {fileID: 21300000, guid: 7671e4cdccbaf7946ae5a75ad26db231, type: 3}

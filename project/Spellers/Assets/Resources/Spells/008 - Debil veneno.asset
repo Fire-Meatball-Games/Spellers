@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 008 - Debil veneno
   m_EditorClassIdentifier: 
-  id: 0
+  id: 24
   spellname: Venenatum
   description: "El rival pierde un 6% de vida durante los pr\xF3ximos 3/4/5 turnos."
   icon: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}

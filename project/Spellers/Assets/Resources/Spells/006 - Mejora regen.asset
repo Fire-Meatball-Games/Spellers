@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 006 - Mejora regen
   m_EditorClassIdentifier: 
-  id: 0
+  id: 18
   spellname: Remedium continuus
   description: Restaura un 6% de la vida durante los 2/3/4 siguientes turnos.
   icon: {fileID: 21300000, guid: dccd06b9b890f364589b700626f91efa, type: 3}

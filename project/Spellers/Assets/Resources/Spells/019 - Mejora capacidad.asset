@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 019 - Mejora capacidad
   m_EditorClassIdentifier: 
-  id: 0
+  id: 21
   spellname: Commodum
   description: "En el siguiente turno, el jugador tendr\xE1 1/2/3 cartas m\xE1s para
     elegir."

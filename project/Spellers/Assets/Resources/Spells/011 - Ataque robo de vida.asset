@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 011 - Ataque robo de vida
   m_EditorClassIdentifier: 
-  id: 0
+  id: 5
   spellname: Lac vitae
   description: Resta un 11/14/17% de vida al rival y restaura un 8/11/14% de vida
     al jugador.

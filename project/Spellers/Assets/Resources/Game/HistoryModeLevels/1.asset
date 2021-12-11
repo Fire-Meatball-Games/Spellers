@@ -17,9 +17,9 @@ MonoBehaviour:
   skin: {fileID: 11400000, guid: e9f1d0530b926894abf0236d8a544653, type: 2}
   deck:
     spells:
-    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: 1ebc5b6c26fe587408fd4cd38be22b2b, type: 2}
   maxSpellLvl: 1
-  cooldown_average: 4
+  cooldown_average: 10000000
   cooldown_deviation: 0
   levelIndex: 1
   levelname: Nivel 1

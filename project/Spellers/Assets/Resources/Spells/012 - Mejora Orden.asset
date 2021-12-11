@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 012 - Mejora Orden
   m_EditorClassIdentifier: 
-  id: 0
+  id: 19
   spellname: Locus totallum
   description: "Las primeras 2/4/6 letras aparecer\xE1n ordenadas para el siguiente
     hechizo en la tablilla de letras."

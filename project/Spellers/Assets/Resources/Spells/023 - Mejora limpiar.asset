@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 023 - Mejora limpiar
   m_EditorClassIdentifier: 
-  id: 0
+  id: 22
   spellname: Purgatum
   description: "Elimina cualquier incapacitaci\xF3n activa en el jugador y a\xF1ade
     4 escudos."

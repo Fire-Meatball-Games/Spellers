@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 025 - Curar fuerte
   m_EditorClassIdentifier: 
-  id: 0
+  id: 16
   spellname: Lignum vitae
   description: Restaura un 50% de la vida que le falte al jugador, redondeado por
     arriba.

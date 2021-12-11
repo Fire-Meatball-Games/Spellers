@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 004 - Ataque multiple
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3
   spellname: Iteratio noxia
   description: Resta un 4% de vida al rival en 2/3/4 ocasiones. Cada golpe cuenta
     como un ataque completo, eliminando escudos.

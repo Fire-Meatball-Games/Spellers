@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: "005 - Mejora da\xF1o"
   m_EditorClassIdentifier: 
-  id: 24
+  id: 17
   spellname: Melius leo
   description: "El siguiente ataque aumentar\xE1 su potencia en un 20/40/60%, redondeado
     por arriba."

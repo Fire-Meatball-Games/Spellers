@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
   m_Name: 026 - Escudos x vida
   m_EditorClassIdentifier: 
-  id: 0
+  id: 15
   spellname: Ferrum core
   description: "Resta un 50% de la vida actual al jugador y a\xF1ade 6 escudos, redondeado
     por arriba."
