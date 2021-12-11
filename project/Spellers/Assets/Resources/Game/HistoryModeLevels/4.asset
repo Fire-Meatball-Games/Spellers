@@ -12,17 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 4
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Nigel
+  icon: {fileID: 21300000, guid: 1116ced1547c8dc49972d8cef889a8e0, type: 3}
+  skin: {fileID: 11400000, guid: fca1b7004d3696140aa6b927d756ad69, type: 2}
   deck:
-    spells: []
-  maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+    - {fileID: 11400000, guid: 2c0d85a7e270559429cdd271875a5dd1, type: 2}
+  maxSpellLvl: 1
+  cooldown_average: 15
+  cooldown_deviation: 3
+  levelIndex: 4
+  levelname: Nivel 4
   playerDeck:
-    spells: []
-  initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+  initDialogue: {fileID: 11400000, guid: 495a22b773da0bb4c99cc7470b4411b2, type: 2}
+  endDialogue: {fileID: 11400000, guid: 3477f11c246066a42b09b6e6a78539ff, type: 2}

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: 009 - Ataque medio
+  m_Name: 001 - Ataque debil - Imperio
   m_EditorClassIdentifier: 
-  id: 2
-  spellname: Vastare
-  description: Resta un 17/20/23% de vida al rival.
-  icon: {fileID: 21300000, guid: 713a5f934cf69dc4aa4dd0d24b74491b, type: 3}
+  id: 1
+  spellname: Imperio
+  description: Resta un 11/14/17% de vida al rival.
+  icon: {fileID: 21300000, guid: 9f2f186f42fb4634383561f338075f61, type: 3}
   sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
-  category: 2
+  category: 1
   offensive: 1
   type: 0
   effects:
-  - {fileID: 11400000, guid: 7b26536533b84ec408b79658ed027d65, type: 2}
+  - {fileID: 11400000, guid: bd609316f1acba2489231c8cce0b2097, type: 2}

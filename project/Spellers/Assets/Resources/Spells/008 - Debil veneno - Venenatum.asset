@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: 014 - Curacion media
+  m_Name: 008 - Debil veneno - Venenatum
   m_EditorClassIdentifier: 
-  id: 10
-  spellname: Renovationis
-  description: Restaura un 14/17/20% de vida al jugador.
-  icon: {fileID: 21300000, guid: efb7c7857aa98984694f98a8ae966be8, type: 3}
+  id: 24
+  spellname: Venenatum
+  description: "El rival pierde un 6% de vida durante los pr\xF3ximos 3/4/5 turnos."
+  icon: {fileID: 21300000, guid: 8cb2079aa23deff41abde59737fa8fe1, type: 3}
   sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
   category: 2
-  offensive: 0
-  type: 1
+  offensive: 1
+  type: 3
   effects:
-  - {fileID: 11400000, guid: 122aaa80a0f9e0c4a9ccdc3a5f817330, type: 2}
+  - {fileID: 11400000, guid: 9ce81c2cf4f6d3846a844102a121d499, type: 2}

@@ -12,17 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 5
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Lord Magulis
+  icon: {fileID: 21300000, guid: ff3d16ccf7fd49540b55a78872ab5616, type: 3}
+  skin: {fileID: 11400000, guid: e9f1d0530b926894abf0236d8a544653, type: 2}
   deck:
-    spells: []
-  maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: 4976ae506240d164ba4c9eaa283cdfa8, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+    - {fileID: 11400000, guid: 96be254152efdb24e9b4f372a31dad1c, type: 2}
+    - {fileID: 11400000, guid: 14c28e2c580e5e44dbc11a1188308088, type: 2}
+  maxSpellLvl: 1
+  cooldown_average: 15
+  cooldown_deviation: 3
+  levelIndex: 5
+  levelname: Nivel 5
   playerDeck:
-    spells: []
-  initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: e9d85c89cc8902548907cc155b8a3250, type: 2}
+    - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
+    - {fileID: 11400000, guid: 1ea0a912ff6443a478a4bbdb4ecdd54e, type: 2}
+  initDialogue: {fileID: 11400000, guid: 58af1ff604a9a2c4fbe8613a5a1dfe80, type: 2}
+  endDialogue: {fileID: 11400000, guid: fb7ed953a0a816a4c915cb54b4a438a0, type: 2}

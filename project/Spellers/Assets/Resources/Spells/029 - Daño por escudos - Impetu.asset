@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 075adce7eeef9614db9e447038630404, type: 3}
-  m_Name: "005 - Mejora da\xF1o"
+  m_Name: "029 - Da\xF1o por escudos - Impetu"
   m_EditorClassIdentifier: 
-  id: 17
-  spellname: Melius leo
-  description: "El siguiente ataque aumentar\xE1 su potencia en un 20/40/60%, redondeado
-    por arriba."
-  icon: {fileID: 21300000, guid: 2b2926e10f09eb849b16b2ed7d6f9897, type: 3}
+  id: 29
+  spellname: Impetu
+  description: Resta un 7% de vida al rival por cada escudo del usuario. Cada golpe
+    cuenta como un ataque completo, eliminando escudos.
+  icon: {fileID: 21300000, guid: 27d28e5ae40978e4fba2bc42303bb8de, type: 3}
   sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
-  category: 1
-  offensive: 0
-  type: 2
+  category: 3
+  offensive: 1
+  type: 0
   effects:
-  - {fileID: 11400000, guid: 8a1c383ae39d4814194ed74a1c9171a4, type: 2}
+  - {fileID: 11400000, guid: b4d56b2c46d1b0447a947056f9b54cfe, type: 2}

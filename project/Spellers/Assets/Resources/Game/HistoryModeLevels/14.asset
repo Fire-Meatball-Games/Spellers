@@ -12,17 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 14
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Turk
+  icon: {fileID: 21300000, guid: e13d7f48a04b6c449a74cfb222605aae, type: 3}
+  skin: {fileID: 11400000, guid: 52f61d4a95e629b4baba62e936c00b61, type: 2}
   deck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: 73b1594e09dc7f34d8acffbf479f9242, type: 2}
+    - {fileID: 11400000, guid: 05a35f0e08e6d7e429f5d2e22e41d4f2, type: 2}
+    - {fileID: 11400000, guid: 5b11ae4fc05d69b4b9f0a40db416881c, type: 2}
+    - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
+    - {fileID: 11400000, guid: 50bbe8cd9de3d9b4db45deda748726ba, type: 2}
+    - {fileID: 11400000, guid: 1ea0a912ff6443a478a4bbdb4ecdd54e, type: 2}
   maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+  cooldown_average: 8
+  cooldown_deviation: 3
+  levelIndex: 14
+  levelname: Nivel 14
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 4ab78cad6c2eda64fad647b169d79d15, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: e9d85c89cc8902548907cc155b8a3250, type: 2}
+    - {fileID: 11400000, guid: 05a35f0e08e6d7e429f5d2e22e41d4f2, type: 2}
+    - {fileID: 11400000, guid: 74d66abe95b9d0e4f875448d59222ba0, type: 2}
+    - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
+    - {fileID: 11400000, guid: 107eac2b559334c48b70713056c43bdd, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+    - {fileID: 11400000, guid: 03c58cfcbb3591e4eaad77eae9e25c82, type: 2}
+    - {fileID: 11400000, guid: ea3949a9c5b878143b05cafc051beead, type: 2}
   initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+  endDialogue: {fileID: 11400000, guid: 6ad544aa4281e6c4898d5c787eb8f031, type: 2}

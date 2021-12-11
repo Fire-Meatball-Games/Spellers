@@ -12,17 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 10
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Rendall
+  icon: {fileID: 21300000, guid: 88aba15b3ff6eeb46b1fcb3b32d35526, type: 3}
+  skin: {fileID: 11400000, guid: 4300d0563b0700244a4100f4e007e00d, type: 2}
   deck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: b9a969061fe167445ab356930238e3ea, type: 2}
+    - {fileID: 11400000, guid: 74d66abe95b9d0e4f875448d59222ba0, type: 2}
+    - {fileID: 11400000, guid: 91dc2e09c2cc3f44d860e4b3c934ac5e, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+    - {fileID: 11400000, guid: 96be254152efdb24e9b4f372a31dad1c, type: 2}
+    - {fileID: 11400000, guid: 14c28e2c580e5e44dbc11a1188308088, type: 2}
+    - {fileID: 11400000, guid: 03c58cfcbb3591e4eaad77eae9e25c82, type: 2}
   maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+  cooldown_average: 10
+  cooldown_deviation: 5
+  levelIndex: 10
+  levelname: Nivel 10
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: e9d85c89cc8902548907cc155b8a3250, type: 2}
+    - {fileID: 11400000, guid: 05a35f0e08e6d7e429f5d2e22e41d4f2, type: 2}
+    - {fileID: 11400000, guid: 91dc2e09c2cc3f44d860e4b3c934ac5e, type: 2}
+    - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
+    - {fileID: 11400000, guid: 4c16d693548392d46913473f64e86f31, type: 2}
+    - {fileID: 11400000, guid: 1ea0a912ff6443a478a4bbdb4ecdd54e, type: 2}
   initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+  endDialogue: {fileID: 11400000, guid: 2a5864fdc293baa47a22ea8e0fe6226b, type: 2}
