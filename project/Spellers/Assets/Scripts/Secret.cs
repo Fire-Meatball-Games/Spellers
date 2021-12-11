@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Runtime;
 using CustomEventSystem;
+using PlayerManagement;
 
 public class Secret : MonoBehaviour
 {
@@ -19,6 +20,6 @@ public class Secret : MonoBehaviour
     public void UnlockAllLevels()
     {
         Debug.Log("Todos los niveles desbloqueados");
-        PlayerSettings.lastLevelUnlocked = 15;
+        Player.instance.LastLevelUnlocked = 15;
     }
 }

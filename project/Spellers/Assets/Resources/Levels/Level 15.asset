@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 15
+  m_EditorClassIdentifier: 
+  levelname: Duelo final
+  thumbnail: {fileID: 21300000, guid: a993335fea100244a90df5bc34180817, type: 3}
+  map_dialogue: {fileID: 11400000, guid: eb0c19e119a65ef4a9520ba823c0a856, type: 2}
+  settings: {fileID: 11400000, guid: d874f90cd8da3c749b09d7a677c7a813, type: 2}

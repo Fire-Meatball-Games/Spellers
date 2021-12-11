@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HUD
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 130d9fa37307d5b4ebfe50a5fbf4bf5f, type: 3}
+    - {fileID: 2800000, guid: b79b45844be13f6468258e54cdd19604, type: 3}
+    - {fileID: 2800000, guid: 29459317f91d5e74abfa00e657a14c2c, type: 3}
+    - {fileID: 2800000, guid: 93fbc0bd04ae2cc4785975bb53276464, type: 3}
+    - {fileID: 2800000, guid: eb7e4a9c9a2ba904fa7a506ae0d29620, type: 3}
+    - {fileID: 2800000, guid: a4f4538d6a965cb4cb44ec15edeb31a9, type: 3}
+    - {fileID: 2800000, guid: ef6c4448b6c938f41ae66dfbfcc8e6fd, type: 3}
+    - {fileID: 2800000, guid: 5a14625770c28724f9a32a4957ebd7d5, type: 3}
+    - {fileID: 2800000, guid: 9bcc8301337f73d4aa5923a3fe6ad16c, type: 3}
+    - {fileID: 2800000, guid: 8e0e5e8cd1788f44e8a104b0f2f762c5, type: 3}
+    - {fileID: 2800000, guid: f4b9c2de662f9754cbd8e3c57f90516d, type: 3}
+    - {fileID: 2800000, guid: ca4eac4b3894cfa46b47e2cfe7891b78, type: 3}
+    - {fileID: 21300000, guid: abb6ace794e48264ebfde1b0709cb844, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 9bcc8301337f73d4aa5923a3fe6ad16c, type: 3}
+  - {fileID: 21300000, guid: 130d9fa37307d5b4ebfe50a5fbf4bf5f, type: 3}
+  - {fileID: 21300000, guid: b79b45844be13f6468258e54cdd19604, type: 3}
+  - {fileID: 21300000, guid: 29459317f91d5e74abfa00e657a14c2c, type: 3}
+  - {fileID: 21300000, guid: 5a14625770c28724f9a32a4957ebd7d5, type: 3}
+  - {fileID: 21300000, guid: abb6ace794e48264ebfde1b0709cb844, type: 3}
+  - {fileID: 21300000, guid: ef6c4448b6c938f41ae66dfbfcc8e6fd, type: 3}
+  - {fileID: 21300000, guid: ca4eac4b3894cfa46b47e2cfe7891b78, type: 3}
+  - {fileID: 21300000, guid: 8e0e5e8cd1788f44e8a104b0f2f762c5, type: 3}
+  - {fileID: 21300000, guid: eb7e4a9c9a2ba904fa7a506ae0d29620, type: 3}
+  - {fileID: 21300000, guid: a4f4538d6a965cb4cb44ec15edeb31a9, type: 3}
+  - {fileID: 21300000, guid: 93fbc0bd04ae2cc4785975bb53276464, type: 3}
+  - {fileID: 21300000, guid: f4b9c2de662f9754cbd8e3c57f90516d, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Tiempo+
+  - Vida
+  - Escudo
+  - Ataque+
+  - Regeneracion-
+  - Retrato
+  - Regeneracion+
+  - Orden+
+  - Tiempo-
+  - Cartas+
+  - Cartas-
+  - Ataque-
+  - Orden-
+  m_RenderDataMap: {}
+  m_Tag: HUD
+  m_IsVariant: 0

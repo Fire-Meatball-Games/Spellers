@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 13
+  m_EditorClassIdentifier: 
+  levelname: Muro inquebrantable
+  thumbnail: {fileID: 21300000, guid: 830dfff70a5fafe42994bc54a848e3fd, type: 3}
+  map_dialogue: {fileID: 11400000, guid: 54d1a1d1a79ebb14b95094bdf2e162d9, type: 2}
+  settings: {fileID: 11400000, guid: 4fca7267148377945ad755ea54b98cc2, type: 2}

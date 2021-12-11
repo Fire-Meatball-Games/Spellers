@@ -1,0 +1,24 @@
+{
+    "name": "PlayerManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7f2f4184421fcfc4d89daac13412a4d1",
+        "GUID:a80c3b033e7b4e7419e653f57d850b96",
+        "GUID:bda54f2976ea2224bba447af7e108e24"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "Select...",
+            "expression": "",
+            "define": ""
+        }
+    ],
+    "noEngineReferences": false
+}

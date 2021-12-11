@@ -5,16 +5,13 @@ using CustomEventSystem;
 
 public class CameraResponsive : MonoBehaviour
 {
-    public float widthUnits = 10;
-    public float minHeightUnits = 5;
     public Transform tf_side;
     public Transform center_side;
     private Camera cam;
     // Start is called before the first frame update
     void Awake()
     {
-        cam = GetComponent<Camera>();
-       
+        cam = GetComponent<Camera>();       
     }
 
     private void OnEnable()
@@ -25,17 +22,6 @@ public class CameraResponsive : MonoBehaviour
     private void OnDisable()
     {
         Events.OnBattleBegins.RemoveListener(MoveToSide);
-    }
-    private void Update()
-    {
-        SetResponsiveCamera();
-    }
-
-    private void SetResponsiveCamera()
-    {
-        if(cam == null)
-            cam = GetComponent<Camera>();
-        cam.orthographicSize = Mathf.Max(widthUnits / cam.aspect, minHeightUnits);
     }
 
     private void MoveToSide()

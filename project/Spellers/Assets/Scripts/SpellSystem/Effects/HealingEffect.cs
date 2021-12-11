@@ -11,7 +11,7 @@ namespace SpellSystem
         [SerializeField] public int pointslevel;
         [SerializeField] public Scale Scale;
 
-        public override void Execute(SpellerStats user_stats, SpellerStats target_stats, int level)
+        public override void Execute(Stats user_stats, Stats target_stats, int level)
         {
             float heal = PointsBase + pointslevel * level;
 

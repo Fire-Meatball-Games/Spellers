@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 14
+  m_EditorClassIdentifier: 
+  levelname: "\xA1Turk!"
+  thumbnail: {fileID: 21300000, guid: 84ea0ac41add1ef42a083c14e636abae, type: 3}
+  map_dialogue: {fileID: 11400000, guid: e82be01742974cb4eb78b5a606817f4e, type: 2}
+  settings: {fileID: 11400000, guid: 73353453c20eb5b43bbb2824ba7d336d, type: 2}

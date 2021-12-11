@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 9
+  m_EditorClassIdentifier: 
+  levelname: Duelo de magos
+  thumbnail: {fileID: 21300000, guid: 247cf921cf71f2d4ab51524b5bb1f4ff, type: 3}
+  map_dialogue: {fileID: 11400000, guid: 0e0e48d5dda7093438d7b6424594f263, type: 2}
+  settings: {fileID: 11400000, guid: c2039108a67b5054baf2977ed58364f4, type: 2}

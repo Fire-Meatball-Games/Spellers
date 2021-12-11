@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 5
+  m_EditorClassIdentifier: 
+  levelname: "Lecci\xF3n aprendida"
+  thumbnail: {fileID: 21300000, guid: 9bc58f360f7712642b43f26f5d96d4a2, type: 3}
+  map_dialogue: {fileID: 11400000, guid: 1f016a0934c32af41ab122874acb1b78, type: 2}
+  settings: {fileID: 11400000, guid: 57839fd9aa7acce45a2b4e7873ca165d, type: 2}

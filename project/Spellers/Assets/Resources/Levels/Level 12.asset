@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a25c784d8667d44d9c95d969bb05efe, type: 3}
+  m_Name: Level 12
+  m_EditorClassIdentifier: 
+  levelname: El clan de la pantera
+  thumbnail: {fileID: 21300000, guid: 84ea0ac41add1ef42a083c14e636abae, type: 3}
+  map_dialogue: {fileID: 11400000, guid: 593f4e45d09cb5c4c886e00b2f5292c6, type: 2}
+  settings: {fileID: 11400000, guid: b8affe401677b9a478336aa557787700, type: 2}

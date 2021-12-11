@@ -7,43 +7,37 @@ namespace CustomEventSystem
     {
         public static readonly CustomEvent<int> OnLoadScene = new CustomEvent<int>();
 
-        // Eventos del menú de inicio:
+        // Eventos del menu de inicio:
         public static readonly CustomEvent<int, SpellerNPCSettings> OnChangeSpellerNPCSettings = new CustomEvent<int, SpellerNPCSettings>();
         public static readonly CustomEvent OnSecretActivated = new CustomEvent();
+
+        // Eventos de la coleccion de hechizos del jugador:
+        public static readonly CustomEvent<Spell> OnDisplaySpellDetails = new CustomEvent<Spell>();
+        public static readonly CustomEvent OnModifyPlayerDeck = new CustomEvent();
+        public static readonly CustomEvent OnModifyPlayerSkin = new CustomEvent();
 
         // Eventos del modo historia:
         public static readonly CustomEvent<int> OnSelectLevel = new CustomEvent<int>();
         public static readonly CustomEvent OnDeselectLevel = new CustomEvent();
 
         // Eventos de la partida:
+
+        public static readonly CustomEvent OnBattleReady = new CustomEvent();
+        public static readonly CustomEvent OnStartCountDown = new CustomEvent();
         public static readonly CustomEvent OnEndCountDown = new CustomEvent();              
         public static readonly CustomEvent OnBattleBegins = new CustomEvent();              
         public static readonly CustomEvent<bool> OnPauseBattle = new CustomEvent<bool>();   
         public static readonly CustomEvent<bool> OnBattleEnds = new CustomEvent<bool>();
         public static readonly CustomEvent OnJoinPlayer = new CustomEvent();
-        public static readonly CustomEvent<int> OnJoinEnemy = new CustomEvent<int>();
-
-        // Eventos del jugador:    
-        public static readonly CustomEvent<int> OnChangePlayerHealth = new CustomEvent<int>();
-        public static readonly CustomEvent<int> OnChangePlayerShields = new CustomEvent<int>();
-
-        public static readonly CustomEvent<float> OnChangePlayerAttack = new CustomEvent<float>();
-        public static readonly CustomEvent<int> OnChangePlayerRegeneration = new CustomEvent<int>();
-        public static readonly CustomEvent<int> OnChangePlayerSlots = new CustomEvent<int>();
-        public static readonly CustomEvent<int> OnChangePlayerOrder = new CustomEvent<int>();
-        public static readonly CustomEvent<int> OnChangePlayerDifficulty = new CustomEvent<int>();
-        public static readonly CustomEvent OnChangeStat = new CustomEvent();
+        public static readonly CustomEvent OnJoinEnemy = new CustomEvent();
 
 
-        public static readonly CustomEvent OnDefeatPlayer = new CustomEvent();
-        public static readonly CustomEvent<int> OnSelectTarget = new CustomEvent<int>();
+        //Eventos de la interfaz del jugador:
+        public static readonly CustomEvent OnSelectSpellSlot = new CustomEvent();
+        public static readonly CustomEvent OnFailGame = new CustomEvent();
+        public static readonly CustomEvent OnCompleteGame = new CustomEvent();
         public static readonly CustomEvent OnPlayerUseSpell = new CustomEvent();
-
-        // Eventos del libro de hechizos:
-        public static readonly CustomEvent<int> OnSelectSpellSlot = new CustomEvent<int>();
-        public static readonly CustomEvent<int, SpellUnit> OnChangeSpellSlot = new CustomEvent<int, SpellUnit>();
-        public static readonly CustomEvent<List<SpellUnit>> OnGenerateSpellSlots = new CustomEvent<List<SpellUnit>>();
-
+        
         // Eventos de minijuegos:        
         public static readonly CustomEvent OnCompleteStrengthMinigame = new CustomEvent(); 
         public static readonly CustomEvent OnFailPoisonMinigame = new CustomEvent();
@@ -62,17 +56,6 @@ namespace CustomEventSystem
         public static readonly CustomEvent<int> OnUpdateTimer = new CustomEvent<int>();
         public static readonly CustomEvent OnFailSpell = new CustomEvent();
 
-        // Eventos de los enemigos:
-        public static readonly CustomEvent<int, int> OnChangeEnemyHealth = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyShields = new CustomEvent<int, int>();
-
-        public static readonly CustomEvent<int, float> OnChangeEnemyAttack = new CustomEvent<int, float>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyRegeneration = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemySlots = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyOrder = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int> OnChangeEnemyDifficulty = new CustomEvent<int, int>();
-
-        public static readonly CustomEvent<int> OnDefeatEnemy = new CustomEvent<int>();
 
     }
 }

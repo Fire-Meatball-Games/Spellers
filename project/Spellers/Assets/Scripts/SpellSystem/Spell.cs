@@ -1,52 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using System.Linq;
 
 namespace SpellSystem
 {
-    public struct SpellUnit
-    {
-        public Spell spell;
-        public int lvl;
-
-        public SpellUnit(Spell spell, int lvl)
-        {
-            this.spell = spell;
-            this.lvl = spell.power < 3 ? lvl : 3;
-        }
-
-        public SpellUnit(Spell spell)
-        {            
-            this.spell = spell;
-            this.lvl = spell.power < 3 ? Random.Range(1,4) : 3;
-        }
-
-        public override string ToString()
-        {
-            return spell.spellName + " " + lvl;
-        }
-    }
-
-
     [CreateAssetMenu(fileName = "Spell", menuName = "Spellers/Spells/Spell", order = 0)]
     public class Spell : ScriptableObject
     {
-        [SerializeField] public string spellName;
-        [TextArea]
-        [SerializeField] public string description;
-        [SerializeField] public Sprite thumbnail;
-        [SerializeField] public Sprite ingame;
+        public static Spell GetSpellById(int id) 
+        {
+            List<Spell> spells = GetAllSpells();            
+            return spells.Find((spell) => spell.Id == id);
+        }
 
-        [Range(1, 3)]
-        [SerializeField] public int power = 1;
+        public static Spell GetSpellByName(string name) 
+        {
+            List<Spell> spells = GetAllSpells();            
+            return spells.Find((spell) => spell.Name == name);
+        }
+
+        public static List<Spell> GetAllSpellsOfType(Type type)
+        {
+            List<Spell> spells = GetAllSpells();            
+            return spells.FindAll((spell) => spell.type == type);
+        }
+
+        public static List<Spell> GetAllSpellsOfCategory(SpellCategory category)
+        {
+            List<Spell> spells = GetAllSpells();            
+            return spells.FindAll((spell) => spell.Category == category);
+        }
+
+        public static List<Spell> GetAllSpells()
+        {
+            return Resources.LoadAll<Spell>("").ToList();
+        }
+
+        public enum Type
+        {
+            Ataque = 0,
+            Defensa = 1,
+            Mejora = 2,
+            Debilitación = 3
+        }
+
+        public enum SpellCategory
+        {
+            Useless = 0,
+            Common = 1,
+            Rare = 2,
+            Epic = 3
+        }
+
+        [SerializeField] private int id;
+        [SerializeField] private string spellname;
+        [TextArea][SerializeField] private string description;
+        [SerializeField] private Sprite icon;
+        [SerializeField] private Sprite sprite;
+        [SerializeField] private SpellCategory category;
         [SerializeField] public bool offensive;
-
+        [SerializeField] public Type type;
         [SerializeField] public List<Effect> effects;
 
+        public string Name { get => spellname; }
+        public int Id { get => id; }
+        public string Description { get => description; }
+        public Sprite Icon { get => icon; }
+        public Sprite Sprite { get => sprite; }
+        public int Power { get => (int)category; }
+
+        public SpellCategory Category => category;
 
         public override string ToString()
         {
-            return spellName;
+            return Name;
         }
+
+
+        
     }
 }
