@@ -433,7 +433,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.35
+  m_fontSize: 45.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.1
+  m_fontSize: 20.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2266,10 +2266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 258012412}
   soundEffectSource: {fileID: 258012411}
-  musicClips:
-  - {fileID: 8300000, guid: 1f28f6d220da7714a9b1eac0c5f4fef2, type: 3}
-  - {fileID: 8300000, guid: daaef4cca441fd9478989d09ba637354, type: 3}
-  - {fileID: 8300000, guid: f2a1e8ae211fc1448b34962460cd557f, type: 3}
+  musicClip: {fileID: 8300000, guid: daaef4cca441fd9478989d09ba637354, type: 3}
   soundEffectClips:
   - {fileID: 8300000, guid: 7990ce0babc69aa47a97a4066da77265, type: 3}
   - {fileID: 8300000, guid: 58389099cbe3cef4ca060f3cd5ae0ef4, type: 3}
@@ -3678,7 +3675,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.7
+  m_fontSize: 22.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4383,7 +4380,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.65
+  m_fontSize: 54.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6108,6 +6105,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1d207571b181a48a1c54bd902811b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ID: 
+  m_playerName: 
+  m_icon: {fileID: 0}
+  m_skin: {fileID: 0}
+  coins: 0
+  points: 0
+  lastLevelUnlocked: 0
+  m_deck:
+    spells: []
 --- !u!4 &1593648372
 Transform:
   m_ObjectHideFlags: 0
@@ -7201,7 +7207,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.05
+  m_fontSize: 46.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

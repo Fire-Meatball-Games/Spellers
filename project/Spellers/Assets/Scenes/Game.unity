@@ -8969,6 +8969,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543f96a0c1a0fe24cb2ee6ab87d64182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgrounds:
+  - {fileID: 21300000, guid: 1cd6a69f0eb598f4c8e4a77a095f8cec, type: 3}
+  - {fileID: 21300000, guid: 7605c50a03425c04ebfe599c33f89fad, type: 3}
+  - {fileID: 21300000, guid: 42d9e8b60aa422e47a23050393c76946, type: 3}
+  bg_image: {fileID: 1393885877}
 --- !u!1 &1395737112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10092,10 +10097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1587152305}
   soundEffectSource: {fileID: 1587152304}
-  musicClips:
-  - {fileID: 8300000, guid: 1f28f6d220da7714a9b1eac0c5f4fef2, type: 3}
-  - {fileID: 8300000, guid: daaef4cca441fd9478989d09ba637354, type: 3}
-  - {fileID: 8300000, guid: f2a1e8ae211fc1448b34962460cd557f, type: 3}
+  musicClip: {fileID: 8300000, guid: f2a1e8ae211fc1448b34962460cd557f, type: 3}
   soundEffectClips:
   - {fileID: 8300000, guid: 7990ce0babc69aa47a97a4066da77265, type: 3}
   - {fileID: 8300000, guid: c0c5811cc01f22641bdf9071d4609127, type: 3}

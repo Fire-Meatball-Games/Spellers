@@ -10,7 +10,7 @@ namespace GameManagement
 {
     public class GameManager : Singleton<GameManager>
     {
-        [SerializeField] private LoadingScreen loadingScreen;  
+        [SerializeField] private LoadingScreen loadingScreen; 
         private AsyncOperation m_loadSceneAsyncOperation; 
         private BaseGameSettings settings;
 
