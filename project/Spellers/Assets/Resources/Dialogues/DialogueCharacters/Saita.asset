@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238f1dcf3260bd64383a4da28c540fac, type: 3}
   m_Name: Saita
   m_EditorClassIdentifier: 
-  characterName: Zachary
+  characterName: Saita
   sprite: {fileID: 21300000, guid: 153a18f1a74e489439fdcd31c340f21d, type: 3}

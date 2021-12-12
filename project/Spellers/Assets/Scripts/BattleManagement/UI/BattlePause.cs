@@ -13,6 +13,7 @@ namespace BattleManagement.UI
         [SerializeField] private Button exit_button;
         [SerializeField] private Button continue_button;
         [SerializeField] private Button pause_button;
+        public event Action OnExitBattle = delegate{};
 
         private EffectBuilder showEffects, hideEffects;
 
@@ -45,8 +46,8 @@ namespace BattleManagement.UI
         private void Exit()
         {
             Time.timeScale = 1f;
-            // Salir de la partida...
             Hide();
+            OnExitBattle?.Invoke();
         }
 
         

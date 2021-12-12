@@ -9,6 +9,7 @@ using Tweening;
 using DialogueSystem;
 using Levels;
 using PlayerManagement;
+using Utils;
 
 namespace LevelManagement
 {
@@ -62,7 +63,7 @@ namespace LevelManagement
                 {  
                     levelSelector.SelectLevel(index);
                     
-                    if(levelSelector.LoadLevelDialogue)
+                    if(levelSelector.LoadLevelDialogue && index == Player.instance.LastLevelUnlocked)
                     {
                         dialogueManager.StartDialogue(levelSelector.SelectedLevel.map_dialogue, ()=> ShowLevelDetails(index));
                         levelSelector.LoadLevelDialogue = false;

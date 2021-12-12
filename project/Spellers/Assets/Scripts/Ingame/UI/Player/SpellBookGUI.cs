@@ -91,9 +91,10 @@ namespace Ingame.UI
        
         private void Reroll()
         {
+            playerBook.ReloadSpells();
             rerollPoints = 0;
             reroll_slider.value = 0;
-            playerBook.ReloadSpells();
+            reroll_button.interactable = false;
         }
 
         private void RechargeRerolls()
@@ -161,9 +162,10 @@ namespace Ingame.UI
         public override void Show()
         {
             rerollPoints++; //??
+            rerollPoints = Mathf.Min(rerollPoints, pointsToReroll);
             base.Show();
             reroll_slider.value = rerollPoints;
-            reroll_button.interactable = rerollPoints == pointsToReroll;
+            reroll_button.interactable = rerollPoints >= pointsToReroll;
 
             stopWandGameButton.interactable = enablePowerGame;
             potionGameButton.interactable = enableHealGame;

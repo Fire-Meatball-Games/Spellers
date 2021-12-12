@@ -27,7 +27,8 @@ namespace BattleManagement.UI
             battleManager.OnBattleEnds += ShowResults;
             battleSign.OnPressStart += countDown.StartCountDown;
             countDown.OnEndCountDown += battleManager.StartBattle;
-            results.OnExitBattle += battleManager.ExitBattle;         
+            results.OnExitBattle += battleManager.ExitBattle; 
+            pause.OnExitBattle += battleManager.ExitBattle;        
         }
 
         private void OnEnable() 

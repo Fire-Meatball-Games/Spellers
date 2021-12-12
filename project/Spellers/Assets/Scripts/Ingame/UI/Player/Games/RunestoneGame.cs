@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Utils;
+using CustomEventSystem;
 
 namespace Ingame.UI
 {
@@ -106,6 +107,7 @@ namespace Ingame.UI
             }
             else
             {
+                Events.OnFailSpell.Invoke();
                 Fail();
                 Clear();
                 return false;                
