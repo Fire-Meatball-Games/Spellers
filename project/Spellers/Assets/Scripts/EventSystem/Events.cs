@@ -46,20 +46,12 @@ namespace CustomEventSystem
 
         // Eventos de minijuegos:        
         public static readonly CustomEvent OnCompleteStrengthMinigame = new CustomEvent(); 
-        public static readonly CustomEvent OnFailPoisonMinigame = new CustomEvent();
         public static readonly CustomEvent OnCompletePoisonMinigame = new CustomEvent();
         public static readonly CustomEvent OnCompleteBlindMinigame = new CustomEvent();
         public static readonly CustomEvent OnCompleteDifficultyMinigame = new CustomEvent();
 
         // Eventos del tablero:
-        public static readonly CustomEvent<string, bool> OnGenerateWord = new CustomEvent<string, bool>();
-        public static readonly CustomEvent<char[], int> OnGenerateBoard = new CustomEvent<char[], int>();
-        public static readonly CustomEvent<int, int> OnSelectKey = new CustomEvent<int, int>();
-        public static readonly CustomEvent<int, int, bool> OnCheckKey = new CustomEvent<int, int, bool>();
         public static readonly CustomEvent OnHitkey = new CustomEvent();
-        public static readonly CustomEvent OnCompleteWord = new CustomEvent();
-        public static readonly CustomEvent<int> OnSetTimer = new CustomEvent<int>();
-        public static readonly CustomEvent<int> OnUpdateTimer = new CustomEvent<int>();
         public static readonly CustomEvent OnFailSpell = new CustomEvent();
 
 

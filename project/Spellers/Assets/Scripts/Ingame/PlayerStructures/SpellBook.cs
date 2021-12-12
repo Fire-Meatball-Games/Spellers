@@ -45,7 +45,7 @@ namespace Ingame
         public SpellUnit SelectSpellSlot(int idx)
         {
             selectedSpell = spellUnits[idx];
-            ChangeSpellSlot(idx);
+            ReloadSpells();
             return selectedSpell;
         }
 

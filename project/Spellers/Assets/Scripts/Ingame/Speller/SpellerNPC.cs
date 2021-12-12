@@ -25,6 +25,12 @@ namespace Ingame
             LoadSpell();
         } 
 
+        public void Disable()
+        {
+            StopAllCoroutines();
+            this.spellWand.StopAllCoroutines();
+        } 
+
         public override void OnUseSpell()
         {
             base.OnUseSpell();
