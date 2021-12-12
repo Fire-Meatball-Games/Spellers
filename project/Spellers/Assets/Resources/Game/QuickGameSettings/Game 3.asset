@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376bc0daed948234897b79479f98959d, type: 3}
+  m_Name: Game 3
+  m_EditorClassIdentifier: 
+  enemyName: Magreb
+  icon: {fileID: 21300000, guid: e335bcfadb5992a45946c37ea0a74bf6, type: 3}
+  skin: {fileID: 11400000, guid: c53fd67169867524c8804cf9eeaa5022, type: 2}
+  deck:
+    spells:
+    - {fileID: 11400000, guid: 2c0d85a7e270559429cdd271875a5dd1, type: 2}
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+  maxSpellLvl: 3
+  cooldown_average: 10
+  cooldown_deviation: 2
+  points_per_win: 500

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using CustomEventSystem;
+using Tweening;
+using PlayerManagement;
 
 namespace UIManagement
 {
-    public class CreditsView : View
+    
+    public class CreditsView : EmergentView
     {
-        [SerializeField] private Button btn_atras;
         [SerializeField] private Button btn_logo;
         [SerializeField] private RectTransform secret_panel;
         [SerializeField] private Button btn_yes;
@@ -18,12 +19,11 @@ namespace UIManagement
         private int clicks;
         public override void Init()
         {
-            btn_atras.onClick.AddListener(() => ViewManager.ShowLast());
+            base.Init();
             btn_logo.onClick.AddListener(AddClick);
             btn_yes.onClick.AddListener(() => StartCoroutine(HideSecretCR()));
             btn_no.onClick.AddListener(() => StartCoroutine(HideSecretCR()));
-            btn_yes.onClick.AddListener(Events.OnSecretActivated.Invoke);
-            
+            btn_yes.onClick.AddListener(() => Player.instance.LastLevelUnlocked = 15);           
         }
 
         private void AddClick()
@@ -64,7 +64,10 @@ namespace UIManagement
             }
         }
 
-
+        public override void Show()
+        {
+            base.Show();
+            Debug.Log("EEEE");
+        }
     }
 }
-

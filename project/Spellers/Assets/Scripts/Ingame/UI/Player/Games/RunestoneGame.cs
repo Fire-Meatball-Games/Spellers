@@ -74,6 +74,7 @@ namespace Ingame.UI
                 case 5: dimension = new Vector2Int(5,3); break;
                 case 6: dimension = new Vector2Int(4,4); break;
                 case 7: dimension = new Vector2Int(4,4); break;
+                case 8: dimension = new Vector2Int(5,4); break;
                 default: dimension = new Vector2Int(5,5); break;
             }
         }

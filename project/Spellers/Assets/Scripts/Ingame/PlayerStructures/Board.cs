@@ -27,7 +27,7 @@ namespace Ingame
         #region Private fields
         private MonoBehaviour behaviour;
         private float time_multiplier = 1f;
-        private int difficulty;
+        private int difficulty_added;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace Ingame
             int level = unit.lvl;
             int power = unit.spell.Power;
 
-            int difficulty = ComputeDifficulty(power, level);
+            int difficulty = Mathf.Clamp(ComputeDifficulty(power, level) + difficulty_added, 1, 9);
             float time = ComputeTime(power, level);
 
             OnGenerateGame?.Invoke(GameType.spell, difficulty, time);
@@ -63,6 +63,11 @@ namespace Ingame
         public void SetTime(int timeLvl)
         {
             time_multiplier = 1f + 0.1f * timeLvl;
+        }
+
+        public void SetDifficulty(int diffLvl)
+        {
+            difficulty_added = diffLvl;
         }
 
         private float ComputeTime(int power, int lvl)

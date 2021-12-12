@@ -76,6 +76,10 @@ namespace UIManagement
             pages[currentPage].SetActive(false);
             currentPage = idx;
             pages[idx].SetActive(true);
+            for(var i = 0; i < page_buttons.Count; i++)
+            {
+                page_buttons[i].GetComponent<Image>().color = i == idx ? Color.white : Color.white * 0.5f;
+            }
         }
     }
 

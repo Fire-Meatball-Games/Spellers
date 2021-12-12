@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376bc0daed948234897b79479f98959d, type: 3}
+  m_Name: Game 8
+  m_EditorClassIdentifier: 
+  enemyName: Lord Magulis
+  icon: {fileID: 21300000, guid: ff3d16ccf7fd49540b55a78872ab5616, type: 3}
+  skin: {fileID: 11400000, guid: e9f1d0530b926894abf0236d8a544653, type: 2}
+  deck:
+    spells:
+    - {fileID: 11400000, guid: 74d66abe95b9d0e4f875448d59222ba0, type: 2}
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: 4c16d693548392d46913473f64e86f31, type: 2}
+  maxSpellLvl: 3
+  cooldown_average: 10
+  cooldown_deviation: 2
+  points_per_win: 1000

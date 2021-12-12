@@ -30,7 +30,9 @@ namespace Ingame
 
             board = new Board(this);
             Stats.EventTrigger += ()=> Events.ActiveHealGame.Invoke();
-            Stats.OnChangeTimeEvent += board.SetTime;       
+
+            Stats.OnChangeTimeEvent += board.SetTime;
+            Stats.OnChangeOrderEvent += board.SetDifficulty;       
         }
 
         public override void Active()

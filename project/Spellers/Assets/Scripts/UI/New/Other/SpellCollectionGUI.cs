@@ -19,6 +19,7 @@ namespace UIManagement
         public void Init()
         {      
             List<Spell> allSpells = Spell.GetAllSpells();
+            allSpells.RemoveAt(0);
             AddCardSection("Hechizos", allSpells);              
         }
 

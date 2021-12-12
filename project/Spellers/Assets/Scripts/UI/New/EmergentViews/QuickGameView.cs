@@ -5,6 +5,8 @@ using Tweening;
 using Levels;
 using GameManagement;
 using UnityEngine.UI;
+using PlayerManagement;
+using TMPro;
 
 namespace UIManagement{
     public class QuickGameView : EmergentView
@@ -15,6 +17,8 @@ namespace UIManagement{
         [SerializeField] private Button next_btn;
         [SerializeField] private Button random_btn;
         [SerializeField] private Image iconImage;
+
+        [SerializeField] private TextMeshProUGUI message_text;
 
         private int selectedIdx;
 
@@ -33,9 +37,13 @@ namespace UIManagement{
 
         private void LoadGame()
         {
-            GameManager.instance.SetSettings(settingList[selectedIdx]);
-            GameManager.instance.UnloadScene(SceneIndexes.MAIN_MENU);  
-            GameManager.instance.LoadSceneAsync(SceneIndexes.GAME);                  
+            if(Player.instance.Deck.IsValid())
+            {
+                GameManager.instance.SetSettings(settingList[selectedIdx]);
+                GameManager.instance.UnloadScene(SceneIndexes.MAIN_MENU);  
+                GameManager.instance.LoadSceneAsync(SceneIndexes.GAME);   
+            }
+               
 
         }
 
@@ -59,6 +67,13 @@ namespace UIManagement{
         private void SelectRandom()
         {
             selectedIdx = Random.Range(0, settingList.Count);
+            DisplayGameSettings();
+        }
+
+        public override void Show()
+        {
+            base.Show();
+            message_text.gameObject.SetActive(!Player.instance.Deck.IsValid());
             DisplayGameSettings();
         }
 
