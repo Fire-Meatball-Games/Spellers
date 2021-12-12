@@ -16,9 +16,9 @@ MonoBehaviour:
   spellname: Confractus
   description: "A\xF1ade 1/2/3 escudos y restaura un 8% de vida al jugador."
   icon: {fileID: 21300000, guid: df8521d4f34ba1546932671f0048d7df, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 3d4af1d25e8b8ad40bb143763960fb63, type: 3}
   category: 2
-  offensive: 0
+  animationType: 1
   type: 1
   effects:
   - {fileID: 11400000, guid: 8a6fe35ebd3580147ada6e7d34cbaae3, type: 2}

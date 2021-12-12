@@ -16,9 +16,9 @@ MonoBehaviour:
   spellname: Renovationis
   description: Restaura un 14/17/20% de vida al jugador.
   icon: {fileID: 21300000, guid: efb7c7857aa98984694f98a8ae966be8, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 4bfd7f55c47225b439853e9f1f4619d6, type: 3}
   category: 2
-  offensive: 0
+  animationType: 1
   type: 1
   effects:
   - {fileID: 11400000, guid: 122aaa80a0f9e0c4a9ccdc3a5f817330, type: 2}

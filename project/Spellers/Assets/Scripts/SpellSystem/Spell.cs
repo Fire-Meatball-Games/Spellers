@@ -54,13 +54,20 @@ namespace SpellSystem
             Epic = 3
         }
 
+        public enum AnimationType
+        {            
+            proyectile,
+            self,
+            target
+        }
+
         [SerializeField] private int id;
         [SerializeField] private string spellname;
         [TextArea][SerializeField] private string description;
         [SerializeField] private Sprite icon;
-        [SerializeField] private Sprite sprite;
+        [SerializeField] private GameObject animation;
         [SerializeField] private SpellCategory category;
-        [SerializeField] public bool offensive;
+        [SerializeField] public AnimationType animationType;
         [SerializeField] public Type type;
         [SerializeField] public List<Effect> effects;
 
@@ -68,7 +75,7 @@ namespace SpellSystem
         public int Id { get => id; }
         public string Description { get => description; }
         public Sprite Icon { get => icon; }
-        public Sprite Sprite { get => sprite; }
+        public GameObject Animation { get => animation; }
         public int Power { get => (int)category; }
 
         public SpellCategory Category => category;

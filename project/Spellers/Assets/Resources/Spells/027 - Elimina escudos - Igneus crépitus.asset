@@ -16,9 +16,9 @@ MonoBehaviour:
   spellname: "Igneus cr\xE9pitus"
   description: Elimina los escudos de ambos jugadores y resta un 11% de vida al rival.
   icon: {fileID: 21300000, guid: 68190a22cea5813459fb6721d10681df, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 293ef964bae54fe4994b00c35349539a, type: 3}
   category: 3
-  offensive: 1
+  animationType: 2
   type: 0
   effects:
   - {fileID: 11400000, guid: 076e5db329f737949a3e5708017c3bab, type: 2}

@@ -17,9 +17,9 @@ MonoBehaviour:
   description: "Las letras de los siguientes 1/2/3 hechizos del rival aparecer\xE1n
     invertidas, a modo de espejo."
   icon: {fileID: 21300000, guid: cb980c3cf156ada43ad3d8e6ebe09033, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 649113d4f5084b4449e7434ea15b0120, type: 3}
   category: 1
-  offensive: 1
+  animationType: 2
   type: 3
   effects:
   - {fileID: 11400000, guid: 4861d4fddd9fa3a4c84f74e91ba452e7, type: 2}
