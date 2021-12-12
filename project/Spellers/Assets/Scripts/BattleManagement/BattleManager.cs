@@ -23,6 +23,7 @@ namespace BattleManagement
         [SerializeField] private HUD enemy_HUD;
         [SerializeField] private SpellTableGUI game_GUI;
         [SerializeField] private DialogueManager dialogueManager;
+        [SerializeField] private BattleEventStats eventStats;
 
         [SerializeField] private BaseGameSettings default_settings;
         [SerializeField] private SpellDeck default_deck;
@@ -41,6 +42,7 @@ namespace BattleManagement
         private void Start() 
         {
             SetUpBattleSettings();
+            SetUpGameSettings();
             SetUpPlayer();
             SetUpEnemy();  
             player.SetTarget(enemy);
@@ -91,7 +93,7 @@ namespace BattleManagement
         // Configurar el enemigo a partir de los datos de GameManager:
         private void SetUpEnemy()
         {
-            SetUpGameSettings();
+
 
             // Generar enemigo:
             enemy = spawner.GenerateEnemy();
@@ -136,6 +138,7 @@ namespace BattleManagement
             enemy.Active();
             game_GUI.Active();
             Debug.Log("batalla comenzada");
+            eventStats.StartTimer();
         }
 
         // Genera una configuracion de partida por defecto si no existe:

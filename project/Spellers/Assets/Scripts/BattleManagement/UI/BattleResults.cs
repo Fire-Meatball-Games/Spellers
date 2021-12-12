@@ -17,6 +17,7 @@ namespace BattleManagement.UI
         [SerializeField] private List<Image> stars;
         [SerializeField] private TextMeshProUGUI text_details;
         [SerializeField] private Button exit_button;
+        [SerializeField] private BattleEventStats eventStats;
 
         public event Action OnExitBattle = delegate{};
         
@@ -47,19 +48,32 @@ namespace BattleManagement.UI
         {
             Debug.Log("EEE");
             yield return new WaitForSeconds(0.3f);
-            text_details.text += "Tiempo total : " + 800 + "\n";
+            
+            var ts = TimeSpan.FromSeconds(eventStats.BattleTime);
+            text_details.text += "Tiempo total : " + string.Format("{0:00}:{1:00}", ts.TotalMinutes, ts.Seconds) + "\n";
+            yield return new WaitForSeconds(0.5f);
+  
+            text_details.text += "hechizos acertados: " + eventStats.SpellHits + "\n";
             yield return new WaitForSeconds(0.5f);
 
-            text_details.text += "hechizos acertados: " + 10 + "\n";
-            yield return new WaitForSeconds(0.5f);
-
-            text_details.text += "hechizos fallidos: " + 5 + "\n";
+            text_details.text += "hechizos fallidos: " + eventStats.SpellFails + "\n";
             yield return new WaitForSeconds(0.5f);
 
             text_details.text += "\n";
             yield return new WaitForSeconds(0.5f);
 
-            text_details.text += "Puntuacion: " + 20000 + "\n";
+            int score = Mathf.RoundToInt(600000f / (eventStats.BattleTime)) * eventStats.SpellHits / eventStats.SpellAttemps;
+
+            string currentText = text_details.text;
+            float currentTime = 0;
+            while(currentTime < 2f)
+            {
+                currentTime += Time.deltaTime;
+                int scoreDisplayed = (int) Mathf.Lerp(0, score, currentTime * 0.5f);
+                text_details.text = currentText + "Puntuacion: " + scoreDisplayed;
+                yield return null;
+            }
+
             yield return new WaitForSeconds(0.5f);
 
             foreach(var star in stars)

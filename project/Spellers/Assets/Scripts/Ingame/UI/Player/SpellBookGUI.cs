@@ -13,14 +13,26 @@ namespace Ingame.UI
         #region Inspector fields
         [SerializeField] private RectTransform spellSlotsContent;
         [SerializeField] private GameObject spellSlot_prefab;
-        [SerializeField] private Button reload_button;
+        [SerializeField] private Button reroll_button;
+        [SerializeField] private Slider reroll_slider;
         [SerializeField] private SpellInfoGUI infoGUI;
+        [SerializeField] private Button stopWandGameButton;
+        [SerializeField] private Button potionGameButton;
+        [SerializeField] private Button flipCardsGameButton;
+        [SerializeField] private int pointsToReroll;
 
         #endregion
 
         #region Private fields
         private SpellBook playerBook;
+
         private List<SpellSlotGUI> spellSlots;
+
+        [SerializeField] private int rerollPoints;
+
+        [SerializeField] private bool enablePowerGame;
+        [SerializeField] private bool enableHealGame;
+        [SerializeField] private bool enableRerollGame;
 
         #endregion
 
@@ -28,6 +40,7 @@ namespace Ingame.UI
         {
             base.Init();
             spellSlots = new List<SpellSlotGUI>();
+            reroll_slider.maxValue = pointsToReroll;
             infoGUI.HideInstant();
         }
 
@@ -38,75 +51,57 @@ namespace Ingame.UI
             playerBook.OnAddSpellUnit += AddSpellUnit;
             playerBook.OnRemoveSpellUnit += RemoveSpellUnit;
             playerBook.OnUpdateSpellUnit += UpdateSpellUnit;
-            //reload_button.onClick.AddListener...
-            //Debug.Log("Interfaz de libro de hechizos configurada");
+            reroll_button.onClick.AddListener(Reroll);
+
+            stopWandGameButton.onClick.AddListener(SelectStopWandGameButton);
+            potionGameButton.onClick.AddListener(SelectPotionsGameButton);
+            flipCardsGameButton.onClick.AddListener(SelectFlipCardsGameButton);
         } 
 
-        // public RectTransform minigame_bar;
+        private void OnEnable() 
+        {
+            Events.OnCompleteFlipCardsGame.AddListener(RechargeRerolls);
+        }
 
-        // public Button str_game_button;
-        // public Button reg_game_button;
-        // public Button bln_game_button;
-        // public Button dif_game_button;
+        private void OnDisable() 
+        {
+            Events.OnCompleteFlipCardsGame.RemoveListener(RechargeRerolls);
+        }
 
-        // public StrengthMinigame str_game;
-        // public RegenerationMinigame reg_game;
-        // public BlindMinigame blind_game;
-        // public DifficultyMinigame dif_game;
+        private void SelectStopWandGameButton()
+        {
+            enablePowerGame = false;
+            player.board.GenerateExtraGame(Board.GameType.attack);
+            Events.OnSelectMinigame.Invoke();
+        }
 
-        // #endregion
+        private void SelectPotionsGameButton()
+        {
+            enableHealGame = false;
+            player.board.GenerateExtraGame(Board.GameType.regeneration);
+            Events.OnSelectMinigame.Invoke();
+        }
 
-        // #region Unity CallBacks and public methods
-        // public void Awake()
-        // {
-        //     spellSlots = new List<SpellSlotGUI>();
+        private void SelectFlipCardsGameButton()
+        {
+            enableRerollGame = false;
+            player.board.GenerateExtraGame(Board.GameType.order);
+            Events.OnSelectMinigame.Invoke();
+        }
+       
+        private void Reroll()
+        {
+            rerollPoints = 0;
+            reroll_slider.value = 0;
+            playerBook.ReloadSpells();
+        }
 
-        //     str_game_button.onClick.AddListener(str_game.EnterGame);
-        //     reg_game_button.onClick.AddListener(reg_game.EnterGame);
-        //     bln_game_button.onClick.AddListener(blind_game.EnterGame);
-        //     dif_game_button.onClick.AddListener(dif_game.EnterGame);
-        // }
-
-        // private void OnEnable()
-        // {
-        //     Events.OnGenerateSpellSlots.AddListener(SetUpSpellSlots);
-        //     Events.OnChangeSpellSlot.AddListener(SetLayoutSlot);
-
-        //     Events.OnPlayerUseSpell.AddListener(GenerateMinigamesBar);
-        //     //Events.OnCompletePoisonMinigame.AddListener(GenerateMinigamesBar);
-        //     //Events.OnCompleteBlindMinigame.AddListener(GenerateMinigamesBar);
-        //     //Events.OnCompleteDifficultyMinigame.AddListener(GenerateMinigamesBar);
-        //     Events.OnChangeStat.AddListener(GenerateMinigamesBar);
-        //     Events.OnFailSpell.AddListener(GenerateMinigamesBar);
-        // }
-
-        // private void OnDisable()
-        // {
-        //     Events.OnGenerateSpellSlots.RemoveListener(SetUpSpellSlots);
-        //     Events.OnChangeSpellSlot.RemoveListener(SetLayoutSlot);
-
-        //     Events.OnPlayerUseSpell.RemoveListener(GenerateMinigamesBar);
-        //     //Events.OnCompletePoisonMinigame.RemoveListener(GenerateMinigamesBar);
-        //     //Events.OnCompleteBlindMinigame.RemoveListener(GenerateMinigamesBar);
-        //     //Events.OnCompleteDifficultyMinigame.RemoveListener(GenerateMinigamesBar);
-        //     Events.OnChangeStat.RemoveListener(GenerateMinigamesBar);
-        //     Events.OnFailSpell.RemoveListener(GenerateMinigamesBar);
-        // }
-
-        // #endregion
-
-        // #region Private Methods
-
-        // // Genera la barra de minijuegos:
-        // private void GenerateMinigamesBar()
-        // {            
-        //     SpellerStats stats = FindObjectOfType<SpellerPlayer>().Stats;
-        //     str_game_button.gameObject.SetActive(stats.AttackLevel < 1f);
-        //     reg_game_button.gameObject.SetActive(stats.Regeneration < 1f);
-        //     bln_game_button.gameObject.SetActive(stats.Order < 0);
-        //     dif_game_button.gameObject.SetActive(stats.Difficulty < 0);
-        // }
-        // #endregion
+        private void RechargeRerolls()
+        {
+            rerollPoints = pointsToReroll;
+            reroll_slider.value = rerollPoints;
+            reroll_button.interactable = true;
+        }
 
         private void AddSpellUnit(SpellUnit unit, int idx)
         {
@@ -161,6 +156,18 @@ namespace Ingame.UI
             base.Hide();
             if(infoGUI.active)
                 infoGUI.Hide();
+        }
+
+        public override void Show()
+        {
+            rerollPoints++; //??
+            base.Show();
+            reroll_slider.value = rerollPoints;
+            reroll_button.interactable = rerollPoints == pointsToReroll;
+
+            stopWandGameButton.interactable = enablePowerGame;
+            potionGameButton.interactable = enableHealGame;
+            flipCardsGameButton.interactable = enableRerollGame;
         }
     }
 

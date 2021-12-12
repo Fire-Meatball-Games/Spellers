@@ -47,7 +47,7 @@ namespace SpellSystem
         public event Action<int> OnChangeRegenerationEvent = delegate{};
         public event Action<int> OnChangeSlotLevelsEvent = delegate{};
         public event Action<int> OnChangeOrderEvent = delegate{};
-        public event Action<int> OnChangeDifficultyEvent = delegate{};
+        public event Action<int> OnChangeTimeEvent = delegate{};
 
         #endregion
 
@@ -68,7 +68,7 @@ namespace SpellSystem
         private void OnChangeRegeneration(int n) =>  OnChangeRegenerationEvent.Invoke(n);
         private void OnChangeCards(int n) =>  OnChangeSlotLevelsEvent.Invoke(n);
         private void OnChangeOrder(int n) =>  OnChangeOrderEvent.Invoke(n);
-        private void OnChangeTime(int n) =>  OnChangeDifficultyEvent.Invoke(n);
+        private void OnChangeTime(int n) =>  OnChangeTimeEvent.Invoke(n);
 
         public int Health
         {

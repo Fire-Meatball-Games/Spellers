@@ -34,10 +34,16 @@ namespace CustomEventSystem
 
         //Eventos de la interfaz del jugador:
         public static readonly CustomEvent OnSelectSpellSlot = new CustomEvent();
+        public static readonly CustomEvent OnSelectMinigame = new CustomEvent();
         public static readonly CustomEvent OnFailGame = new CustomEvent();
         public static readonly CustomEvent OnCompleteGame = new CustomEvent();
+        public static readonly CustomEvent OnTimerEnds = new CustomEvent();
         public static readonly CustomEvent OnPlayerUseSpell = new CustomEvent();
-        
+
+        public static readonly CustomEvent OnCompleteStopWandGame = new CustomEvent();
+        public static readonly CustomEvent OnCompletePotionsGame = new CustomEvent();
+        public static readonly CustomEvent OnCompleteFlipCardsGame = new CustomEvent();
+
         // Eventos de minijuegos:        
         public static readonly CustomEvent OnCompleteStrengthMinigame = new CustomEvent(); 
         public static readonly CustomEvent OnFailPoisonMinigame = new CustomEvent();

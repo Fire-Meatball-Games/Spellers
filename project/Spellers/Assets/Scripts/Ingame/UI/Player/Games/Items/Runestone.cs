@@ -44,7 +44,7 @@ namespace Ingame.UI
 
         private void Disable(bool hit)
         {
-            Debug.Log("Runestone: " + hit);
+            //Debug.Log("Runestone: " + hit);
             text.color = hit ? HIT_COLOR : FAIL_COLOR;
             button.image.color = Color.white;
         }

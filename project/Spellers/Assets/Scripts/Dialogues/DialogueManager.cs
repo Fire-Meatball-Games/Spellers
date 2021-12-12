@@ -26,6 +26,7 @@ namespace DialogueSystem
 
         public void LoadNextLine()
         {
+            if(dialogue == null) return;
             if (currentLineIndex >= dialogue.GetNumLines())
                 EndDialogue();
             else

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Prueba
   icon: {fileID: 21300000, guid: b1687bc08f99dff4e8f671e22bde6169, type: 3}
-  skin: {fileID: 0}
+  skin: {fileID: 11400000, guid: 995bc2e211358f34f88f9ea55ae5cd09, type: 2}
   deck:
     spells:
     - {fileID: 11400000, guid: 1ebc5b6c26fe587408fd4cd38be22b2b, type: 2}

@@ -33,37 +33,64 @@ namespace Ingame.UI
 
         private void OnEnable() 
         {
-            Events.OnSelectSpellSlot.AddListener(bookGUI.Hide);
-            Events.OnSelectSpellSlot.AddListener(boardGUI.Show);            
+            Events.OnSelectSpellSlot.AddListener(BookToBoard);     
+            Events.OnSelectMinigame.AddListener(BookToBoard);
 
-            Events.OnCompleteGame.AddListener(boardGUI.Hide);
-            Events.OnCompleteGame.AddListener(wandGUI.Show);
+            Events.OnCompleteGame.AddListener(BoardToWand);
 
-            Events.OnFailGame.AddListener(boardGUI.Hide);
-            Events.OnFailGame.AddListener(bookGUI.Show);
+            Events.OnFailGame.AddListener(BoardToBook);
+            Events.OnCompleteStopWandGame.AddListener(BoardToBook);
+            Events.OnCompletePotionsGame.AddListener(BoardToBook);
+            Events.OnCompleteFlipCardsGame.AddListener(BoardToBook);
+            Events.OnTimerEnds.AddListener(BoardToBook);
 
-            Events.OnPlayerUseSpell.AddListener(wandGUI.Hide);
-            Events.OnPlayerUseSpell.AddListener(bookGUI.Show);
+            Events.OnPlayerUseSpell.AddListener(WandToBook);
         }
 
         private void OnDisable() 
         {
-            Events.OnSelectSpellSlot.RemoveListener(bookGUI.Hide);
-            Events.OnSelectSpellSlot.RemoveListener(boardGUI.Show);            
+            Events.OnSelectSpellSlot.RemoveListener(BookToBoard);      
+            Events.OnSelectMinigame.RemoveListener(BookToBoard);
 
-            Events.OnCompleteGame.RemoveListener(boardGUI.Hide);
-            Events.OnCompleteGame.RemoveListener(wandGUI.Show);
+            Events.OnCompleteGame.RemoveListener(BoardToWand);
 
-            Events.OnFailGame.RemoveListener(boardGUI.Hide);
-            Events.OnFailGame.RemoveListener(bookGUI.Show);
+            Events.OnFailGame.RemoveListener(BoardToBook);
+            Events.OnCompleteStopWandGame.RemoveListener(BoardToBook);
+            Events.OnCompletePotionsGame.RemoveListener(BoardToBook);
+            Events.OnCompleteFlipCardsGame.RemoveListener(BoardToBook);
+            
+            Events.OnTimerEnds.RemoveListener(BoardToBook);
 
-            Events.OnPlayerUseSpell.RemoveListener(wandGUI.Hide);
-            Events.OnPlayerUseSpell.RemoveListener(bookGUI.Show);
+            Events.OnPlayerUseSpell.RemoveListener(WandToBook);
         }
 
         public void Active()
         {
             Debug.Log("UI Game activada");
+            bookGUI.Show();
+        }
+
+        private void BoardToBook()
+        {
+            boardGUI.Hide();
+            bookGUI.Show();
+        }
+
+        private void BookToBoard()
+        {
+            bookGUI.Hide();
+            boardGUI.Show();
+        }
+
+        private void BoardToWand()
+        {
+            boardGUI.Hide();
+            wandGUI.Show();
+        }
+
+        private void WandToBook()
+        {
+            wandGUI.Hide();
             bookGUI.Show();
         }
 
