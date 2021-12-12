@@ -16697,8 +16697,8 @@ ScriptedImporter:
     uvTransform: {x: -683, y: 56}
   - name: hair_05
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.41035414, y: 0.5113268}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -17279,8 +17279,8 @@ ScriptedImporter:
     uvTransform: {x: -854, y: 12476}
   - name: hair_04
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.41800296, y: 0.5254857}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -18624,8 +18624,8 @@ ScriptedImporter:
     uvTransform: {x: -502, y: 5908}
   - name: hair_02
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.42105263, y: 0.62469834}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

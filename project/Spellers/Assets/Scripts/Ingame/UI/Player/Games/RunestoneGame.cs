@@ -122,6 +122,7 @@ namespace Ingame.UI
                 Destroy(rune.gameObject);
             }
             runes.Clear();
+            spellword_txt.text = "";
         }
 
     }
