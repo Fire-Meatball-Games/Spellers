@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 05d113a92a8755c4dbe1bbc08de05476, type: 2}
   text: "Buff, estoy exhausto. Lo has hecho muy bien, pero no te conf\xEDes que seguiremos
-    practicando."
+    practicando. Recuerda, si no te convencen los hechizos que puedes lanzar en alg\xFAn
+    momento del combate puedes recibir una mano nueva. Siempre que no lo hayas hecho
+    recientemente ya, claro est\xE1."
   layout: 0

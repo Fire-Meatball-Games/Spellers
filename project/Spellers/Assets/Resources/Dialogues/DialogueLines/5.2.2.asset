@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 5.2.2
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 667825d2a6f4245448087df04d6829ee, type: 2}
-  text: "Tendr\xE1s que decidir si seguir lanzando hechizos, ignorando los males
-    que te afligen, o gastar algo de tiempo para acabar con ellos."
+  text: "Si el combate se ha alargado demasiado, atacar con tu varita en el momento
+    correcto har\xE1 algo de da\xF1o al rival. A veces tu mente muestra una serie
+    de cartas que, si emparejas correctamente, permiten refrescar los hechizos que
+    puedes lanzar."
   layout: 0
