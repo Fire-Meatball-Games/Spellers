@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 namespace UIManagement
 {
-    public class TutorialsView : View
+    public class TutorialsView : EmergentView
     {
-        public Button btn_back;
         public List<TutorialDisplay> tutorialDisplays;
         public List<Button> display_buttons;
         int current_tutorial;
 
         public override void Init()
         {
-            btn_back.onClick.AddListener(ViewManager.ShowLast);
+            base.Init();
             int count = Mathf.Min(tutorialDisplays.Count, display_buttons.Count);
             for (int i = 0; i < count; i++)
             {                
