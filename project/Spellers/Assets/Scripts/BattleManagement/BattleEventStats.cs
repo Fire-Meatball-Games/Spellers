@@ -20,7 +20,15 @@ namespace BattleManagement
         public int SpellHits { get => spellHits; set { spellHits = value; spellHitsEvent?.Invoke(value); } }
         public int SpellFails { get => spellFails; set { spellFails = value; spellFailsEvent?.Invoke(value); }  }
         public int SpellAttemps{ get => spellAttemps; set => spellAttemps = value; }
-        
+
+        public bool specialEvents;
+
+        private bool eventTriggered;
+
+        public void SetSpecialEvents()
+        {
+            specialEvents = true;
+        }
 
         private void OnEnable() 
         {
@@ -42,6 +50,11 @@ namespace BattleManagement
             while(true)
             {
                 battleTime += Time.deltaTime;
+                if(battleTime >= 20 && !eventTriggered)
+                {
+                    eventTriggered = true;
+                    Events.ActivePowerGame.Invoke();
+                }
                 yield return null;
             }
         }
@@ -51,6 +64,10 @@ namespace BattleManagement
             SpellHits++;
             SpellAttemps++;
             Debug.Log("Acierto");
+            if(spellHits == 5 && specialEvents)
+            {
+                Events.OnWinConditionChecked.Invoke();
+            }
         }
 
         private void AddFail()
@@ -59,6 +76,8 @@ namespace BattleManagement
             SpellAttemps++;
             Debug.Log("Fallo");
         }
+
+
 
 
     }

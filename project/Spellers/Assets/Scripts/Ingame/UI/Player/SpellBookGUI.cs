@@ -61,11 +61,16 @@ namespace Ingame.UI
         private void OnEnable() 
         {
             Events.OnCompleteFlipCardsGame.AddListener(RechargeRerolls);
+
+            Events.ActiveHealGame.AddListener(ActiveHealGame);
+            Events.ActivePowerGame.AddListener(ActivePowerGame);
         }
 
         private void OnDisable() 
         {
             Events.OnCompleteFlipCardsGame.RemoveListener(RechargeRerolls);
+            Events.ActiveHealGame.RemoveListener(ActiveHealGame);
+            Events.ActivePowerGame.RemoveListener(ActivePowerGame);
         }
 
         private void SelectStopWandGameButton()
@@ -170,7 +175,15 @@ namespace Ingame.UI
             stopWandGameButton.interactable = enablePowerGame;
             potionGameButton.interactable = enableHealGame;
             flipCardsGameButton.interactable = enableRerollGame;
+
+            var i = Random.Range(0,10);
+            if(i == 7)
+                ActiveRerollGame();
         }
+
+        private void ActiveHealGame() => enableHealGame = true;
+        private void ActivePowerGame() => enablePowerGame = true;
+        private void ActiveRerollGame() => enableRerollGame = true;  
     }
 
 }

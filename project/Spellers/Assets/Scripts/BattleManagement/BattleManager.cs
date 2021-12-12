@@ -56,6 +56,18 @@ namespace BattleManagement
         private void SetUpBattleSettings()
         {
             gameSettings = GameManager.instance.GetSettings(); 
+            if(gameSettings is LevelGameSettings levelGameSettings)
+            {
+                if(levelGameSettings.LevelIndex == 1 || levelGameSettings.LevelIndex == 3 || levelGameSettings.LevelIndex == 8)
+                {
+                    eventStats.SetSpecialEvents();
+                }
+            }
+        }
+
+        private void OnEnable() 
+        {
+            Events.OnWinConditionChecked.AddListener(Win);
         }
 
         // Configurar el jugador a partir de los datos de Player:
@@ -93,8 +105,6 @@ namespace BattleManagement
         // Configurar el enemigo a partir de los datos de GameManager:
         private void SetUpEnemy()
         {
-
-
             // Generar enemigo:
             enemy = spawner.GenerateEnemy();
 

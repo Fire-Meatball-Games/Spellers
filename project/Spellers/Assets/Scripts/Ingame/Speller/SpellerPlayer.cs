@@ -29,7 +29,7 @@ namespace Ingame
             Stats.OnChangeSlotLevelsEvent += book.SetNumSlots;
 
             board = new Board(this);
-            //Stats.OnChangeOrderEvent += board.SetOrderLevel; 
+            Stats.EventTrigger += ()=> Events.ActiveHealGame.Invoke();
             Stats.OnChangeTimeEvent += board.SetTime;       
         }
 
@@ -42,22 +42,12 @@ namespace Ingame
         {
             Events.OnCompleteStopWandGame.AddListener(StopWandEffect);
             Events.OnCompletePotionsGame.AddListener(PotionEffect);
-            // Events.OnCompleteStrengthMinigame.AddListener(Stats.CleanAttackDebuff);
-            // Events.OnCompletePoisonMinigame.AddListener(Stats.CleanRegenerationDebuff);
-            // Events.OnCompleteBlindMinigame.AddListener(Stats.CleanOrderDebuff);
-            // Events.OnCompleteDifficultyMinigame.AddListener(Stats.CleanDifficultyDebuff);
-            // Events.OnFailSpell.AddListener(Stats.CompleteTurn);
         }
 
         private void OnDisable()
         {
             Events.OnCompleteStopWandGame.RemoveListener(StopWandEffect);
             Events.OnCompletePotionsGame.RemoveListener(PotionEffect);
-            // Events.OnCompleteStrengthMinigame.RemoveListener(Stats.CleanAttackDebuff);
-            // Events.OnCompletePoisonMinigame.RemoveListener(Stats.CleanRegenerationDebuff);
-            // Events.OnCompleteBlindMinigame.RemoveListener(Stats.CleanOrderDebuff);
-            // Events.OnCompleteDifficultyMinigame.RemoveListener(Stats.CleanDifficultyDebuff);
-            // Events.OnFailSpell.RemoveListener(Stats.CompleteTurn);
         }
         #endregion
 
