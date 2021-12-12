@@ -12,3 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b668ea66e39e4796df1989b570495, type: 3}
   m_Name: Saita
   m_EditorClassIdentifier: 
+  face: {fileID: 11400000, guid: 1eb556e6849247f44b1d786a66317cc9, type: 2}
+  hair: {fileID: 11400000, guid: e4c5e974de8082248904923e2e4ac4e4, type: 2}
+  hat: {fileID: 11400000, guid: 182dca8741b59994ca2f055e43b3c1dd, type: 2}
+  nose: {fileID: 11400000, guid: 313877ef131268640a0deedc933dfc8f, type: 2}
+  mouth: {fileID: 11400000, guid: ffe965a97b3bd0e41ae17df0e15dfd93, type: 2}
+  coat: {fileID: 11400000, guid: 7675b9af40815cf47a34f72838494af6, type: 2}
+  eyes: {fileID: 11400000, guid: 0168ff70e50250b4e8b3b68bc144d63c, type: 2}
+  bodyPart: {fileID: 11400000, guid: 90a1730bafee91e478265a3dad443280, type: 2}

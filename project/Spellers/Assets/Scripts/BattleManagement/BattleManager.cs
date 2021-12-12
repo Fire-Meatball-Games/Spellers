@@ -121,7 +121,7 @@ namespace BattleManagement
         // Comenzar la batalla:
         public void StartBattle()
         {
-            if(gameSettings is LevelGameSettings levelGameSettings)
+            if(gameSettings is LevelGameSettings levelGameSettings && levelGameSettings.InitDialogue != null)
             {
                 dialogueManager.StartDialogue(levelGameSettings.InitDialogue, EnableBattle);
             }
@@ -177,7 +177,7 @@ namespace BattleManagement
         // 
         private void EndBattle(bool win)
         {
-            if(gameSettings is LevelGameSettings levelGameSettings)
+            if(gameSettings is LevelGameSettings levelGameSettings && levelGameSettings.EndDialogue != null)
             {
                 dialogueManager.StartDialogue(levelGameSettings.EndDialogue, () => DisableBattle(win));
                 Debug.Log(levelGameSettings.LevelIndex + "/" +  Player.instance.LastLevelUnlocked);

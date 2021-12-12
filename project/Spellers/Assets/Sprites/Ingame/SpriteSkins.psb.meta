@@ -3566,15 +3566,15 @@ ScriptedImporter:
     uvTransform: {x: 3059, y: 4987}
   - name: cabeza
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4716839, y: 1.1840764}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 3180
+      y: 3827
       width: 1368
-      height: 1696
+      height: 1049
     spriteID: 9b33d859822ef69428eb515b4d9013e6
     internalID: 0
     spriteBone:
@@ -47861,7 +47861,7 @@ ScriptedImporter:
       x: 4651
       y: 2007
       width: 495
-      height: 1994
+      height: 810
     spriteID: 6a712e8c2e2ad94448e79ce5b35bcfb3
     internalID: 0
     spriteBone:

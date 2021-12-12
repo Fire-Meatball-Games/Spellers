@@ -15,8 +15,8 @@ MonoBehaviour:
   face: {fileID: 11400000, guid: 316f54f6d672fb6498ce1bd3430baae7, type: 2}
   hair: {fileID: 11400000, guid: 875703de6fcc721448b7409aa88e36e0, type: 2}
   hat: {fileID: 0}
-  nose: {fileID: 11400000, guid: 1149e0c300d597d41af68570cca7bb8a, type: 2}
-  mouth: {fileID: 11400000, guid: c238e7bbbc84c264a93cfe155145a2bc, type: 2}
+  nose: {fileID: 11400000, guid: 2c0423f7de637044c97ba1c1880f73fe, type: 2}
+  mouth: {fileID: 11400000, guid: ffe965a97b3bd0e41ae17df0e15dfd93, type: 2}
   coat: {fileID: 0}
-  eyes: {fileID: 11400000, guid: 07970f617ab5f1f4783f81be4f23bdc4, type: 2}
+  eyes: {fileID: 11400000, guid: 254ab046b6574204fab69d8f6d9bd19e, type: 2}
   bodyPart: {fileID: 11400000, guid: 90a1730bafee91e478265a3dad443280, type: 2}

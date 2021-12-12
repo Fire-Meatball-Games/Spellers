@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b668ea66e39e4796df1989b570495, type: 3}
   m_Name: Vivian
   m_EditorClassIdentifier: 
-  face: {fileID: 0}
-  hair: {fileID: 0}
-  hat: {fileID: 0}
-  eyes: {fileID: 0}
-  nose: {fileID: 0}
-  mouth: {fileID: 0}
+  face: {fileID: 11400000, guid: 316f54f6d672fb6498ce1bd3430baae7, type: 2}
+  hair: {fileID: 11400000, guid: 4af85885c28a4024490a4485f61ee957, type: 2}
+  hat: {fileID: 11400000, guid: dba9517fe11df2e4eb0f5873f70592c0, type: 2}
+  nose: {fileID: 11400000, guid: 91c2e41372b344246a74d578654d47cc, type: 2}
+  mouth: {fileID: 11400000, guid: ffe965a97b3bd0e41ae17df0e15dfd93, type: 2}
   coat: {fileID: 0}
-  bodyPart: {fileID: 0}
+  eyes: {fileID: 11400000, guid: 1c61c99210adb794ea63908253f77b06, type: 2}
+  bodyPart: {fileID: 11400000, guid: 222bf7f049b2b24418fb70b732e5e3cf, type: 2}

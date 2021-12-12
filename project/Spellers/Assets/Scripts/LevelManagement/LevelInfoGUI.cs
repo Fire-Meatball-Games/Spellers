@@ -65,6 +65,7 @@ namespace LevelManagement
                     if(levelSelector.LoadLevelDialogue)
                     {
                         dialogueManager.StartDialogue(levelSelector.SelectedLevel.map_dialogue, ()=> ShowLevelDetails(index));
+                        levelSelector.LoadLevelDialogue = false;
                     }
                     else
                     {
