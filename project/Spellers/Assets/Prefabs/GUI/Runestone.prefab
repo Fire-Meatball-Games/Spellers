@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ccf3562fa28183c49ba660ca8bb34b74, type: 2}
-  m_sharedMaterial: {fileID: -8657039064999334533, guid: ccf3562fa28183c49ba660ca8bb34b74, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1648b20aef68114d94a9e44b9a60f82, type: 2}
+  m_sharedMaterial: {fileID: -8254280400364332659, guid: c1648b20aef68114d94a9e44b9a60f82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

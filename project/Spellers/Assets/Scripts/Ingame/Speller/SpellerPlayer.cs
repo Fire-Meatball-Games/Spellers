@@ -30,7 +30,7 @@ namespace Ingame
 
             board = new Board(this);
             //Stats.OnChangeOrderEvent += board.SetOrderLevel; 
-            //Stats.OnChangeTimeEvent += board.SetTime;       
+            Stats.OnChangeTimeEvent += board.SetTime;       
         }
 
         public override void Active()
@@ -40,6 +40,8 @@ namespace Ingame
 
         private void OnEnable()
         {
+            Events.OnCompleteStopWandGame.AddListener(StopWandEffect);
+            Events.OnCompletePotionsGame.AddListener(PotionEffect);
             // Events.OnCompleteStrengthMinigame.AddListener(Stats.CleanAttackDebuff);
             // Events.OnCompletePoisonMinigame.AddListener(Stats.CleanRegenerationDebuff);
             // Events.OnCompleteBlindMinigame.AddListener(Stats.CleanOrderDebuff);
@@ -49,6 +51,8 @@ namespace Ingame
 
         private void OnDisable()
         {
+            Events.OnCompleteStopWandGame.RemoveListener(StopWandEffect);
+            Events.OnCompletePotionsGame.RemoveListener(PotionEffect);
             // Events.OnCompleteStrengthMinigame.RemoveListener(Stats.CleanAttackDebuff);
             // Events.OnCompletePoisonMinigame.RemoveListener(Stats.CleanRegenerationDebuff);
             // Events.OnCompleteBlindMinigame.RemoveListener(Stats.CleanOrderDebuff);
@@ -82,6 +86,13 @@ namespace Ingame
         {
             return book.GetSelectedSpell();
         }
+
+        #endregion
+
+        #region GameEffects
+
+        private void StopWandEffect() => Stats.AttackState.SetState(2,5);
+        private void PotionEffect() => Stats.Health += 20;
 
         #endregion
     }

@@ -7,7 +7,7 @@ namespace Ingame.UI
 {
     public abstract class SpellPlayerGUI : MonoBehaviour
     {
-        [SerializeField] private RectTransform layout;
+        [SerializeField] protected RectTransform layout;
         protected SpellerPlayer player;
 
         private EffectBuilder showEffects, hideEffects;

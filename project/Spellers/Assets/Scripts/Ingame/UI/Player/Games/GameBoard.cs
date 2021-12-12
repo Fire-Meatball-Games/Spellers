@@ -14,6 +14,7 @@ namespace Ingame
         private event Action OnFail = delegate{};
 
         public abstract void Generate();
+        public abstract void Clear();
         public void AddSuccessListener(Action action){ OnSuccess += action;}
         public void AddFailListener(Action action){OnFail += action;}
 

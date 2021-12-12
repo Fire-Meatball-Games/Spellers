@@ -39,7 +39,7 @@ namespace Ingame.UI
             stats.OnChangeRegenerationEvent += OnRegenerationChangedCallback;
             stats.OnChangeSlotLevelsEvent += OnCardsChangedCallback;
             stats.OnChangeOrderEvent += OnOrderChangedCallback;
-            stats.OnChangeDifficultyEvent += OnTimeChangedCallback;
+            stats.OnChangeTimeEvent += OnTimeChangedCallback;
 
             OnHealthChangedCallback(stats.Health);
             OnShieldChangedCallback(stats.Shields);

@@ -19,14 +19,14 @@ namespace Ingame
             time,
         }
 
-        private static readonly float BASE_TIME = 2f;
-        private static readonly float LEVEL_TIME = 1f;
-        private static readonly float POWER_TIME = 2f;
-        private static readonly float MINIGAME_TIME = 10f;
+        private static readonly float BASE_TIME = 4f;
+        private static readonly float LEVEL_TIME = 2f;
+        private static readonly float POWER_TIME = 3f;
+        private static readonly float MINIGAME_TIME = 15f;
 
         #region Private fields
         private MonoBehaviour behaviour;
-        private float time_multiplier;
+        private float time_multiplier = 1f;
         private int difficulty;
 
         #endregion
@@ -60,9 +60,14 @@ namespace Ingame
             OnGenerateGame?.Invoke(type, 1, MINIGAME_TIME);
         }
 
+        public void SetTime(int timeLvl)
+        {
+            time_multiplier = 1f + 0.1f * timeLvl;
+        }
+
         private float ComputeTime(int power, int lvl)
         {
-            return BASE_TIME + POWER_TIME * power + LEVEL_TIME * lvl;
+            return (BASE_TIME + POWER_TIME * power + LEVEL_TIME * lvl) * time_multiplier;
         }
 
         private int ComputeDifficulty(int power, int lvl)

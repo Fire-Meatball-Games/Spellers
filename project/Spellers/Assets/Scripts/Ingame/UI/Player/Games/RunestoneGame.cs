@@ -16,10 +16,17 @@ namespace Ingame.UI
         private int currentCharIdx;
         private List<Runestone> runes;
         private Vector2Int dimension;
+        private int worldLength;
 
         private void Awake() 
         {
             runes = new List<Runestone>();
+        }
+
+        public void SetDifficulty(int difficulty)
+        {
+            this.worldLength = (difficulty + 7) / 2;
+            SetBoardDimensions(difficulty);
         }
 
         public override void Generate()
@@ -27,7 +34,6 @@ namespace Ingame.UI
             currentCharIdx = 0;
             spellword = GenerateRandomWord();
             spellword_txt.text = spellword;
-            dimension = SetBoardDimensions(4);
             char[] keys = GenerateAllKeys(dimension.x * dimension.y);
             for (var i = 0; i < dimension.y; i++)
             {
@@ -43,7 +49,7 @@ namespace Ingame.UI
 
         private string GenerateRandomWord()
         {
-            return Extensions.GenerateRandomWord(4, CHARSET);
+            return Extensions.GenerateRandomWord(worldLength, CHARSET);
         }
 
         private char[] GenerateAllKeys(int length)
@@ -56,9 +62,19 @@ namespace Ingame.UI
             return difficulty;
         }
 
-        private Vector2Int SetBoardDimensions(int difficulty)
+        private void SetBoardDimensions(int difficulty)
         {
-            return new Vector2Int(3,5);
+            switch(difficulty)
+            {
+                case 1: dimension = new Vector2Int(3,2); break;
+                case 2: dimension = new Vector2Int(4,2); break;
+                case 3: dimension = new Vector2Int(3,3); break;
+                case 4: dimension = new Vector2Int(4,3); break;
+                case 5: dimension = new Vector2Int(5,3); break;
+                case 6: dimension = new Vector2Int(4,4); break;
+                case 7: dimension = new Vector2Int(4,4); break;
+                default: dimension = new Vector2Int(5,5); break;
+            }
         }
 
         private Runestone GenerateRunestone(Vector2 pos, Vector2 size)
@@ -77,7 +93,7 @@ namespace Ingame.UI
 
         private bool CheckKey(char runekey)
         {
-            Debug.Log("Check if " + runekey + " == " + spellword[currentCharIdx]);
+            //Debug.Log("Check if " + runekey + " == " + spellword[currentCharIdx]);
             if(runekey == spellword[currentCharIdx])
             {
                 currentCharIdx++;
@@ -96,7 +112,7 @@ namespace Ingame.UI
             }
         }
 
-        private void Clear()
+        public override void Clear()
         {
             foreach(var rune in runes)
             {
