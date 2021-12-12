@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 376bc0daed948234897b79479f98959d, type: 3}
-  m_Name: Game
+  m_Name: Game 2
   m_EditorClassIdentifier: 
-  enemyName: Prueba
+  enemyName: Prueba 2
   icon: {fileID: 21300000, guid: b1687bc08f99dff4e8f671e22bde6169, type: 3}
   skin: {fileID: 11400000, guid: 995bc2e211358f34f88f9ea55ae5cd09, type: 2}
   deck:
@@ -21,4 +21,4 @@ MonoBehaviour:
   maxSpellLvl: 3
   cooldown_average: 10
   cooldown_deviation: 2
-  points_per_win: 500
+  points_per_win: 1000
