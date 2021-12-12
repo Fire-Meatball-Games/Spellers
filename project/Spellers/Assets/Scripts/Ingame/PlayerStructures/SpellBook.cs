@@ -14,19 +14,15 @@ namespace Ingame
 
         #region Private Fields         
         private SpellDeck deck;
-        private List<SpellUnit> spellUnits = new List<SpellUnit>(BASE_SLOTS);
+        public List<SpellUnit> spellUnits = new List<SpellUnit>(BASE_SLOTS);
         private SpellUnit selectedSpell;
         private int num_slots;
         #endregion
 
         #region Events
-        public event Action<SpellUnit, int> OnAddSpellUnit = delegate{};
-        public event Action OnRemoveSpellUnit = delegate{};
-        public event Action<SpellUnit, int> OnUpdateSpellUnit = delegate{};
+        public event Action OnUpdateSpellUnits = delegate{};
 
-        #endregion
-
-        
+        #endregion        
 
         #region Constructor
 
@@ -58,13 +54,14 @@ namespace Ingame
         // Carga los hechizos iniciales
         public void Initialize()
         {
-            GenerateSpellSlots();
+            ReloadSpells();
         }
 
         // Cambia el número de hechizos disponibles
         public void SetNumSlots(int n)
         {
             num_slots = BASE_SLOTS + n;
+            ReloadSpells();
         }
 
         // Genera una nueva pool de hechizos:
@@ -75,49 +72,15 @@ namespace Ingame
             for (var i = 0; i < spellUnits.Count; i++)
             {
                 int idx = i;
-                SpellUnit unit = spellUnits[idx];
-                OnUpdateSpellUnit?.Invoke(unit, idx);
+                SpellUnit unit = spellUnits[idx];                
             }
+            OnUpdateSpellUnits?.Invoke();
         }
         #endregion
 
         #region private Methods
 
-        // Coloca 3 hechizos aleatorios del mazo del jugador a la mesa
-        private void GenerateSpellSlots()
-        {
-            List<SpellUnit> randomPool = deck.GetSpellPool(num_slots);
-            spellUnits = randomPool;
-            for (var i = 0; i < spellUnits.Count; i++)
-            {
-                int idx = i;
-                SpellUnit unit = spellUnits[idx];
-                OnAddSpellUnit?.Invoke(unit, idx);
-            }
-        }
-
-        // Cambia el hechizo de la posición idx de la mesa
-        private void ChangeSpellSlot(int idx)
-        {
-            SpellUnit unit = deck.GetRandomSpell();
-            spellUnits[idx] = unit;
-            OnUpdateSpellUnit?.Invoke(unit, idx);
-        }
-
         // Añade un hechizo
-        private void AddSlot()
-        {
-            SpellUnit unit = deck.GetRandomSpell();
-            spellUnits.Add(unit);
-            OnAddSpellUnit?.Invoke(unit, spellUnits.Count - 1);
-        }
-
-        // Borra un hechizo
-        private void RemoveLastSlot()
-        {            
-            spellUnits.RemoveAt(num_slots - 1);
-            OnRemoveSpellUnit.Invoke();
-        }
         #endregion
 
 

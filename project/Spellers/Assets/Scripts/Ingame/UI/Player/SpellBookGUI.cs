@@ -48,9 +48,7 @@ namespace Ingame.UI
         {
             base.SetUp(spellerPlayer);
             playerBook = player.book;
-            playerBook.OnAddSpellUnit += AddSpellUnit;
-            playerBook.OnRemoveSpellUnit += RemoveSpellUnit;
-            playerBook.OnUpdateSpellUnit += UpdateSpellUnit;
+            playerBook.OnUpdateSpellUnits += UpdateSpellUnit;
             reroll_button.onClick.AddListener(Reroll);
 
             stopWandGameButton.onClick.AddListener(SelectStopWandGameButton);
@@ -113,28 +111,22 @@ namespace Ingame.UI
         {
             Debug.Log("Interfaz de Libro de hechizos: hechizo añadido: " + unit + " (" + idx + ")");
             var obj = Instantiate(spellSlot_prefab, spellSlotsContent);
-            obj.transform.SetSiblingIndex(idx);
             var spellSlot = obj.GetComponent<SpellSlotGUI>();
             spellSlot.SetSpellGUI(unit);
             spellSlot.AddSelectButtonCallback(() => SelectSpellListener(idx));
             spellSlot.AddSelectButtonCallback(Hide);
             spellSlot.AddInfoButtonCallback(() => ShowSpellDetails(unit.spell));
-            spellSlots.Insert(idx, spellSlot);
+            spellSlots.Add(spellSlot);
         }
 
-        private void RemoveSpellUnit()
+        private void UpdateSpellUnit()
         {
-            var slot = spellSlots[spellSlots.Count - 1];
-            spellSlots.Remove(slot);
-            Destroy(slot.gameObject);
-        }
-
-        private void UpdateSpellUnit(SpellUnit unit, int idx)
-        {
-            var slot = spellSlots[idx];
-            spellSlots.Remove(slot);
-            Destroy(slot.gameObject);
-            AddSpellUnit(unit, idx);
+            Clear();
+            for(var i = 0; i < playerBook.spellUnits.Count; i++)
+            {
+                int idx = i;
+                AddSpellUnit(playerBook.spellUnits[idx], idx);
+            }
         }
 
         private void Clear()
