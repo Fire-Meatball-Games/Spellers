@@ -17,9 +17,9 @@ MonoBehaviour:
   description: "Las primeras 2/4/6 letras aparecer\xE1n ordenadas para el siguiente
     hechizo en la tablilla de letras."
   icon: {fileID: 21300000, guid: 9e0d2500c01ce8c4fa0df5efa1ae1c17, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: c46ded0bf10d3b545ab1c235b5b84dda, type: 3}
   category: 1
-  offensive: 0
+  animationType: 1
   type: 2
   effects:
   - {fileID: 11400000, guid: fdc0bb07d1844b94f815f6aa3a79fc5e, type: 2}

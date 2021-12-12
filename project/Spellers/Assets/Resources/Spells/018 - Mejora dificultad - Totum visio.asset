@@ -16,9 +16,9 @@ MonoBehaviour:
   spellname: Totum visio
   description: Aumenta el tiempo de los siguientes 1/2/3 hechizos del jugador.
   icon: {fileID: 21300000, guid: 8704d63515898a2489399540f75fd0a7, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 83d74639e447fc9498c5d1268dac961d, type: 3}
   category: 2
-  offensive: 0
+  animationType: 1
   type: 2
   effects:
   - {fileID: 11400000, guid: 72e60ef5386591d4cb6f9e7bc4607e32, type: 2}

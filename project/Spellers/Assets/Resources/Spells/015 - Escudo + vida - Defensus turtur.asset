@@ -16,9 +16,9 @@ MonoBehaviour:
   spellname: Defensus turtur
   description: "A\xF1ade 1 escudo y restaura un 8/11/14% de vida al jugador."
   icon: {fileID: 21300000, guid: 8c6e801713f16704db70ab2926bd55ec, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 5986a91750d338344aae3a2f0869e7d6, type: 3}
   category: 2
-  offensive: 0
+  animationType: 1
   type: 1
   effects:
   - {fileID: 11400000, guid: 78fbc36888a19784c82b7622f549bebf, type: 2}

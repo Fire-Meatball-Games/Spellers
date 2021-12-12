@@ -38,30 +38,38 @@ namespace Ingame
         {
             Debug.Log("Spellwand: Using spell" + unit.ToString());
             Spell spell = unit.spell;
-            if(spell.offensive)
+            Vector3 initPos = user.transform.position + Vector3.up + Vector3.back;
+            Vector3 finalPos = target.transform.position + Vector3.up + Vector3.back;
+            switch (spell.animationType)
             {
-                var current_time = 0f;
-                var delta = 1f / LAUNCHTIME;                
-                var spellShot = Instantiate(spell_prefab);
-                var renderer = spellShot.GetComponent<SpriteRenderer>();
-                var tf = spellShot.transform;
-                renderer.sprite = spell.Sprite;
-                renderer.flipX = user.transform.position.x < target.transform.position.x;
-                tf.position = user.transform.position;
+                case Spell.AnimationType.proyectile:
+                    break;
+                case Spell.AnimationType.target:
+                    initPos = finalPos;
+                    break;
+                case Spell.AnimationType.self:
+                    finalPos = initPos;
+                    break;
+            }
+            
+            var current_time = 0f;
+            var delta = 1f / LAUNCHTIME;                
+            var spellShot = Instantiate(unit.spell.Animation);
+            var renderer = spellShot.GetComponent<SpriteRenderer>();
+            var tf = spellShot.transform;
+            tf.localScale = Vector3.one * 0.3f;
+            renderer.flipX = user.transform.position.x > target.transform.position.x;
+            tf.position = initPos;
 
-                while(tf.position != target.transform.position)
-                {
-                    current_time += Time.deltaTime;
-                    var t = delta * current_time;
-                    tf.position = Vector3.Lerp(user.transform.position, target.transform.position, t);
-                    yield return null;
-                }
-                Destroy(spellShot);
-            }
-            else
+            while(current_time < 0.4f)
             {
-                yield return new WaitForSeconds(LAUNCHTIME);
+                current_time += Time.deltaTime;
+                var t = delta * current_time;
+                tf.position = Vector3.Lerp(initPos, finalPos, t);
+                yield return null;
             }
+            Destroy(spellShot);
+
             user.OnUseSpell();
             ApplySpell(unit);            
         }

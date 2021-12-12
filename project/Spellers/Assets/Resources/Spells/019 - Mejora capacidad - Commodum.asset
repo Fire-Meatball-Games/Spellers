@@ -17,9 +17,9 @@ MonoBehaviour:
   description: "En el siguiente turno, el jugador tendr\xE1 1/2/3 cartas m\xE1s para
     elegir."
   icon: {fileID: 21300000, guid: b4c42ee968df93545b6533e81708a620, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: b89428f889442fd4dbb13847de08d502, type: 3}
   category: 2
-  offensive: 0
+  animationType: 1
   type: 2
   effects:
   - {fileID: 11400000, guid: c8b0f38b6fa7cd947ade81059e021c52, type: 2}

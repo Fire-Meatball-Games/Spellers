@@ -16,9 +16,9 @@ MonoBehaviour:
   spellname: Remedium continuus
   description: Restaura un 6% de la vida durante los 2/3/4 siguientes turnos.
   icon: {fileID: 21300000, guid: dccd06b9b890f364589b700626f91efa, type: 3}
-  sprite: {fileID: 21300000, guid: 00647bc8a4849e04fa27364d39deaa4e, type: 3}
+  animation: {fileID: 5557422129974789201, guid: 32ba24aa1ce152c4cb23b44d874ec435, type: 3}
   category: 2
-  offensive: 0
+  animationType: 1
   type: 2
   effects:
   - {fileID: 11400000, guid: ebe42b97faf8da9418b5df70490f6d16, type: 2}
