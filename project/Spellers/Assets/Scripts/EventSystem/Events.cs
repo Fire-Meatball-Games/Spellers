@@ -54,6 +54,14 @@ namespace CustomEventSystem
         public static readonly CustomEvent OnHitkey = new CustomEvent();
         public static readonly CustomEvent OnFailSpell = new CustomEvent();
 
+        // Condiciones:
+        public static readonly CustomEvent OnWinConditionChecked = new CustomEvent();
+
+        // Trigger minijuegos:
+        public static readonly CustomEvent ActivePowerGame = new CustomEvent();
+        public static readonly CustomEvent ActiveHealGame = new CustomEvent();
+        
+
 
     }
 }

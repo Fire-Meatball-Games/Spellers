@@ -25,6 +25,10 @@ namespace SpellSystem
 
         #region Fields
 
+        private bool eventTriggered;
+
+        public event Action EventTrigger = delegate{};
+
         private int health = MAX_HEALTH;
         private int shields = 0;
 
@@ -83,6 +87,11 @@ namespace SpellSystem
                     Debug.Log("HEALTH = " + clampedValue);
                     if (health == 0) {
                         OnDefeatEvent?.Invoke(); 
+                    }
+                    else if (health < 40 && !eventTriggered)
+                    {
+                        EventTrigger?.Invoke();
+                        eventTriggered = true;
                     }
                 }                
             }
