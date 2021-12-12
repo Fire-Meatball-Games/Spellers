@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 8.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
-  text: "Han llegado a mis o\xEDdos todas tus haza\xF1as para ser un novato y tengo
-    que alertarte de que a\xFAn te falta un detalle de lo m\xE1s importante. Est\xE1
-    bien poder defenderse y evitar los estados, pero inculcarlos y mejorar tu situaci\xF3n
-    es de suma importancia. Con esto y un duro entrenamiento podr\xE1s callarle la
-    boca al maldito Lacert."
+  text: "Han llegado a mis o\xEDdos todas tus haza\xF1as y tengo que alertarte de
+    que a\xFAn te falta un detalle de lo m\xE1s importante. Est\xE1 bien poder defenderse
+    y evitar los estados, pero la mejor estrategia es potenciar tus capacidades.
+    Con esto y un duro entrenamiento podr\xE1s callarle la boca al maldito Lacert."
   layout: 0

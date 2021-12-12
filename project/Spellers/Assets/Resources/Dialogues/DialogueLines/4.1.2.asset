@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66aa2671365589b4783bb3f5463a374e, type: 3}
   m_Name: 4.1.2
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: b5668b524b6631c4aae6b2e92e1cc936, type: 2}
+  character: {fileID: 11400000, guid: 05d113a92a8755c4dbe1bbc08de05476, type: 2}
   text: "Tenemos que darle duro a esto. He mejorado un poco con respecto a la \xFAltima
     vez, a ver si encontramos el secreto de Lacert."
   layout: 0

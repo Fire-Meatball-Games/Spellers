@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 11.1.2
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: ace4f972d9ec1cf45ad92511837446fd, type: 2}
-  text: "S\xED\u2026 bueno\u2026 es verdad que yo soy bastante buena jeje, y voy
-    a tratar de presentarme este a\xF1o, pero le he prometido a Saita que no te lo
+  text: "S\xED\u2026 bueno\u2026 es verdad que yo soy bastante buena jeje. Voy a
+    tratar de presentarme este a\xF1o, pero le he prometido a Saita que no te lo
     iba a poner f\xE1cil. \xA1Prep\xE1rate!"
   layout: 0

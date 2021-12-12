@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238f1dcf3260bd64383a4da28c540fac, type: 3}
   m_Name: Turk
   m_EditorClassIdentifier: 
-  characterName: Zachary
+  characterName: Turk
   sprite: {fileID: 21300000, guid: e13d7f48a04b6c449a74cfb222605aae, type: 3}

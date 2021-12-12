@@ -12,17 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 11
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Vivian
+  icon: {fileID: 21300000, guid: fc9a8ebae88e2f74983a3d1536502e2c, type: 3}
+  skin: {fileID: 11400000, guid: 32149373fe750b743acd414c04f69bcf, type: 2}
   deck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 762a3541763a1284fb34664cb21f3a59, type: 2}
+    - {fileID: 11400000, guid: 44328d51a63154c4aa54118fcf65f285, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+    - {fileID: 11400000, guid: 05a35f0e08e6d7e429f5d2e22e41d4f2, type: 2}
+    - {fileID: 11400000, guid: 74d66abe95b9d0e4f875448d59222ba0, type: 2}
+    - {fileID: 11400000, guid: 8af704de0001e3342bb16590f4ff905d, type: 2}
+    - {fileID: 11400000, guid: 91dc2e09c2cc3f44d860e4b3c934ac5e, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
   maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+  cooldown_average: 10
+  cooldown_deviation: 5
+  levelIndex: 11
+  levelname: Nivel 11
   playerDeck:
-    spells: []
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: 4598ecf4a287d2e478599d9eadce6463, type: 2}
+    - {fileID: 11400000, guid: a3a5d4c5a9e8b3b48952508843744acb, type: 2}
+    - {fileID: 11400000, guid: 73b1594e09dc7f34d8acffbf479f9242, type: 2}
+    - {fileID: 11400000, guid: 2c0d85a7e270559429cdd271875a5dd1, type: 2}
+    - {fileID: 11400000, guid: 05a35f0e08e6d7e429f5d2e22e41d4f2, type: 2}
+    - {fileID: 11400000, guid: 4976ae506240d164ba4c9eaa283cdfa8, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+    - {fileID: 11400000, guid: 14c28e2c580e5e44dbc11a1188308088, type: 2}
   initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+  endDialogue: {fileID: 11400000, guid: 18314b06162a5dc45a76a552ac279414, type: 2}

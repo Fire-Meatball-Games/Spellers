@@ -1,0 +1,40 @@
+Cartas ofensivas (3/8):
+	Imperio: sobre enemigo
+	Vastare: proyectil
+	Iteratio noxia: sobre enemigo
+	Autovincens: sobre ambos
+	Lac vitae: sobre enemigo
+	Spicula: sobre jugador (animacion de Spinae sobre enemigo al mismo tiempo?)
+	Igneus crépitus: sobre ambos
+	Sacrificium: sobre enemigo
+	
+Cartas defensivas (3/8):
+	Vitale: sobre jugador
+	Renovationis: sobre jugador
+	Scutum armis: sobre jugador
+	Defensus turtur: sobre jugador
+	Spinae: sobre enemigo (animacion de Vitale sobre jugador al mismo tiempo?)
+	Confractus: sobre ambos
+	Ferrum core: sobre jugador
+	Lignum vitae: sobre jugador
+	
+Cartas de mejoras (2/6):
+	Melius leo: sobre jugador
+	Remedium continuus: sobre jugador
+	Locus totallum: sobre jugador
+	Totum visio: sobre jugador
+	Commodum: sobre jugador
+	Purgatum: sobre jugador
+	
+Cartas de incapacitaciones (2/6):
+	Mollis macula: sobre enemigo
+	Venenatum: sobre enemigo
+	Hallucinatio: sobre enemigo
+	Caecus: sobre enemigo
+	Peius possessio: sobre enemigo
+	Reditus normalem: sobre enemigo
+
+Dificultades:
+	(*): 4/5/6 letras
+	(**): 6/7/8 letras
+	(***): 8 letras

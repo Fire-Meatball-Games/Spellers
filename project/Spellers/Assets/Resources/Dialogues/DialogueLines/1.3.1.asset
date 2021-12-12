@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 1.3.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 667825d2a6f4245448087df04d6829ee, type: 2}
-  text: "Vaya, parece que el talento viene innato de la familia, pero habr\xE1 que
-    ver qu\xE9 puedes hacer en un combate de verdad y no en esta prueba de habilidad."
+  text: "Vaya, parece que el talento viene innato de familia, pero habr\xE1 que ver
+    qu\xE9 puedes hacer en un combate de verdad y no en esta prueba de habilidad."
   layout: 0

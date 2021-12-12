@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: 12.3.2
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 906c5378991de744d9776793fa7082f6, type: 2}
-  text: "Bueno, esto es en lo que nos vamos a mover, por lo que hay que entrenar
-    duro para el torneo, sabiendo todo esto, as\xED que \xA1a entrenar!"
+  text: Bueno...
   layout: 0

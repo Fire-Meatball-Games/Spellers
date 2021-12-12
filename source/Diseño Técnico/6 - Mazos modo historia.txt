@@ -1,0 +1,365 @@
+---------- NIVEL 1 (*) (El jugador gana con lanzar 5 hechizos) (El rival no ataca) ----------
+
+(Acercamiento a mecánicas de juego)
+
+(Rival no hace nada)
+Lord Magulis (0):
+	(x) 0 Damage Spell
+
+(Solo el hechizo más básico)
+Player (1):
+	(a) Imperio
+
+---------- NIVEL 2 (*) ----------
+
+(Pulir mecánicas de juego)
+
+(Mazo balanceado)
+Nigel (2):
+	(x) 0 Damage Spell
+	(a) Imperio
+	(d) Vitale
+
+(Mazo balanceado)
+Player (3):
+	(a) Imperio
+	(a) Vastare
+	(d) Vitale
+
+---------- NIVEL 3 (*) (El jugador gana con lanzar 5 hechizos) ----------
+
+(Combate injusto, no se espera que el jugador gane)
+
+(Mazo de debuffs)
+Lacert (5):
+	(a) Imperio
+	(a) Vastare
+	(d) Scutum armis
+	(i) Venenatum
+	(i) Hallucinatio
+
+(Mazo balanceado)
+Player (4):
+	(a) Imperio
+	(a) Vastare
+	(d) Vitale
+	(m) Remedium continuus
+
+---------- NIVEL 4 (*) ----------
+
+(Introducción a los escudos)
+
+(Mazo de escudos)
+Nigel (5):
+	(a) Imperio
+	(a) Vastare
+	(d) Vitale
+	(d) Scutum armis
+	(d) Defensus turtur
+
+(Mazo antiescudos)
+Player (6):
+	(a) Imperio
+	(a) Vastare
+	(a) Iteratio noxia
+	(a) Spicula
+	(d) Vitale
+	(d) Scutum armis
+
+---------- NIVEL 5 (*) ----------
+
+(Introducción a los debuffs)
+
+(Mazo de debuffs)
+Lord Magulis (5):
+	(a) Imperio
+	(i) Mollis macula
+	(i) Venenatum
+	(i) Hallucinatio
+	(i) Caecus
+
+(Mazo de curaciones + antidebuffs)
+Player (6):
+	(a) Imperio
+	(a) Vastare
+	(d) Vitale
+	(d) Renovationis
+	(m) Remedium continuus
+	(m) Purgatum
+
+---------- NIVEL 6 (**) ----------
+
+(Introducción a nuevos hechizos ofensivos)
+
+(Mazo ofensivo)
+Magreb (5):
+	(a) Imperio
+	(a) Autovincens
+	(a) Lac vitae
+	(d) Vitale
+	(i) Venenatum
+
+(Mazo balanceado)
+Player (6):
+	(a) Imperio
+	(a) Vastare
+	(a) Spicula
+	(d) Vitale
+	(d) Confractus
+	(d) Scutum armis
+
+---------- NIVEL 7 (**) ---------- 
+
+(Introducción a nuevos debuffs)
+
+(Mazo de escudos + debuffs)
+Zachary (6):
+	(a) Lac vitae
+	(d) Defensus turtur
+	(d) Confractus
+	(i) Mollis macula
+	(i) Venenatum
+	(i) Peius possessio
+	
+(Mazo antiescudos + antidebuffs)
+Player (7):
+	(a) Imperio
+	(a) Iteratio noxia
+	(a) Lac vitae
+	(a) Spicula
+	(d) Spinae
+	(m) Remedium continuus
+	(m) Purgatum
+	
+---------- NIVEL 8 (**) (El jugador gana con lanzar 5 hechizos) (El rival no ataca) ----------
+
+(Introducción a los buffs, el rival ayuda al jugador a aprender)
+
+(Rival no hace nada)
+Saita (0):
+	0 Damage Spell
+
+(Mazo de buffs)
+Player (7):
+	(a) Vastare
+	(a) Autovincens
+	(d) Defensus turtur
+	(m) Melius leo
+	(m) Locus totallum
+	(m) Totum visio
+	(m) Commodum
+
+---------- NIVEL 9 (**) ----------
+
+(Combate para poner en práctica lo aprendido)
+
+(Mazo defensivo + buffs)
+Saita (7):
+	(a) Vastare
+	(d) Defensus turtur
+	(d) Ferrum core
+	(d) Lignum vitae
+	(m) Melius leo
+	(m) Remedium continuus
+	(m) Commodum
+	
+(Mazo antiescudos + antibuffs)
+Player (8):
+	(a) Imperio
+	(a) Iteratio noxia
+	(a) Spicula
+	(a) Igneus crépitus
+	(d) Spinae
+	(i) Venenatum
+	(i) Hallucinatio
+	(i) Reditus normalem
+
+---------- NIVEL 10 (***) ----------
+
+(Primer combate complicado contra debuffs)
+
+(Mazo defensivo + debuffs)
+Randall (8):
+	(a) Lac vitae
+	(a) Sacrificium
+	(d) Confractus
+	(d) Lignum vitae
+	(i) Venenatum
+	(i) Hallucinatio
+	(i) Caecus
+	(i) Peius possessio
+
+(Mazo antiescudos + antidebuffs)
+Player (9):
+	(a) Vastare
+	(a) Iteratio noxia
+	(a) Spicula
+	(d) Renovationis
+	(d) Spinae
+	(d) Lignum vitae
+	(m) Remedium continuus
+	(m) Totum visio
+	(m) Purgatum
+
+---------- NIVEL 11 (***) ----------
+
+(Combate complicado contra enemigo defensivo)
+
+(Mazo defensivo)
+Vivian (8):
+	(a) Lac vitae
+	(a) Impetu
+	(d) Scutum armis
+	(d) Spinae
+	(d) Confractus
+	(d) Ferrum core
+	(d) Lignum vitae
+	(i) Venenatum
+
+(Mazo antiescudos + debuffs)
+Player (9):
+	(a) Imperio
+	(a) Iteratio noxia
+	(a) Spicula
+	(a) Igneus crépitus
+	(d) Defensus turtur
+	(d) Spinae
+	(i) Mollis macula
+	(i) Venenatum
+	(i) Caecus
+
+---------- NIVEL 12 (***) ----------
+
+(Combate complicado contra enemigo ofensivo con buffs)
+
+(Mazo ofensivo + buffs)
+Turk (9):
+	(a) Imperio
+	(a) Vastare
+	(a) Iteratio noxia
+	(a) Autovincens
+	(a) Spicula
+	(d) Spinae
+	(m) Melius leo
+	(m) Remedium continuus
+	(m) Totum visio
+
+(Mazo defensivo + antibuffs)
+Player (10):
+	(a) Vastare
+	(a) Spicula
+	(a) Impetu
+	(d) Renovationis
+	(d) Defensus turtur
+	(d) Ferrum core
+	(d) Lignum vitae
+	(i) Mollis macula
+	(i) Peius possessio
+	(i) Reditus normalem
+
+---------- NIVEL 13 (***) ----------
+
+(Combate complicado contra enemigo balanceado)
+
+(Mazo balanceado)
+Ostracis (9):
+	(a) Imperio
+	(a) Vastare
+	(a) Spicula
+	(d) Vitale
+	(d) Renovationis
+	(d) Scutum armis
+	(d) Spinae
+	(m) Remedium continuus
+	(i) Peius possessio
+
+(Mazo ofensivo + buffs)
+Player (10):
+	(a) Vastare
+	(a) Autovincens
+	(a) Spicula
+	(a) Sacrificium
+	(d) Vitale
+	(d) Spinae
+	(m) Melius leo
+	(m) Remedium continuus
+	(m) Locus totallum
+	(m) Totum visio
+
+---------- NIVEL 14 (***) ----------
+
+(Combate final contra enemigo ofensivo con buffs, usando la misma baraja que en el combate final)
+
+(Mazo ofensivo + buffs)
+Turk (10):
+	(a) Vastare
+	(a) Autovincens
+	(a) Lac vitae
+	(a) Spicula
+	(a) Igneus crépitus
+	(d) Spinae
+	(m) Melius leo
+	(m) Remedium continuus
+	(m) Locus totallum
+	(m) Purgatum
+
+(Mazo balanceado)
+Player (11):
+	(a) Vastare
+	(a) Autovincens
+	(a) Spicula
+	(d) Renovationis
+	(d) Spinae
+	(d) Confractus
+	(m) Remedium continuus
+	(m) Commodum
+	(i) Venenatum
+	(i) Peius possessio
+	(i) Reditus normalem
+
+---------- NIVEL 15 (***) ----------
+
+(Combate final contra enemigo balanceado, con barajas similares)
+
+(Mazo balanceado)
+Lacert (10):
+	(a) Vastare
+	(a) Lac vitae
+	(a) Spicula
+	(d) Renovationis
+	(d) Spinae
+	(d) Defensus turtur
+	(m) Remedium continuus
+	(m) Locus totallum
+	(i) Venenatum
+	(i) Hallucinatio
+	(i) Reditus normalem
+	
+(Mazo balanceado)
+Player (11):
+	(a) Vastare
+	(a) Autovincens
+	(a) Spicula
+	(d) Renovationis
+	(d) Spinae
+	(d) Confractus
+	(m) Remedium continuus
+	(m) Commodum
+	(i) Venenatum
+	(i) Peius possessio
+	(m) Purgatum
+
+---------- Extra ----------
+
+Nivel máximo de hechizo:
+
+	(*): 1
+	(**): 2
+	(***): 3
+
+Siglas para indicar tipo de hechizo:
+
+	a: Ataque (ofensiva)
+	d: Defensa (defensiva)
+	m: Mejora (buff)
+	i: Incapacitación (debuff)

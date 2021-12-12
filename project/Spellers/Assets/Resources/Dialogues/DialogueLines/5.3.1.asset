@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 667825d2a6f4245448087df04d6829ee, type: 2}
   text: "Conociendo estas bases, ya puedes indagar un poco m\xE1s en los duelos de
-    varitas, pero recuerda que esto es solo en defensa propia, nunca utilices esas
-    debilidades"
+    varitas, pero recuerda que esto es solo en defensa propia, nunca utilices estos
+    hechizos contra otro mago."
   layout: 0

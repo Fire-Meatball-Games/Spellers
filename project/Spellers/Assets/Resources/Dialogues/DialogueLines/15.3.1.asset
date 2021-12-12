@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 382b397e4bfc6be45af851a43007fd6e, type: 2}
   text: "No puede ser\u2026 Un novato ha acabado conmigo\u2026 con el emblema del
-    Clan de la Salamandra\u2026"
+    Clan de la Pantera\u2026"
   layout: 0

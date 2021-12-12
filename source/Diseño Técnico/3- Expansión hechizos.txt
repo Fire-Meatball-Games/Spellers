@@ -9,7 +9,7 @@ Cartas ofensivas (9):
 	Spicula: resta un 4/6/8% de vida 2 veces al rival y añade 1 escudo. Cada golpe cuenta como un ataque completo, eliminando escudos. (*)
 	Igneus crépitus: elimina los escudos de ambos jugadores y resta un 11% de vida al rival. (***)
 	Sacrificium: resta un 50% de la vida actual a ambos jugadores, redondeado por arriba. (***)
-	Impetu: resta un 6% de vida al rival por cada escudo del usuario. Cada golpe cuenta como un ataque completo, eliminando escudos. (***)
+	Impetu: resta un 7% de vida al rival por cada escudo del usuario. Cada golpe cuenta como un ataque completo, eliminando escudos. (***)
 	
 Cartas defensivas (8):
 	Vitale: restaura un 8/11/14% de vida al jugador. (*)
@@ -41,3 +41,5 @@ Rarezas:
 	(*): Común
 	(**): Rara
 	(***): Épica
+
+Max shields: 6

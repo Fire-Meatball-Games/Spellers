@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 1.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 667825d2a6f4245448087df04d6829ee, type: 2}
-  text: "Bueno bueno\u2026 No sab\xEDa que este a\xF1o iba a empezar usted el curso."
+  text: "Bueno, bueno\u2026 No sab\xEDa que este a\xF1o iba a empezar usted el curso."
   layout: 0

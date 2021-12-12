@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: d572f3b096487c449aec5003d538cf9e, type: 2}
   text: "Es una sorpresa ver a un novato tan avanzado para ser su primer torneo.
-    Ser\xEDa una l\xE1stima que gracias a una buena defensa no pudieras avanzar m\xE1s,
-    \xBFverdad?"
+    Ser\xEDa una l\xE1stima que por culpa de mis habilidades no pudieras avanzar
+    m\xE1s, \xBFverdad?"
   layout: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 10.3.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 416bf581c5a29cf4495b0cef1fd37adb, type: 2}
-  text: "Parece que Saita tiene todo puesto sobre ti\u2026 y no le falta raz\xF3n.
-    Chaval, me gusta tu potencial y recuerda que siempre que puedas merma a tu rival."
+  text: "Saita conf\xEDa en ti\u2026 y no le falta raz\xF3n. Chaval, me gusta tu
+    potencial y recuerda, siempre que puedas merma a tu rival."
   layout: 0

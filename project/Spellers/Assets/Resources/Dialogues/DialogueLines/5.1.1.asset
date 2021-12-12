@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 5.1.1
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 667825d2a6f4245448087df04d6829ee, type: 2}
-  text: "Replicar los hechizos negativos es algo muy repentino para gente de vuestro
-    a\xF1o, pero s\xED que os puedo indicar la forma de salir de ellos, que no depende
-    tanto de la magia sino de vuestra habilidad mental."
+  text: "Querer replicar hechizos con efectos negativos es algo muy complejo para
+    gente de vuestro a\xF1o. No os puedo ense\xF1ar como hacerlo, pero s\xED que
+    os puedo indicar la forma de salir de ellos. No depende tanto de la magia, sino
+    de vuestra habilidad mental."
   layout: 0

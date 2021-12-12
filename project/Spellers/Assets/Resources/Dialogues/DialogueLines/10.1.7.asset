@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 824cb28383706a4479a1c946ee4967a3, type: 2}
   text: "Y por \xFAltimo, y el clan que nos interesa hoy, el Clan del Rat\xF3n, quienes
-    destacan por sus actividades de debilidad hacia los rivales en los duelos. Si
-    pueden hacer har\xE1n trampas y jugar\xE1n todo lo que puedan en tu contra. No
-    son muy fuertes en ataques normales, pero te ir\xE1n minando."
+    destacan por sus hechizos para debilitar rivales en los duelos. Si pueden hacer
+    har\xE1n trampas y jugar\xE1n todo lo que puedan en tu contra."
   layout: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 12.1.2
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 906c5378991de744d9776793fa7082f6, type: 2}
-  text: "Demu\xE9strame lo que dice Saita"
+  text: Hola. Soy Turk.
   layout: 0

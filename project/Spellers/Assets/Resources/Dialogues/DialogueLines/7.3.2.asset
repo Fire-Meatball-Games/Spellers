@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 0ee510e07d830fa488d31e6164d591f1, type: 2}
   text: "Ten\xE9is suerte de que hoy nos hab\xE9is pillado con un mal d\xEDa, pero
-    no sab\xE9is donde os est\xE1is metiendo. Esto es una guerra del Clan Salamandra
-    contra vosotros"
+    no sab\xE9is donde os est\xE1is metiendo. Esto es una guerra del Clan de la Pantera
+    contra vosotros."
   layout: 0

@@ -12,17 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277114189541a7748abe99305538c225, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  enemyName: 
-  icon: {fileID: 0}
+  enemyName: Lacert
+  icon: {fileID: 21300000, guid: b1687bc08f99dff4e8f671e22bde6169, type: 3}
+  skin: {fileID: 11400000, guid: 995bc2e211358f34f88f9ea55ae5cd09, type: 2}
   deck:
-    spells: []
-  maxSpellLvl: 3
-  cooldown_average: 0
-  cooldown_deviation: 0
-  levelIndex: 0
-  levelname: 
-  thumbnail: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: 55cbf779468b192429076364e8c0a5f8, type: 2}
+    - {fileID: 11400000, guid: 8890f0809a94ef3409053290b50e2c3f, type: 2}
+    - {fileID: 11400000, guid: 96be254152efdb24e9b4f372a31dad1c, type: 2}
+  maxSpellLvl: 1
+  cooldown_average: 10
+  cooldown_deviation: 5
+  levelIndex: 3
+  levelname: Nivel 3
   playerDeck:
-    spells: []
-  initDialogue: {fileID: 0}
-  endDialogue: {fileID: 0}
+    spells:
+    - {fileID: 11400000, guid: 0427298cd5518b641915adb443d1c662, type: 2}
+    - {fileID: 11400000, guid: f8b5d64edac82124d91bdbb4e05a62cc, type: 2}
+    - {fileID: 11400000, guid: e6cbe9d12266e2b4cbf798d3878315ca, type: 2}
+    - {fileID: 11400000, guid: 3aa7b7d05746e56419e17354e76bf624, type: 2}
+  initDialogue: {fileID: 11400000, guid: 1f440040a9a8dc2499692c9b383afc5b, type: 2}
+  endDialogue: {fileID: 11400000, guid: def9fa31c979e1e4caf332fdcb133da8, type: 2}
