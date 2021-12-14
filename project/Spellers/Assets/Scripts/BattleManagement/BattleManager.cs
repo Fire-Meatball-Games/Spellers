@@ -70,6 +70,11 @@ namespace BattleManagement
             Events.OnWinConditionChecked.AddListener(Win);
         }
 
+        private void OnDisable() 
+        {
+            Events.OnWinConditionChecked.RemoveListener(Win);
+        }
+
         // Configurar el jugador a partir de los datos de Player:
         private void SetUpPlayer()
         {            
